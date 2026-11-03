@@ -1,0 +1,802 @@
+﻿workbook,sheet,cell,formula,cache_status
+JV-комплектация 08.10.2026.xlsm,Главная,AA3,=TODAY(),cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E11,=C11*D11*Z11/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G11,"=IF(OR(F11=4,F11=5,F11=6),3,IF(F11=11,10,F11))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,K11,"=IF(J11<=2,1,J11-1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,M11,"=CEILING($L11,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,O11,"=INDEX(ПРМ!$U$11:$AA$11,G11)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,P11,"=CONCATENATE( ROUND(INDEX(ПРМ!C11:I11,G11),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Q11,"=CONCATENATE( ROUND(INDEX(ПРМ!L11:R11,G11),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,R11,='L1'!$Q$58/Настройки!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,S11,='Z1'!$P$44/Настройки!$D$12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,T11,='S1'!$M$53/Настройки!$D$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,U11,=T11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,V11,=T11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,W11,=T11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,X11,='F1'!$S$38/Настройки!$D$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Y11,"=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA11,=Y11*Z11*(100+Настройки!$D$19)/100,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E12,=C12*D12*Z12/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G12,"=IF(OR(F12=4,F12=5,F12=6),3,IF(F12=11,10,F12))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,K12,"=IF(J12<=2,1,J12-1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,M12,"=CEILING($L12,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,O12,"=INDEX(ПРМ!$U$12:$AA$12,G12)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,P12,"=CONCATENATE( ROUND(INDEX(ПРМ!C12:I12,G12),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Q12,"=CONCATENATE( ROUND(INDEX(ПРМ!L12:R12,G12),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,R12,='L2'!$Q$58/Настройки!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,S12,='Z2'!$P$44/Настройки!$D$12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,T12,='S2'!$M$53/Настройки!$D$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,U12,=T12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,V12,=T12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,W12,=T12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,X12,='F2'!$S$38/Настройки!$D$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Y12,"=INDEX(R12:X12,G12)*(100+Настройки!$D22)/100",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA12,=Y12*Z12*(100+Настройки!$D$19)/100,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E13,=C13*D13*Z13/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G13,"=IF(OR(F13=4,F13=5,F13=6),3,IF(F13=11,10,F13))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,K13,"=IF(J13<=2,1,J13-1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,M13,"=CEILING($L13,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,O13,"=INDEX(ПРМ!$U$13:$AA$13,G13)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,P13,"=CONCATENATE( ROUND(INDEX(ПРМ!C13:I13,G13),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Q13,"=CONCATENATE( ROUND(INDEX(ПРМ!L13:R13,G13),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,R13,='L3'!$Q$58/Настройки!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,S13,='Z3'!$P$44/Настройки!$D$12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,T13,='S3'!$M$53/Настройки!$D$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,U13,=T13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,V13,=T13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,W13,=T13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,X13,='F3'!$S$38/Настройки!$D$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Y13,"=INDEX(R13:X13,G13)*(100+Настройки!$D23)/100",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA13,=Y13*Z13*(100+Настройки!$D$19)/100,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E14,=C14*D14*Z14/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G14,"=IF(OR(F14=4,F14=5,F14=6),3,IF(F14=11,10,F14))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,K14,"=IF(J14<=2,1,J14-1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,M14,"=CEILING($L14,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,O14,"=INDEX(ПРМ!$U$14:$AA$14,G14)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,P14,"=CONCATENATE( ROUND(INDEX(ПРМ!C14:I14,G14),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Q14,"=CONCATENATE( ROUND(INDEX(ПРМ!L14:R14,G14),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,R14,='L4'!$Q$58/Настройки!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,S14,='Z4'!$P$44/Настройки!$D$12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,T14,='S4'!$M$53/Настройки!$D$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,U14,=T14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,V14,=T14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,W14,=T14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,X14,='F4'!$S$38/Настройки!$D$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Y14,"=INDEX(R14:X14,G14)*(100+Настройки!$D24)/100",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA14,=Y14*Z14*(100+Настройки!$D$19)/100,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E15,=C15*D15*Z15/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G15,"=IF(OR(F15=4,F15=5,F15=6),3,IF(F15=11,10,F15))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,K15,"=IF(J15<=2,1,J15-1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,M15,"=CEILING($L15,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,O15,"=INDEX(ПРМ!$U$15:$AA$15,G15)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,P15,"=CONCATENATE( ROUND(INDEX(ПРМ!C15:I15,G15),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Q15,"=CONCATENATE( ROUND(INDEX(ПРМ!L15:R15,G15),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,R15,='L5'!$Q$58/Настройки!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,S15,='Z5'!$P$44/Настройки!$D$12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,T15,='S5'!$M$53/Настройки!$D$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,U15,=T15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,V15,=T15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,W15,=T15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,X15,='F5'!$S$38/Настройки!$D$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Y15,"=INDEX(R15:X15,G15)*(100+Настройки!$D25)/100",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA15,=Y15*Z15*(100+Настройки!$D$19)/100,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E16,=C16*D16*Z16/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G16,"=IF(OR(F16=4,F16=5,F16=6),3,IF(F16=11,10,F16))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,K16,"=IF(J16<=2,1,J16-1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,M16,"=CEILING($L16,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,O16,"=INDEX(ПРМ!$U$16:$AA$16,G16)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,P16,"=CONCATENATE( ROUND(INDEX(ПРМ!C16:I16,G16),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Q16,"=CONCATENATE( ROUND(INDEX(ПРМ!L16:R16,G16),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,R16,='L6'!$Q$58/Настройки!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,S16,='Z6'!$P$44/Настройки!$D$12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,T16,='S6'!$M$53/Настройки!$D$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,U16,=T16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,V16,=T16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,W16,=T16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,X16,='F6'!$S$38/Настройки!$D$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Y16,"=INDEX(R16:X16,G16)*(100+Настройки!$D26)/100",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA16,=Y16*Z16*(100+Настройки!$D$19)/100,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E17,=C17*D17*Z17/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G17,"=IF(OR(F17=4,F17=5,F17=6),3,IF(F17=11,10,F17))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,K17,"=IF(J17<=2,1,J17-1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,M17,"=CEILING($L17,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,O17,"=INDEX(ПРМ!$U$17:$AA$17,G17)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,P17,"=CONCATENATE( ROUND(INDEX(ПРМ!C17:I17,G17),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Q17,"=CONCATENATE( ROUND(INDEX(ПРМ!L17:R17,G17),0),"" кг"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,R17,='L7'!$Q$58/Настройки!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,S17,='Z7'!$P$44/Настройки!$D$12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,T17,='S7'!$M$53/Настройки!$D$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,U17,=T17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,V17,=T17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,W17,=T17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,X17,='F7'!$S$38/Настройки!$D$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Y17,"=INDEX(R17:X17,G17)*(100+Настройки!$D27)/100",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA17,=Y17*Z17*(100+Настройки!$D$19)/100,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,C18,=E18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,E18,=SUM(E11:E17),cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,Z18,=SUM(Z11:Z17),cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AA18,=SUM(AA11:AA17),cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G21,"=INDEX('Прайс-Аксессуары'!$C$5:$C$91,B21)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,J21,"=IF(G21=2,H21/1000,1) * I21 * INDEX('Прайс-Аксессуары'!$F$6:$F$103,B21) * ((100+IF(G21=1,Настройки!$L$14,Настройки!$L$15))/100)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G22,"=INDEX('Прайс-Аксессуары'!$C$5:$C$91,B22)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,J22,"=IF(G22=2,H22/1000,1) * I22 * INDEX('Прайс-Аксессуары'!$F$6:$F$103,B22) * ((100+IF(G22=1,Настройки!$L$14,Настройки!$L$15))/100)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G23,"=INDEX('Прайс-Аксессуары'!$C$5:$C$91,B23)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,J23,"=IF(G23=2,H23/1000,1) * I23 * INDEX('Прайс-Аксессуары'!$F$6:$F$103,B23) * ((100+IF(G23=1,Настройки!$L$14,Настройки!$L$15))/100)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G24,"=INDEX('Прайс-Аксессуары'!$C$5:$C$91,B24)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,J24,"=IF(G24=2,H24/1000,1) * I24 * INDEX('Прайс-Аксессуары'!$F$6:$F$103,B24) * ((100+IF(G24=1,Настройки!$L$14,Настройки!$L$15))/100)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G25,"=INDEX('Прайс-Аксессуары'!$C$5:$C$91,B25)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,G26,"=INDEX('Прайс-Аксессуары'!$C$5:$C$91,B26)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,B31,"=CONCATENATE(  IF(Настройки!D32,""Cо стеклом. "",""Без стекла. ""),   IF(Настройки!D33,""Со сборкой. "",""Без сборки. ""),  IF(Настройки!D34,""Стандартный монтаж."",""Без монтажа."")    )",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AE31,"=CONCATENATE(  'Клей+акт'!$N$12, "" шт.  на весь заказ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,F32,=AA18+SUM(J21:J24)+F29+F30 + 'Прайс-сб+монт'!$C$28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,AE32,"=CONCATENATE(  'Клей+акт'!$N$25, "" шт.  на весь заказ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Главная,F36,"=F32-IF(Настройки!$D$17,AA18*F34/100,0)-IF(Настройки!$D$18,SUM(J21:J26)*F34/100,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I2,=H2,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,M3,"=IF(L3,""ДА"",""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I4,=H4,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I6,=H6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,M6,"=IF(L6,""ДА"",""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I8,=H8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,E9,"=IF($D$9=1,""РОЗН"",  IF($D$9=2,""КОМПЛ"",    IF($D$9=3,""ДИЛЕР"","""")))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,E10,"=IF(D10=1,""НАША СС"",""ДИЛЕР"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I10,=H10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I12,=H12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I15,=H15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,E17,"=IF(D17,""Да !"",""Нет !"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I17,=H17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,E18,"=IF(D18,""Да !"",""Нет !"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I19,=H19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I21,"=IF(H21,""ДА"",""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,M21,"=IF(L21,""ДА"",""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I23,"=IF(H27,""ДА"",""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I25,=H29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,L26,=1/8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I27,=H31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I29,=H33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I31,=H35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,E32,"=IF(D32,""ДА"",""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,E33,"=IF(D33,""ДА"",""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I34,=H38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I36,=H40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I38,=H42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,Настройки,I40,=H44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,A2,"=IFERROR(Главная!$G$11,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,B2,"=CONCATENATE(Главная!$D$39, "" - "", Главная!$D$40,)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D2,"=CONCATENATE(""поз.1"", "" - "", Главная!$Z$11, "" шт."")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,A3,"=IF($A$2=1,1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D3,=Главная!$C$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D4,=Главная!$D$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D5,=Главная!$M$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L5,='Прайс-Line'!B5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M5,='Прайс-Line'!C5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N5,='Прайс-Line'!D5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O5,=$D$32/1000+Настройки!$D$7/1000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P5,='Прайс-Line'!$E5/Настройки!$D$2,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q5,=$P$5*$O$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S5,=O5*'Прайс-Line'!F5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V5,=$O$5*'Прайс-Line'!$G$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,X5,=ПРМ!$AB$25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D6,"=IF(Главная!$K$11<=2,Главная!$K$11,""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L6,='Прайс-Line'!B6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M6,='Прайс-Line'!C6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N6,='Прайс-Line'!D6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O6,=$F$39/1000+Настройки!$D$6/1000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P6,='Прайс-Line'!$E6/Настройки!$D$2,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q6,=$P$6*$O$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S6,=O6*'Прайс-Line'!F6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T6,=S6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V6,=$O$6*'Прайс-Line'!$G$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D7,"=IF(Главная!$J$11=1,""НАЛЕВО"",IF(Главная!$J$11=2,""НАПРАВО"",IF(Главная!$J$11=3,""ДВУХСТОР"",""ОШИБКА !"")))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L7,='Прайс-Line'!B7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M7,='Прайс-Line'!C7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N7,='Прайс-Line'!D7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O7,=$F$39/1000+Настройки!$D$6/1000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P7,='Прайс-Line'!$E7/Настройки!$D$2,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q7,=$P$7*$O$7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S7,=O7*'Прайс-Line'!F7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T7,=S7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V7,=$O$7*'Прайс-Line'!$G$7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D8,=Главная!$N$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L8,='Прайс-Line'!B8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M8,='Прайс-Line'!C8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N8,='Прайс-Line'!D8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O8,"=IF($D$15=""ДА"", 2*$D$33/1000+Настройки!$D$8/1000, 0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P8,='Прайс-Line'!$E8/Настройки!$D$2,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q8,=$P$8*$O$8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S8,=O8*'Прайс-Line'!F8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V8,=$O$8*'Прайс-Line'!$G$8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L9,='Прайс-Line'!B9,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M9,='Прайс-Line'!C9,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N9,='Прайс-Line'!D9,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O9,"=IF(OR($D$7=""НАЛЕВО"",$D$6=2),1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P9,='Прайс-Line'!$E9,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q9,=$P9*$O9,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S9,=O9*'Прайс-Line'!F9,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V9,=$O$9*'Прайс-Line'!$G$9,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C10,=Главная!$H$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D10,"=INDEX('#1'!$C$24:$C$27,$C$10)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L10,='Прайс-Line'!B10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M10,='Прайс-Line'!C10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N10,='Прайс-Line'!D10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O10,"=IF(OR($D$7=""НАПРАВО"",$D$6=2),1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P10,='Прайс-Line'!$E10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q10,=$P10*$O10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S10,=O10*'Прайс-Line'!F10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V10,=$O$10*'Прайс-Line'!$G$10,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C11,=Главная!$I$11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D11,"=INDEX('#1'!$C$11:$C$22,$C$11)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L11,='Прайс-Line'!B11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M11,='Прайс-Line'!C11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N11,='Прайс-Line'!D11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O11,=$D$5-$D$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P11,='Прайс-Line'!$E11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q11,=$P11*$O11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S11,=O11*'Прайс-Line'!F11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T11,=S11,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V11,=$O$40*'Прайс-Line'!$G$39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,B12,"=IF(I24=""ЛАЖА"",""Мала распашная! Надо к ней на петлях присоединять вторую!"",""Ширина распашной приемлемая!"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L12,='Прайс-Line'!B12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M12,='Прайс-Line'!C12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N12,='Прайс-Line'!D12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O12,=$O$11-$O$13-$O$14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P12,='Прайс-Line'!$E12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q12,=$P12*$O12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S12,=O12*'Прайс-Line'!F12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T12,=S12,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V12,=$O$41*'Прайс-Line'!$G$40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L13,='Прайс-Line'!B13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M13,='Прайс-Line'!C13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N13,='Прайс-Line'!D13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O13,"=IF($D$23=""ДА"",1,IF(OR($D$23=""ОШИБКА"",$D$24=""ОШИБКА""),""ОШИБКА"",0))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P13,='Прайс-Line'!$E13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q13,=$P13*$O13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S13,=O13*'Прайс-Line'!F13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T13,=S13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V13,"=SUM(V5:V12)*IF($C$10=4,Настройки!$L$11,1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L14,='Прайс-Line'!B14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M14,='Прайс-Line'!C14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N14,='Прайс-Line'!D14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O14,"=IF(   OR($D$24=""OK"",$D$24=""- - -""),    IF(AND($D$23=""ДА"",$D$6=1),$D$5-$C$24,0)+IF(AND($D$23=""ДА"",$D$6=2),$D$5-$C$24-1,0),  ""ОШИБКА"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P14,='Прайс-Line'!$E14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q14,=$P14*$O14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S14,=O14*'Прайс-Line'!F14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T14,=S14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V14,=Настройки!$L$9*Настройки!$L$10*$X$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D15,"=IF(Настройки!$I$2=3,INDEX('#1'!$F$3:$F$4,$C$15),INDEX('#1'!$F$3:$F$4,Настройки!$I$2))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L15,='Прайс-Line'!B15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M15,='Прайс-Line'!C15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N15,='Прайс-Line'!D15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O15,"=IF($D$23=""НЕТ"",$D$6+2,0) + IF(AND($D$23=""ДА"",$D$6=1),INDEX(ПД!$D$5:$BA$54,$D$5,$C$24),0) + IF(AND($D$23=""ДА"",$D$6=2),INDEX(ПД!$D$61:$BA$110,$D$5,$C$24),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P15,='Прайс-Line'!$E15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q15,=$P15*$O15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S15,=O15*'Прайс-Line'!F15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T15,=S15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V15,=MAX(V10:V14),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D16,"=IF(Настройки!$I$4=3,INDEX('#1'!$G$3:$G$4,$C$16),INDEX('#1'!$G$3:$G$4,Настройки!$I$4))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L16,='Прайс-Line'!B16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M16,='Прайс-Line'!C16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N16,='Прайс-Line'!D16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O16,"=IF($D$23=""НЕТ"",$D$5-1-$D$6,0) + IF(AND($D$23=""ДА"",$D$6=1),INDEX(ПД!D117:BA166,$D$5,$C$24),0) + IF(AND($D$23=""ДА"",$D$6=2),INDEX(ПД!D173:BA222,$D$5,$C$24),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P16,='Прайс-Line'!$E16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q16,=$P16*$O16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S16,=O16*'Прайс-Line'!F16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T16,=S16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D17,"=IF(Настройки!$I$6=3,INDEX('#1'!$F$7:$F$8,$C$17),INDEX('#1'!$F$7:$F$8,Настройки!$I$6))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L17,='Прайс-Line'!B17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M17,='Прайс-Line'!C17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N17,='Прайс-Line'!D17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O17,"=$O$15+$O$16+IF($D$17=""ДА"",$D$6,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P17,='Прайс-Line'!$E17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q17,=$P17*$O17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S17,=O17*'Прайс-Line'!F17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V17,='Прайс-сб+монт'!$C$24*$X$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D18,"=IF(Настройки!$I$8=3,INDEX('#1'!$G$7:$G$8,C18),INDEX('#1'!$G$7:$G$8,Настройки!$I$8))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L18,='Прайс-Line'!B18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M18,='Прайс-Line'!C18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N18,='Прайс-Line'!D18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O18,"=IF($D$16=""ДА"",$D$6,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P18,='Прайс-Line'!$E18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q18,=$P18*$O18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S18,=O18*'Прайс-Line'!F18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T18,=S18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,V18,=$V$15+$V$17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D19,"=IF(Настройки!$I$10=3,INDEX('#1'!$F$11:$F$12,C19),INDEX('#1'!$F$11:$F$12,Настройки!$I$10))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L19,='Прайс-Line'!B19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M19,='Прайс-Line'!C19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N19,='Прайс-Line'!D19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O19,"=IF($D$20=""ДА"",  0,  $D$6)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P19,='Прайс-Line'!$E19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q19,=$P19*$O19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S19,=O19*'Прайс-Line'!F19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D20,"=IF(Настройки!$I$12=3,INDEX('#1'!$G$11:$G$12,C20),INDEX('#1'!$G$11:$G$12,Настройки!$I$12))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L20,='Прайс-Line'!B20,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M20,='Прайс-Line'!C20,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N20,='Прайс-Line'!D20,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O20,=O19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P20,='Прайс-Line'!$E20,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q20,=$P20*$O20,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S20,=O20*'Прайс-Line'!F20,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,H21,"=IF(AND($D$5<=2,$D$6=2),""ОШИБКА"",2)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I21,"=IF(AND($D$5<=2,$D$6=2),""ОШИБКА"",$D$5-($D$6-1))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L21,='Прайс-Line'!B21,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M21,='Прайс-Line'!C21,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N21,='Прайс-Line'!D21,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O21,"=IF(OR($D$7=""НАЛЕВО"",$D$6=2),1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P21,='Прайс-Line'!$E21,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q21,=$P21*$O21,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S21,=O21*'Прайс-Line'!F21,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I22,=($D$3-2*$I$42-2*$I$43-($D$5-1)*$I$44)/$D$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L22,='Прайс-Line'!B22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M22,='Прайс-Line'!C22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N22,='Прайс-Line'!D22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O22,"=IF(OR($D$7=""НАПРАВО"",$D$6=2),1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P22,='Прайс-Line'!$E22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q22,=$P22*$O22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S22,=O22*'Прайс-Line'!F22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D23,"=IF($C$23,IF($D$5/$D$6>1,""ДА"",""ОШИБКА""),""НЕТ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L23,='Прайс-Line'!B23,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M23,='Прайс-Line'!C23,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N23,='Прайс-Line'!D23,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O23,=3*$D$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P23,='Прайс-Line'!$E23,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q23,=$P23*$O23,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S23,=O23*'Прайс-Line'!F23,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D24,"=IF(D23=""ДА"",    IF(AND($C$24>=$H$21,$C$24<=$I$21),""OK"",""ОШИБКА""),  ""- - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I24,"=IF((IF($C$21,$D$21,$I$25)+Настройки!$P$15+Настройки!$P$4)>=$I$26-$D$22,""OK"",""ЛАЖА"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L24,='Прайс-Line'!B24,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M24,='Прайс-Line'!C24,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N24,='Прайс-Line'!D24,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O24,"=$D$6*IF($D$9=90,1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P24,='Прайс-Line'!$E24,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q24,=$P24*$O24,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S24,=O24*'Прайс-Line'!F24,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I25,"=ROUNDDOWN(($D$3-IF($C$21,$D$6*$D$21,0)-2*Настройки!$P$15-($D$5-1)*Настройки!$P$14-IF($D$15=""ДА"",2*Настройки!$P$4,0))/($D$5-IF($C$21,$D$6,0)),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L25,='Прайс-Line'!B25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M25,='Прайс-Line'!C25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N25,='Прайс-Line'!D25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O25,"=$D$6*IF($D$9=135,1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P25,='Прайс-Line'!$E25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q25,=$P25*$O25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S25,=O25*'Прайс-Line'!F25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I26,"=Настройки!$P$8+IF($D$6=2,$D$5/2,$D$5)*Настройки!$P$5+$O$15*Настройки!$P$9+$D$22+Настройки!$P$10",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L26,='Прайс-Line'!B27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M26,='Прайс-Line'!C27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N26,='Прайс-Line'!D27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O26,=$O$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P26,='Прайс-Line'!$E27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q26,=$P26*$O26,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S26,=O26*'Прайс-Line'!F27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I27,=$I$25-2*$D$22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L27,='Прайс-Line'!B28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M27,='Прайс-Line'!C28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N27,='Прайс-Line'!D28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O27,=$O$13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P27,='Прайс-Line'!$E28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q27,=$P27*$O27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S27,=O27*'Прайс-Line'!F28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C28,=$D$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D28,=$I$26+Настройки!$P$2/2,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L28,='Прайс-Line'!B29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M28,='Прайс-Line'!C29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N28,='Прайс-Line'!D29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O28,"=IF($D$7=""НАЛЕВО"",2*$D$5-2,0)+IF(AND($D$7=""ДВУХСТОР"",$D$5<=3),2,0)+IF(AND($D$7=""ДВУХСТОР"",$D5>3),2*($D$5-2),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P28,='Прайс-Line'!$E29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q28,=$P28*$O28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S28,=O28*'Прайс-Line'!F29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T28,=S28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C29,=$D$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D29,=$I$27+Настройки!$P$2/2-Настройки!$P$7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L29,='Прайс-Line'!B30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M29,='Прайс-Line'!C30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N29,='Прайс-Line'!D30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O29,"=IF($D$7=""НАПРАВО"",2*$D$5-2,0)+IF(AND($D$7=""ДВУХСТОР"",$D$5=2),2,0)+IF($D$7=""ДВУХСТОР"",2*$D5-2-$O$28)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P29,='Прайс-Line'!$E30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q29,=$P29*$O29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S29,=O29*'Прайс-Line'!F30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T29,=S29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C30,=$D$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D30,=$I$26-Настройки!$P$6/2,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L30,='Прайс-Line'!B31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M30,='Прайс-Line'!C31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N30,='Прайс-Line'!D31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O30,"=IF($D$15=""ДА"",0,2)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P30,='Прайс-Line'!$E31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q30,=$P30*$O30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S30,=O30*'Прайс-Line'!F31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T30,=S30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D31,=$D$3-$D$6*(Настройки!$P$6+$D$30),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L31,='Прайс-Line'!B32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M31,='Прайс-Line'!C32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N31,='Прайс-Line'!D32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O31,"=IF($D$15=""ДА"",1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P31,='Прайс-Line'!$E32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q31,=$P31*$O31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S31,=O31*'Прайс-Line'!F32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T31,=S31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D32,=$C$28*$D$28+$C$29*$D$29+$C$30*$D$30+$C$31*$D$31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L32,='Прайс-Line'!B33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M32,='Прайс-Line'!C33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N32,='Прайс-Line'!D33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O32,"=IF($D$15=""ДА"",1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P32,='Прайс-Line'!$E33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q32,=$P32*$O32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S32,=O32*'Прайс-Line'!F33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T32,=S32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C33,"=IF(D15=""ДА"",2,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D33,"=IF($D$15=""ДА"",($D$4-Настройки!$P$3),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F33,=C36*D36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L33,='Прайс-Line'!B34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M33,='Прайс-Line'!C34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N33,='Прайс-Line'!D34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O33,=$O$28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P33,='Прайс-Line'!$E34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q33,=$P33*$O33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S33,=O33*'Прайс-Line'!F34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T33,=S33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F34,=C37*D37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L34,='Прайс-Line'!B35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M34,='Прайс-Line'!C35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N34,='Прайс-Line'!D35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O34,=$O$29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P34,='Прайс-Line'!$E35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q34,=$P34*$O34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S34,=O34*'Прайс-Line'!F35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T34,=S34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F35,=C38*D38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L35,='Прайс-Line'!B36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M35,='Прайс-Line'!C36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N35,='Прайс-Line'!D36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O35,=$O$30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P35,='Прайс-Line'!$E36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q35,=$P35*$O35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S35,=O35*'Прайс-Line'!F36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T35,=S35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C36,=C46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D36,"=IF($C$36>0,$D$46+2*(Настройки!$P$17+Настройки!$P$16)-Настройки!$P$12-Настройки!$P$13,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F36,=C39*D39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L36,='Прайс-Line'!B37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M36,='Прайс-Line'!C37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N36,='Прайс-Line'!D37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O36,=$O$31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P36,='Прайс-Line'!$E37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q36,=$P36*$O36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S36,=O36*'Прайс-Line'!F37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T36,=S36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C37,=C47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D37,"=IF($C$37>0,$D$47+2*(Настройки!$P$17+Настройки!$P$16)-2*Настройки!$P$13,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F37,=C40*D40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L37,='Прайс-Line'!B38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M37,='Прайс-Line'!C38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N37,='Прайс-Line'!D38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O37,=$O$32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P37,='Прайс-Line'!$E38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q37,=$P37*$O37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S37,=O37*'Прайс-Line'!F38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T37,=S37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,U37,=$H$26,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Y37,=$I$26,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C38,=C48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D38,"=IF($C$38>0,$D$48+2*(Настройки!$P$17+Настройки!$P$16)-2*Настройки!$P$13,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F38,=C41*D41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L38,='Прайс-Line'!B39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M38,='Прайс-Line'!C39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N38,='Прайс-Line'!D39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O38,"=$D$8*IF($D$9=90,1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P38,='Прайс-Line'!$E39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q38,=$P38*$O38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S38,=O38*'Прайс-Line'!F39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T38,=S38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,U38,=$H$27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Y38,=$I$27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C39,=C49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D39,"=IF($C$39>0,    $D$49 + 2*(Настройки!$P$17+Настройки!$P$16) - IF($C$24=$D$5,Настройки!$P$12+Настройки!$P$13,2*Настройки!$P$13),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F39,=SUM(F33:F38),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L39,='Прайс-Line'!B40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M39,='Прайс-Line'!C40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N39,='Прайс-Line'!D40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O39,=O38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P39,='Прайс-Line'!$E40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q39,=$P39*$O39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S39,=O39*'Прайс-Line'!F40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T39,=S39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Y39,=$D$28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C40,=C39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D40,"=IF($C$40>0,$D$50+2*(Настройки!$P$17+Настройки!$P$16)-2*Настройки!$P$13,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L40,='Прайс-Line'!B41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M40,='Прайс-Line'!C41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N40,='Прайс-Line'!D41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P40,='Прайс-Line'!$E41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q40,=$P40*$O40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S40,=O40*'Прайс-Line'!F41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T40,=S40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Y40,=$D$29,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C41,=C51,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D41,"=IF($C$41>0,$D$51+2*(Настройки!$P$17+Настройки!$P$16)-Настройки!$P$12-Настройки!$P$13,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L41,='Прайс-Line'!B42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M41,='Прайс-Line'!C42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N41,='Прайс-Line'!D42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P41,='Прайс-Line'!$E42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q41,=$P41*$O41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S41,=O41*'Прайс-Line'!F42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T41,=S41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Y41,=$D$30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I42,"=2*IF($D$15=""ДА"",Настройки!$P$4,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L42,='Прайс-Line'!B43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M42,='Прайс-Line'!C43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N42,='Прайс-Line'!D43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O42,"=IF( $D$19=""ДА"",1,0  )",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P42,='Прайс-Line'!$E43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q42,=$P42*$O42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S42,=O42*'Прайс-Line'!F43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T42,=S42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Y42,=$D$31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,B43,"=IF(Настройки!$L$3,""Внимание !  Фрезеровать пазы под защёлки !"","""")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F43,"=INDEX('Прайс-Стекло'!$D$5:$D$16,$C$11) * IF(Настройки!$L$21,Настройки!$L$18,Настройки!$L$17) * $D$45*$D$46/1000000",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,G43,=$C$46*$F$43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I43,=2*(Настройки!$P$15+Настройки!$P$16+Настройки!$P$17),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L43,='Прайс-Line'!B44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M43,='Прайс-Line'!C44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N43,='Прайс-Line'!D44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O43,"=IF( $D$20=""ДА"",$D$6,0  )",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P43,='Прайс-Line'!$E44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q43,=$P43*$O43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S43,=O43*'Прайс-Line'!F44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T43,=S43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F44,"=INDEX('Прайс-Стекло'!$D$5:$D$16,$C$11) * IF(Настройки!$L$21,Настройки!$L$18,1) * $D$45*$D$47/1000000",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,G44,=$C$47*$F$44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I44,=($D$5-1)*(Настройки!$P$14+2*Настройки!$P$16+2*Настройки!$P$17),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L44,='Прайс-Line'!B45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M44,='Прайс-Line'!C45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O44,"=ROUNDUP(  2*$O$7 / (Настройки!$L$7 * Настройки!$P$21/1000),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P44,='Прайс-Line'!$E45/Настройки!$L$7,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q44,=$P44*$O44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S44,=O44*'Прайс-Line'!F45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T44,=S44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D45,=$D$4 - Настройки!$P$19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F45,"=INDEX('Прайс-Стекло'!$D$5:$D$16,$C$11)*$D$45*$D$48/1000000",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,G45,=$C$48*$F$45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I45,=SUM($I$42:$I$44),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L45,='Прайс-Line'!B46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M45,='Прайс-Line'!C46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N45,='Прайс-Line'!D46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O45,"=(2*$O$5+IF($D$18=""ДА"",2*$O$6,0)+IF($D$15=""ДА"",$O$8,0))/Настройки!$L$8",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P45,='Прайс-Line'!$E46/Настройки!$L$8,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q45,=$P45*$O45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S45,=O45*'Прайс-Line'!F46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T45,=S45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C46,=$D$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D46,"=IF($C$46>0,  IF($C$21,$I$47,$I$49)-Настройки!$L$23,      0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F46,"=INDEX('Прайс-Стекло'!$D$5:$D$16,$C$11) * IF(Настройки!$L$21,Настройки!$L$18,1) * $D$45*$D$49/1000000",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,G46,=$C$49*$F$46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I46,=$D$3-$I$45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L46,='Прайс-Line'!B47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M46,='Прайс-Line'!C47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N46,='Прайс-Line'!D47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O46,"=IF($D$15=""ДА"",$D$5-1,$D$5+1)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P46,='Прайс-Line'!$E47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q46,=$P46*$O46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S46,=O46*'Прайс-Line'!F47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T46,=S46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C47,"=IF(AND($D$6=1,$D$5>1),1,0)+IF(AND($D$6=2,$D$5>=4),2,0)+IF(AND($D$6=2,$D$5=3),1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D47,"=IF(C47>0,                    $I$49-Настройки!$L$23,    0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F47,"=INDEX('Прайс-Стекло'!$D$5:$D$16,$C$11) * IF(Настройки!$L$21,Настройки!$L$18,1) * $D$45*$D$50/1000000",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,G47,=$C$50*$F$47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I47,"=IF($C$21,$D$21-2*(Настройки!$P$16+Настройки!$P$17),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L47,='Прайс-Line'!B48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M47,='Прайс-Line'!C48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N47,='Прайс-Line'!D48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O47,"=IF($D$15=""ДА"",2,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P47,='Прайс-Line'!$E48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q47,=$P47*$O47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S47,=O47*'Прайс-Line'!F48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T47,=S47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C48,"=IF(($D$5-$C$46-$C$47-$C$49-$C$51-C50)>0,$D$5-$C$46-$C$47-$C$49-$C$51-C50,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D48,"=IF(C48>0,             IF($C$48>0,$I$49-Настройки!$L$23,0),     0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,F48,"=INDEX('Прайс-Стекло'!$D$5:$D$16,$C$11)*$D$45*$D$51/1000000",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,G48,=$C$51*$F$48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I48,"=IF(AND($C$23,$C$25),$D$25-2*(Настройки!$P$16+Настройки!$P$17),0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L48,='Прайс-Line'!B49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M48,='Прайс-Line'!C49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N48,='Прайс-Line'!D49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O48,"=IF($D$9=90,$D$8,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P48,='Прайс-Line'!$E49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q48,=$P48*$O48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S48,=O48*'Прайс-Line'!F49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T48,=S48,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C49,"=IF($C$23,1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D49,"=IF(C49>0,    $C$49*IF(AND($C$23,$C$25),$I$48,$I$49)-Настройки!$L$23,   0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,G49,=SUM($G$43:$G$48),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I49,"=ROUNDDOWN(     ($I$46-$D$6*I47-$I$48)   /   (  $D$5  -  IF($I$47>0,$D$6,0)  -  IF($I$48>0,1,0)  ),       0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L49,='Прайс-Line'!B50,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M49,"=CONCATENATE('Прайс-Line'!$C$50,"" - "", 'Клей+акт'!$N$12, "" шт. на весь заказ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N49,='Прайс-Line'!D50,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O49,"=ROUNDUP(0.001*2*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P49,='Прайс-Line'!$E50,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q49,=$P49*$O49*'Клей+акт'!$O$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S49,=O49*'Прайс-Line'!F50,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T49,=S49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C50,=C49,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D50,"=IF(C50>0,            IF($C$50>0,$I$49-Настройки!$L$23,0),          0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I50,"=$D$6*$I$47+$I$48+$I$49*($D$5-IF($I$47>0,$D$6,0)-IF($I$48>0,1,0))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,L50,='Прайс-Line'!B51,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,M50,"=CONCATENATE('Прайс-Line'!$C$51, "" - "", 'Клей+акт'!$N$25, "" шт. на весь заказ"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,N50,='Прайс-Line'!D51,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O50,"=ROUNDUP(0.001*2*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P50,='Прайс-Line'!$E51,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q50,=$P50*$O50*'Клей+акт'!$O$18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S50,=O50*'Прайс-Line'!F51,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T50,=S50,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C51,"=IF(AND($D$6=1,$C$24<$D$5),1,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D51,"=IF(C51>0,   $C$51*($I$49-Настройки!$L$23),   0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,O51,=SUM($O$28:$O$37)+2*SUM($O$38:$O$39),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S51,=O52*'Прайс-Line'!F52,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T51,=S51,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,C52,=SUM(C46:C51),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D52,=$C$46*$D$46+$C$47*$D$47+$C$48*$D$48+$C$49*$D$49+$C$50*$D$50+$C$51*$D$51,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q52,=SUM($Q$5:$Q$50),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S52,=SUM(S5:S51),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T52,=SUM(T5:T51),cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D53,=$I$55*$I$46*$D$45/1000000,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q53,"=IF($C$10<>1,$V$18,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,S53,=$S$52+$D$53,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,T53,=($D$53+$T$52)/$D$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,D54,=$G$49+'Прайс-сб+монт'!$C$23*$X$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q54,"=IF(Настройки!$D$32,  $D$54,  0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,I55,"=INDEX('#1'!$D$11:$D$22,$C$11)*Настройки!$L$22",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,P55,"=CONCATENATE(""СС сборки"",IF(Настройки!$L$3,"" и фрезеровки"",""""))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q55,"=IF(Настройки!$D$33,  $D$3*'Прайс-сб+монт'!$C$5/1000,  0)  +  IF(Настройки!$L$3,$O$15*'Прайс-сб+монт'!$C$19,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q56,"=SUM(Q52:Q55)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$X$5,0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q57,"=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+IF($D$6=2,'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+IF($C$23,'Прайс-сб+монт'!$C$12,0),  0)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,L1,Q58,"=IF(  AND($D$6<=2, D7<>""ОШИБКА !""), SUM($Q$56:$Q$57),  ""ОШИБКА !"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,K3,"=IF( AND(Главная!$F$11=7,Настройки!$I$42=1), ""- - - -"",  $I$3)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,L3,"=IF( AND(Главная!$F$12=7,Настройки!$I$42=1), ""- - - -"",  $I$3)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M3,"=IF( AND(Главная!$F$13=7,Настройки!$I$42=1), ""- - - -"",  $I$3)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,N3,"=IF( AND(Главная!$F$14=7,Настройки!$I$42=1), ""- - - -"",  $I$3)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,O3,"=IF( AND(Главная!$F$15=7,Настройки!$I$42=1), ""- - - -"",  $I$3)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,P3,"=IF( AND(Главная!$F$16=7,Настройки!$I$42=1), ""- - - -"",  $I$3)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,Q3,"=IF( AND(Главная!$F$17=7,Настройки!$I$42=1), ""- - - -"",  $I$3)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,K4,"=IF( AND(Главная!$F$11=7,Настройки!$I$42=1), ""- - - -"",  $I$4)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,L4,"=IF( AND(Главная!$F$12=7,Настройки!$I$42=1), ""- - - -"",  $I$4)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M4,"=IF( AND(Главная!$F$13=7,Настройки!$I$42=1), ""- - - -"",  $I$4)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,N4,"=IF( AND(Главная!$F$14=7,Настройки!$I$42=1), ""- - - -"",  $I$4)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,O4,"=IF( AND(Главная!$F$15=7,Настройки!$I$42=1), ""- - - -"",  $I$4)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,P4,"=IF( AND(Главная!$F$16=7,Настройки!$I$42=1), ""- - - -"",  $I$4)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,Q4,"=IF( AND(Главная!$F$17=7,Настройки!$I$42=1), ""- - - -"",  $I$4)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,K5,"=IF( AND(Главная!$F$11=7,Настройки!$I$42=1),""- - - -"",$I$5)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,L5,"=IF( AND(Главная!$F$12=7,Настройки!$I$42=1),""- - - -"",$I$5)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M5,"=IF( AND(Главная!$F$13=7,Настройки!$I$42=1),""- - - -"",$I$5)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,N5,"=IF( AND(Главная!$F$14=7,Настройки!$I$42=1),""- - - -"",$I$5)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,O5,"=IF( AND(Главная!$F$15=7,Настройки!$I$42=1),""- - - -"",$I$5)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,P5,"=IF( AND(Главная!$F$16=7,Настройки!$I$42=1),""- - - -"",$I$5)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,Q5,"=IF( AND(Главная!$F$17=7,Настройки!$I$42=1),""- - - -"",$I$5)",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,K6,"=IF(Главная!$F$11=7,""нет"",""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,L6,"=IF(Главная!$F$12=7,""нет"",""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M6,"=IF(Главная!$F$13=7,""нет"",""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,N6,"=IF(Главная!$F$14=7,""нет"",""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,O6,"=IF(Главная!$F$15=7,""нет"",""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,P6,"=IF(Главная!$F$16=7,""нет"",""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,Q6,"=IF(Главная!$F$17=7,""нет"",""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,C9,"=IF(Настройки!$I$42=1,CONCATENATE(""JV-Front ("",G35,"")""),CONCATENATE(""JV-Front ("",G36,"")""))",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M13,"=IF(Настройки!$I$2=3,$F$3,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R13,"=IF(Настройки!$I$15=3,$F$17,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M14,"=IF(Настройки!$I$2=3,$F$4,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R14,"=IF(Настройки!$I$15=3,$F$18,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M16,"=IF(Настройки!$I$4=3,$G$3,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R16,"=IF(Настройки!$I$17=3,$G$17,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M17,"=IF(Настройки!$I$4=3,$G$4,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R17,"=IF(Настройки!$I$17=3,$G$18,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M19,"=IF(Настройки!$I$6=3,$F$7,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R19,"=IF(Настройки!$I$25=4,$F$24,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M20,"=IF(Настройки!$I$6=3,$F$8,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R20,"=IF(Настройки!$I$25=4,$F$25,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R21,"=IF(Настройки!$I$25=4,$F$26,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M22,"=IF(Настройки!I8=3,$G$7,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M23,"=IF(Настройки!I8=3,$G$8,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R23,"=IF(Настройки!$I$27=4,$F$24,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R24,"=IF(Настройки!$I$27=4,$F$25,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M25,"=IF(Настройки!I10=3,$F$11,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R25,"=IF(Настройки!$I$27=4,$F$26,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M26,"=IF(Настройки!I10=3,$F$12,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R27,"=IF(Настройки!$I$29=4,$F$29,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M28,"=IF(Настройки!I12=3,$G$11,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R28,"=IF(Настройки!$I$29=4,$F$30,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M29,"=IF(Настройки!I12=3,$G$12,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R29,"=IF(Настройки!$I$29=4,$F$31,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R31,"=IF(Настройки!$I$31=3,$G$29,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,R32,"=IF(Настройки!$I$31=3,$G$30,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M33,"=IF(Настройки!$I$34=3,'#2'!$C$6,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M34,"=IF(Настройки!$I$34=3,'#2'!$C$7,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M36,"=IF(Настройки!$I$36=3,'#2'!$D$6,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M37,"=IF(Настройки!$I$36=3,'#2'!$D$7,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M39,"=IF(Настройки!$I$38=3,'#2'!$E$6,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M40,"=IF(Настройки!$I$38=3,'#2'!$E$7,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M42,"=IF(Настройки!$I$40=3,'#2'!$F$6,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M43,"=IF(Настройки!$I$40=3,'#2'!$F$7,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M45,"=IF(Настройки!$I$44=3,'#2'!$L$6,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#1,M46,"=IF(Настройки!$I$44=3,'#2'!$L$7,""как на всех"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C12,='Прайс-Аксессуары'!B59,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C13,='Прайс-Аксессуары'!B60,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C14,='Прайс-Аксессуары'!B61,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C18,='Прайс-Аксессуары'!B13,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F18,='Прайс-Аксессуары'!B30,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C19,='Прайс-Аксессуары'!B14,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F19,='Прайс-Аксессуары'!B31,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C20,='Прайс-Аксессуары'!B15,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F20,='Прайс-Аксессуары'!B32,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C21,='Прайс-Аксессуары'!B16,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F21,='Прайс-Аксессуары'!B33,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C22,='Прайс-Аксессуары'!B17,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F22,='Прайс-Аксессуары'!B34,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C23,='Прайс-Аксессуары'!B18,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F23,='Прайс-Аксессуары'!B35,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C24,='Прайс-Аксессуары'!B19,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F24,='Прайс-Аксессуары'!B36,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C25,='Прайс-Аксессуары'!B20,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F25,='Прайс-Аксессуары'!B37,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C26,='Прайс-Аксессуары'!B21,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F26,='Прайс-Аксессуары'!B38,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C27,='Прайс-Аксессуары'!B22,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F27,='Прайс-Аксессуары'!B39,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C28,='Прайс-Аксессуары'!B23,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F28,='Прайс-Аксессуары'!B40,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C29,='Прайс-Аксессуары'!B24,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F29,='Прайс-Аксессуары'!B41,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C30,='Прайс-Аксессуары'!B25,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F30,='Прайс-Аксессуары'!B42,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C31,='Прайс-Аксессуары'!B26,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F31,='Прайс-Аксессуары'!B43,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C32,='Прайс-Аксессуары'!B27,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F32,='Прайс-Аксессуары'!B44,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C33,='Прайс-Аксессуары'!B28,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F33,='Прайс-Аксессуары'!B45,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F34,='Прайс-Аксессуары'!B46,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F35,='Прайс-Аксессуары'!B47,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C40,='F1'!$C$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,D40,='F2'!$C$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,E40,='F3'!$C$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F40,='F4'!$C$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,G40,='F5'!$C$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,H40,='F6'!$C$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,I40,='F7'!$C$5,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C41,='F1'!$C$16-1,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,D41,='F2'!$C$16-1,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,E41,='F3'!$C$16-1,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F41,='F4'!$C$16-1,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,G41,='F5'!$C$16-1,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,H41,='F6'!$C$16-1,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,I41,='F7'!$C$17-1,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C42,"=IF(C$41+2<=C$40,$J$6,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,D42,"=IF(D$41+2<=D$40,$J$6,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,E42,"=IF(E$41+2<=E$40,$J$6,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F42,"=IF(F$41+2<=F$40,$J$6,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,G42,"=IF(G$41+2<=G$40,$J$6,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,H42,"=IF(H$41+2<=H$40,$J$6,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,I42,"=IF(I$41+2<=I$40,$J$6,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C43,"=IF(C$41+1<=C$40,$J$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,D43,"=IF(D$41+1<=D$40,$J$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,E43,"=IF(E$41+1<=E$40,$J$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F43,"=IF(F$41+1<=F$40,$J$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,G43,"=IF(G$41+1<=G$40,$J$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,H43,"=IF(H$41+1<=H$40,$J$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,I43,"=IF(I$41+1<=I$40,$J$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C44,"=IF(C$41=C$40,$J$8,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,D44,"=IF(D$41=D$40,$J$8,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,E44,"=IF(E$41=E$40,$J$8,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F44,"=IF(F$41=F$40,$J$8,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,G44,"=IF(G$41=G$40,$J$8,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,H44,"=IF(H$41=H$40,$J$8,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,I44,"=IF(I$41=I$40,$J$8,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C45,=$H$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,D45,=$H$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,E45,=$H$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F45,=$H$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,G45,=$H$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,H45,=$H$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,I45,=$H$6,cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,C46,"=IF(C$40>C$41,$H$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,D46,"=IF(D$40>D$41,$H$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,E46,"=IF(E$40>E$41,$H$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,F46,"=IF(F$40>F$41,$H$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,G46,"=IF(G$40>G$41,$H$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,H46,"=IF(H$40>H$41,$H$7,""- - - -"")",cached_unverified
+JV-комплектация 08.10.2026.xlsm,#2,I46,"=IF(I$40>I$41,$H$7,""- - - -"")",cached_unverified

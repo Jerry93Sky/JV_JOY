@@ -1,0 +1,531 @@
+{
+  "schemaVersion": "1.0",
+  "generatedFrom": "Microsoft Excel 16.0 CalculateFullRebuild temporary workbook copies",
+  "sourceBooks": [
+    {
+      "name": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0"
+    },
+    {
+      "name": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0"
+    }
+  ],
+  "scenarioCount": 20,
+  "baseCatalog": {
+    "total": 40,
+    "supported": 40,
+    "unsupported": 0,
+    "rows": [
+      {
+        "sourceRow": 5,
+        "sku": "LN-010",
+        "description": "Профиль несущий",
+        "unit": "п.м",
+        "sourceCell": "L1!O5",
+        "sourceFormula": "=$D$32/1000+Настройки!$D$7/1000",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 6,
+        "sku": "LN-020",
+        "description": "Профиль створочный верхний",
+        "unit": "п.м",
+        "sourceCell": "L1!O6",
+        "sourceFormula": "=$F$39/1000+Настройки!$D$6/1000",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 7,
+        "sku": "LN-030",
+        "description": "Профиль створочный нижний",
+        "unit": "п.м",
+        "sourceCell": "L1!O7",
+        "sourceFormula": "=$F$39/1000+Настройки!$D$6/1000",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 8,
+        "sku": "LN-040",
+        "description": "Профиль боковой",
+        "unit": "п.м",
+        "sourceCell": "L1!O8",
+        "sourceFormula": "=IF($D$15=\"ДА\", 2*$D$33/1000+Настройки!$D$8/1000, 0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 9,
+        "sku": "LN-050-L",
+        "description": "Тройник левый",
+        "unit": "шт.",
+        "sourceCell": "L1!O9",
+        "sourceFormula": "=IF(OR($D$7=\"НАЛЕВО\",$D$6=2),1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 10,
+        "sku": "LN-050-R",
+        "description": "Тройник правый",
+        "unit": "шт.",
+        "sourceCell": "L1!O10",
+        "sourceFormula": "=IF(OR($D$7=\"НАПРАВО\",$D$6=2),1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 11,
+        "sku": "LN-060",
+        "description": "Роликовая каретка низкая",
+        "unit": "шт.",
+        "sourceCell": "L1!O11",
+        "sourceFormula": "=$D$5-$D$6",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 12,
+        "sku": "LN-070-A",
+        "description": "Роликовая каретка высокая",
+        "unit": "шт.",
+        "sourceCell": "L1!O12",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 13,
+        "sku": "LN-070-B",
+        "description": "Роликовая каретка c карманом",
+        "unit": "шт.",
+        "sourceCell": "L1!O13",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 14,
+        "sku": "LN-070-C",
+        "description": "Роликовая каретка с вилкой",
+        "unit": "шт.",
+        "sourceCell": "L1!O14",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 15,
+        "sku": "LN-080",
+        "description": "Защёлка боковая",
+        "unit": "шт.",
+        "sourceCell": "L1!O15",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 16,
+        "sku": "LN-090",
+        "description": "Защёлка продольная",
+        "unit": "шт.",
+        "sourceCell": "L1!O16",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 17,
+        "sku": "LN-100",
+        "description": "Ответная втулка защёлки",
+        "unit": "шт.",
+        "sourceCell": "L1!O17",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 18,
+        "sku": "LN-110",
+        "description": "Ручка-кноб",
+        "unit": "шт.",
+        "sourceCell": "L1!O18",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 19,
+        "sku": "LN-120",
+        "description": "Поворотный узел нижний (комплект)",
+        "unit": "комплект",
+        "sourceCell": "L1!O19",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 20,
+        "sku": "LN-130",
+        "description": "Поворотный узел верхний (комплект)",
+        "unit": "комплект",
+        "sourceCell": "L1!O20",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 21,
+        "sku": "LN-140-L",
+        "description": "Отсекатель левый",
+        "unit": "шт.",
+        "sourceCell": "L1!O21",
+        "sourceFormula": "=IF(OR($D$7=\"НАЛЕВО\",$D$6=2),1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 22,
+        "sku": "LN-140-R",
+        "description": "Отсекатель правый",
+        "unit": "шт.",
+        "sourceCell": "L1!O22",
+        "sourceFormula": "=IF(OR($D$7=\"НАПРАВО\",$D$6=2),1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 23,
+        "sku": "LN-150",
+        "description": "Пластина соединительная",
+        "unit": "шт.",
+        "sourceCell": "L1!O23",
+        "sourceFormula": "=3*$D$6",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 24,
+        "sku": "LN-160",
+        "description": "Пластина соединительная 90 гр.",
+        "unit": "шт.",
+        "sourceCell": "L1!O24",
+        "sourceFormula": "=$D$6*IF($D$9=90,1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 25,
+        "sku": "LN-170",
+        "description": "Пластина соединительная 135 гр.",
+        "unit": "шт.",
+        "sourceCell": "L1!O25",
+        "sourceFormula": "=$D$6*IF($D$9=135,1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 26,
+        "sku": "LN-190",
+        "description": "Верхняя ось паркуемой двери",
+        "unit": "шт.",
+        "sourceCell": "L1!O26",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 27,
+        "sku": "LN-200",
+        "description": "Рамка",
+        "unit": "шт.",
+        "sourceCell": "L1!O27",
+        "sourceFormula": null,
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 28,
+        "sku": "LN-TL",
+        "description": "Заглушка верхняя рядовая левая",
+        "unit": "шт.",
+        "sourceCell": "L1!O28",
+        "sourceFormula": "=IF($D$7=\"НАЛЕВО\",2*$D$5-2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D$5<=3),2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D5>3),2*($D$5-2),0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 29,
+        "sku": "LN-TR",
+        "description": "Заглушка верхняя рядовая правая",
+        "unit": "шт.",
+        "sourceCell": "L1!O29",
+        "sourceFormula": "=IF($D$7=\"НАПРАВО\",2*$D$5-2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D$5=2),2,0)+IF($D$7=\"ДВУХСТОР\",2*$D5-2-$O$28)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 30,
+        "sku": "LN-TF",
+        "description": "Заглушка верхняя боковая плоская",
+        "unit": "шт.",
+        "sourceCell": "L1!O30",
+        "sourceFormula": "=IF($D$15=\"ДА\",0,2)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 31,
+        "sku": "LN-TSL",
+        "description": "Заглушка верхняя боковая левая",
+        "unit": "шт.",
+        "sourceCell": "L1!O31",
+        "sourceFormula": "=IF($D$15=\"ДА\",1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 32,
+        "sku": "LN-TSR",
+        "description": "Заглушка верхняя боковая правая",
+        "unit": "шт.",
+        "sourceCell": "L1!O32",
+        "sourceFormula": "=IF($D$15=\"ДА\",1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 33,
+        "sku": "LN-BL",
+        "description": "Заглушка нижняя рядовая левая",
+        "unit": "шт.",
+        "sourceCell": "L1!O33",
+        "sourceFormula": "=$O$28",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 34,
+        "sku": "LN-BR",
+        "description": "Заглушка нижняя рядовая правая",
+        "unit": "шт.",
+        "sourceCell": "L1!O34",
+        "sourceFormula": "=$O$29",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 35,
+        "sku": "LN-BF",
+        "description": "Заглушка нижняя боковая плоская",
+        "unit": "шт.",
+        "sourceCell": "L1!O35",
+        "sourceFormula": "=$O$30",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 36,
+        "sku": "LN-BSL",
+        "description": "Заглушка нижняя боковая левая",
+        "unit": "шт.",
+        "sourceCell": "L1!O36",
+        "sourceFormula": "=$O$31",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 37,
+        "sku": "LN-BSR",
+        "description": "Заглушка нижняя боковая правая",
+        "unit": "шт.",
+        "sourceCell": "L1!O37",
+        "sourceFormula": "=$O$32",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 38,
+        "sku": "LN-T90",
+        "description": "Заглушка верхняя 90 гр. (пара)",
+        "unit": "пара",
+        "sourceCell": "L1!O38",
+        "sourceFormula": "=$D$8*IF($D$9=90,1,0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 39,
+        "sku": "LN-B90",
+        "description": "Заглушка нижняя 90 гр. (пара)",
+        "unit": "пара",
+        "sourceCell": "L1!O39",
+        "sourceFormula": "=O38",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 40,
+        "sku": "LN-210",
+        "description": "Верхняя петля + 2 башмака + винты (комплект)",
+        "unit": "шт.",
+        "sourceCell": "L1!O40",
+        "sourceFormula": "0",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 41,
+        "sku": "LN-220",
+        "description": "Нижняя петля + 2 башмака + винты (комплект)",
+        "unit": "шт.",
+        "sourceCell": "L1!O41",
+        "sourceFormula": "0",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 42,
+        "sku": "LN-230",
+        "description": "Замок в пол (комплект)",
+        "unit": "шт.",
+        "sourceCell": "L1!O42",
+        "sourceFormula": "=IF( $D$19=\"ДА\",1,0  )",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 43,
+        "sku": "LN-240",
+        "description": "Башмак для напольного доводчика",
+        "unit": "шт.",
+        "sourceCell": "L1!O43",
+        "sourceFormula": "=IF( $D$20=\"ДА\",$D$6,0  )",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      },
+      {
+        "sourceRow": 44,
+        "sku": "AA-010",
+        "description": "Полосовая щётка, 1,6 м",
+        "unit": "шт.",
+        "sourceCell": "L1!O44",
+        "sourceFormula": "=ROUNDUP(  2*$O$7 / (Настройки!$L$7 * Настройки!$P$21/1000),0)",
+        "status": "SUPPORTED",
+        "reason": null,
+        "quantityClassification": "EXACT_OR_DISPLAY_MATCH"
+      }
+    ]
+  },
+  "additionalCatalog": {
+    "sourceRange": "L1!O45:O50",
+    "total": 6,
+    "supported": 6,
+    "rows": [
+      {
+        "sku": "AA-020",
+        "cell": "L1!O45",
+        "status": "SUPPORTED",
+        "parity": "EXACT_OR_DISPLAY_MATCH_WITHOUT_MISMATCH"
+      },
+      {
+        "sku": "AA-050",
+        "cell": "L1!O46",
+        "status": "SUPPORTED",
+        "parity": "EXACT_OR_DISPLAY_MATCH_WITHOUT_MISMATCH"
+      },
+      {
+        "sku": "AA-070",
+        "cell": "L1!O47",
+        "status": "SUPPORTED",
+        "parity": "EXACT_OR_DISPLAY_MATCH_WITHOUT_MISMATCH"
+      },
+      {
+        "sku": "AA-090",
+        "cell": "L1!O48",
+        "status": "SUPPORTED",
+        "parity": "EXACT_OR_DISPLAY_MATCH_WITHOUT_MISMATCH"
+      },
+      {
+        "sku": "AA-110",
+        "cell": "L1!O49",
+        "status": "SUPPORTED",
+        "parity": "EXACT_OR_DISPLAY_MATCH_WITHOUT_MISMATCH"
+      },
+      {
+        "sku": "AA-120",
+        "cell": "L1!O50",
+        "status": "SUPPORTED",
+        "parity": "EXACT_OR_DISPLAY_MATCH_WITHOUT_MISMATCH"
+      }
+    ]
+  },
+  "commercialCompleteness": {
+    "fullConfigurations": 0,
+    "partialConfigurations": 20,
+    "finalPriceAvailable": false,
+    "reason": "40/40 base BOM rules implemented, but full Q52 inputs including construction-derived glue factors plus Q53/Q54/Q56/Q58 remain incomplete"
+  },
+  "verification": {
+    "scenariosPerWorkbook": 10,
+    "geometryAndBomExactCases": 20,
+    "baseQuantityComparisons": 800,
+    "baseQuantity": {
+      "EXACT": 724,
+      "DISPLAY_MATCH": 76,
+      "MISMATCH": 0,
+      "UNVERIFIED": 0
+    },
+    "baseAmountComparisons": 800,
+    "baseAmount": {
+      "EXACT": 493,
+      "DISPLAY_MATCH": 307,
+      "MISMATCH": 0,
+      "UNVERIFIED": 0
+    }
+  }
+}

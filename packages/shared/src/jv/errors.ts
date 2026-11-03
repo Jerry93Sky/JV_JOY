@@ -1,0 +1,6 @@
+export type EngineErrorCode='MISSING_INPUT'|'INVALID_DECIMAL'|'UNIT_MISMATCH'|'LOOKUP_NOT_FOUND'|'PRICE_NOT_FOUND'|'INVALID_CONFIGURATION'|'DEPENDENCY_UNKNOWN'|'DEPENDENCY_CYCLE'|'DIVISION_BY_ZERO'|'RULE_FAILED'|'RULE_UNCONFIRMED'
+export class EngineError extends Error {
+  readonly code:EngineErrorCode
+  readonly details:Readonly<Record<string,unknown>>
+  constructor(code:EngineErrorCode,message:string,details:Readonly<Record<string,unknown>>={}){super(message);this.name='EngineError';this.code=code;this.details=details}
+}

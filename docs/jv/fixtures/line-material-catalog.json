@@ -1,0 +1,823 @@
+{
+  "schemaVersion": "1.0",
+  "catalogVersion": "JV-LINE-CATALOG-2026-10-08",
+  "scope": "Identifiers, descriptions, units and quantity source references only; all cost/price fields intentionally excluded.",
+  "sourceBooks": {
+    "COMPLETATION": {
+      "name": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "items": [
+        {
+          "sourceL1Row": 5,
+          "sourceQuantityCell": "L1!O5",
+          "catalogRow": 5,
+          "sku": "LN-010",
+          "description": "Профиль несущий",
+          "unit": "п.м",
+          "quantityFormula": "=$D$32/1000+Настройки!$D$7/1000",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 6,
+          "sourceQuantityCell": "L1!O6",
+          "catalogRow": 6,
+          "sku": "LN-020",
+          "description": "Профиль створочный верхний",
+          "unit": "п.м",
+          "quantityFormula": "=$F$39/1000+Настройки!$D$6/1000",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 7,
+          "sourceQuantityCell": "L1!O7",
+          "catalogRow": 7,
+          "sku": "LN-030",
+          "description": "Профиль створочный нижний",
+          "unit": "п.м",
+          "quantityFormula": "=$F$39/1000+Настройки!$D$6/1000",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 8,
+          "sourceQuantityCell": "L1!O8",
+          "catalogRow": 8,
+          "sku": "LN-040",
+          "description": "Профиль боковой",
+          "unit": "п.м",
+          "quantityFormula": "=IF($D$15=\"ДА\", 2*$D$33/1000+Настройки!$D$8/1000, 0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 9,
+          "sourceQuantityCell": "L1!O9",
+          "catalogRow": 9,
+          "sku": "LN-050-L",
+          "description": "Тройник левый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАЛЕВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 10,
+          "sourceQuantityCell": "L1!O10",
+          "catalogRow": 10,
+          "sku": "LN-050-R",
+          "description": "Тройник правый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАПРАВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 11,
+          "sourceQuantityCell": "L1!O11",
+          "catalogRow": 11,
+          "sku": "LN-060",
+          "description": "Роликовая каретка низкая",
+          "unit": "шт.",
+          "quantityFormula": "=$D$5-$D$6",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 12,
+          "sourceQuantityCell": "L1!O12",
+          "catalogRow": 12,
+          "sku": "LN-070-A",
+          "description": "Роликовая каретка высокая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$11-$O$13-$O$14",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 13,
+          "sourceQuantityCell": "L1!O13",
+          "catalogRow": 13,
+          "sku": "LN-070-B",
+          "description": "Роликовая каретка c карманом",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$23=\"ДА\",1,IF(OR($D$23=\"ОШИБКА\",$D$24=\"ОШИБКА\"),\"ОШИБКА\",0))",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 14,
+          "sourceQuantityCell": "L1!O14",
+          "catalogRow": 14,
+          "sku": "LN-070-C",
+          "description": "Роликовая каретка с вилкой",
+          "unit": "шт.",
+          "quantityFormula": "=IF(   OR($D$24=\"OK\",$D$24=\"- - -\"),    IF(AND($D$23=\"ДА\",$D$6=1),$D$5-$C$24,0)+IF(AND($D$23=\"ДА\",$D$6=2),$D$5-$C$24-1,0),  \"ОШИБКА\")",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 15,
+          "sourceQuantityCell": "L1!O15",
+          "catalogRow": 15,
+          "sku": "LN-080",
+          "description": "Защёлка боковая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$23=\"НЕТ\",$D$6+2,0) + IF(AND($D$23=\"ДА\",$D$6=1),INDEX(ПД!$D$5:$BA$54,$D$5,$C$24),0) + IF(AND($D$23=\"ДА\",$D$6=2),INDEX(ПД!$D$61:$BA$110,$D$5,$C$24),0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 16,
+          "sourceQuantityCell": "L1!O16",
+          "catalogRow": 16,
+          "sku": "LN-090",
+          "description": "Защёлка продольная",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$23=\"НЕТ\",$D$5-1-$D$6,0) + IF(AND($D$23=\"ДА\",$D$6=1),INDEX(ПД!D117:BA166,$D$5,$C$24),0) + IF(AND($D$23=\"ДА\",$D$6=2),INDEX(ПД!D173:BA222,$D$5,$C$24),0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 17,
+          "sourceQuantityCell": "L1!O17",
+          "catalogRow": 17,
+          "sku": "LN-100",
+          "description": "Ответная втулка защёлки",
+          "unit": "шт.",
+          "quantityFormula": "=$O$15+$O$16+IF($D$17=\"ДА\",$D$6,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 18,
+          "sourceQuantityCell": "L1!O18",
+          "catalogRow": 18,
+          "sku": "LN-110",
+          "description": "Ручка-кноб",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$16=\"ДА\",$D$6,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 19,
+          "sourceQuantityCell": "L1!O19",
+          "catalogRow": 19,
+          "sku": "LN-120",
+          "description": "Поворотный узел нижний (комплект)",
+          "unit": "комплект",
+          "quantityFormula": "=IF($D$20=\"ДА\",  0,  $D$6)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 20,
+          "sourceQuantityCell": "L1!O20",
+          "catalogRow": 20,
+          "sku": "LN-130",
+          "description": "Поворотный узел верхний (комплект)",
+          "unit": "комплект",
+          "quantityFormula": "=O19",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 21,
+          "sourceQuantityCell": "L1!O21",
+          "catalogRow": 21,
+          "sku": "LN-140-L",
+          "description": "Отсекатель левый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАЛЕВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 22,
+          "sourceQuantityCell": "L1!O22",
+          "catalogRow": 22,
+          "sku": "LN-140-R",
+          "description": "Отсекатель правый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАПРАВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 23,
+          "sourceQuantityCell": "L1!O23",
+          "catalogRow": 23,
+          "sku": "LN-150",
+          "description": "Пластина соединительная",
+          "unit": "шт.",
+          "quantityFormula": "=3*$D$6",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 24,
+          "sourceQuantityCell": "L1!O24",
+          "catalogRow": 24,
+          "sku": "LN-160",
+          "description": "Пластина соединительная 90 гр.",
+          "unit": "шт.",
+          "quantityFormula": "=$D$6*IF($D$9=90,1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 25,
+          "sourceQuantityCell": "L1!O25",
+          "catalogRow": 25,
+          "sku": "LN-170",
+          "description": "Пластина соединительная 135 гр.",
+          "unit": "шт.",
+          "quantityFormula": "=$D$6*IF($D$9=135,1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 26,
+          "sourceQuantityCell": "L1!O26",
+          "catalogRow": 27,
+          "sku": "LN-190",
+          "description": "Верхняя ось паркуемой двери",
+          "unit": "шт.",
+          "quantityFormula": "=$O$13",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 27,
+          "sourceQuantityCell": "L1!O27",
+          "catalogRow": 28,
+          "sku": "LN-200",
+          "description": "Рамка",
+          "unit": "шт.",
+          "quantityFormula": "=$O$13",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 28,
+          "sourceQuantityCell": "L1!O28",
+          "catalogRow": 29,
+          "sku": "LN-TL",
+          "description": "Заглушка верхняя рядовая левая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$7=\"НАЛЕВО\",2*$D$5-2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D$5<=3),2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D5>3),2*($D$5-2),0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 29,
+          "sourceQuantityCell": "L1!O29",
+          "catalogRow": 30,
+          "sku": "LN-TR",
+          "description": "Заглушка верхняя рядовая правая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$7=\"НАПРАВО\",2*$D$5-2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D$5=2),2,0)+IF($D$7=\"ДВУХСТОР\",2*$D5-2-$O$28)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 30,
+          "sourceQuantityCell": "L1!O30",
+          "catalogRow": 31,
+          "sku": "LN-TF",
+          "description": "Заглушка верхняя боковая плоская",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$15=\"ДА\",0,2)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 31,
+          "sourceQuantityCell": "L1!O31",
+          "catalogRow": 32,
+          "sku": "LN-TSL",
+          "description": "Заглушка верхняя боковая левая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$15=\"ДА\",1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 32,
+          "sourceQuantityCell": "L1!O32",
+          "catalogRow": 33,
+          "sku": "LN-TSR",
+          "description": "Заглушка верхняя боковая правая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$15=\"ДА\",1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 33,
+          "sourceQuantityCell": "L1!O33",
+          "catalogRow": 34,
+          "sku": "LN-BL",
+          "description": "Заглушка нижняя рядовая левая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$28",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 34,
+          "sourceQuantityCell": "L1!O34",
+          "catalogRow": 35,
+          "sku": "LN-BR",
+          "description": "Заглушка нижняя рядовая правая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$29",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 35,
+          "sourceQuantityCell": "L1!O35",
+          "catalogRow": 36,
+          "sku": "LN-BF",
+          "description": "Заглушка нижняя боковая плоская",
+          "unit": "шт.",
+          "quantityFormula": "=$O$30",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 36,
+          "sourceQuantityCell": "L1!O36",
+          "catalogRow": 37,
+          "sku": "LN-BSL",
+          "description": "Заглушка нижняя боковая левая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$31",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 37,
+          "sourceQuantityCell": "L1!O37",
+          "catalogRow": 38,
+          "sku": "LN-BSR",
+          "description": "Заглушка нижняя боковая правая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$32",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 38,
+          "sourceQuantityCell": "L1!O38",
+          "catalogRow": 39,
+          "sku": "LN-T90",
+          "description": "Заглушка верхняя 90 гр. (пара)",
+          "unit": "пара",
+          "quantityFormula": "=$D$8*IF($D$9=90,1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 39,
+          "sourceQuantityCell": "L1!O39",
+          "catalogRow": 40,
+          "sku": "LN-B90",
+          "description": "Заглушка нижняя 90 гр. (пара)",
+          "unit": "пара",
+          "quantityFormula": "=O38",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 40,
+          "sourceQuantityCell": "L1!O40",
+          "catalogRow": 41,
+          "sku": "LN-210",
+          "description": "Верхняя петля + 2 башмака + винты (комплект)",
+          "unit": "шт.",
+          "quantityFormula": null,
+          "quantityConstant": 0
+        },
+        {
+          "sourceL1Row": 41,
+          "sourceQuantityCell": "L1!O41",
+          "catalogRow": 42,
+          "sku": "LN-220",
+          "description": "Нижняя петля + 2 башмака + винты (комплект)",
+          "unit": "шт.",
+          "quantityFormula": null,
+          "quantityConstant": 0
+        },
+        {
+          "sourceL1Row": 42,
+          "sourceQuantityCell": "L1!O42",
+          "catalogRow": 43,
+          "sku": "LN-230",
+          "description": "Замок в пол (комплект)",
+          "unit": "шт.",
+          "quantityFormula": "=IF( $D$19=\"ДА\",1,0  )",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 43,
+          "sourceQuantityCell": "L1!O43",
+          "catalogRow": 44,
+          "sku": "LN-240",
+          "description": "Башмак для напольного доводчика",
+          "unit": "шт.",
+          "quantityFormula": "=IF( $D$20=\"ДА\",$D$6,0  )",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 44,
+          "sourceQuantityCell": "L1!O44",
+          "catalogRow": 45,
+          "sku": "AA-010",
+          "description": "Полосовая щётка, 1,6 м",
+          "unit": "шт.",
+          "quantityFormula": "=ROUNDUP(  2*$O$7 / (Настройки!$L$7 * Настройки!$P$21/1000),0)",
+          "quantityConstant": null
+        }
+      ]
+    },
+    "RETAIL": {
+      "name": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "items": [
+        {
+          "sourceL1Row": 5,
+          "sourceQuantityCell": "L1!O5",
+          "catalogRow": 5,
+          "sku": "LN-010",
+          "description": "Профиль несущий",
+          "unit": "п.м",
+          "quantityFormula": "=$D$32/1000+Настройки!$D$7/1000",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 6,
+          "sourceQuantityCell": "L1!O6",
+          "catalogRow": 6,
+          "sku": "LN-020",
+          "description": "Профиль створочный верхний",
+          "unit": "п.м",
+          "quantityFormula": "=$F$39/1000+Настройки!$D$6/1000",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 7,
+          "sourceQuantityCell": "L1!O7",
+          "catalogRow": 7,
+          "sku": "LN-030",
+          "description": "Профиль створочный нижний",
+          "unit": "п.м",
+          "quantityFormula": "=$F$39/1000+Настройки!$D$6/1000",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 8,
+          "sourceQuantityCell": "L1!O8",
+          "catalogRow": 8,
+          "sku": "LN-040",
+          "description": "Профиль боковой",
+          "unit": "п.м",
+          "quantityFormula": "=IF($D$15=\"ДА\", 2*$D$33/1000+Настройки!$D$8/1000, 0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 9,
+          "sourceQuantityCell": "L1!O9",
+          "catalogRow": 9,
+          "sku": "LN-050-L",
+          "description": "Тройник левый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАЛЕВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 10,
+          "sourceQuantityCell": "L1!O10",
+          "catalogRow": 10,
+          "sku": "LN-050-R",
+          "description": "Тройник правый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАПРАВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 11,
+          "sourceQuantityCell": "L1!O11",
+          "catalogRow": 11,
+          "sku": "LN-060",
+          "description": "Роликовая каретка низкая",
+          "unit": "шт.",
+          "quantityFormula": "=$D$5-$D$6",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 12,
+          "sourceQuantityCell": "L1!O12",
+          "catalogRow": 12,
+          "sku": "LN-070-A",
+          "description": "Роликовая каретка высокая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$11-$O$13-$O$14",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 13,
+          "sourceQuantityCell": "L1!O13",
+          "catalogRow": 13,
+          "sku": "LN-070-B",
+          "description": "Роликовая каретка c карманом",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$23=\"ДА\",1,IF(OR($D$23=\"ОШИБКА\",$D$24=\"ОШИБКА\"),\"ОШИБКА\",0))",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 14,
+          "sourceQuantityCell": "L1!O14",
+          "catalogRow": 14,
+          "sku": "LN-070-C",
+          "description": "Роликовая каретка с вилкой",
+          "unit": "шт.",
+          "quantityFormula": "=IF(   OR($D$24=\"OK\",$D$24=\"- - -\"),    IF(AND($D$23=\"ДА\",$D$6=1),$D$5-$C$24,0)+IF(AND($D$23=\"ДА\",$D$6=2),$D$5-$C$24-1,0),  \"ОШИБКА\")",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 15,
+          "sourceQuantityCell": "L1!O15",
+          "catalogRow": 15,
+          "sku": "LN-080",
+          "description": "Защёлка боковая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$23=\"НЕТ\",$D$6+2,0) + IF(AND($D$23=\"ДА\",$D$6=1),INDEX(ПД!$D$5:$BA$54,$D$5,$C$24),0) + IF(AND($D$23=\"ДА\",$D$6=2),INDEX(ПД!$D$61:$BA$110,$D$5,$C$24),0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 16,
+          "sourceQuantityCell": "L1!O16",
+          "catalogRow": 16,
+          "sku": "LN-090",
+          "description": "Защёлка продольная",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$23=\"НЕТ\",$D$5-1-$D$6,0) + IF(AND($D$23=\"ДА\",$D$6=1),INDEX(ПД!D117:BA166,$D$5,$C$24),0) + IF(AND($D$23=\"ДА\",$D$6=2),INDEX(ПД!D173:BA222,$D$5,$C$24),0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 17,
+          "sourceQuantityCell": "L1!O17",
+          "catalogRow": 17,
+          "sku": "LN-100",
+          "description": "Ответная втулка защёлки",
+          "unit": "шт.",
+          "quantityFormula": "=$O$15+$O$16+IF($D$17=\"ДА\",$D$6,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 18,
+          "sourceQuantityCell": "L1!O18",
+          "catalogRow": 18,
+          "sku": "LN-110",
+          "description": "Ручка-кноб",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$16=\"ДА\",$D$6,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 19,
+          "sourceQuantityCell": "L1!O19",
+          "catalogRow": 19,
+          "sku": "LN-120",
+          "description": "Поворотный узел нижний (комплект)",
+          "unit": "комплект",
+          "quantityFormula": "=IF($D$20=\"ДА\",  0,  $D$6)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 20,
+          "sourceQuantityCell": "L1!O20",
+          "catalogRow": 20,
+          "sku": "LN-130",
+          "description": "Поворотный узел верхний (комплект)",
+          "unit": "комплект",
+          "quantityFormula": "=O19",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 21,
+          "sourceQuantityCell": "L1!O21",
+          "catalogRow": 21,
+          "sku": "LN-140-L",
+          "description": "Отсекатель левый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАЛЕВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 22,
+          "sourceQuantityCell": "L1!O22",
+          "catalogRow": 22,
+          "sku": "LN-140-R",
+          "description": "Отсекатель правый",
+          "unit": "шт.",
+          "quantityFormula": "=IF(OR($D$7=\"НАПРАВО\",$D$6=2),1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 23,
+          "sourceQuantityCell": "L1!O23",
+          "catalogRow": 23,
+          "sku": "LN-150",
+          "description": "Пластина соединительная",
+          "unit": "шт.",
+          "quantityFormula": "=3*$D$6",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 24,
+          "sourceQuantityCell": "L1!O24",
+          "catalogRow": 24,
+          "sku": "LN-160",
+          "description": "Пластина соединительная 90 гр.",
+          "unit": "шт.",
+          "quantityFormula": "=$D$6*IF($D$9=90,1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 25,
+          "sourceQuantityCell": "L1!O25",
+          "catalogRow": 25,
+          "sku": "LN-170",
+          "description": "Пластина соединительная 135 гр.",
+          "unit": "шт.",
+          "quantityFormula": "=$D$6*IF($D$9=135,1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 26,
+          "sourceQuantityCell": "L1!O26",
+          "catalogRow": 27,
+          "sku": "LN-190",
+          "description": "Верхняя ось паркуемой двери",
+          "unit": "шт.",
+          "quantityFormula": "=$O$13",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 27,
+          "sourceQuantityCell": "L1!O27",
+          "catalogRow": 28,
+          "sku": "LN-200",
+          "description": "Рамка",
+          "unit": "шт.",
+          "quantityFormula": "=$O$13",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 28,
+          "sourceQuantityCell": "L1!O28",
+          "catalogRow": 29,
+          "sku": "LN-TL",
+          "description": "Заглушка верхняя рядовая левая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$7=\"НАЛЕВО\",2*$D$5-2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D$5<=3),2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D5>3),2*($D$5-2),0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 29,
+          "sourceQuantityCell": "L1!O29",
+          "catalogRow": 30,
+          "sku": "LN-TR",
+          "description": "Заглушка верхняя рядовая правая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$7=\"НАПРАВО\",2*$D$5-2,0)+IF(AND($D$7=\"ДВУХСТОР\",$D$5=2),2,0)+IF($D$7=\"ДВУХСТОР\",2*$D5-2-$O$28)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 30,
+          "sourceQuantityCell": "L1!O30",
+          "catalogRow": 31,
+          "sku": "LN-TF",
+          "description": "Заглушка верхняя боковая плоская",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$15=\"ДА\",0,2)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 31,
+          "sourceQuantityCell": "L1!O31",
+          "catalogRow": 32,
+          "sku": "LN-TSL",
+          "description": "Заглушка верхняя боковая левая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$15=\"ДА\",1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 32,
+          "sourceQuantityCell": "L1!O32",
+          "catalogRow": 33,
+          "sku": "LN-TSR",
+          "description": "Заглушка верхняя боковая правая",
+          "unit": "шт.",
+          "quantityFormula": "=IF($D$15=\"ДА\",1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 33,
+          "sourceQuantityCell": "L1!O33",
+          "catalogRow": 34,
+          "sku": "LN-BL",
+          "description": "Заглушка нижняя рядовая левая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$28",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 34,
+          "sourceQuantityCell": "L1!O34",
+          "catalogRow": 35,
+          "sku": "LN-BR",
+          "description": "Заглушка нижняя рядовая правая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$29",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 35,
+          "sourceQuantityCell": "L1!O35",
+          "catalogRow": 36,
+          "sku": "LN-BF",
+          "description": "Заглушка нижняя боковая плоская",
+          "unit": "шт.",
+          "quantityFormula": "=$O$30",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 36,
+          "sourceQuantityCell": "L1!O36",
+          "catalogRow": 37,
+          "sku": "LN-BSL",
+          "description": "Заглушка нижняя боковая левая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$31",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 37,
+          "sourceQuantityCell": "L1!O37",
+          "catalogRow": 38,
+          "sku": "LN-BSR",
+          "description": "Заглушка нижняя боковая правая",
+          "unit": "шт.",
+          "quantityFormula": "=$O$32",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 38,
+          "sourceQuantityCell": "L1!O38",
+          "catalogRow": 39,
+          "sku": "LN-T90",
+          "description": "Заглушка верхняя 90 гр. (пара)",
+          "unit": "пара",
+          "quantityFormula": "=$D$8*IF($D$9=90,1,0)",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 39,
+          "sourceQuantityCell": "L1!O39",
+          "catalogRow": 40,
+          "sku": "LN-B90",
+          "description": "Заглушка нижняя 90 гр. (пара)",
+          "unit": "пара",
+          "quantityFormula": "=O38",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 40,
+          "sourceQuantityCell": "L1!O40",
+          "catalogRow": 41,
+          "sku": "LN-210",
+          "description": "Верхняя петля + 2 башмака + винты (комплект)",
+          "unit": "шт.",
+          "quantityFormula": null,
+          "quantityConstant": 0
+        },
+        {
+          "sourceL1Row": 41,
+          "sourceQuantityCell": "L1!O41",
+          "catalogRow": 42,
+          "sku": "LN-220",
+          "description": "Нижняя петля + 2 башмака + винты (комплект)",
+          "unit": "шт.",
+          "quantityFormula": null,
+          "quantityConstant": 0
+        },
+        {
+          "sourceL1Row": 42,
+          "sourceQuantityCell": "L1!O42",
+          "catalogRow": 43,
+          "sku": "LN-230",
+          "description": "Замок в пол (комплект)",
+          "unit": "шт.",
+          "quantityFormula": "=IF( $D$19=\"ДА\",1,0  )",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 43,
+          "sourceQuantityCell": "L1!O43",
+          "catalogRow": 44,
+          "sku": "LN-240",
+          "description": "Башмак для напольного доводчика",
+          "unit": "шт.",
+          "quantityFormula": "=IF( $D$20=\"ДА\",$D$6,0  )",
+          "quantityConstant": null
+        },
+        {
+          "sourceL1Row": 44,
+          "sourceQuantityCell": "L1!O44",
+          "catalogRow": 45,
+          "sku": "AA-010",
+          "description": "Полосовая щётка, 1,6 м",
+          "unit": "шт.",
+          "quantityFormula": "=ROUNDUP(  2*$O$7 / (Настройки!$L$7 * Настройки!$P$21/1000),0)",
+          "quantityConstant": null
+        }
+      ]
+    }
+  },
+  "quantityRuleStatus": {
+    "L1!O5": "IMPLEMENTED_AND_EXCEL_GOLDEN_TESTED",
+    "otherRows": "CATALOG_IDENTIFIED_QUANTITY_RULE_NOT_IMPLEMENTED"
+  }
+}

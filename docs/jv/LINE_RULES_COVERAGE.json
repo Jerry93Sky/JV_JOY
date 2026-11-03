@@ -1,0 +1,36 @@
+{
+  "source_workbooks": [
+    "JV-комплектация 08.10.2026.xlsm",
+    "JV-розница 08.10.2026.xlsm"
+  ],
+  "line_formula_cells_by_book": {
+    "completation": 3416,
+    "retail": 3416
+  },
+  "line_formula_cells_total": 6832,
+  "normalized_formula_templates_simple_refs": 298,
+  "template_normalization": "syntactic only; not business-rule equivalence",
+  "implemented_rules": [
+    "JV.LINE.PARKING_AXIS_WIDTH"
+  ],
+  "implemented_rule_count": 1,
+  "implemented_tests": 2,
+  "fully_closed_ui_to_geometry_chains": 0,
+  "excel_golden_cases_confirmed": 0,
+  "excel_cache_status": "cached_unverified",
+  "identified_rules_scoped_L1_parking_cut": [
+    "L1!I21",
+    "L1!I22",
+    "L1!I24",
+    "L1!I25",
+    "L1!I26",
+    "L1!I27",
+    "L1!C28:D32"
+  ],
+  "unknowns": [
+    "physical dimension unit provenance",
+    "O15 PD lookup semantics and table labels",
+    "full UI-to-L1 input mapping",
+    "fresh Excel parity cases"
+  ]
+}

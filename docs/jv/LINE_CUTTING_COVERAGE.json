@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "sourceDate": "2026-10-08",
+  "sourceWorkbooks": [
+    "JV-комплектация 08.10.2026.xlsm",
+    "JV-розница 08.10.2026.xlsm"
+  ],
+  "sourceFormulaComparison": {
+    "cells": ["L1!C28", "L1!D28", "L1!C29", "L1!D29", "L1!C30", "L1!D30", "L1!C31", "L1!D31", "L1!D32", "L1!O5"],
+    "identicalAcrossBooks": true
+  },
+  "rules": [
+    {"cell":"L1!C28","ruleId":"JV.LINE.CUT_A_QUANTITY","sourceFormula":"=$D$6","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!D28","ruleId":"JV.LINE.CUT_A_LENGTH","sourceFormula":"=$I$26+Настройки!$P$2/2","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!C29","ruleId":"JV.LINE.CUT_B_QUANTITY","sourceFormula":"=$D$6","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!D29","ruleId":"JV.LINE.CUT_B_LENGTH","sourceFormula":"=$I$27+Настройки!$P$2/2-Настройки!$P$7","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!C30","ruleId":"JV.LINE.CUT_E_QUANTITY","sourceFormula":"=$D$6","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!D30","ruleId":"JV.LINE.CUT_E_LENGTH","sourceFormula":"=$I$26-Настройки!$P$6/2","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!C31","ruleId":"JV.LINE.CUT_F_QUANTITY","sourceValue":1,"status":"source_constant_traced"},
+    {"cell":"L1!D31","ruleId":"JV.LINE.CUT_F_LENGTH","sourceFormula":"=$D$3-$D$6*(Настройки!$P$6+$D$30)","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!D32","ruleId":"JV.LINE.CARRIER_TOTAL_CUT_LENGTH","sourceFormula":"=$C$28*$D$28+$C$29*$D$29+$C$30*$D$30+$C$31*$D$31","status":"implemented_and_excel_golden_verified"},
+    {"cell":"L1!O5","ruleId":"JV.LINE.CARRIER_PROFILE_MATERIAL_QUANTITY","sourceFormula":"=$D$32/1000+Настройки!$D$7/1000","status":"implemented_and_excel_golden_verified"}
+  ],
+  "materialCatalog": {
+    "skuCell":"L1!L5 -> Прайс-Line!B5",
+    "descriptionCell":"L1!M5 -> Прайс-Line!C5",
+    "unitCell":"L1!N5 -> Прайс-Line!D5",
+    "bothBooksResolveTo":{"sku":"LN-010","description":"Профиль несущий","unit":"п.м"},
+    "pricesImplemented":false
+  },
+  "rounding": {
+    "roundFunctionsInCutBlock":false,
+    "operations":"Exact divide by 2 and 1000; exact decimal multiplication/addition/subtraction; no universal rounding"
+  },
+  "excelGolden": {
+    "excelVersion":"16.0",
+    "macrosForceDisabled":true,
+    "sourceFilesOpenedForWrite":false,
+    "scenarioCountPerWorkbook":5,
+    "totalScenarioCount":10,
+    "exactMatches":10,
+    "numericMismatches":0,
+    "fixture":"docs/jv/fixtures/line-cutting-excel-golden.json",
+    "status":"matched_for_listed_scenarios_only"
+  },
+  "notImplemented": [
+    "Stock-bar packing / nesting / saw kerf (not present in L1!C28:D32)",
+    "Price, cost and stock valuation",
+    "Full BOM beyond the carrier-profile line"
+  ],
+  "legacyApiChanged":false,
+  "prismaSchemaChanged":false,
+  "reactUiChanged":false
+}
