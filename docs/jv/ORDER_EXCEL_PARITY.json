@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 1,
+  "method": "Excel 16 CalculateFullRebuild on temporary workbook copies; the engine receives raw Main selectors/dimensions/quantities and versioned price/settings snapshots, never Excel formula outputs.",
+  "scope": "Two supported JV-Line slots; separate single-slot quantities 1 and 3; both COMPLETATION and RETAIL books. Mixed-family order total remains unsupported.",
+  "counts": {
+    "EXACT": 36,
+    "DISPLAY_MATCH": 20,
+    "NUMERICALLY_EQUIVALENT": 0,
+    "MISMATCH": 0,
+    "UNVERIFIED": 14
+  },
+  "cases": [
+    {
+      "scenarioId": "line_single_qty1",
+      "profile": "COMPLETATION",
+      "sourceWorkbook": "JV-комплектация 08.10.2026.xlsm",
+      "sourceSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0",
+      "engineStatus": "COMPLETE",
+      "inputs": [
+        {
+          "quantity": 1,
+          "family": "LINE",
+          "width": 3200,
+          "height": 2300,
+          "slot": 1
+        }
+      ],
+      "comparisons": {
+        "Q52": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "10980189810667138867967/81225000000000000",
+          "excel": "135182.3922519808",
+          "engineDisplay": "135182.39",
+          "excelDisplay": "135182.39"
+        },
+        "Q53": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q54": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q55": {
+          "classification": "EXACT",
+          "engine": "600",
+          "excel": "600"
+        },
+        "Q56": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "11028924810667138867967/81225000000000000",
+          "excel": "135782.3922519808",
+          "engineDisplay": "135782.39",
+          "excelDisplay": "135782.39"
+        },
+        "Q57": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q58": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "11028924810667138867967/81225000000000000",
+          "excel": "135782.3922519808",
+          "engineDisplay": "135782.39",
+          "excelDisplay": "135782.39"
+        }
+      },
+      "sharedPackageCounts": {
+        "activator": {
+          "classification": "EXACT",
+          "engine": "1",
+          "excel": "1"
+        },
+        "adhesive": {
+          "classification": "EXACT",
+          "engine": "1",
+          "excel": "1"
+        }
+      },
+      "positionComparisons": [
+        {
+          "slot": 1,
+          "X5": {
+            "classification": "EXACT",
+            "engine": "1",
+            "excel": "1"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "250/89",
+            "excel": "2.808988764044944"
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "line_single_qty3",
+      "profile": "COMPLETATION",
+      "sourceWorkbook": "JV-комплектация 08.10.2026.xlsm",
+      "sourceSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0",
+      "engineStatus": "COMPLETE",
+      "inputs": [
+        {
+          "quantity": 3,
+          "family": "LINE",
+          "width": 3200,
+          "height": 2300,
+          "slot": 1
+        }
+      ],
+      "comparisons": {
+        "Q52": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "10838641710667138867967/27075000000000000",
+          "excel": "400319.17675594246",
+          "engineDisplay": "400319.18",
+          "excelDisplay": "400319.18"
+        },
+        "Q53": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q54": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q55": {
+          "classification": "EXACT",
+          "engine": "1800",
+          "excel": "1800"
+        },
+        "Q56": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "10887376710667138867967/27075000000000000",
+          "excel": "402119.17675594246",
+          "engineDisplay": "402119.18",
+          "excelDisplay": "402119.18"
+        },
+        "Q57": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q58": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "10887376710667138867967/27075000000000000",
+          "excel": "402119.17675594246",
+          "engineDisplay": "402119.18",
+          "excelDisplay": "402119.18"
+        }
+      },
+      "sharedPackageCounts": {
+        "activator": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        },
+        "adhesive": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        }
+      },
+      "positionComparisons": [
+        {
+          "slot": 1,
+          "X5": {
+            "classification": "UNVERIFIED",
+            "engine": "1/3",
+            "excel": "0.3333333333333333"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "500/267",
+            "excel": "1.8726591760299625"
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "line_two_slots_mixed_area",
+      "profile": "COMPLETATION",
+      "sourceWorkbook": "JV-комплектация 08.10.2026.xlsm",
+      "sourceSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0",
+      "engineStatus": "COMPLETE",
+      "inputs": [
+        {
+          "quantity": 2,
+          "family": "LINE",
+          "width": 3200,
+          "height": 2300,
+          "slot": 1
+        },
+        {
+          "quantity": 3,
+          "family": "LINE",
+          "width": 1800,
+          "height": 2100,
+          "slot": 2
+        }
+      ],
+      "comparisons": {
+        "Q52": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "9665733327107816888303/16245000000000000",
+          "excel": "594997.4347250119",
+          "engineDisplay": "594997.43",
+          "excelDisplay": "594997.43"
+        },
+        "Q53": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q54": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q55": {
+          "classification": "EXACT",
+          "engine": "3000",
+          "excel": "3000"
+        },
+        "Q56": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "9714468327107816888303/16245000000000000",
+          "excel": "597997.4347250119",
+          "engineDisplay": "597997.43",
+          "excelDisplay": "597997.43"
+        },
+        "Q57": {
+          "classification": "EXACT",
+          "engine": "0",
+          "excel": "0"
+        },
+        "Q58": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "9714468327107816888303/16245000000000000",
+          "excel": "597997.4347250119",
+          "engineDisplay": "597997.43",
+          "excelDisplay": "597997.43"
+        }
+      },
+      "sharedPackageCounts": {
+        "activator": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        },
+        "adhesive": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        }
+      },
+      "positionComparisons": [
+        {
+          "slot": 1,
+          "X5": {
+            "classification": "UNVERIFIED",
+            "engine": "368/1303",
+            "excel": "0.28242517267843437"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "125/82",
+            "excel": "1.524390243902439"
+          }
+        },
+        {
+          "slot": 2,
+          "X5": {
+            "classification": "UNVERIFIED",
+            "engine": "189/1303",
+            "excel": "0.14504988488104373"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "125/82",
+            "excel": "1.524390243902439"
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "line_single_qty1",
+      "profile": "RETAIL",
+      "sourceWorkbook": "JV-розница 08.10.2026.xlsm",
+      "sourceSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0",
+      "engineStatus": "COMPLETE",
+      "inputs": [
+        {
+          "quantity": 1,
+          "family": "LINE",
+          "width": 3200,
+          "height": 2300,
+          "slot": 1
+        }
+      ],
+      "comparisons": {
+        "Q52": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1096789671529/32490000",
+          "excel": "33757.76151212681",
+          "engineDisplay": "33757.76",
+          "excelDisplay": "33757.76"
+        },
+        "Q53": {
+          "classification": "EXACT",
+          "engine": "9500",
+          "excel": "9500"
+        },
+        "Q54": {
+          "classification": "EXACT",
+          "engine": "32085.30818752",
+          "excel": "32085.30818752"
+        },
+        "Q55": {
+          "classification": "EXACT",
+          "engine": "5400",
+          "excel": "5400"
+        },
+        "Q56": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1639588959088453/20306250000",
+          "excel": "80743.06969964682",
+          "engineDisplay": "80743.07",
+          "excelDisplay": "80743.07"
+        },
+        "Q57": {
+          "classification": "EXACT",
+          "engine": "16700",
+          "excel": "16700"
+        },
+        "Q58": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1978703334088453/20306250000",
+          "excel": "97443.06969964682",
+          "engineDisplay": "97443.07",
+          "excelDisplay": "97443.07"
+        }
+      },
+      "sharedPackageCounts": {
+        "activator": {
+          "classification": "EXACT",
+          "engine": "1",
+          "excel": "1"
+        },
+        "adhesive": {
+          "classification": "EXACT",
+          "engine": "1",
+          "excel": "1"
+        }
+      },
+      "positionComparisons": [
+        {
+          "slot": 1,
+          "X5": {
+            "classification": "EXACT",
+            "engine": "1",
+            "excel": "1"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "250/89",
+            "excel": "2.808988764044944"
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "line_single_qty3",
+      "profile": "RETAIL",
+      "sourceWorkbook": "JV-розница 08.10.2026.xlsm",
+      "sourceSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0",
+      "engineStatus": "COMPLETE",
+      "inputs": [
+        {
+          "quantity": 3,
+          "family": "LINE",
+          "width": 3200,
+          "height": 2300,
+          "slot": 1
+        }
+      ],
+      "comparisons": {
+        "Q52": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1068480051529/10830000",
+          "excel": "98659.28453638042",
+          "engineDisplay": "98659.28",
+          "excelDisplay": "98659.28"
+        },
+        "Q53": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "12234.22",
+          "excel": "12234.219999999998",
+          "engineDisplay": "12234.22",
+          "excelDisplay": "12234.22"
+        },
+        "Q54": {
+          "classification": "EXACT",
+          "engine": "87255.92456256",
+          "excel": "87255.92456256"
+        },
+        "Q55": {
+          "classification": "EXACT",
+          "engine": "16200",
+          "excel": "16200"
+        },
+        "Q56": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1450877698213453/6768750000",
+          "excel": "214349.42909894043",
+          "engineDisplay": "214349.43",
+          "excelDisplay": "214349.43"
+        },
+        "Q57": {
+          "classification": "EXACT",
+          "engine": "50100",
+          "excel": "50100"
+        },
+        "Q58": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1789992073213453/6768750000",
+          "excel": "264449.42909894045",
+          "engineDisplay": "264449.43",
+          "excelDisplay": "264449.43"
+        }
+      },
+      "sharedPackageCounts": {
+        "activator": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        },
+        "adhesive": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        }
+      },
+      "positionComparisons": [
+        {
+          "slot": 1,
+          "X5": {
+            "classification": "UNVERIFIED",
+            "engine": "1/3",
+            "excel": "0.3333333333333333"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "500/267",
+            "excel": "1.8726591760299625"
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "line_two_slots_mixed_area",
+      "profile": "RETAIL",
+      "sourceWorkbook": "JV-розница 08.10.2026.xlsm",
+      "sourceSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0",
+      "engineStatus": "COMPLETE",
+      "inputs": [
+        {
+          "quantity": 2,
+          "family": "LINE",
+          "width": 3200,
+          "height": 2300,
+          "slot": 1
+        },
+        {
+          "quantity": 3,
+          "family": "LINE",
+          "width": 1800,
+          "height": 2100,
+          "slot": 2
+        }
+      ],
+      "comparisons": {
+        "Q52": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "945799516633/6498000",
+          "excel": "145552.4032983995",
+          "engineDisplay": "145552.40",
+          "excelDisplay": "145552.40"
+        },
+        "Q53": {
+          "classification": "EXACT",
+          "engine": "14589.3",
+          "excel": "14589.3"
+        },
+        "Q54": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "101160.1360448",
+          "excel": "101160.13604479999",
+          "engineDisplay": "101160.14",
+          "excelDisplay": "101160.14"
+        },
+        "Q55": {
+          "classification": "EXACT",
+          "engine": "20700",
+          "excel": "20700"
+        },
+        "Q56": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1145279970032569/4061250000",
+          "excel": "282001.8393431995",
+          "engineDisplay": "282001.84",
+          "excelDisplay": "282001.84"
+        },
+        "Q57": {
+          "classification": "EXACT",
+          "engine": "64000",
+          "excel": "64000"
+        },
+        "Q58": {
+          "classification": "DISPLAY_MATCH",
+          "engine": "1405199970032569/4061250000",
+          "excel": "346001.8393431995",
+          "engineDisplay": "346001.84",
+          "excelDisplay": "346001.84"
+        }
+      },
+      "sharedPackageCounts": {
+        "activator": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        },
+        "adhesive": {
+          "classification": "EXACT",
+          "engine": "2",
+          "excel": "2"
+        }
+      },
+      "positionComparisons": [
+        {
+          "slot": 1,
+          "X5": {
+            "classification": "UNVERIFIED",
+            "engine": "368/1303",
+            "excel": "0.28242517267843437"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "125/82",
+            "excel": "1.524390243902439"
+          }
+        },
+        {
+          "slot": 2,
+          "X5": {
+            "classification": "UNVERIFIED",
+            "engine": "189/1303",
+            "excel": "0.14504988488104373"
+          },
+          "adhesiveO5": {
+            "classification": "UNVERIFIED",
+            "engine": "125/82",
+            "excel": "1.524390243902439"
+          }
+        }
+      ]
+    }
+  ]
+}

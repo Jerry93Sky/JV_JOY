@@ -1,0 +1,518 @@
+{
+    "schemaVersion":  1,
+    "capture":  "EXCEL_COM_VALUE2",
+    "comparisonClassification":  "UNVERIFIED until engine comparisons are generated",
+    "sourceCopiesOnly":  true,
+    "cases":  [
+                  {
+                      "scenarioId":  "line_single_qty1",
+                      "profile":  "COMPLETATION",
+                      "sourceWorkbook":  "JV-комплектация 08.10.2026.xlsm",
+                      "sourceSha256":  "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+                      "excelVersion":  "16.0",
+                      "calculationMode":  "CalculateFullRebuild",
+                      "selectors":  {
+                                        "finishIndex":  1,
+                                        "glassIndex":  9,
+                                        "commercialModeIndex":  1,
+                                        "assembly":  false,
+                                        "milling":  true,
+                                        "installation":  null
+                                    },
+                      "inputs":  [
+                                     {
+                                         "quantity":  1,
+                                         "family":  "LINE",
+                                         "width":  3200,
+                                         "height":  2300,
+                                         "slot":  1
+                                     }
+                                 ],
+                      "positions":  [
+                                        {
+                                            "slot":  1,
+                                            "mainRow":  11,
+                                            "widthMm":  3200,
+                                            "heightMm":  2300,
+                                            "quantity":  1,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  1,
+                                                          "Q52":  135182.39225198081,
+                                                          "Q53":  0,
+                                                          "Q54":  0,
+                                                          "Q55":  600,
+                                                          "Q56":  135782.39225198081,
+                                                          "Q57":  0,
+                                                          "Q58":  135782.39225198081
+                                                      }
+                                        }
+                                    ],
+                      "orderTotals":  {
+                                          "Q52":  135182.39225198081,
+                                          "Q53":  0,
+                                          "Q54":  0,
+                                          "Q55":  600,
+                                          "Q56":  135782.39225198081,
+                                          "Q57":  0,
+                                          "Q58":  135782.39225198081
+                                      },
+                      "allocation":  [
+                                         {
+                                             "row":  25,
+                                             "AA":  7.36,
+                                             "W":  1,
+                                             "AB":  1,
+                                             "AAFormula":  "=IFERROR(U25*V25*W25/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA25/($AA$32*W25),0)"
+                                         }
+                                     ],
+                      "glue":  {
+                                   "N12":  1,
+                                   "O5":  2.808988764044944,
+                                   "N25":  1,
+                                   "O18":  2.808988764044944,
+                                   "N12Formula":  "=IF(  ROUNDUP(SUM(N5:N11),0)\u003e1,  ROUNDUP(SUM(N5:N11),0),  1)",
+                                   "N25Formula":  "=IF(  ROUNDUP(SUM(N18:N24),0)\u003e1,  ROUNDUP(SUM(N18:N24),0),  1)",
+                                   "O5Formula":  "=N12/SUM(N5:N11)",
+                                   "O18Formula":  "=N25/SUM(N18:N24)"
+                               }
+                  },
+                  {
+                      "scenarioId":  "line_single_qty3",
+                      "profile":  "COMPLETATION",
+                      "sourceWorkbook":  "JV-комплектация 08.10.2026.xlsm",
+                      "sourceSha256":  "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+                      "excelVersion":  "16.0",
+                      "calculationMode":  "CalculateFullRebuild",
+                      "selectors":  {
+                                        "finishIndex":  1,
+                                        "glassIndex":  9,
+                                        "commercialModeIndex":  1,
+                                        "assembly":  false,
+                                        "milling":  true,
+                                        "installation":  null
+                                    },
+                      "inputs":  [
+                                     {
+                                         "quantity":  3,
+                                         "family":  "LINE",
+                                         "width":  3200,
+                                         "height":  2300,
+                                         "slot":  1
+                                     }
+                                 ],
+                      "positions":  [
+                                        {
+                                            "slot":  1,
+                                            "mainRow":  11,
+                                            "widthMm":  3200,
+                                            "heightMm":  2300,
+                                            "quantity":  3,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  0.33333333333333331,
+                                                          "Q52":  133439.72558531415,
+                                                          "Q53":  0,
+                                                          "Q54":  0,
+                                                          "Q55":  600,
+                                                          "Q56":  134039.72558531415,
+                                                          "Q57":  0,
+                                                          "Q58":  134039.72558531415
+                                                      }
+                                        }
+                                    ],
+                      "orderTotals":  {
+                                          "Q52":  400319.17675594246,
+                                          "Q53":  0,
+                                          "Q54":  0,
+                                          "Q55":  1800,
+                                          "Q56":  402119.17675594246,
+                                          "Q57":  0,
+                                          "Q58":  402119.17675594246
+                                      },
+                      "allocation":  [
+                                         {
+                                             "row":  25,
+                                             "AA":  22.08,
+                                             "W":  3,
+                                             "AB":  0.33333333333333331,
+                                             "AAFormula":  "=IFERROR(U25*V25*W25/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA25/($AA$32*W25),0)"
+                                         }
+                                     ],
+                      "glue":  {
+                                   "N12":  2,
+                                   "O5":  1.8726591760299625,
+                                   "N25":  2,
+                                   "O18":  1.8726591760299625,
+                                   "N12Formula":  "=IF(  ROUNDUP(SUM(N5:N11),0)\u003e1,  ROUNDUP(SUM(N5:N11),0),  1)",
+                                   "N25Formula":  "=IF(  ROUNDUP(SUM(N18:N24),0)\u003e1,  ROUNDUP(SUM(N18:N24),0),  1)",
+                                   "O5Formula":  "=N12/SUM(N5:N11)",
+                                   "O18Formula":  "=N25/SUM(N18:N24)"
+                               }
+                  },
+                  {
+                      "scenarioId":  "line_two_slots_mixed_area",
+                      "profile":  "COMPLETATION",
+                      "sourceWorkbook":  "JV-комплектация 08.10.2026.xlsm",
+                      "sourceSha256":  "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+                      "excelVersion":  "16.0",
+                      "calculationMode":  "CalculateFullRebuild",
+                      "selectors":  {
+                                        "finishIndex":  1,
+                                        "glassIndex":  9,
+                                        "commercialModeIndex":  1,
+                                        "assembly":  false,
+                                        "milling":  true,
+                                        "installation":  null
+                                    },
+                      "inputs":  [
+                                     {
+                                         "quantity":  2,
+                                         "family":  "LINE",
+                                         "width":  3200,
+                                         "height":  2300,
+                                         "slot":  1
+                                     },
+                                     {
+                                         "quantity":  3,
+                                         "family":  "LINE",
+                                         "width":  1800,
+                                         "height":  2100,
+                                         "slot":  2
+                                     }
+                                 ],
+                      "positions":  [
+                                        {
+                                            "slot":  1,
+                                            "mainRow":  11,
+                                            "widthMm":  3200,
+                                            "heightMm":  2300,
+                                            "quantity":  2,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  0.28242517267843437,
+                                                          "Q52":  132791.53859344422,
+                                                          "Q53":  0,
+                                                          "Q54":  0,
+                                                          "Q55":  600,
+                                                          "Q56":  133391.53859344422,
+                                                          "Q57":  0,
+                                                          "Q58":  133391.53859344422
+                                                      }
+                                        },
+                                        {
+                                            "slot":  2,
+                                            "mainRow":  12,
+                                            "widthMm":  1800,
+                                            "heightMm":  2100,
+                                            "quantity":  3,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  0.14504988488104373,
+                                                          "Q52":  109804.78584604117,
+                                                          "Q53":  0,
+                                                          "Q54":  0,
+                                                          "Q55":  600,
+                                                          "Q56":  110404.78584604117,
+                                                          "Q57":  0,
+                                                          "Q58":  110404.78584604117
+                                                      }
+                                        }
+                                    ],
+                      "orderTotals":  {
+                                          "Q52":  594997.43472501193,
+                                          "Q53":  0,
+                                          "Q54":  0,
+                                          "Q55":  3000,
+                                          "Q56":  597997.43472501193,
+                                          "Q57":  0,
+                                          "Q58":  597997.43472501193
+                                      },
+                      "allocation":  [
+                                         {
+                                             "row":  25,
+                                             "AA":  14.72,
+                                             "W":  2,
+                                             "AB":  0.28242517267843437,
+                                             "AAFormula":  "=IFERROR(U25*V25*W25/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA25/($AA$32*W25),0)"
+                                         },
+                                         {
+                                             "row":  26,
+                                             "AA":  11.34,
+                                             "W":  3,
+                                             "AB":  0.14504988488104373,
+                                             "AAFormula":  "=IFERROR(U26*V26*W26/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA26/($AA$32*W26),0)"
+                                         }
+                                     ],
+                      "glue":  {
+                                   "N12":  2,
+                                   "O5":  1.524390243902439,
+                                   "N25":  2,
+                                   "O18":  1.524390243902439,
+                                   "N12Formula":  "=IF(  ROUNDUP(SUM(N5:N11),0)\u003e1,  ROUNDUP(SUM(N5:N11),0),  1)",
+                                   "N25Formula":  "=IF(  ROUNDUP(SUM(N18:N24),0)\u003e1,  ROUNDUP(SUM(N18:N24),0),  1)",
+                                   "O5Formula":  "=N12/SUM(N5:N11)",
+                                   "O18Formula":  "=N25/SUM(N18:N24)"
+                               }
+                  },
+                  {
+                      "scenarioId":  "line_single_qty1",
+                      "profile":  "RETAIL",
+                      "sourceWorkbook":  "JV-розница 08.10.2026.xlsm",
+                      "sourceSha256":  "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+                      "excelVersion":  "16.0",
+                      "calculationMode":  "CalculateFullRebuild",
+                      "selectors":  {
+                                        "finishIndex":  2,
+                                        "glassIndex":  9,
+                                        "commercialModeIndex":  3,
+                                        "assembly":  true,
+                                        "milling":  true,
+                                        "installation":  true
+                                    },
+                      "inputs":  [
+                                     {
+                                         "quantity":  1,
+                                         "family":  "LINE",
+                                         "width":  3200,
+                                         "height":  2300,
+                                         "slot":  1
+                                     }
+                                 ],
+                      "positions":  [
+                                        {
+                                            "slot":  1,
+                                            "mainRow":  11,
+                                            "widthMm":  3200,
+                                            "heightMm":  2300,
+                                            "quantity":  1,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  1,
+                                                          "Q52":  33757.76151212681,
+                                                          "Q53":  9500,
+                                                          "Q54":  32085.30818752,
+                                                          "Q55":  5400,
+                                                          "Q56":  80743.069699646818,
+                                                          "Q57":  16700,
+                                                          "Q58":  97443.069699646818
+                                                      }
+                                        }
+                                    ],
+                      "orderTotals":  {
+                                          "Q52":  33757.76151212681,
+                                          "Q53":  9500,
+                                          "Q54":  32085.30818752,
+                                          "Q55":  5400,
+                                          "Q56":  80743.069699646818,
+                                          "Q57":  16700,
+                                          "Q58":  97443.069699646818
+                                      },
+                      "allocation":  [
+                                         {
+                                             "row":  25,
+                                             "AA":  7.36,
+                                             "W":  1,
+                                             "AB":  1,
+                                             "AAFormula":  "=IFERROR(U25*V25*W25/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA25/($AA$32*W25),0)"
+                                         }
+                                     ],
+                      "glue":  {
+                                   "N12":  1,
+                                   "O5":  2.808988764044944,
+                                   "N25":  1,
+                                   "O18":  2.808988764044944,
+                                   "N12Formula":  "=IF(  ROUNDUP(SUM(N5:N11),0)\u003e1,  ROUNDUP(SUM(N5:N11),0),  1)",
+                                   "N25Formula":  "=IF(  ROUNDUP(SUM(N18:N24),0)\u003e1,  ROUNDUP(SUM(N18:N24),0),  1)",
+                                   "O5Formula":  "=N12/SUM(N5:N11)",
+                                   "O18Formula":  "=N25/SUM(N18:N24)"
+                               }
+                  },
+                  {
+                      "scenarioId":  "line_single_qty3",
+                      "profile":  "RETAIL",
+                      "sourceWorkbook":  "JV-розница 08.10.2026.xlsm",
+                      "sourceSha256":  "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+                      "excelVersion":  "16.0",
+                      "calculationMode":  "CalculateFullRebuild",
+                      "selectors":  {
+                                        "finishIndex":  2,
+                                        "glassIndex":  9,
+                                        "commercialModeIndex":  3,
+                                        "assembly":  true,
+                                        "milling":  true,
+                                        "installation":  true
+                                    },
+                      "inputs":  [
+                                     {
+                                         "quantity":  3,
+                                         "family":  "LINE",
+                                         "width":  3200,
+                                         "height":  2300,
+                                         "slot":  1
+                                     }
+                                 ],
+                      "positions":  [
+                                        {
+                                            "slot":  1,
+                                            "mainRow":  11,
+                                            "widthMm":  3200,
+                                            "heightMm":  2300,
+                                            "quantity":  3,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  0.33333333333333331,
+                                                          "Q52":  32886.428178793474,
+                                                          "Q53":  4078.0733333333328,
+                                                          "Q54":  29085.30818752,
+                                                          "Q55":  5400,
+                                                          "Q56":  71449.809699646808,
+                                                          "Q57":  16700,
+                                                          "Q58":  88149.809699646808
+                                                      }
+                                        }
+                                    ],
+                      "orderTotals":  {
+                                          "Q52":  98659.284536380423,
+                                          "Q53":  12234.219999999998,
+                                          "Q54":  87255.92456256,
+                                          "Q55":  16200,
+                                          "Q56":  214349.42909894043,
+                                          "Q57":  50100,
+                                          "Q58":  264449.42909894045
+                                      },
+                      "allocation":  [
+                                         {
+                                             "row":  25,
+                                             "AA":  22.08,
+                                             "W":  3,
+                                             "AB":  0.33333333333333331,
+                                             "AAFormula":  "=IFERROR(U25*V25*W25/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA25/($AA$32*W25),0)"
+                                         }
+                                     ],
+                      "glue":  {
+                                   "N12":  2,
+                                   "O5":  1.8726591760299625,
+                                   "N25":  2,
+                                   "O18":  1.8726591760299625,
+                                   "N12Formula":  "=IF(  ROUNDUP(SUM(N5:N11),0)\u003e1,  ROUNDUP(SUM(N5:N11),0),  1)",
+                                   "N25Formula":  "=IF(  ROUNDUP(SUM(N18:N24),0)\u003e1,  ROUNDUP(SUM(N18:N24),0),  1)",
+                                   "O5Formula":  "=N12/SUM(N5:N11)",
+                                   "O18Formula":  "=N25/SUM(N18:N24)"
+                               }
+                  },
+                  {
+                      "scenarioId":  "line_two_slots_mixed_area",
+                      "profile":  "RETAIL",
+                      "sourceWorkbook":  "JV-розница 08.10.2026.xlsm",
+                      "sourceSha256":  "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+                      "excelVersion":  "16.0",
+                      "calculationMode":  "CalculateFullRebuild",
+                      "selectors":  {
+                                        "finishIndex":  2,
+                                        "glassIndex":  9,
+                                        "commercialModeIndex":  3,
+                                        "assembly":  true,
+                                        "milling":  true,
+                                        "installation":  true
+                                    },
+                      "inputs":  [
+                                     {
+                                         "quantity":  2,
+                                         "family":  "LINE",
+                                         "width":  3200,
+                                         "height":  2300,
+                                         "slot":  1
+                                     },
+                                     {
+                                         "quantity":  3,
+                                         "family":  "LINE",
+                                         "width":  1800,
+                                         "height":  2100,
+                                         "slot":  2
+                                     }
+                                 ],
+                      "positions":  [
+                                        {
+                                            "slot":  1,
+                                            "mainRow":  11,
+                                            "widthMm":  3200,
+                                            "heightMm":  2300,
+                                            "quantity":  2,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  0.28242517267843437,
+                                                          "Q52":  32562.334682858516,
+                                                          "Q53":  3874.4406907137372,
+                                                          "Q54":  28856.221464572955,
+                                                          "Q55":  5400,
+                                                          "Q56":  70692.9968381452,
+                                                          "Q57":  16700,
+                                                          "Q58":  87392.9968381452
+                                                      }
+                                        },
+                                        {
+                                            "slot":  2,
+                                            "mainRow":  12,
+                                            "widthMm":  1800,
+                                            "heightMm":  2100,
+                                            "quantity":  3,
+                                            "family":  "LINE",
+                                            "cells":  {
+                                                          "X5":  0.14504988488104373,
+                                                          "Q52":  26809.244644227492,
+                                                          "Q53":  2280.1395395241748,
+                                                          "Q54":  14482.564371884697,
+                                                          "Q55":  3300,
+                                                          "Q56":  46871.948555636365,
+                                                          "Q57":  10200,
+                                                          "Q58":  57071.948555636365
+                                                      }
+                                        }
+                                    ],
+                      "orderTotals":  {
+                                          "Q52":  145552.4032983995,
+                                          "Q53":  14589.3,
+                                          "Q54":  101160.13604479999,
+                                          "Q55":  20700,
+                                          "Q56":  282001.83934319951,
+                                          "Q57":  64000,
+                                          "Q58":  346001.83934319951
+                                      },
+                      "allocation":  [
+                                         {
+                                             "row":  25,
+                                             "AA":  14.72,
+                                             "W":  2,
+                                             "AB":  0.28242517267843437,
+                                             "AAFormula":  "=IFERROR(U25*V25*W25/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA25/($AA$32*W25),0)"
+                                         },
+                                         {
+                                             "row":  26,
+                                             "AA":  11.34,
+                                             "W":  3,
+                                             "AB":  0.14504988488104373,
+                                             "AAFormula":  "=IFERROR(U26*V26*W26/1000000,0)",
+                                             "ABFormula":  "=IFERROR(AA26/($AA$32*W26),0)"
+                                         }
+                                     ],
+                      "glue":  {
+                                   "N12":  2,
+                                   "O5":  1.524390243902439,
+                                   "N25":  2,
+                                   "O18":  1.524390243902439,
+                                   "N12Formula":  "=IF(  ROUNDUP(SUM(N5:N11),0)\u003e1,  ROUNDUP(SUM(N5:N11),0),  1)",
+                                   "N25Formula":  "=IF(  ROUNDUP(SUM(N18:N24),0)\u003e1,  ROUNDUP(SUM(N18:N24),0),  1)",
+                                   "O5Formula":  "=N12/SUM(N5:N11)",
+                                   "O18Formula":  "=N25/SUM(N18:N24)"
+                               }
+                  }
+              ]
+}
