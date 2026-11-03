@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "capturedFrom": "EXCEL_COM_VALUE2_AFTER_CALCULATEFULLREBUILD",
+  "sources": [
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "workbookSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "currency": "RUB",
+      "entries": [
+        { "sourceCell": "'Прайс-Line'!G5", "row": 5, "value": "325" },
+        { "sourceCell": "'Прайс-Line'!G6", "row": 6, "value": "225" },
+        { "sourceCell": "'Прайс-Line'!G7", "row": 7, "value": "287.5" },
+        { "sourceCell": "'Прайс-Line'!G8", "row": 8, "value": "106.25" },
+        { "sourceCell": "'Прайс-Line'!G9", "row": 9, "value": "50" },
+        { "sourceCell": "'Прайс-Line'!G10", "row": 10, "value": "50" },
+        { "sourceCell": "'Прайс-Line'!G11", "row": 11, "value": "0" },
+        { "sourceCell": "'Прайс-Line'!G12", "row": 12, "value": "0" },
+        { "sourceCell": "'Прайс-Line'!G39", "row": 39, "value": "50" },
+        { "sourceCell": "'Прайс-Line'!G40", "row": 40, "value": "50" }
+      ],
+      "settings": { "L9": "1", "L10": "5500", "L11": "1.15" },
+      "transportPrice": "5000"
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "currency": "RUB",
+      "entries": [
+        { "sourceCell": "'Прайс-Line'!G5", "row": 5, "value": "260" },
+        { "sourceCell": "'Прайс-Line'!G6", "row": 6, "value": "180" },
+        { "sourceCell": "'Прайс-Line'!G7", "row": 7, "value": "230" },
+        { "sourceCell": "'Прайс-Line'!G8", "row": 8, "value": "85" },
+        { "sourceCell": "'Прайс-Line'!G9", "row": 9, "value": "40" },
+        { "sourceCell": "'Прайс-Line'!G10", "row": 10, "value": "40" },
+        { "sourceCell": "'Прайс-Line'!G11", "row": 11, "value": "0" },
+        { "sourceCell": "'Прайс-Line'!G12", "row": 12, "value": "0" },
+        { "sourceCell": "'Прайс-Line'!G39", "row": 39, "value": "40" },
+        { "sourceCell": "'Прайс-Line'!G40", "row": 40, "value": "40" }
+      ],
+      "settings": { "L9": "1", "L10": "5500", "L11": "1.15" },
+      "transportPrice": "4000"
+    }
+  ]
+}

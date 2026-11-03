@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0",
+  "sourceWorkbooks": [
+    "JV-комплектация 08.10.2026.xlsm",
+    "JV-розница 08.10.2026.xlsm"
+  ],
+  "excelRecalculation": {
+    "excelVersion": "16.0",
+    "method": "CalculateFullRebuild on temporary workbook copies; macros and events disabled",
+    "scenariosPerWorkbook": 10,
+    "totalScenarios": 20,
+    "geometryAndBomFullMatchScenarios": 20,
+    "originalWorkbooksModified": false
+  },
+  "baseBom": {
+    "rows": 40,
+    "implemented": 40,
+    "unsupported": 0,
+    "quantityComparisons": 800,
+    "quantityClassification": {
+      "EXACT": 724,
+      "DISPLAY_MATCH": 76,
+      "MISMATCH": 0,
+      "UNVERIFIED": 0
+    },
+    "lineAmountComparisons": 800,
+    "lineAmountClassification": {
+      "EXACT": 493,
+      "DISPLAY_MATCH": 307,
+      "MISMATCH": 0,
+      "UNVERIFIED": 0
+    }
+  },
+  "additionalBom": {
+    "positions": 6,
+    "supportedQuantityRules": 6,
+    "quantityComparisons": 120,
+    "quantityClassification": {
+      "EXACT": 60,
+      "DISPLAY_MATCH": 60,
+      "MISMATCH": 0,
+      "UNVERIFIED": 0
+    }
+  },
+  "commercialRules": {
+    "Q52": "Supported subtotal only; parity is DISPLAY_MATCH for all 20 scenarios. Adhesive factors O5/O18 in parity cases are captured from Excel, not independently derived by the public adapter.",
+    "Q53": "Not implemented end-to-end; paint V13:V18 has not been recalculated by the engine.",
+    "Q54": "Not implemented end-to-end; glass input/catalog/formula chain remains incomplete.",
+    "Q55": "Implemented and exact for the 20 listed scenarios.",
+    "Q56": "Not implemented; Главная!F28 and Прайс-сб+монт!C25 branch unresolved in the public adapter.",
+    "Q57": "Implemented and exact for the 20 listed scenarios.",
+    "Q58": "Not implemented as final price / error guard."
+  },
+  "commercialCompleteness": {
+    "fullConfigurations": 0,
+    "partialConfigurations": 20,
+    "finalPriceAvailable": false,
+    "status": "PARTIAL"
+  },
+  "reports": [
+    "LINE_BOM_COVERAGE.json",
+    "LINE_BOM_PRICE_PARITY.json",
+    "LINE_ADDITIONAL_BOM_PARITY.json",
+    "LINE_SASH_PROFILE_PARITY.json",
+    "LINE_FINAL_PRICE_PARITY.json"
+  ]
+}

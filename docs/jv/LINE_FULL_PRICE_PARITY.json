@@ -1,0 +1,2286 @@
+{
+  "schemaVersion": "2.0",
+  "method": "Excel 16 CalculateFullRebuild on temporary workbook copies; macro execution forced off; events disabled; original XLSM files were not modified.",
+  "scope": "20 independent raw-input single-slot cases (10 per workbook/profile) plus two commercialModeIndex=2 branch cases from prior verified Excel rebuilds. The engine receives source selector Главная!L11 and independently evaluates CEILING(L11,1) -> Главная!M11 -> L1!D5.",
+  "classification": "EXACT means engine exact decimal equals Excel COM Value2 decimal text. DISPLAY_MATCH means exact binary/decimal values differ but formatted two-decimal display agrees. No numeric equivalence tolerance is used. Mode-2 legacy records are not independently reclassified where prior engine values were not persisted.",
+  "counts": {
+    "cases": 22,
+    "byProfile": {
+      "COMPLETATION": 11,
+      "RETAIL": 11
+    },
+    "comparisons": 154,
+    "exact": 85,
+    "displayMatch": 69,
+    "mismatch": 0,
+    "unverified": 0
+  },
+  "cases": [
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_single_no_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 1,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 1,
+        "glassIndex": 1,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "147636.1118736636",
+          "excelDisplayed": "147 636,11",
+          "engineDisplayed": "147636.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "600",
+          "excelValue2": "600",
+          "excelDisplayed": "600,00",
+          "engineDisplayed": "600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "148236.1118736636",
+          "excelDisplayed": "148 236,11",
+          "engineDisplayed": "148236.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "148236.1118736636",
+          "excelDisplayed": "148 236,11",
+          "engineDisplayed": "148236.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_single_with_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 4,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 4,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "159426.01881060898",
+          "excelDisplayed": "159 426,02",
+          "engineDisplayed": "159426.02",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "10500",
+          "excelValue2": "10500",
+          "excelDisplayed": "10 500,00",
+          "engineDisplayed": "10500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "1000",
+          "excelValue2": "1000",
+          "excelDisplayed": "1 000,00",
+          "engineDisplayed": "1000.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "170926.01881060898",
+          "excelDisplayed": "170 926,02",
+          "engineDisplayed": "170926.02",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "170926.01881060898",
+          "excelDisplayed": "170 926,02",
+          "engineDisplayed": "170926.02",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_double_with_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "2",
+        "direction": "ДВУХСТОР",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 7,
+        "finishSelectionIndex": 3,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 3,
+        "glassIndex": 7,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "186425.42114492465",
+          "excelDisplayed": "186 425,42",
+          "engineDisplayed": "186425.42",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "10500",
+          "excelValue2": "10500",
+          "excelDisplayed": "10 500,00",
+          "engineDisplayed": "10500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "1200",
+          "excelValue2": "1200",
+          "excelDisplayed": "1 200,00",
+          "engineDisplayed": "1200.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "198125.42114492465",
+          "excelDisplayed": "198 125,42",
+          "engineDisplayed": "198125.42",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "198125.42114492465",
+          "excelDisplayed": "198 125,42",
+          "engineDisplayed": "198125.42",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000.75",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "4.5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 10,
+        "finishSelectionIndex": 4,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 4,
+        "glassIndex": 10,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "159434.28789151262",
+          "excelDisplayed": "159 434,29",
+          "engineDisplayed": "159434.29",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "10500",
+          "excelValue2": "10500",
+          "excelDisplayed": "10 500,00",
+          "engineDisplayed": "10500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "1000",
+          "excelValue2": "1000",
+          "excelDisplayed": "1 000,00",
+          "engineDisplayed": "1000.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "170934.28789151262",
+          "excelDisplayed": "170 934,29",
+          "engineDisplayed": "170934.29",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "170934.28789151262",
+          "excelDisplayed": "170 934,29",
+          "engineDisplayed": "170934.29",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_special_sash_width",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "5000",
+        "heightMm": "2500",
+        "leaves": "4",
+        "mainLeavesSelector": "4",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": true,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 1,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 1,
+        "glassIndex": 1,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "153575.61232729547",
+          "excelDisplayed": "153 575,61",
+          "engineDisplayed": "153575.61",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "600",
+          "excelValue2": "600",
+          "excelDisplayed": "600,00",
+          "engineDisplayed": "600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "154175.61232729547",
+          "excelDisplayed": "154 175,61",
+          "engineDisplayed": "154175.61",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "154175.61232729547",
+          "excelDisplayed": "154 175,61",
+          "engineDisplayed": "154175.61",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_services_enabled",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 4,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 4,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "147636.1118736636",
+          "excelDisplayed": "147 636,11",
+          "engineDisplayed": "147636.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "10500",
+          "excelValue2": "10500",
+          "excelDisplayed": "10 500,00",
+          "engineDisplayed": "10500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "6600",
+          "excelValue2": "6600",
+          "excelDisplayed": "6 600,00",
+          "engineDisplayed": "6600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "164736.1118736636",
+          "excelDisplayed": "164 736,11",
+          "engineDisplayed": "164736.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "20500",
+          "excelValue2": "20500",
+          "excelDisplayed": "20 500,00",
+          "engineDisplayed": "20500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "185236.1118736636",
+          "excelDisplayed": "185 236,11",
+          "engineDisplayed": "185236.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_three_leaves_small",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "3000",
+        "heightMm": "2100",
+        "leaves": "3",
+        "mainLeavesSelector": "3",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "800",
+        "rollerAxisToEdgeMm": "40",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 7,
+        "finishSelectionIndex": 3,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 3,
+        "glassIndex": 7,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "111616.2620520199",
+          "excelDisplayed": "111 616,26",
+          "engineDisplayed": "111616.26",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "10500",
+          "excelValue2": "10500",
+          "excelDisplayed": "10 500,00",
+          "engineDisplayed": "10500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "600",
+          "excelValue2": "600",
+          "excelDisplayed": "600,00",
+          "engineDisplayed": "600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "122716.2620520199",
+          "excelDisplayed": "122 716,26",
+          "engineDisplayed": "122716.26",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "122716.2620520199",
+          "excelDisplayed": "122 716,26",
+          "engineDisplayed": "122716.26",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_six_leaves_double",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "6000",
+        "heightMm": "2800",
+        "leaves": "6",
+        "mainLeavesSelector": "6",
+        "sideCount": "2",
+        "direction": "ДВУХСТОР",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "1000",
+        "rollerAxisToEdgeMm": "60",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 10,
+        "finishSelectionIndex": 4,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 4,
+        "glassIndex": 10,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "208430.74686518728",
+          "excelDisplayed": "208 430,75",
+          "engineDisplayed": "208430.75",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "12262.034375",
+          "excelValue2": "12262.034375",
+          "excelDisplayed": "12 262,03",
+          "engineDisplayed": "12262.03",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "800",
+          "excelValue2": "800",
+          "excelDisplayed": "800,00",
+          "engineDisplayed": "800.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "221492.78124018727",
+          "excelDisplayed": "221 492,78",
+          "engineDisplayed": "221492.78",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "221492.78124018727",
+          "excelDisplayed": "221 492,78",
+          "engineDisplayed": "221492.78",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_alternate_opening_with_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4800",
+        "heightMm": "2400",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАПРАВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "3",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 1,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 1,
+        "glassIndex": 1,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "175109.23314331105",
+          "excelDisplayed": "175 109,23",
+          "engineDisplayed": "175109.23",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "1400",
+          "excelValue2": "1400",
+          "excelDisplayed": "1 400,00",
+          "engineDisplayed": "1400.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "176509.23314331105",
+          "excelDisplayed": "176 509,23",
+          "engineDisplayed": "176509.23",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "176509.23314331105",
+          "excelDisplayed": "176 509,23",
+          "engineDisplayed": "176509.23",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_special_sash_and_services",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "5200",
+        "heightMm": "2600",
+        "leaves": "4",
+        "mainLeavesSelector": "4",
+        "sideCount": "2",
+        "direction": "ДВУХСТОР",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": true,
+        "specialSashWidthMm": "1100",
+        "rollerAxisToEdgeMm": "55",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 4,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 1,
+        "assemblyEnabled": true,
+        "millingEnabled": false,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 4,
+        "commercialModeIndex": 1
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "217723.74124632298",
+          "excelDisplayed": "217 723,74",
+          "engineDisplayed": "217723.74",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "12430.7625",
+          "excelValue2": "12430.7625",
+          "excelDisplayed": "12 430,76",
+          "engineDisplayed": "12430.76",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "7800",
+          "excelValue2": "7800",
+          "excelDisplayed": "7 800,00",
+          "engineDisplayed": "7800.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "237954.503746323",
+          "excelDisplayed": "237 954,50",
+          "engineDisplayed": "237954.50",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "32480",
+          "excelValue2": "32480",
+          "excelDisplayed": "32 480,00",
+          "engineDisplayed": "32480.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "270434.503746323",
+          "excelDisplayed": "270 434,50",
+          "engineDisplayed": "270434.50",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_single_no_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 1,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 1,
+        "glassIndex": 1,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "36696.83934284396",
+          "excelDisplayed": "36 696,84",
+          "engineDisplayed": "36696.84",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "29950.2976896",
+          "excelValue2": "29950.2976896",
+          "excelDisplayed": "29 950,30",
+          "engineDisplayed": "29950.30",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "6600",
+          "excelValue2": "6600",
+          "excelDisplayed": "6 600,00",
+          "engineDisplayed": "6600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "73247.13703244396",
+          "excelDisplayed": "73 247,14",
+          "engineDisplayed": "73247.14",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "20500",
+          "excelValue2": "20500",
+          "excelDisplayed": "20 500,00",
+          "engineDisplayed": "20500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "93747.13703244396",
+          "excelDisplayed": "93 747,14",
+          "engineDisplayed": "93747.14",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_single_with_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 4,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 4,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "39479.25737996306",
+          "excelDisplayed": "39 479,26",
+          "engineDisplayed": "39479.26",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9500",
+          "excelValue2": "9500",
+          "excelDisplayed": "9 500,00",
+          "engineDisplayed": "9500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "46173.5036928",
+          "excelValue2": "46173.5036928",
+          "excelDisplayed": "46 173,50",
+          "engineDisplayed": "46173.50",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "7000",
+          "excelValue2": "7000",
+          "excelDisplayed": "7 000,00",
+          "engineDisplayed": "7000.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "102152.76107276307",
+          "excelDisplayed": "102 152,76",
+          "engineDisplayed": "102152.76",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "25500",
+          "excelValue2": "25500",
+          "excelDisplayed": "25 500,00",
+          "engineDisplayed": "25500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "127652.76107276307",
+          "excelDisplayed": "127 652,76",
+          "engineDisplayed": "127652.76",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_double_with_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "2",
+        "direction": "ДВУХСТОР",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 7,
+        "finishSelectionIndex": 3,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 3,
+        "glassIndex": 7,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "46076.587100092336",
+          "excelDisplayed": "46 076,59",
+          "engineDisplayed": "46076.59",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9500",
+          "excelValue2": "9500",
+          "excelDisplayed": "9 500,00",
+          "engineDisplayed": "9500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "91604.6180928",
+          "excelValue2": "91604.6180928",
+          "excelDisplayed": "91 604,62",
+          "engineDisplayed": "91604.62",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "7200",
+          "excelValue2": "7200",
+          "excelDisplayed": "7 200,00",
+          "engineDisplayed": "7200.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "154381.20519289235",
+          "excelDisplayed": "154 381,21",
+          "engineDisplayed": "154381.21",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "27500",
+          "excelValue2": "27500",
+          "excelDisplayed": "27 500,00",
+          "engineDisplayed": "27500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "181881.20519289235",
+          "excelDisplayed": "181 881,21",
+          "engineDisplayed": "181881.21",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000.75",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "4.5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 10,
+        "finishSelectionIndex": 4,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 4,
+        "glassIndex": 10,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "39481.20888305632",
+          "excelDisplayed": "39 481,21",
+          "engineDisplayed": "39481.21",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9500",
+          "excelValue2": "9500",
+          "excelDisplayed": "9 500,00",
+          "engineDisplayed": "9500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "90934.73330688",
+          "excelValue2": "90934.73330688",
+          "excelDisplayed": "90 934,73",
+          "engineDisplayed": "90934.73",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "7001.125",
+          "excelValue2": "7001.125",
+          "excelDisplayed": "7 001,13",
+          "engineDisplayed": "7001.13",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "146917.06718993632",
+          "excelDisplayed": "146 917,07",
+          "engineDisplayed": "146917.07",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "25503.375",
+          "excelValue2": "25503.375",
+          "excelDisplayed": "25 503,38",
+          "engineDisplayed": "25503.38",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "172420.44218993632",
+          "excelDisplayed": "172 420,44",
+          "engineDisplayed": "172420.44",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_special_sash_width",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "5000",
+        "heightMm": "2500",
+        "leaves": "4",
+        "mainLeavesSelector": "4",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": true,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 1,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 1,
+        "glassIndex": 1,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "38057.05242132964",
+          "excelDisplayed": "38 057,05",
+          "engineDisplayed": "38057.05",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "36819.9520224",
+          "excelValue2": "36819.9520224",
+          "excelDisplayed": "36 819,95",
+          "engineDisplayed": "36819.95",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "8100",
+          "excelValue2": "8100",
+          "excelDisplayed": "8 100,00",
+          "engineDisplayed": "8100.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "82977.00444372965",
+          "excelDisplayed": "82 977,00",
+          "engineDisplayed": "82977.00",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "24500",
+          "excelValue2": "24500",
+          "excelDisplayed": "24 500,00",
+          "engineDisplayed": "24500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "107477.00444372965",
+          "excelDisplayed": "107 477,00",
+          "engineDisplayed": "107477.00",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_services_enabled",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 4,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 4,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "36696.83934284396",
+          "excelDisplayed": "36 696,84",
+          "engineDisplayed": "36696.84",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9500",
+          "excelValue2": "9500",
+          "excelDisplayed": "9 500,00",
+          "engineDisplayed": "9500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "43176.4366464",
+          "excelValue2": "43176.4366464",
+          "excelDisplayed": "43 176,44",
+          "engineDisplayed": "43176.44",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "6600",
+          "excelValue2": "6600",
+          "excelDisplayed": "6 600,00",
+          "engineDisplayed": "6600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "95973.27598924396",
+          "excelDisplayed": "95 973,28",
+          "engineDisplayed": "95973.28",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "20500",
+          "excelValue2": "20500",
+          "excelDisplayed": "20 500,00",
+          "engineDisplayed": "20500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "116473.27598924396",
+          "excelDisplayed": "116 473,28",
+          "engineDisplayed": "116473.28",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_three_leaves_small",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "3000",
+        "heightMm": "2100",
+        "leaves": "3",
+        "mainLeavesSelector": "3",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "800",
+        "rollerAxisToEdgeMm": "40",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 7,
+        "finishSelectionIndex": 3,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 3,
+        "glassIndex": 7,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "28113.13672779317",
+          "excelDisplayed": "28 113,14",
+          "engineDisplayed": "28113.14",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9500",
+          "excelValue2": "9500",
+          "excelDisplayed": "9 500,00",
+          "engineDisplayed": "9500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "47003.0037696",
+          "excelValue2": "47003.0037696",
+          "excelDisplayed": "47 003,00",
+          "engineDisplayed": "47003.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "5100",
+          "excelValue2": "5100",
+          "excelDisplayed": "5 100,00",
+          "engineDisplayed": "5100.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "89716.14049739318",
+          "excelDisplayed": "89 716,14",
+          "engineDisplayed": "89716.14",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "14760",
+          "excelValue2": "14760",
+          "excelDisplayed": "14 760,00",
+          "engineDisplayed": "14760.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "104476.14049739318",
+          "excelDisplayed": "104 476,14",
+          "engineDisplayed": "104476.14",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_six_leaves_double",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "6000",
+        "heightMm": "2800",
+        "leaves": "6",
+        "mainLeavesSelector": "6",
+        "sideCount": "2",
+        "direction": "ДВУХСТОР",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "1000",
+        "rollerAxisToEdgeMm": "60",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 10,
+        "finishSelectionIndex": 4,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 4,
+        "glassIndex": 10,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "51311.352998645736",
+          "excelDisplayed": "51 311,35",
+          "engineDisplayed": "51311.35",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9809.6275",
+          "excelValue2": "9809.627499999999",
+          "excelDisplayed": "9 809,63",
+          "engineDisplayed": "9809.63",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "147838.33646496",
+          "excelValue2": "147838.33646495998",
+          "excelDisplayed": "147 838,34",
+          "engineDisplayed": "147838.34",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "9800",
+          "excelValue2": "9800",
+          "excelDisplayed": "9 800,00",
+          "engineDisplayed": "9800.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "218759.3169636057",
+          "excelDisplayed": "218 759,32",
+          "engineDisplayed": "218759.32",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "32360",
+          "excelValue2": "32360",
+          "excelDisplayed": "32 360,00",
+          "engineDisplayed": "32360.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "251119.3169636057",
+          "excelDisplayed": "251 119,32",
+          "engineDisplayed": "251119.32",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_alternate_opening_with_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4800",
+        "heightMm": "2400",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАПРАВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "3",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 1,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 1,
+        "glassIndex": 1,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "43180.49596248077",
+          "excelDisplayed": "43 180,50",
+          "engineDisplayed": "43180.50",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "36101.3827712",
+          "excelValue2": "36101.382771200006",
+          "excelDisplayed": "36 101,38",
+          "engineDisplayed": "36101.38",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "8600",
+          "excelValue2": "8600",
+          "excelDisplayed": "8 600,00",
+          "engineDisplayed": "8600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "87881.87873368077",
+          "excelDisplayed": "87 881,88",
+          "engineDisplayed": "87881.88",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "29000",
+          "excelValue2": "29000",
+          "excelDisplayed": "29 000,00",
+          "engineDisplayed": "29000.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "116881.87873368077",
+          "excelDisplayed": "116 881,88",
+          "engineDisplayed": "116881.88",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_special_sash_and_services",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "5200",
+        "heightMm": "2600",
+        "leaves": "4",
+        "mainLeavesSelector": "4",
+        "sideCount": "2",
+        "direction": "ДВУХСТОР",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": true,
+        "specialSashWidthMm": "1100",
+        "rollerAxisToEdgeMm": "55",
+        "parkedDoorSelected": true,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 4,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 3,
+        "assemblyEnabled": true,
+        "millingEnabled": false,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 4,
+        "commercialModeIndex": 3
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "53421.48161545091",
+          "excelDisplayed": "53 421,48",
+          "engineDisplayed": "53421.48",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9944.61",
+          "excelValue2": "9944.61",
+          "excelDisplayed": "9 944,61",
+          "engineDisplayed": "9944.61",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "97103.3883632",
+          "excelValue2": "97103.3883632",
+          "excelDisplayed": "97 103,39",
+          "engineDisplayed": "97103.39",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "7800",
+          "excelValue2": "7800",
+          "excelDisplayed": "7 800,00",
+          "engineDisplayed": "7800.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "168269.47997865092",
+          "excelDisplayed": "168 269,48",
+          "engineDisplayed": "168269.48",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "32480",
+          "excelValue2": "32480",
+          "excelDisplayed": "32 480,00",
+          "engineDisplayed": "32480.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "200749.47997865092",
+          "excelDisplayed": "200 749,48",
+          "engineDisplayed": "200749.48",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_single_no_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 9,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 2,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 9,
+        "commercialModeIndex": 2
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "147636.111873664",
+          "excelDisplayed": "147 636,11",
+          "engineDisplayed": "147636.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "10500",
+          "excelValue2": "10500",
+          "excelDisplayed": "10 500,00",
+          "engineDisplayed": "10500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "600",
+          "excelValue2": "600",
+          "excelDisplayed": "600,00",
+          "engineDisplayed": "600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "168736.111873664",
+          "excelDisplayed": "168 736,11",
+          "engineDisplayed": "168736.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "0",
+          "excelValue2": "0",
+          "excelDisplayed": "0,00",
+          "engineDisplayed": "0.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "168736.111873664",
+          "excelDisplayed": "168 736,11",
+          "engineDisplayed": "168736.11",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_single_no_park",
+      "inputs": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 9,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 2,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 9,
+        "commercialModeIndex": 2
+      },
+      "comparisons": {
+        "Q52": {
+          "excelValue2": "36696.839342844",
+          "excelDisplayed": "36 696,84",
+          "engineDisplayed": "36696.84",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "engineExactDecimal": "9500",
+          "excelValue2": "9500",
+          "excelDisplayed": "9 500,00",
+          "engineDisplayed": "9500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "engineExactDecimal": "42354.81286272",
+          "excelValue2": "42354.81286272",
+          "excelDisplayed": "42 354,81",
+          "engineDisplayed": "42354.81",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "engineExactDecimal": "6600",
+          "excelValue2": "6600",
+          "excelDisplayed": "6 600,00",
+          "engineDisplayed": "6600.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "excelValue2": "103151.652205564",
+          "excelDisplayed": "103 151,65",
+          "engineDisplayed": "103151.65",
+          "status": "DISPLAY_MATCH",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "engineExactDecimal": "20500",
+          "excelValue2": "20500",
+          "excelDisplayed": "20 500,00",
+          "engineDisplayed": "20500.00",
+          "status": "EXACT",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "excelValue2": "123651.652205564",
+          "excelDisplayed": "123 651,65",
+          "engineDisplayed": "123651.65",
+          "status": "DISPLAY_MATCH",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    }
+  ]
+}

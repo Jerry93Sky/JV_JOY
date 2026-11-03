@@ -1,0 +1,1347 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBooks": [
+    {
+      "name": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0"
+    },
+    {
+      "name": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0"
+    }
+  ],
+  "method": "Excel Value2 and binary64 are captured after CalculateFullRebuild on temporary copies; engine remains exact rational. No tolerance is applied.",
+  "comparisons": [
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_single_no_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "145019.178091396",
+        "binary64": "4101B3D96CBB2E9D",
+        "numberFormat": "# ##0,00",
+        "displayedText": "145 019,18"
+      },
+      "engine": {
+        "value": "785278849364911932477011/5415000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "65787616573039",
+        "denominator": "5678039040000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_single_no_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "600",
+        "binary64": "4082C00000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "600,00"
+      },
+      "engine": {
+        "value": "600/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_single_no_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_single_with_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "156809.085028342",
+        "binary64": "41032448AE2356DC",
+        "numberFormat": "# ##0,00",
+        "displayedText": "156 809,09"
+      },
+      "engine": {
+        "value": "849121195428471390342611/5415000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "64471018339859",
+        "denominator": "1419509760000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_single_with_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "1000",
+        "binary64": "408F400000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "1 000,00"
+      },
+      "engine": {
+        "value": "1000/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_single_with_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_double_with_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "183808.487362658",
+        "binary64": "41067003E61E649B",
+        "numberFormat": "# ##0,00",
+        "displayedText": "183 808,49"
+      },
+      "engine": {
+        "value": "995322959068790679033211/5415000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "172141668491911",
+        "denominator": "5678039040000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_double_with_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "1200",
+        "binary64": "4092C00000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "1 200,00"
+      },
+      "engine": {
+        "value": "1200/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_double_with_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "156817.354109245",
+        "binary64": "4103248AD5373A65",
+        "numberFormat": "# ##0,00",
+        "displayedText": "156 817,35"
+      },
+      "engine": {
+        "value": "849165972501564610681411/5415000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "250813630986361",
+        "denominator": "5678039040000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "1000",
+        "binary64": "408F400000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "1 000,00"
+      },
+      "engine": {
+        "value": "1000/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_width",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "151418.682586144",
+        "binary64": "41027BD575EFB965",
+        "numberFormat": "# ##0,00",
+        "displayedText": "151 418,68"
+      },
+      "engine": {
+        "value": "85409600646246759637549/564062500000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "287108659107041",
+        "denominator": "9463398400000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_width",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "600",
+        "binary64": "4082C00000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "600,00"
+      },
+      "engine": {
+        "value": "600/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_width",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_services_enabled",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "145019.178091396",
+        "binary64": "4101B3D96CBB2E9D",
+        "numberFormat": "# ##0,00",
+        "displayedText": "145 019,18"
+      },
+      "engine": {
+        "value": "785278849364911932477011/5415000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "65787616573039",
+        "denominator": "5678039040000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_services_enabled",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "6600",
+        "binary64": "40B9C80000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "6 600,00"
+      },
+      "engine": {
+        "value": "6600/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_services_enabled",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "20500",
+        "binary64": "40D4050000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "20 500,00"
+      },
+      "engine": {
+        "value": "20500/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_three_leaves_small",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "108478.210585832",
+        "binary64": "40FA7BE35E8F3FD6",
+        "numberFormat": "# ##0,00",
+        "displayedText": "108 478,21"
+      },
+      "engine": {
+        "value": "1468523775805699557371623/13537500000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "1960327003660429",
+        "denominator": "28390195200000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_three_leaves_small",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "600",
+        "binary64": "4082C00000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "600,00"
+      },
+      "engine": {
+        "value": "600/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_three_leaves_small",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_six_leaves_double",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "208422.920517882",
+        "binary64": "410971375D387AB0",
+        "numberFormat": "# ##0,00",
+        "displayedText": "208 422,92"
+      },
+      "engine": {
+        "value": "3385830343812990645919399/16245000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "18094211814011",
+        "denominator": "1064632320000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_six_leaves_double",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "800",
+        "binary64": "4089000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "800,00"
+      },
+      "engine": {
+        "value": "800/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_six_leaves_double",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_alternate_opening_with_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "172865.46831167",
+        "binary64": "41051A0BBF1A3060",
+        "numberFormat": "# ##0,00",
+        "displayedText": "172 865,47"
+      },
+      "engine": {
+        "value": "7020498831807709935721739/40612500000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "161507860277729",
+        "denominator": "2661580800000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_alternate_opening_with_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "1400",
+        "binary64": "4095E00000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "1 400,00"
+      },
+      "engine": {
+        "value": "1400/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_alternate_opening_with_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "0",
+        "binary64": "0000000000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "0,00"
+      },
+      "engine": {
+        "value": "0/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_and_services",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "215651.651429091",
+        "binary64": "410A531D3620747E",
+        "numberFormat": "# ##0,00",
+        "displayedText": "215 651,65"
+      },
+      "engine": {
+        "value": "175163053873278833157791/812250000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "1838014039357",
+        "denominator": "1703411712000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_and_services",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "7800",
+        "binary64": "40BE780000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "7 800,00"
+      },
+      "engine": {
+        "value": "7800/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_and_services",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "32480",
+        "binary64": "40DFB80000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "32 480,00"
+      },
+      "engine": {
+        "value": "32480/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-COMPLETATION-2026-10-08-62dd6d49f059"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_single_no_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "35388.3724517104",
+        "binary64": "40E1478BEB1FD970",
+        "numberFormat": "# ##0,00",
+        "displayedText": "35 388,37"
+      },
+      "engine": {
+        "value": "383256073652023581607211/10830000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "4204597217933",
+        "denominator": "1419509760000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_single_no_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "6600",
+        "binary64": "40B9C80000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "6 600,00"
+      },
+      "engine": {
+        "value": "6600/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_single_no_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "20500",
+        "binary64": "40D4050000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "20 500,00"
+      },
+      "engine": {
+        "value": "20500/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_single_with_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "38170.7904888295",
+        "binary64": "40E2A3594BAF3AD2",
+        "numberFormat": "# ##0,00",
+        "displayedText": "38 170,79"
+      },
+      "engine": {
+        "value": "413389660994023581607211/10830000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "83637880459661",
+        "denominator": "11356078080000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_single_with_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "7000",
+        "binary64": "40BB580000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "7 000,00"
+      },
+      "engine": {
+        "value": "7000/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_single_with_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "25500",
+        "binary64": "40D8E70000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "25 500,00"
+      },
+      "engine": {
+        "value": "25500/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_double_with_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "44768.1202089588",
+        "binary64": "40E5DC03D8C07554",
+        "numberFormat": "# ##0,00",
+        "displayedText": "44 768,12"
+      },
+      "engine": {
+        "value": "484838741863023581607211/10830000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "25137909956393",
+        "denominator": "5678039040000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_double_with_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "7200",
+        "binary64": "40BC200000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "7 200,00"
+      },
+      "engine": {
+        "value": "7200/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_double_with_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "27500",
+        "binary64": "40DADB0000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "27 500,00"
+      },
+      "engine": {
+        "value": "27500/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "38172.7419919228",
+        "binary64": "40E2A397BE65D845",
+        "numberFormat": "# ##0,00",
+        "displayedText": "38 172,74"
+      },
+      "engine": {
+        "value": "413410795772523581607211/10830000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "159279423028697",
+        "denominator": "22712156160000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "7001.125",
+        "binary64": "40BB592000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "7 001,13"
+      },
+      "engine": {
+        "value": "56009/8",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_fractional_dimensions_and_settings",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "25503.375",
+        "binary64": "40D8E7D800000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "25 503,38"
+      },
+      "engine": {
+        "value": "204027/8",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_width",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "36978.5875507538",
+        "binary64": "40E20E52CD373D0F",
+        "numberFormat": "# ##0,00",
+        "displayedText": "36 978,59"
+      },
+      "engine": {
+        "value": "83432938161388347727723/2256250000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "61831479287293",
+        "denominator": "37853593600000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_width",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "8100",
+        "binary64": "40BFA40000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "8 100,00"
+      },
+      "engine": {
+        "value": "8100/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_width",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "24500",
+        "binary64": "40D7ED0000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "24 500,00"
+      },
+      "engine": {
+        "value": "24500/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_services_enabled",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "35388.3724517104",
+        "binary64": "40E1478BEB1FD970",
+        "numberFormat": "# ##0,00",
+        "displayedText": "35 388,37"
+      },
+      "engine": {
+        "value": "383256073652023581607211/10830000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "4204597217933",
+        "denominator": "1419509760000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_services_enabled",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "6600",
+        "binary64": "40B9C80000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "6 600,00"
+      },
+      "engine": {
+        "value": "6600/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_services_enabled",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "20500",
+        "binary64": "40D4050000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "20 500,00"
+      },
+      "engine": {
+        "value": "20500/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_three_leaves_small",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "26544.1109946992",
+        "binary64": "40D9EC071A8982CB",
+        "numberFormat": "# ##0,00",
+        "displayedText": "26 544,11"
+      },
+      "engine": {
+        "value": "718681805181481032871123/27075000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "2534159864711341",
+        "denominator": "227121561600000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_three_leaves_small",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "5100",
+        "binary64": "40B3EC0000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "5 100,00"
+      },
+      "engine": {
+        "value": "5100/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_three_leaves_small",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "14760",
+        "binary64": "40CCD40000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "14 760,00"
+      },
+      "engine": {
+        "value": "14760/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_six_leaves_double",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "51307.439824993",
+        "binary64": "40E90D6E130BDD23",
+        "numberFormat": "# ##0,00",
+        "displayedText": "51 307,44"
+      },
+      "engine": {
+        "value": "1666978719914023833373399/32490000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "449137791962227",
+        "denominator": "68136468480000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_six_leaves_double",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "9800",
+        "binary64": "40C3240000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "9 800,00"
+      },
+      "engine": {
+        "value": "9800/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_six_leaves_double",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "32360",
+        "binary64": "40DF9A0000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "32 360,00"
+      },
+      "engine": {
+        "value": "32360/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_alternate_opening_with_park",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "42058.6135466603",
+        "binary64": "40E48953A22C9B18",
+        "numberFormat": "# ##0,00",
+        "displayedText": "42 058,61"
+      },
+      "engine": {
+        "value": "3416210885327486910249239/81225000000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "221025215907457",
+        "denominator": "42585292800000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_alternate_opening_with_park",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "8600",
+        "binary64": "40C0CC0000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "8 600,00"
+      },
+      "engine": {
+        "value": "8600/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_alternate_opening_with_park",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "29000",
+        "binary64": "40DC520000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "29 000,00"
+      },
+      "engine": {
+        "value": "29000/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_and_services",
+      "cell": "Q52",
+      "excel": {
+        "formula": "=СУММ($Q$5:$Q$50)",
+        "value2": "52385.4367068347",
+        "binary64": "40E9942DF9809CA2",
+        "numberFormat": "# ##0,00",
+        "displayedText": "52 385,44"
+      },
+      "engine": {
+        "value": "85100141930252999406731/1624500000000000000",
+        "ruleId": "JV.LINE.MATERIAL.Q52_SUPPORTED_SUBTOTAL",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "14231868117901",
+        "denominator": "6813646848000000000000000"
+      },
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_and_services",
+      "cell": "Q55",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+        "value2": "7800",
+        "binary64": "40BE780000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "7 800,00"
+      },
+      "engine": {
+        "value": "7800/1",
+        "ruleId": "JV.LINE.WORK.Q55_ASSEMBLY_MILLING",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "line_special_sash_and_services",
+      "cell": "Q57",
+      "excel": {
+        "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+        "value2": "32480",
+        "binary64": "40DFB80000000000",
+        "numberFormat": "# ##0,00",
+        "displayedText": "32 480,00"
+      },
+      "engine": {
+        "value": "32480/1",
+        "ruleId": "JV.LINE.WORK.Q57_INSTALLATION",
+        "priceSnapshotVersion": "JV-RETAIL-2026-10-08-025d7e291117"
+      },
+      "absoluteDeviation": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    }
+  ],
+  "summary": {
+    "EXACT": 40,
+    "DISPLAY_MATCH": 20,
+    "NUMERICALLY_EQUIVALENT": 0,
+    "MISMATCH": 0,
+    "UNVERIFIED": 0
+  },
+  "fullFinalPriceParity": false,
+  "reason": "Q55/Q57 are checked; Q52 is partial and Q53/Q54/Q56/Q58 are not implemented as a complete final-price chain."
+}

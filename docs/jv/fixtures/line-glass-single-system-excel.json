@@ -1,0 +1,145 @@
+{
+  "cases": [
+    {
+      "values": {
+        "Q58": {
+          "displayedText": "148 236,11",
+          "binary64": "41021860E51E04F4",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00",
+          "value2": "148236.1118736636"
+        },
+        "Q54": {
+          "displayedText": "0,00",
+          "binary64": "0000000000000000",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00",
+          "value2": "0"
+        },
+        "Q57": {
+          "displayedText": "0,00",
+          "binary64": "0000000000000000",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00",
+          "value2": "0"
+        },
+        "D54": {
+          "displayedText": "74 451,93",
+          "binary64": "40F22D3EEB6DB549",
+          "formula": "=$G$49+'Прайс-сб+монт'!$C$23*$X$5",
+          "numberFormat": "# ##0,00",
+          "value2": "74451.93247767272"
+        },
+        "Q52": {
+          "displayedText": "147 636,11",
+          "binary64": "410205A0E51E04F4",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00",
+          "value2": "147636.1118736636"
+        },
+        "Q56": {
+          "displayedText": "148 236,11",
+          "binary64": "41021860E51E04F4",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00",
+          "value2": "148236.1118736636"
+        },
+        "G49": {
+          "displayedText": "",
+          "binary64": "40F0CDAEEB6DB549",
+          "formula": "=СУММ($G$43:$G$48)",
+          "numberFormat": "# ##0,00",
+          "value2": "68826.93247767272"
+        }
+      },
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0",
+      "activeQuantity": "1",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "inactiveQuantities": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "settings": {
+        "L21": "True",
+        "D32": "False"
+      }
+    },
+    {
+      "values": {
+        "Q58": {
+          "displayedText": "115 651,65",
+          "binary64": "40FC3C3A6F6F19F8",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "numberFormat": "# ##0,00",
+          "value2": "115651.65220556397"
+        },
+        "Q54": {
+          "displayedText": "42 354,81",
+          "binary64": "40E4AE5A02F8ADD1",
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "numberFormat": "# ##0,00",
+          "value2": "42354.81286272"
+        },
+        "Q57": {
+          "displayedText": "20 500,00",
+          "binary64": "40D4050000000000",
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "numberFormat": "# ##0,00",
+          "value2": "20500"
+        },
+        "D54": {
+          "displayedText": "42 354,81",
+          "binary64": "40E4AE5A02F8ADD1",
+          "formula": "=$G$49+'Прайс-сб+монт'!$C$23*$X$5",
+          "numberFormat": "# ##0,00",
+          "value2": "42354.81286272"
+        },
+        "Q52": {
+          "displayedText": "36 696,84",
+          "binary64": "40E1EB1ADBE5861E",
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "numberFormat": "# ##0,00",
+          "value2": "36696.83934284396"
+        },
+        "Q56": {
+          "displayedText": "95 151,65",
+          "binary64": "40F73AFA6F6F19F8",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "numberFormat": "# ##0,00",
+          "value2": "95151.65220556397"
+        },
+        "G49": {
+          "displayedText": "",
+          "binary64": "40E27BDA02F8ADD1",
+          "formula": "=СУММ($G$43:$G$48)",
+          "numberFormat": "# ##0,00",
+          "value2": "37854.81286272"
+        }
+      },
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0",
+      "activeQuantity": "1",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "inactiveQuantities": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "settings": {
+        "L21": "True",
+        "D32": "True"
+      }
+    }
+  ],
+  "excelVersion": "16.0",
+  "scenario": "4000x2500 mm, selector 1, five leaves, glass selection 9, JV-Line slot quantity 1, all other system slots 0, no parking",
+  "method": "CalculateFullRebuild on temporary copies; macros disabled; events disabled; originals not modified"
+}

@@ -1,0 +1,666 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── USERS ───────────────────────────────────────────────────────────────────
+
+model User {
+  id          String   @id @default(cuid())
+  login       String   @unique
+  password    String
+  lastName    String
+  firstName   String
+  middleName  String?
+  role        Role     @default(USER)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  createdDeals  Deal[] @relation("DealCreator")
+  assignedDeals Deal[] @relation("DealAssignee")
+}
+
+enum Role {
+  OWNER
+  ADMIN
+  USER
+  GUEST
+}
+
+// ─── CLIENTS ─────────────────────────────────────────────────────────────────
+
+model Contact {
+  id          String   @id @default(cuid())
+  lastName    String
+  firstName   String
+  middleName  String?
+  phone       String
+  email       String?
+  position    String?
+  createdAt   DateTime @default(now())
+
+  companies   ContactCompany[]
+  deals       Deal[]
+}
+
+model Company {
+  id        String      @id @default(cuid())
+  name      String
+  type      CompanyType
+  inn       String?
+  ogrn      String?
+  manualDiscountPct Decimal? @db.Decimal(5, 2)  // ручная скидка (если задана — автоматическая не применяется)
+  createdAt DateTime    @default(now())
+
+  bankAccounts  BankAccount[]
+  contacts      ContactCompany[]
+  relatedFrom   CompanyRelation[] @relation("CompanyFrom")
+  relatedTo     CompanyRelation[] @relation("CompanyTo")
+  files         CompanyFile[]
+  deals         Deal[]
+}
+
+enum CompanyType {
+  OOO
+  IP
+  AO
+  SZ
+  AGENT
+}
+
+model BankAccount {
+  id         String  @id @default(cuid())
+  companyId  String
+  accountNum String
+  bik        String
+  company    Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}
+
+model ContactCompany {
+  contactId String
+  companyId String
+  contact   Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@id([contactId, companyId])
+}
+
+model CompanyRelation {
+  fromId String
+  toId   String
+  from   Company @relation("CompanyFrom", fields: [fromId], references: [id], onDelete: Cascade)
+  to     Company @relation("CompanyTo", fields: [toId], references: [id], onDelete: Cascade)
+
+  @@id([fromId, toId])
+}
+
+model CompanyFile {
+  id        String          @id @default(cuid())
+  companyId String
+  type      CompanyFileType
+  url       String
+  name      String
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}
+
+enum CompanyFileType {
+  PARTNER_CARD
+  CONTRACT
+  PERSONAL_DATA_CONSENT
+}
+
+// ─── DEALS ───────────────────────────────────────────────────────────────────
+
+model Deal {
+  id                 String            @id @default(cuid())
+  number             String            @unique
+  stage              DealStage         @default(APPLICATION)
+  direction          Direction
+  creatorId          String
+  assigneeId         String
+  contactId          String?
+  companyId          String?
+  comment            String?
+  isAgentOrder       Boolean           @default(false)
+  agentPercent       Decimal?          @db.Decimal(5, 2)
+  agentIsOfficial    Boolean           @default(false)  // официальный агентский заказ
+  glassSupply        GlassSupply       @default(OURS)
+  needPainting       Boolean           @default(false)
+  paintAllOneColor   Boolean           @default(true)
+  paymentType        PaymentType?
+  paymentStatus      PaymentStatus?
+  paidAmount         Decimal?          @db.Decimal(12, 2)
+  isOfficialPayment  Boolean           @default(false)
+  failReason         FailReason?
+  paintingCompany    String?
+  paintingSentAt     DateTime?
+  paintingOverdue    Boolean           @default(false)
+  paintingCost       Decimal?          @db.Decimal(12, 2)
+  transportCost      Decimal?          @db.Decimal(12, 2)
+  glassOrderStatus   GlassOrderStatus  @default(NOT_STARTED)
+  glassDrawingUrl    String?
+  glassCostPrice     Decimal?          @db.Decimal(12, 2)
+  glassSupplier      String?           // поставщик стекла
+  glassOrderDate     DateTime?         // дата заказа
+  glassExpectedDate  DateTime?         // ожидаемая дата получения
+  glassComment       String?           // комментарий по заказу стекла
+  invoiceUrl         String?
+  assemblePdfUrl     String?
+  paintingPdfUrl     String?
+  gluingSchemaUrl    String?
+  address            String?
+  manualDiscountPct  Decimal?          @db.Decimal(5, 2)
+  // ── Расчёт доп. работ ────────────────────────────────────────────────────
+  includeInstall     Boolean           @default(false)   // включён монтаж
+  includeTransport   Boolean           @default(false)   // включён транспорт
+  deliveryType       DeliveryType      @default(SELF_PICKUP) // тип доставки
+  calcGlassPrice     Decimal?          @db.Decimal(12, 2) // расчётная цена стекла
+  calcInstallPrice   Decimal?          @db.Decimal(12, 2) // расчётная цена монтажа
+  calcPaintingPrice  Decimal?          @db.Decimal(12, 2) // расчётная цена покраски
+  calcTransportPrice Decimal?          @db.Decimal(12, 2) // расчётная цена транспорта
+  actualInstallPrice Decimal?          @db.Decimal(12, 2) // фактическая цена монтажа
+  isLead             Boolean           @default(false)
+  leadStatus         LeadStatus?
+  leadSource         LeadSource?
+  leadRejectReason   String?
+  // ── Новые поля ────────────────────────────────────────────────────────────
+  invoiceSentAt      DateTime?         // дата выставления счёта (для отсчёта 5 дней)
+  installType        InstallType?      // тип монтажа (задаётся при выставлении счёта)
+  paidAt             DateTime?         // дата оплаты
+  assemblySheetUrl   String?           // URL сборочного листа (разблюдовки)
+  paintingNoteUrl    String?           // URL накладной на покраску
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  creator    User     @relation("DealCreator", fields: [creatorId], references: [id])
+  assignee   User     @relation("DealAssignee", fields: [assigneeId], references: [id])
+  contact    Contact? @relation(fields: [contactId], references: [id])
+  company    Company? @relation(fields: [companyId], references: [id])
+
+  items      DealItem[]
+  systems    DealSystem[]
+  services   DealService[]
+  files      DealFile[]
+  proposals  CommercialProposal[]
+  expenses   Expense[]
+  events     LeadEvent[]
+  tasks      LeadTask[]
+  dealEvents DealEvent[]
+}
+
+enum DealStage {
+  // ── Лид ──────────────────────────────────────────────────────────────────
+  APPLICATION       // 1.1 Новый необработанный (с сайта/звонка)
+  IN_PROGRESS       // 1.2 Обработанный лид
+  // ── Сделка ───────────────────────────────────────────────────────────────
+  INVOICE_SENT      // 2.1 Выставлен счёт
+  PAID              // 2.2 Оплачен
+  ASSEMBLY          // 2.3 Сборка
+  PAINTING          // 2.4 Покраска
+  INSTALL_FIRST     // 2.5 Монтаж первый этап
+  INSTALL_SECOND    // 2.6 Монтаж второй этап
+  SHIPMENT          // 3.1 Отгрузка
+  DOCS              // 3.2 Подписание документов
+  COMPLETED         // 3.3 Завершён
+  FAILED            // Отменён/провален
+}
+
+enum Direction {
+  PRIVATE
+  DEALER
+}
+
+enum GlassSupply {
+  OURS
+  CLIENT
+}
+
+enum PaymentType {
+  CASH
+  BANK
+}
+
+enum PaymentStatus {
+  FULL
+  PARTIAL
+}
+
+enum FailReason {
+  PRICE
+  TECHNICAL
+  COMPETITOR
+  STOCK_SHORTAGE
+}
+
+enum GlassOrderStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum DeliveryType {
+  SELF_PICKUP   // самовывоз
+  LOCAL         // местная доставка
+  TERMINAL      // отправка через ТК
+}
+
+enum LeadStatus {
+  NEW
+  IN_PROGRESS
+  CONVERTED
+  REJECTED
+}
+
+enum InstallType {
+  NONE          // без монтажа
+  SINGLE        // монтаж в один этап
+  TWO_STAGE     // монтаж в два этапа
+}
+
+enum LeadSource {
+  CALL
+  WEBSITE
+  MANUAL
+  OTHER
+}
+
+// ─── LEAD EVENTS ─────────────────────────────────────────────────────────────
+
+model LeadEvent {
+  id        String        @id @default(cuid())
+  dealId    String
+  type      LeadEventType
+  content   String?
+  userId    String?
+  createdAt DateTime      @default(now())
+  deal      Deal          @relation(fields: [dealId], references: [id], onDelete: Cascade)
+}
+
+enum LeadEventType {
+  CREATED
+  STATUS_CHANGED
+  COMMENT_ADDED
+  CALL_INBOUND
+  CALL_OUTBOUND
+  CONVERTED
+  REJECTED
+  TASK_CREATED
+  TASK_DONE
+}
+
+model LeadTask {
+  id          String    @id @default(cuid())
+  dealId      String
+  description String
+  scheduledAt DateTime
+  doneAt      DateTime?
+  doneComment String?
+  createdAt   DateTime  @default(now())
+  deal        Deal      @relation(fields: [dealId], references: [id], onDelete: Cascade)
+}
+
+model DealSystem {
+  id          String        @id @default(cuid())
+  dealId      String
+  systemId    String
+  systemName  String
+  inputParams Json
+  calcParams  Json?
+  deal        Deal          @relation(fields: [dealId], references: [id], onDelete: Cascade)
+  system      GlazingSystem @relation(fields: [systemId], references: [id])
+}
+
+model DealItem {
+  id              String   @id @default(cuid())
+  dealId          String
+  productId       String
+  systemId        String?
+  quantity        Decimal  @db.Decimal(10, 3)
+  unitPrice       Decimal  @db.Decimal(12, 2)
+  calcPrice       Decimal? @db.Decimal(12, 2)
+  calcQty         Decimal? @db.Decimal(10, 3)
+  priceOverridden Boolean  @default(false)
+  qtyOverridden   Boolean  @default(false)
+  shippedQty      Decimal  @default(0) @db.Decimal(10, 3)  // сколько уже отгружено на монтаж
+  paintColor      String?
+  paintFinish     String?  @default("matte")
+  deal            Deal     @relation(fields: [dealId], references: [id], onDelete: Cascade)
+  product         Product  @relation(fields: [productId], references: [id])
+}
+
+model DealService {
+  id        String  @id @default(cuid())
+  dealId    String
+  serviceId String
+  quantity  Int     @default(1)
+  unitPrice Decimal @db.Decimal(12, 2)  // расчётная цена
+  deal      Deal    @relation(fields: [dealId], references: [id], onDelete: Cascade)
+  service   Service @relation(fields: [serviceId], references: [id])
+}
+
+model DealFile {
+  id     String       @id @default(cuid())
+  dealId String
+  url    String
+  name   String
+  type   DealFileType
+  deal   Deal         @relation(fields: [dealId], references: [id], onDelete: Cascade)
+}
+
+enum DealFileType {
+  ATTACHMENT
+  INVOICE
+  SHIPMENT_PHOTO
+  SHIPMENT_DOC
+  GLASS_DRAWING
+}
+
+model CommercialProposal {
+  id        String   @id @default(cuid())
+  dealId    String
+  version   Int
+  url       String
+  createdAt DateTime @default(now())
+  deal      Deal     @relation(fields: [dealId], references: [id], onDelete: Cascade)
+}
+
+model DealEvent {
+  id        String        @id @default(cuid())
+  dealId    String
+  type      DealEventType
+  content   String?
+  userId    String?
+  createdAt DateTime      @default(now())
+  deal      Deal          @relation(fields: [dealId], references: [id], onDelete: Cascade)
+}
+
+enum DealEventType {
+  CREATED
+  STAGE_CHANGED
+  COMMENT_ADDED
+  ITEMS_UPDATED
+  ASSIGNEE_CHANGED
+  PAYMENT_RECEIVED
+}
+
+// ─── WAREHOUSE ───────────────────────────────────────────────────────────────
+
+model ProductType {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  order    Int       @default(0)
+  products Product[]
+}
+
+model Product {
+  id               String   @id @default(cuid())
+  sku              String   @unique
+  name             String
+  typeId           String
+  unit             String
+  isPaintable      Boolean  @default(false)
+  markupRetail     Decimal  @default(0) @db.Decimal(5, 2)
+  markupWholesale  Decimal  @default(0) @db.Decimal(5, 2)
+  priceRetail      Decimal  @default(0) @db.Decimal(12, 2)
+  priceWholesale   Decimal  @default(0) @db.Decimal(12, 2)
+  quantity         Decimal  @default(0) @db.Decimal(10, 3)
+  reservedQty      Decimal  @default(0) @db.Decimal(10, 3)
+  isActive         Boolean  @default(true)
+  affectedByDiscount Boolean @default(true)
+  minStockLevel      Decimal?          @db.Decimal(10, 3)
+  bundleLength       Decimal?          @db.Decimal(10, 3)  // длина хлыста (м), если задана — товар хлыстовый
+  paintingPricePerUnit   Decimal?      @db.Decimal(12, 2)  // цена покраски за штуку
+  paintingPricePerMeter  Decimal?      @db.Decimal(12, 2)  // цена покраски за п.м.
+  createdAt        DateTime @default(now())
+
+  type             ProductType       @relation(fields: [typeId], references: [id])
+  receiptItems     ReceiptItem[]
+  writeoffItems    WriteoffItem[]
+  dealItems        DealItem[]
+  systemComponents SystemComponent[]
+}
+
+model Supplier {
+  id       String    @id @default(cuid())
+  name     String
+  receipts Receipt[]
+}
+
+model Receipt {
+  id            String        @id @default(cuid())
+  supplierId    String
+  date          DateTime      @default(now())
+  photoUrl      String?
+  editableUntil DateTime
+  createdAt     DateTime      @default(now())
+  supplier      Supplier      @relation(fields: [supplierId], references: [id])
+  items         ReceiptItem[]
+}
+
+model ReceiptItem {
+  id        String  @id @default(cuid())
+  receiptId String
+  productId String
+  quantity  Decimal @db.Decimal(10, 3)
+  costPrice Decimal @db.Decimal(12, 2)
+  receipt   Receipt @relation(fields: [receiptId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Writeoff {
+  id            String         @id @default(cuid())
+  reason        WriteoffReason
+  comment       String
+  date          DateTime       @default(now())
+  editableUntil DateTime
+  createdAt     DateTime       @default(now())
+  items         WriteoffItem[]
+}
+
+enum WriteoffReason {
+  INVENTORY
+  DEFECT
+}
+
+model WriteoffItem {
+  id         String   @id @default(cuid())
+  writeoffId String
+  productId  String
+  quantity   Decimal  @db.Decimal(10, 3)
+  writeoff   Writeoff @relation(fields: [writeoffId], references: [id], onDelete: Cascade)
+  product    Product  @relation(fields: [productId], references: [id])
+}
+
+// ─── SERVICES ────────────────────────────────────────────────────────────────
+
+model Service {
+  id        String        @id @default(cuid())
+  name      String        @unique
+  price     Decimal?      @db.Decimal(12, 2)  // фиксированная цена (null если расчётная)
+  priceFormula String?                         // формула расчёта цены (переменные из системы)
+  unit      String        @default("шт")       // единица измерения для отображения
+  isActive  Boolean       @default(true)
+  affectedByDiscount Boolean @default(true)
+  dealItems DealService[]
+}
+
+// ─── GLAZING SYSTEMS ─────────────────────────────────────────────────────────
+
+model GlazingSystem {
+  id            String            @id @default(cuid())
+  name          String
+  isActive      Boolean           @default(true)
+  installFormula String?          // формула расчёта стоимости монтажа (цена клиента)
+  installCostFormula String?       // формула расчёта себестоимости монтажа (что платим бригаде)
+  glassFormula   String?          // формула расчёта стоимости стекла (устаревшее, заменяется SystemGlass)
+  createdAt     DateTime          @default(now())
+  parameters    SystemParameter[]
+  components    SystemComponent[]
+  categories    SystemParamCategory[]
+  dealSystems   DealSystem[]
+  glasses       SystemGlass[]
+}
+
+model SystemGlass {
+  id              String        @id @default(cuid())
+  systemId        String
+  name            String        // название стекла (например "Стекло основное", "Стекло боковое")
+  widthFormula    String        // формула ширины в мм (использует параметры системы)
+  heightFormula   String        // формула высоты в мм
+  quantityFormula String        @default("1") // формула количества штук
+  complexity      GlassComplexity @default(PLAIN) // тип сложности
+  glassTypeId     String?       // привязка к типу стекла (если null — выбирается при расчёте)
+  order           Int           @default(0)
+  system          GlazingSystem @relation(fields: [systemId], references: [id], onDelete: Cascade)
+  glassType       GlassType?    @relation(fields: [glassTypeId], references: [id])
+}
+
+enum GlassComplexity {
+  PLAIN   // прямоугольное
+  CUTS    // с вырезами
+  HOLES   // с отверстиями
+}
+
+model SystemParamCategory {
+  id         String            @id @default(cuid())
+  systemId   String
+  name       String
+  order      Int               @default(0)
+  system     GlazingSystem     @relation(fields: [systemId], references: [id], onDelete: Cascade)
+  parameters SystemParameter[]
+}
+
+model SystemParameter {
+  id             String               @id @default(cuid())
+  systemId       String
+  categoryId     String?
+  name           String
+  variable       String
+  type           ParamType
+  paramKind      ParamKind
+  options        Json?
+  formula        String?
+  defaultValue   String?
+  showInProposal Boolean              @default(false)
+  showInAssembly Boolean              @default(false)
+  showInDeal     Boolean              @default(false)
+  proposalPriority Int               @default(0)
+  isAdvanced     Boolean              @default(false)
+  system         GlazingSystem        @relation(fields: [systemId], references: [id], onDelete: Cascade)
+  category       SystemParamCategory? @relation(fields: [categoryId], references: [id])
+  limits         SystemLimit[]
+}
+
+enum ParamType {
+  NUMBER
+  SELECT
+  BOOLEAN
+  TEXT
+}
+
+enum ParamKind {
+  INPUT
+  CALCULATED
+  CONSTANT
+}
+
+model SystemLimit {
+  id          String          @id @default(cuid())
+  parameterId String
+  minValue    Decimal?        @db.Decimal(12, 4)
+  maxValue    Decimal?        @db.Decimal(12, 4)
+  parameter   SystemParameter @relation(fields: [parameterId], references: [id], onDelete: Cascade)
+}
+
+model SystemComponent {
+  id        String        @id @default(cuid())
+  systemId  String
+  productId String
+  formula   String
+  system    GlazingSystem @relation(fields: [systemId], references: [id], onDelete: Cascade)
+  product   Product       @relation(fields: [productId], references: [id])
+}
+
+// ─── FINANCE ─────────────────────────────────────────────────────────────────
+
+model ExpenseCategory {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  expenses Expense[]
+}
+
+model Expense {
+  id         String          @id @default(cuid())
+  categoryId String
+  amount     Decimal         @db.Decimal(12, 2)
+  comment    String?
+  dealId     String?
+  date       DateTime        @default(now())
+  createdAt  DateTime        @default(now())
+  category   ExpenseCategory @relation(fields: [categoryId], references: [id])
+  deal       Deal?           @relation(fields: [dealId], references: [id])
+}
+
+// ─── SETTINGS ────────────────────────────────────────────────────────────────
+
+model DiscountThreshold {
+  id           String  @id @default(cuid())
+  minTurnover  Decimal @db.Decimal(12, 2)
+  discountPct  Decimal @db.Decimal(5, 2)
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
+
+// ─── GLASS TYPES ─────────────────────────────────────────────────────────────
+
+model GlassType {
+  id                      String   @id @default(cuid())
+  thickness               Int      // мм: 6, 8, 10, 12...
+  coating                 String   // тонировка, матовое, прозрачное и др.
+  glassKind               String   // закалённое, триплекс и др.
+  costPricePerSqm         Decimal  @db.Decimal(12, 2)          // закупочная цена за м² (прямоугольное)
+  sellingPricePerSqm      Decimal  @db.Decimal(12, 2)          // цена продажи за м² (прямоугольное)
+  // Вырезы — либо фиксированная цена за м², либо % надбавка к базе (если оба заполнены — приоритет у фикс. цены)
+  costPriceWithCuts       Decimal? @db.Decimal(12, 2)          // закупочная цена за м² с вырезами
+  sellingPriceWithCuts    Decimal? @db.Decimal(12, 2)          // цена продажи за м² с вырезами
+  surchargeWithCutsPct    Decimal? @db.Decimal(5, 2)           // % надбавка за вырезы (альтернатива фикс. цене)
+  // Отверстия — аналогично
+  costPriceWithHoles      Decimal? @db.Decimal(12, 2)          // закупочная цена за м² с отверстиями
+  sellingPriceWithHoles   Decimal? @db.Decimal(12, 2)          // цена продажи за м² с отверстиями
+  surchargeWithHolesPct   Decimal? @db.Decimal(5, 2)           // % надбавка за отверстия
+  deliveryCostFixed       Decimal  @default(0) @db.Decimal(12, 2) // фикс. доставка от поставщика
+  isActive                Boolean  @default(true)
+  createdAt               DateTime @default(now())
+  systemGlasses           SystemGlass[]
+}
+
+// ─── VENDORS (ПОСТАВЩИКИ) ─────────────────────────────────────────────────────
+
+model VendorCategory {
+  id      String   @id @default(cuid())
+  name    String   @unique  // например: "Покрасочная", "Поставщик стекла", "Транспортная компания"
+  vendors Vendor[]
+}
+
+model Vendor {
+  id           String         @id @default(cuid())
+  name         String
+  categoryId   String
+  phone        String?
+  email        String?
+  address      String?
+  comment      String?
+  isPainting   Boolean        @default(false)  // покрасочная компания
+  isDefault    Boolean        @default(false)  // поставщик по умолчанию в категории
+  isActive     Boolean        @default(true)
+  createdAt    DateTime       @default(now())
+  category     VendorCategory @relation(fields: [categoryId], references: [id])
+}

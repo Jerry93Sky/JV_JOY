@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 20% 10%;
+    --foreground: 210 20% 92%;
+    --card: 222 18% 13%;
+    --card-foreground: 210 20% 92%;
+    --primary: 213 90% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 16% 18%;
+    --secondary-foreground: 210 15% 75%;
+    --muted: 222 16% 16%;
+    --muted-foreground: 215 12% 55%;
+    --accent: 222 16% 20%;
+    --accent-foreground: 210 20% 92%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 14% 20%;
+    --input: 222 14% 20%;
+    --ring: 213 90% 58%;
+    --radius: 0.6rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  /* Скроллбар */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+}
+
+/* Стеклянный эффект для карточек сделок */
+.deal-card-private {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 146, 60, 0.12) 0%,
+    rgba(249, 115, 22, 0.06) 50%,
+    rgba(234, 88, 12, 0.04) 100%
+  );
+  border-color: rgba(251, 146, 60, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.deal-card-private:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 146, 60, 0.18) 0%,
+    rgba(249, 115, 22, 0.10) 50%,
+    rgba(234, 88, 12, 0.07) 100%
+  );
+  border-color: rgba(251, 146, 60, 0.40);
+}
+
+.deal-card-dealer {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.12) 0%,
+    rgba(14, 165, 233, 0.06) 50%,
+    rgba(2, 132, 199, 0.04) 100%
+  );
+  border-color: rgba(56, 189, 248, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.deal-card-dealer:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.18) 0%,
+    rgba(14, 165, 233, 0.10) 50%,
+    rgba(2, 132, 199, 0.07) 100%
+  );
+  border-color: rgba(56, 189, 248, 0.40);
+}
+
+/* Стеклянный эффект для панелей */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

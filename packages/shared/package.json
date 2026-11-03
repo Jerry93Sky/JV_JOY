@@ -1,0 +1,13 @@
+{
+  "name": "@bms/shared",
+  "version": "1.0.0",
+  "private": true,
+  "exports": {
+    "./jv": "./src/jv/index.ts"
+  },
+  "scripts": {
+    "test:jv": "node --experimental-strip-types --test src/jv/*.test.ts"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts"
+}
