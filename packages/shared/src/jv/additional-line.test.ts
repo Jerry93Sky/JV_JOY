@@ -62,7 +62,7 @@ test('supplemental material price rules use source rows, L8, and adhesive factor
       { sku: 'AA-120', unit: 'шт.', value: '17', sourceCell: "'Прайс-Line'!E51" },
     ],
   }
-  const result = calculateLineAdditionalMaterialCost({ bom, profile: 'RETAIL', snapshot, adhesiveFactors: { O5: '0.2', O18: '0.6' } })
+  const result = calculateLineAdditionalMaterialCost({ bom, profile: 'RETAIL', snapshot, adhesiveFactors: { O5: rationalFromDecimal('0.2'), O18: rationalFromDecimal('0.6') } })
   assert.deepEqual(result.positions.map((position) => rationalToDecimalExact(position.amount)), ['72', '20', '14', '22', '1.157', '4.539'])
   assert.equal(rationalToDecimalExact(result.supportedSubtotal), '133.696')
   assert.equal(result.positions[4].formula, "=$P$49*$O$49*'Клей+акт'!$O$5")

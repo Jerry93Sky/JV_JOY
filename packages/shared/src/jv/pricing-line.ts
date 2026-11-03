@@ -145,7 +145,7 @@ const ADDITIONAL_PRICE_RULES: Readonly<Record<string, { readonly lineRow: number
   'AA-110': { lineRow: 49, catalogRow: 50, glueCell: 'O5', formula: "='Прайс-Line'!$E$50", amountFormula: "=$P$49*$O$49*'Клей+акт'!$O$5" },
   'AA-120': { lineRow: 50, catalogRow: 51, glueCell: 'O18', formula: "='Прайс-Line'!$E$51", amountFormula: "=$P$50*$O$50*'Клей+акт'!$O$18" },
 })
-export function calculateLineAdditionalMaterialCost(input: { readonly bom: LineAdditionalBomResult; readonly profile: PriceProfile; readonly snapshot: LinePriceSnapshot; readonly adhesiveFactors?: Readonly<Record<string, string>> }): LineAdditionalCostResult {
+export function calculateLineAdditionalMaterialCost(input: { readonly bom: LineAdditionalBomResult; readonly profile: PriceProfile; readonly snapshot: LinePriceSnapshot; readonly adhesiveFactors?: Readonly<Record<'O5'|'O18', ExactRational>> }): LineAdditionalCostResult {
   const { bom, snapshot } = input
   if (snapshot.profile !== input.profile) throw new EngineError('INVALID_CONFIGURATION', 'Additional BOM and price profile must match', { requestedProfile: input.profile, snapshotProfile: snapshot.profile })
   const bySku = new Map(snapshot.entries.map((entry) => [entry.sku, entry]))
@@ -165,7 +165,7 @@ export function calculateLineAdditionalMaterialCost(input: { readonly bom: LineA
     const factor = rule.divisor ? snapshot.settings[rule.divisor] : undefined
     if (rule.divisor && factor === undefined) throw new EngineError('MISSING_INPUT', `Missing Настройки!${rule.divisor} for ${line.sku}`, { sourceCell: `Настройки!${rule.divisor}` })
     if (factor !== undefined) values[`${id}.divisor`] = factor
-    const glueSource = rule.glueCell ? input.adhesiveFactors?.[rule.glueCell] : undefined
+    const glueSource = rule.glueCell ? input.adhesiveFactors?.[rule.glueCell as 'O5'|'O18'] : undefined
     if (rule.glueCell && glueSource == null) throw new EngineError('MISSING_INPUT', `Missing adhesive factor 'Клей+акт'!${rule.glueCell}`, { sourceCell: `'Клей+акт'!${rule.glueCell}`, sku: line.sku })
     const glue = glueSource == null ? undefined : glueSource
     if (glue !== undefined) values[`${id}.glue`] = glue
@@ -177,7 +177,7 @@ export function calculateLineAdditionalMaterialCost(input: { readonly bom: LineA
       execute: ({ inputs: source }) => {
         const base = multiplyRational(rationalFromDecimal(source[`${id}.price`] as string), source[`${id}.quantity`] as ExactRational)
         const unitPrice = factor === undefined ? base : divideRational(base, rationalFromDecimal(factor))
-        return glue === undefined ? unitPrice : multiplyRational(unitPrice, rationalFromDecimal(glue))
+        return glue === undefined ? unitPrice : multiplyRational(unitPrice, glue as ExactRational)
       },
     })
   }
@@ -187,12 +187,12 @@ export function calculateLineAdditionalMaterialCost(input: { readonly bom: LineA
     const rule = ADDITIONAL_PRICE_RULES[line.sku as keyof typeof ADDITIONAL_PRICE_RULES]
     const price = bySku.get(line.sku)!
     const factor = rule.divisor ? snapshot.settings[rule.divisor]! : undefined
-    const glueSource = rule.glueCell ? input.adhesiveFactors?.[rule.glueCell] : undefined
+    const glueSource = rule.glueCell ? input.adhesiveFactors?.[rule.glueCell as 'O5'|'O18'] : undefined
     const glue = glueSource == null ? undefined : glueSource
     let unitPrice = rationalFromDecimal(price.value)
     if (factor !== undefined) unitPrice = divideRational(unitPrice, rationalFromDecimal(factor))
     let amount = multiplyRational(unitPrice, line.quantity)
-    if (glue !== undefined) amount = multiplyRational(amount, rationalFromDecimal(glue))
+    if (glue !== undefined) amount = multiplyRational(amount, glue)
     subtotal = addRational(subtotal, amount)
     return Object.freeze({ sku: line.sku, sourceCell: line.sourceCell, quantity: line.quantity, unit: line.unit, unitPrice, amount, formula: rule.amountFormula, traceStepId: `JV.LINE.ADDITIONAL.COST.${line.sku}` })
   })

@@ -419,6 +419,30 @@
         "P21": {
           "value": "1600",
           "formula": "1600"
+        },
+        "P19": {
+          "value": "148",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L17": {
+          "value": "1.05",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L18": {
+          "value": "1.21",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L21": {
+          "value": "True",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L22": {
+          "value": "2.5",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "D32": {
+          "value": "False",
+          "formula": "Excel source setting (captured Value2)"
         }
       },
       "exampleCase": {
@@ -652,7 +676,249 @@
           "D33": false,
           "L3": true,
           "D34": null
-        }
+        },
+        "glassSelectionIndex": 9,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 1
+      },
+      "glassSelectionIndex": 9,
+      "glassSnapshot": {
+        "profile": "COMPLETATION",
+        "prices": [
+          {
+            "index": 1,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм прозрачное",
+            "sourceCell": "'Прайс-Стекло'!D5",
+            "value": "4618.181818181818"
+          },
+          {
+            "index": 2,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм осветлённое",
+            "sourceCell": "'Прайс-Стекло'!D6",
+            "value": "9525.454545454544"
+          },
+          {
+            "index": 3,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм тонированное",
+            "sourceCell": "'Прайс-Стекло'!D7",
+            "value": "9525.454545454544"
+          },
+          {
+            "index": 4,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм матированное",
+            "sourceCell": "'Прайс-Стекло'!D8",
+            "value": "7018.181818181818"
+          },
+          {
+            "index": 5,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм прозрачное",
+            "sourceCell": "'Прайс-Стекло'!D9",
+            "value": "5550.90909090909"
+          },
+          {
+            "index": 6,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм осветлённое",
+            "sourceCell": "'Прайс-Стекло'!D10",
+            "value": "11799.999999999998"
+          },
+          {
+            "index": 7,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм тонированное",
+            "sourceCell": "'Прайс-Стекло'!D11",
+            "value": "11799.999999999998"
+          },
+          {
+            "index": 8,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм матированное",
+            "sourceCell": "'Прайс-Стекло'!D12",
+            "value": "8385.454545454544"
+          },
+          {
+            "index": 9,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм прозрачное",
+            "sourceCell": "'Прайс-Стекло'!D13",
+            "value": "6869.090909090908"
+          },
+          {
+            "index": 10,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм осветлённое",
+            "sourceCell": "'Прайс-Стекло'!D14",
+            "value": "14556.363636363636"
+          },
+          {
+            "index": 11,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм тонированное",
+            "sourceCell": "'Прайс-Стекло'!D15",
+            "value": "14556.363636363636"
+          },
+          {
+            "index": 12,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм матированное",
+            "sourceCell": "'Прайс-Стекло'!D16",
+            "value": "11252.727272727272"
+          }
+        ],
+        "currency": "RUB",
+        "settings": {
+          "D32": "False",
+          "L17": "1.05",
+          "L22": "2.5",
+          "P19": "148",
+          "L21": "True",
+          "L18": "1.21"
+        },
+        "workbookSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+        "glassChoices": [
+          {
+            "index": 1,
+            "name": "6 мм проз.",
+            "sourceCell": "'#1'!D11",
+            "thickness": "6"
+          },
+          {
+            "index": 2,
+            "name": "6 мм освет.",
+            "sourceCell": "'#1'!D12",
+            "thickness": "6"
+          },
+          {
+            "index": 3,
+            "name": "6 мм тон.",
+            "sourceCell": "'#1'!D13",
+            "thickness": "6"
+          },
+          {
+            "index": 4,
+            "name": "6 мм мат.",
+            "sourceCell": "'#1'!D14",
+            "thickness": "6"
+          },
+          {
+            "index": 5,
+            "name": "8 мм проз.",
+            "sourceCell": "'#1'!D15",
+            "thickness": "8"
+          },
+          {
+            "index": 6,
+            "name": "8 мм освет.",
+            "sourceCell": "'#1'!D16",
+            "thickness": "8"
+          },
+          {
+            "index": 7,
+            "name": "8 мм тон.",
+            "sourceCell": "'#1'!D17",
+            "thickness": "8"
+          },
+          {
+            "index": 8,
+            "name": "8 мм мат.",
+            "sourceCell": "'#1'!D18",
+            "thickness": "8"
+          },
+          {
+            "index": 9,
+            "name": "10 мм проз.",
+            "sourceCell": "'#1'!D19",
+            "thickness": "10"
+          },
+          {
+            "index": 10,
+            "name": "10 мм освет.",
+            "sourceCell": "'#1'!D20",
+            "thickness": "10"
+          },
+          {
+            "index": 11,
+            "name": "10 мм тон.",
+            "sourceCell": "'#1'!D21",
+            "thickness": "10"
+          },
+          {
+            "index": 12,
+            "name": "10 мм мат.",
+            "sourceCell": "'#1'!D22",
+            "thickness": "10"
+          }
+        ],
+        "workbook": "JV-комплектация 08.10.2026.xlsm"
+      },
+      "paintSnapshot": {
+        "profile": "COMPLETATION",
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "workbookSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+        "currency": "RUB",
+        "entries": [
+          {
+            "sourceCell": "'Прайс-Line'!G5",
+            "row": 5,
+            "value": "325"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G6",
+            "row": 6,
+            "value": "225"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G7",
+            "row": 7,
+            "value": "287.5"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G8",
+            "row": 8,
+            "value": "106.25"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G9",
+            "row": 9,
+            "value": "50"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G10",
+            "row": 10,
+            "value": "50"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G11",
+            "row": 11,
+            "value": "0"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G12",
+            "row": 12,
+            "value": "0"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G39",
+            "row": 39,
+            "value": "50"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G40",
+            "row": 40,
+            "value": "50"
+          }
+        ],
+        "settings": {
+          "L9": "1",
+          "L10": "5500",
+          "L11": "1.15"
+        },
+        "transportPrice": "5000"
       }
     },
     {
@@ -1072,6 +1338,30 @@
         "P21": {
           "value": "1600",
           "formula": "1600"
+        },
+        "P19": {
+          "value": "148",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L17": {
+          "value": "1.05",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L18": {
+          "value": "1.21",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L21": {
+          "value": "True",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "L22": {
+          "value": "2.5",
+          "formula": "Excel source setting (captured Value2)"
+        },
+        "D32": {
+          "value": "True",
+          "formula": "Excel source setting (captured Value2)"
         }
       },
       "exampleCase": {
@@ -1305,7 +1595,249 @@
           "D33": true,
           "L3": true,
           "D34": true
-        }
+        },
+        "glassSelectionIndex": 9,
+        "finishSelectionIndex": 1,
+        "commercialModeIndex": 3
+      },
+      "glassSelectionIndex": 9,
+      "glassSnapshot": {
+        "profile": "RETAIL",
+        "prices": [
+          {
+            "index": 1,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм прозрачное",
+            "sourceCell": "'Прайс-Стекло'!D5",
+            "value": "2540"
+          },
+          {
+            "index": 2,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм осветлённое",
+            "sourceCell": "'Прайс-Стекло'!D6",
+            "value": "5239"
+          },
+          {
+            "index": 3,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм тонированное",
+            "sourceCell": "'Прайс-Стекло'!D7",
+            "value": "5239"
+          },
+          {
+            "index": 4,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 6 мм матированное",
+            "sourceCell": "'Прайс-Стекло'!D8",
+            "value": "3860"
+          },
+          {
+            "index": 5,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм прозрачное",
+            "sourceCell": "'Прайс-Стекло'!D9",
+            "value": "3053"
+          },
+          {
+            "index": 6,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм осветлённое",
+            "sourceCell": "'Прайс-Стекло'!D10",
+            "value": "6490"
+          },
+          {
+            "index": 7,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм тонированное",
+            "sourceCell": "'Прайс-Стекло'!D11",
+            "value": "6490"
+          },
+          {
+            "index": 8,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 8 мм матированное",
+            "sourceCell": "'Прайс-Стекло'!D12",
+            "value": "4612"
+          },
+          {
+            "index": 9,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм прозрачное",
+            "sourceCell": "'Прайс-Стекло'!D13",
+            "value": "3778"
+          },
+          {
+            "index": 10,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм осветлённое",
+            "sourceCell": "'Прайс-Стекло'!D14",
+            "value": "8006"
+          },
+          {
+            "index": 11,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм тонированное",
+            "sourceCell": "'Прайс-Стекло'!D15",
+            "value": "8006"
+          },
+          {
+            "index": 12,
+            "unit": "кв.м",
+            "name": "Стекло закалённое 10 мм матированное",
+            "sourceCell": "'Прайс-Стекло'!D16",
+            "value": "6189"
+          }
+        ],
+        "currency": "RUB",
+        "settings": {
+          "D32": "True",
+          "L17": "1.05",
+          "L22": "2.5",
+          "P19": "148",
+          "L21": "True",
+          "L18": "1.21"
+        },
+        "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+        "glassChoices": [
+          {
+            "index": 1,
+            "name": "6 мм проз.",
+            "sourceCell": "'#1'!D11",
+            "thickness": "6"
+          },
+          {
+            "index": 2,
+            "name": "6 мм освет.",
+            "sourceCell": "'#1'!D12",
+            "thickness": "6"
+          },
+          {
+            "index": 3,
+            "name": "6 мм тон.",
+            "sourceCell": "'#1'!D13",
+            "thickness": "6"
+          },
+          {
+            "index": 4,
+            "name": "6 мм мат.",
+            "sourceCell": "'#1'!D14",
+            "thickness": "6"
+          },
+          {
+            "index": 5,
+            "name": "8 мм проз.",
+            "sourceCell": "'#1'!D15",
+            "thickness": "8"
+          },
+          {
+            "index": 6,
+            "name": "8 мм освет.",
+            "sourceCell": "'#1'!D16",
+            "thickness": "8"
+          },
+          {
+            "index": 7,
+            "name": "8 мм тон.",
+            "sourceCell": "'#1'!D17",
+            "thickness": "8"
+          },
+          {
+            "index": 8,
+            "name": "8 мм мат.",
+            "sourceCell": "'#1'!D18",
+            "thickness": "8"
+          },
+          {
+            "index": 9,
+            "name": "10 мм проз.",
+            "sourceCell": "'#1'!D19",
+            "thickness": "10"
+          },
+          {
+            "index": 10,
+            "name": "10 мм освет.",
+            "sourceCell": "'#1'!D20",
+            "thickness": "10"
+          },
+          {
+            "index": 11,
+            "name": "10 мм тон.",
+            "sourceCell": "'#1'!D21",
+            "thickness": "10"
+          },
+          {
+            "index": 12,
+            "name": "10 мм мат.",
+            "sourceCell": "'#1'!D22",
+            "thickness": "10"
+          }
+        ],
+        "workbook": "JV-розница 08.10.2026.xlsm"
+      },
+      "paintSnapshot": {
+        "profile": "RETAIL",
+        "workbook": "JV-розница 08.10.2026.xlsm",
+        "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+        "currency": "RUB",
+        "entries": [
+          {
+            "sourceCell": "'Прайс-Line'!G5",
+            "row": 5,
+            "value": "260"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G6",
+            "row": 6,
+            "value": "180"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G7",
+            "row": 7,
+            "value": "230"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G8",
+            "row": 8,
+            "value": "85"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G9",
+            "row": 9,
+            "value": "40"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G10",
+            "row": 10,
+            "value": "40"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G11",
+            "row": 11,
+            "value": "0"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G12",
+            "row": 12,
+            "value": "0"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G39",
+            "row": 39,
+            "value": "40"
+          },
+          {
+            "sourceCell": "'Прайс-Line'!G40",
+            "row": 40,
+            "value": "40"
+          }
+        ],
+        "settings": {
+          "L9": "1",
+          "L10": "5500",
+          "L11": "1.15"
+        },
+        "transportPrice": "4000"
       }
     }
   ]
