@@ -9,13 +9,16 @@ import { calculateLineParkingComponents } from './geometry/parking-components.ts
 import { calculateLineMaterialCost, calculateLineAdditionalMaterialCost, aggregateLineQ52MaterialSubtotal, type LinePriceSnapshot } from './pricing-line.ts'
 import { calculateLineWorkCosts } from './line-work-cost.ts'
 import { calculateLineAdhesiveFactors } from './adhesive-line.ts'
-import { rationalFromDecimal } from './rational.ts'
+import { rationalFromDecimal, type ExactRational } from './rational.ts'
 import { calculateLineGlass, type LineGlassPriceSnapshot } from './glass-line.ts'
 import { calculateLinePaint, type LinePaintPriceSnapshot } from './paint-line.ts'
 import { calculateLineCommercial } from './commercial-line.ts'
+import type { GraphResult } from './graph.ts'
 
 export interface LineEngineInputs {
   readonly constructionId: string
+  /** Physical Excel slot for order calculations; omitted for standalone L1 quotes. */
+  readonly excelSlot?: number
   readonly constructionQuantity: DecimalString // Главная!Z11; standalone JV-Line quote quantity
   readonly glassSelectionIndex: number // Главная!I11 -> L1!C11
   readonly finishSelectionIndex: number // Главная!H11 -> L1!C10
@@ -75,9 +78,15 @@ export interface LineEngineResult {
   readonly diagnostics:readonly string[]
   readonly trace:readonly unknown[]
 }
+export interface LineOrderContext {
+  readonly adhesiveFactors: Readonly<{O5:ExactRational;O18:ExactRational}>
+  readonly systemAllocationFactor: ExactRational
+  readonly trace?: GraphResult['trace']
+}
 
 /** Public, UI-safe adapter; it orchestrates rule modules and does not expose DAG ids to forms. */
-export function calculateLineConstruction(input:LineEngineInputs,settings:LineEngineSettings,snapshot:LinePriceSnapshot,glassSnapshot:LineGlassPriceSnapshot,paintSnapshot:LinePaintPriceSnapshot):LineEngineResult {
+export function calculateLineConstruction(input:LineEngineInputs,settings:LineEngineSettings,snapshot:LinePriceSnapshot,glassSnapshot:LineGlassPriceSnapshot,paintSnapshot:LinePaintPriceSnapshot,orderContext?:LineOrderContext):LineEngineResult {
+  if(input.excelSlot!==undefined&&(!Number.isInteger(input.excelSlot)||input.excelSlot<1||input.excelSlot>7))throw new EngineError('INVALID_CONFIGURATION','Excel slot must be an integer from 1 through 7',{excelSlot:input.excelSlot})
   if(input.profile!==snapshot.profile||input.workbook!==snapshot.workbook)throw new EngineError('INVALID_CONFIGURATION','Selected workbook, profile and price snapshot must match',{profile:input.profile,snapshotProfile:snapshot.profile,workbook:input.workbook,snapshotWorkbook:snapshot.workbook})
   const d=(x:string)=>decimalString(x)
   const wholeLeaves=input.mainLeavesSelector===undefined?input.leaves:(()=>{const source=d(input.mainLeavesSelector),integer=divideDecimalTruncateToInteger(source,d('1'));return compareDecimal(source,integer)>0?addDecimal(integer,d('1')):integer})()
@@ -92,9 +101,10 @@ export function calculateLineConstruction(input:LineEngineInputs,settings:LineEn
   const materials=calculateLineMaterialCost({bom,snapshot})
   const additionalBom=buildLineAdditionalBom({constructionId:`${input.constructionId}:EXTRA`,sourceWorkbook:input.workbook,baseQuantities:Object.fromEntries(bom.lines.filter(x=>['L1!O5','L1!O6','L1!O7','L1!O8'].includes(x.sourceCell)).map(x=>[x.sourceCell.slice(-2),x.quantity.value])),width:input.widthMm,leaves:wholeLeaves,sideCount:input.sideCount,profileCount:input.profileCount,connectorAngle:input.connectorAngle,frameState:input.frameState,weatherSealState:input.weatherSealState,settings:{L4:settings.L4,L5:settings.L5,L6:settings.L6,L7:settings.L7,L8:settings.L8,P21:settings.P21}})
   const quantityBySku=new Map(additionalBom.lines.map(line=>[line.sku,line.quantity]))
-  const adhesiveFactors=calculateLineAdhesiveFactors({activatorQuantityPerConstruction:quantityBySku.get('AA-110')!,adhesiveQuantityPerConstruction:quantityBySku.get('AA-120')!,constructionQuantity:rationalFromDecimal(input.constructionQuantity),workbook:input.workbook})
+  const localAdhesiveFactors=calculateLineAdhesiveFactors({activatorQuantityPerConstruction:quantityBySku.get('AA-110')!,adhesiveQuantityPerConstruction:quantityBySku.get('AA-120')!,constructionQuantity:rationalFromDecimal(input.constructionQuantity),workbook:input.workbook})
+  const adhesiveFactors=orderContext?Object.freeze({...localAdhesiveFactors,O5:orderContext.adhesiveFactors.O5,O18:orderContext.adhesiveFactors.O18,trace:orderContext.trace??Object.freeze([])}):localAdhesiveFactors
   const additionalMaterials=calculateLineAdditionalMaterialCost({bom:additionalBom,profile:input.profile,snapshot,adhesiveFactors:{O5:adhesiveFactors.O5,O18:adhesiveFactors.O18}})
-  const glass=calculateLineGlass({workbook:input.workbook,profile:input.profile,heightMm:input.heightMm,constructionQuantity:input.constructionQuantity,glassSelectionIndex:input.glassSelectionIndex,sash:sash.intermediates,priceSnapshot:glassSnapshot,settings:{P19:settings.P19,L17:settings.L17,L18:settings.L18,L21:settings.L21,L22:settings.L22,D32:settings.D32},fixedChargePrice:snapshot.additionalSources?.assemblyInstallPrices?.C23 ?? (()=>{throw new EngineError('PRICE_NOT_FOUND',"Missing fixed glass charge 'Прайс-сб+монт'!C23")})()})
+  const glass=calculateLineGlass({workbook:input.workbook,profile:input.profile,heightMm:input.heightMm,constructionQuantity:input.constructionQuantity,glassSelectionIndex:input.glassSelectionIndex,sash:sash.intermediates,priceSnapshot:glassSnapshot,settings:{P19:settings.P19,L17:settings.L17,L18:settings.L18,L21:settings.L21,L22:settings.L22,D32:settings.D32},fixedChargePrice:snapshot.additionalSources?.assemblyInstallPrices?.C23 ?? (()=>{throw new EngineError('PRICE_NOT_FOUND',"Missing fixed glass charge 'Прайс-сб+монт'!C23")})(),...(orderContext?{orderSystemAllocationFactor:orderContext.systemAllocationFactor,...(input.excelSlot===undefined?{}:{orderSlot:input.excelSlot})}:{})})
   const paint=calculateLinePaint({workbook:input.workbook,profile:input.profile,finishIndex:input.finishSelectionIndex,bom,systemAllocationFactor:glass.systemAllocationFactor,priceSnapshot:paintSnapshot})
   const materialSubtotal=aggregateLineQ52MaterialSubtotal({base:materials,additional:additionalMaterials})
   const work=calculateLineWorkCosts({workbook:input.workbook,profile:input.profile,snapshot,widthMm:input.widthMm,heightMm:input.heightMm,leaves:wholeLeaves,sides:input.sideCount,profileCount:input.profileCount,parkedDoorSelected:input.parkedDoorSelected,parkingPartCount:geometry.parking.parkingPartCount,assemblyEnabled:input.assemblyEnabled,millingEnabled:input.millingEnabled,installationEnabled:input.installationEnabled})
@@ -103,5 +113,21 @@ export function calculateLineConstruction(input:LineEngineInputs,settings:LineEn
   const commercial=calculateLineCommercial({workbook:input.workbook,q52:materialSubtotal.supportedSubtotal,q53:paint.q53,q54:glass.surcharge,q55:work.assemblyAndMilling,q57:work.installation,sideCount:input.sideCount,direction:input.direction,commercialModeIndex:input.commercialModeIndex,priceC25:c25,systemAllocationFactor:glass.systemAllocationFactor,componentsComplete:bom.status==='COMPLETE'&&additionalMaterials.completeness==='COMPLETE_SUPPORTED_POSITIONS'&&materialSubtotal.status==='COMPLETE'})
   const diagnostics=[...bom.unsupported.map(x=>`${x.sku} (${x.quantitySourceCell}): ${x.status}`),...additionalMaterials.unsupportedPositions.map(x=>`${x.sku} (${x.sourceCell}): ${x.reason}`),...(!commercial.finalPriceAvailable?['Q58 is not a publishable final price because an upstream component is incomplete or the Excel guard returned an error.']:[])]
   const leafSelectorTrace=input.mainLeavesSelector===undefined?[]:[Object.freeze({id:'JV.LINE.LEAF_SELECTOR_CEILING',kind:'input' as const,label:'Нормализация количества створок Главная!L11 -> L1!D5',inputRefs:['Главная!L11'],ruleId:'JV.LINE.MAIN_LEAVES_CEILING',source:{workbook:input.workbook,sheet:'Главная',cell:'M11',formula:'=CEILING($L11,1)'},catalogRefs:[],input:Object.freeze({mainSelector:input.mainLeavesSelector}),result:wholeLeaves,status:'ok' as const,errorIds:[],warningIds:[]})]
-  return Object.freeze({constructionId:input.constructionId,profile:input.profile,status:commercial.status,geometry,sash,parking,bom,additionalBom,materials,additionalMaterials,materialSubtotal,work,adhesiveFactors,glass,paint,commercial,finalPriceAvailable:commercial.finalPriceAvailable,diagnostics:Object.freeze(diagnostics),trace:Object.freeze([...leafSelectorTrace,...geometry.trace,...sash.trace,...parking.trace,...bom.trace,...additionalBom.trace,...adhesiveFactors.trace,...glass.trace,...paint.trace,...materials.trace,...additionalMaterials.trace,...materialSubtotal.trace,...work.trace,...commercial.trace])})
+  const result={constructionId:input.constructionId,profile:input.profile,status:commercial.status,geometry,sash,parking,bom,additionalBom,materials,additionalMaterials,materialSubtotal,work,adhesiveFactors,glass,paint,commercial,finalPriceAvailable:commercial.finalPriceAvailable,diagnostics:Object.freeze(diagnostics),trace:Object.freeze([...leafSelectorTrace,...geometry.trace,...sash.trace,...parking.trace,...bom.trace,...additionalBom.trace,...(orderContext?.trace??[]),...adhesiveFactors.trace,...glass.trace,...paint.trace,...materials.trace,...additionalMaterials.trace,...materialSubtotal.trace,...work.trace,...commercial.trace])}
+  return Object.freeze(input.excelSlot===undefined?result:remapExcelSlot(result,input.excelSlot)) as LineEngineResult
+}
+
+function remapExcelSlot<T>(value:T,slot:number):T {
+  const sheet=`L${slot}`,row=24+slot
+  const visit=(item:unknown,key?:string):unknown=>{
+    if(typeof item==='string')return item.split('L1!').join(`${sheet}!`).replace(/ПРМ!\$?AB\$?\d+/g,`ПРМ!$AB$${row}`)
+    if(Array.isArray(item))return item.map(x=>visit(x))
+    if(item&&typeof item==='object'){
+      const out:Record<string,unknown>={}
+      for(const [k,v] of Object.entries(item))out[k]=k==='sheet'&&v==='L1'?sheet:visit(v,k)
+      return Object.freeze(out)
+    }
+    return item
+  }
+  return visit(value) as T
 }
