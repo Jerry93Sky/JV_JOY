@@ -6,8 +6,8 @@
   "rebuild": "CalculateFullRebuild on temporary copies",
   "profiles": ["COMPLETATION", "RETAIL"],
   "cases": 8,
-  "checks": 256,
-  "counts": {"EXACT":168,"DISPLAY_MATCH":0,"NUMERICALLY_EQUIVALENT":0,"MISMATCH":0,"UNVERIFIED":88},
-  "bomRows": [5,8,9,10,13,14,15,16,17,18,19,27,28,32,33],
+  "checks": 280,
+  "counts": {"EXACT":192,"DISPLAY_MATCH":0,"NUMERICALLY_EQUIVALENT":0,"MISMATCH":0,"UNVERIFIED":88},
+  "bomRows": [5,8,9,10,11,12,13,14,15,16,17,18,19,27,28,29,32,33],
   "note": "All implemented BOM integer quantities compare EXACT. Non-terminating rational geometry compared against COM Value2 decimal strings is UNVERIFIED; no tolerance or display-only equivalence was inferred. Both D13 branches were exercised."
 }

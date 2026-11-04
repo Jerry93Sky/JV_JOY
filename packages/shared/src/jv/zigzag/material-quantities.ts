@@ -9,6 +9,8 @@ const sources=[
  {row:5,catalogId:'LN-010',description:'Профиль несущий',unit:'m',formula:'=Z1!D20/1000+Настройки!D8/1000'},
  {row:9,catalogId:'LN-070-A',description:'Роликовая каретка высокая',unit:'piece',formula:'=(Z1!D5-1)*Z1!D6'},
  {row:10,catalogId:'LN-080',description:'Защёлка боковая',unit:'piece',formula:'=Z1!D5*Z1!D6'},
+ {row:11,catalogId:'LN-100',description:'Ответная втулка защёлки',unit:'piece',formula:'=Z1!N10+IF(Z1!D15="ДА",1,0)'},
+ {row:12,catalogId:'LN-110',description:'Ручка-кноб',unit:'piece',formula:'=IF(Z1!D14="ДА",Z1!D6,0)'},
  {row:13,catalogId:'LN-120',description:'Поворотный узел нижний (комплект)',unit:'set',formula:'=Z1!D6'},
  {row:14,catalogId:'LN-130',description:'Поворотный узел верхний (комплект)',unit:'set',formula:'=Z1!D6'},
  {row:15,catalogId:'LN-150',description:'Пластина соединительная',unit:'piece',formula:'=1'},
@@ -16,6 +18,7 @@ const sources=[
  {row:17,catalogId:'LN-TL',description:'Заглушка верхняя рядовая левая',unit:'piece',formula:'=0'},
  {row:18,catalogId:'LN-TR',description:'Заглушка верхняя рядовая правая',unit:'piece',formula:'=IF(Z1!D6=2,2,0)'},
  {row:19,catalogId:'LN-TF',description:'Заглушка верхняя боковая плоская',unit:'piece',formula:'=IF(Z1!D13="ДА",0,2)'},
+ {row:29,catalogId:'LN-230',description:'Замок в пол (комплект)',unit:'piece',formula:'=IF(Z1!D17="ДА",1,0)'},
  {row:27,catalogId:'LN-210',description:'Верхняя петля + 2 башмака + винты (комплект)',unit:'piece',formula:'=Z1!D5*Z1!D6-Z1!D6'},
  {row:28,catalogId:'LN-220',description:'Нижняя петля + 2 башмака + винты (комплект)',unit:'piece',formula:'=Z1!N27'},
  {row:32,catalogId:'AA-050',description:'Уплотнитель светопрозр. h-типа, 3 м',unit:'piece',formula:'=Z1!D6*Z1!D5-1'},
@@ -34,6 +37,10 @@ export function calculateZigzagBaseMaterialQuantities(geometry: ZigzagGeometryRe
  if(geometry.inputs.framePresent){
   quantityByRow[8]=divideDecimalExact(addDecimal(multiplyDecimal(subtractDecimal(String(geometry.inputs.heightMm) as DecimalString,p3 as DecimalString),'2' as DecimalString),d8 as DecimalString),'1000' as DecimalString)
  }
+ if(geometry.inputs.switches.D14===undefined||geometry.inputs.switches.D15===undefined||geometry.inputs.switches.D17===undefined) throw new EngineError('MISSING_INPUT','Zigzag BOM N11/N12/N29 require raw selector inputs for D14, D15 and D17')
+ quantityByRow[11]=String(l*o+(geometry.inputs.switches.D15?1n:0n))
+ quantityByRow[12]=geometry.inputs.switches.D14?String(o):'0'
+ quantityByRow[29]=geometry.inputs.switches.D17?'1':'0'
  const trace:TraceStep[]=[]
  const specification=sources.map((source,index)=>{
   const id=`JV.ZIGZAG.Z1.N${source.row}`

@@ -16,7 +16,7 @@ for(const c of fixture.cases){
   rows.push({scenario:c.id,profile:c.profile,cell,formula,excel:ev,engineExact:exact??null,engineRational:x.outputs[cell]??null,classification})
  }
  const bom=calculateZigzagBaseMaterialQuantities(x).specification
- const bomSources={N5:['LN-010','=D20/1000+Настройки!D8/1000'],N8:['LN-040','=IF(D13="ДА",C21*D21/1000+Настройки!D8/1000,0)'],N9:['LN-070-A','=($D$5-1)*$D$6'],N10:['LN-080','=$D$5*$D$6'],N13:['LN-120','=$D$6'],N14:['LN-130','=$D$6'],N15:['LN-150','=1'],N16:['LN-180','=$N$9'],N17:['LN-TL','=0'],N18:['LN-TR','=IF($D$6=2,2,0)'],N19:['LN-TF','=IF($D$13="ДА",0,2)'],N27:['LN-210','=$D$5*$D$6-$D$6'],N28:['LN-220','=$N$27'],N32:['AA-050','=($D$6*$D$5)-1'],N33:['AA-070','=2']}
+ const bomSources={N5:['LN-010','=D20/1000+Настройки!D8/1000'],N8:['LN-040','=IF(D13="ДА",C21*D21/1000+Настройки!D8/1000,0)'],N9:['LN-070-A','=($D$5-1)*$D$6'],N10:['LN-080','=$D$5*$D$6'],N11:['LN-100','=$N$10+IF($D$15="ДА",1,0)'],N12:['LN-110','=IF($D$14="ДА",$D$6,0)'],N13:['LN-120','=$D$6'],N14:['LN-130','=$D$6'],N15:['LN-150','=1'],N16:['LN-180','=$N$9'],N17:['LN-TL','=0'],N18:['LN-TR','=IF($D$6=2,2,0)'],N19:['LN-TF','=IF($D$13="ДА",0,2)'],N27:['LN-210','=$D$5*$D$6-$D$6'],N28:['LN-220','=$N$27'],N29:['LN-230','=IF($D$17="ДА",1,0)'],N32:['AA-050','=($D$6*$D$5)-1'],N33:['AA-070','=2']}
  for(const [cell,[sku,formula]] of Object.entries(bomSources)){
   const line=bom.find(x=>x.catalogId===sku), engine=line?.quantity?.value??null, excel=c.cells[cell]
   rows.push({scenario:c.id,profile:c.profile,cell,formula,sku,excel,engineExact:engine,classification:engine===excel?'EXACT':'MISMATCH'})

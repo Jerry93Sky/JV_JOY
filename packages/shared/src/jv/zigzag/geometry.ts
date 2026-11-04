@@ -6,10 +6,11 @@ import type { TraceStep } from '../types.ts'
 export interface ZigzagGeometryInput {
   widthMm: string; heightMm: string; leafSelector: string; openingSelector: number
   frameSettingIndex: number; frameOverrideIndex: number; frameChoices: readonly ['ДА'|'НЕТ','ДА'|'НЕТ']
+  switches?: Partial<Record<'D14'|'D15'|'D16'|'D17', { settingIndex:number; overrideIndex:number; choices: readonly [string,string] }>>
   settings: { P4: string; P24: string; P25: string; P26: string; P27: string; P28: string; P29: string; L23: string; D8?: string; P3?: string }
 }
 export interface ZigzagGeometryResult {
-  status: 'PARTIAL'; family: 'ZIGZAG'; inputs: Readonly<ZigzagGeometryInput & { normalizedSashCount: string; normalizedOpeningCount: number; framePresent: boolean }>
+  status: 'PARTIAL'; family: 'ZIGZAG'; inputs: Readonly<ZigzagGeometryInput & { normalizedSashCount: string; normalizedOpeningCount: number; framePresent: boolean; switches:Readonly<Record<string,boolean|undefined>> }>
   outputs: Readonly<Record<'H4'|'H5'|'H6'|'H7'|'H8'|'H9'|'H13'|'H14'|'H15'|'H16'|'H17'|'H18'|'D29'|'D30'|'D31', ExactRational>>
   decimalOutputs: Readonly<Record<string, string | null>>; trace: readonly TraceStep[]
   unsupported: readonly string[]
@@ -34,11 +35,14 @@ export function calculateZigzagGeometry(input: ZigzagGeometryInput): ZigzagGeome
   const frameIndex=input.frameSettingIndex===3?input.frameOverrideIndex:input.frameSettingIndex
   if (!Number.isInteger(frameIndex)||frameIndex<1||frameIndex>2) throw new EngineError('INVALID_CONFIGURATION','Z1!D13 INDEX selection must be 1 or 2')
   const framePresent=input.frameChoices[frameIndex-1]==='ДА'
+  const optionFlags:Record<string,boolean|undefined>={}
+  for(const [cell,opt] of Object.entries(input.switches??{})){const idx=opt.settingIndex===3?opt.overrideIndex:opt.settingIndex;if(!Number.isInteger(idx)||idx<1||idx>2)throw new EngineError('INVALID_CONFIGURATION',`Z1!${cell} INDEX requires selector 1 or 2`);optionFlags[cell]=opt.choices[idx-1]==='ДА'}
   for (const [key,value] of Object.entries(input.settings)) { try { v(value) } catch { throw new EngineError('INVALID_DECIMAL',`Invalid Zigzag setting Настройки!${key}: ${value}`) } }
   const rules:CalculationRule[]=[]
   const addRule=(id:string,deps:string[],cell:string,formula:string,run:(r:Readonly<Record<string,unknown>>)=>ExactRational)=>rules.push({id,version:'JV-ZIGZAG-GEOMETRY-2026-11-04-v1',dependsOn:deps,source:source(cell,formula),execute:({results})=>run(results)})
   const w=width, d5={numerator:String(sashCount),denominator:'1'} as ExactRational, d6={numerator:String(openingCount),denominator:'1'} as ExactRational
   rules.push({id:'Z1.D13',version:'JV-ZIGZAG-SETTINGS-2026-10-08-v1',dependsOn:['input'],source:source('D13','=IF(Настройки!I2=3,INDEX(\'#1\'!F3:F4,C13),INDEX(\'#1\'!F3:F4,Настройки!I2))'),execute:()=>framePresent?'ДА':'НЕТ'})
+  for(const [cell,flag] of Object.entries(optionFlags)) rules.push({id:`Z1.${cell}`,version:'JV-ZIGZAG-SETTINGS-2026-10-08-v1',dependsOn:['input'],source:source(cell,`=IF(settingIndex=3,INDEX(lookupRange,overrideIndex),INDEX(lookupRange,settingIndex))`),execute:()=>flag?'ДА':'НЕТ'})
   addRule('Z1.H4',['Z1.D13'], 'H4','=D3-IF(D13="ДА",2*Настройки!P4,0)-Настройки!P25-Настройки!P26',r=>sub(sub(sub(w,r['Z1.D13']==='ДА'?mul(v('2'),v(input.settings.P4)):v('0')),v(input.settings.P25)),v(input.settings.P26)))
   addRule('Z1.H5',['input'],'H5','=2*D5-1',()=>sub(mul(v('2'),d5),v('1')))
   addRule('Z1.H6',['Z1.H4','Z1.H5'],'H6','=H4/H5',r=>divideRational(r['Z1.H4'] as ExactRational,r['Z1.H5'] as ExactRational))
@@ -53,7 +57,8 @@ export function calculateZigzagGeometry(input: ZigzagGeometryInput): ZigzagGeome
   addRule('Z1.H18',['Z1.H15'],'H18','=2*H15-0.5*Настройки!P27-0.5*Настройки!P28',r=>sub(sub(mul(v('2'),r['Z1.H15'] as ExactRational),half(v(input.settings.P27))),half(v(input.settings.P28))))
   for (const [cell,h1,h2] of [['D29','Z1.H7','Z1.H16'],['D30','Z1.H8','Z1.H17'],['D31','Z1.H9','Z1.H18']] as const) addRule(`Z1.${cell}`,[h1,h2],'D'+cell.slice(1),`=IF(D6=1,${h1.slice(3)},0)+IF(D6=2,${h2.slice(3)},0)-Настройки!L23`,r=>sub(add(openingCount===1?r[h1] as ExactRational:v('0'),openingCount===2?r[h2] as ExactRational:v('0')),v(input.settings.L23)))
   const graph=executeGraph({input:true},rules)
-  const ids=rules.map(x=>x.id).filter(id=>id!=='Z1.D13') as (keyof ZigzagGeometryResult['outputs'])[]
+  const outputCells=new Set(['H4','H5','H6','H7','H8','H9','H13','H14','H15','H16','H17','H18','D29','D30','D31'])
+  const ids=rules.map(x=>x.id).filter(id=>outputCells.has(id.replace('Z1.',''))) as (keyof ZigzagGeometryResult['outputs'])[]
   const outputs=Object.fromEntries(ids.map(id=>[String(id).replace('Z1.',''),graph.values[id] as ExactRational])) as ZigzagGeometryResult['outputs']
-  return {status:'PARTIAL',family:'ZIGZAG',inputs:{...input,normalizedSashCount:String(sashCount),normalizedOpeningCount:openingCount,framePresent},outputs,decimalOutputs:Object.fromEntries(Object.entries(outputs).map(([k,x])=>[k,rationalToDecimalExact(x)??null])),trace:graph.trace,unsupported:['Only the independently confirmed base BOM subset is implemented; other technology, cut and commercial lines remain unsupported.']}
+  return {status:'PARTIAL',family:'ZIGZAG',inputs:{...input,normalizedSashCount:String(sashCount),normalizedOpeningCount:openingCount,framePresent,switches:optionFlags},outputs,decimalOutputs:Object.fromEntries(Object.entries(outputs).map(([k,x])=>[k,rationalToDecimalExact(x)??null])),trace:graph.trace,unsupported:['Only the independently confirmed BOM subset is implemented; other technology, cut and commercial lines remain unsupported.']}
 }

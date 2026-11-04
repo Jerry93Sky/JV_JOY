@@ -3,7 +3,7 @@
   "sourceFixture": "docs/jv/fixtures/zigzag-geometry-excel.json",
   "method": "Fresh Excel 16 CalculateFullRebuild on temporary original workbook copies. Engine uses exact rational arithmetic. Excel COM JSON Value2 lacks the full binary rational; non-terminating engine rationals are UNVERIFIED, with no tolerance.",
   "counts": {
-    "EXACT": 168,
+    "EXACT": 192,
     "DISPLAY_MATCH": 0,
     "NUMERICALLY_EQUIVALENT": 0,
     "MISMATCH": 0,
@@ -268,6 +268,26 @@
     {
       "scenario": "zigzag_yes_3600x2400_4leaf",
       "profile": "COMPLETATION",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "5",
+      "engineExact": "5",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -353,6 +373,16 @@
       "sku": "LN-220",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
@@ -633,6 +663,26 @@
     {
       "scenario": "zigzag_no_3600x2400_4leaf",
       "profile": "COMPLETATION",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "5",
+      "engineExact": "5",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -718,6 +768,16 @@
       "sku": "LN-220",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
@@ -998,6 +1058,26 @@
     {
       "scenario": "zigzag_yes_4200x2500_5leaf",
       "profile": "COMPLETATION",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "11",
+      "engineExact": "11",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -1083,6 +1163,16 @@
       "sku": "LN-220",
       "excel": "8",
       "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
@@ -1363,6 +1453,26 @@
     {
       "scenario": "zigzag_no_4200x2500_5leaf",
       "profile": "COMPLETATION",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "11",
+      "engineExact": "11",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -1448,6 +1558,16 @@
       "sku": "LN-220",
       "excel": "8",
       "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
@@ -1728,6 +1848,26 @@
     {
       "scenario": "zigzag_yes_3600x2400_4leaf",
       "profile": "RETAIL",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "5",
+      "engineExact": "5",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -1813,6 +1953,16 @@
       "sku": "LN-220",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
@@ -2093,6 +2243,26 @@
     {
       "scenario": "zigzag_no_3600x2400_4leaf",
       "profile": "RETAIL",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "5",
+      "engineExact": "5",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -2178,6 +2348,16 @@
       "sku": "LN-220",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
@@ -2458,6 +2638,26 @@
     {
       "scenario": "zigzag_yes_4200x2500_5leaf",
       "profile": "RETAIL",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "11",
+      "engineExact": "11",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -2543,6 +2743,16 @@
       "sku": "LN-220",
       "excel": "8",
       "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
@@ -2823,6 +3033,26 @@
     {
       "scenario": "zigzag_no_4200x2500_5leaf",
       "profile": "RETAIL",
+      "cell": "N11",
+      "formula": "=$N$10+IF($D$15=\"ДА\",1,0)",
+      "sku": "LN-100",
+      "excel": "11",
+      "engineExact": "11",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N12",
+      "formula": "=IF($D$14=\"ДА\",$D$6,0)",
+      "sku": "LN-110",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
       "cell": "N13",
       "formula": "=$D$6",
       "sku": "LN-120",
@@ -2908,6 +3138,16 @@
       "sku": "LN-220",
       "excel": "8",
       "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N29",
+      "formula": "=IF($D$17=\"ДА\",1,0)",
+      "sku": "LN-230",
+      "excel": "0",
+      "engineExact": "0",
       "classification": "EXACT"
     },
     {
