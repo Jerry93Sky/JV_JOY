@@ -7,7 +7,7 @@ export interface ZigzagGeometryInput {
   widthMm: string; heightMm: string; leafSelector: string; openingSelector: number
   frameSettingIndex: number; frameOverrideIndex: number; frameChoices: readonly ['ДА'|'НЕТ','ДА'|'НЕТ']
   switches?: Partial<Record<'D14'|'D15'|'D16'|'D17', { settingIndex:number; overrideIndex:number; choices: readonly [string,string] }>>
-  settings: { P4: string; P24: string; P25: string; P26: string; P27: string; P28: string; P29: string; L23: string; D8?: string; P3?: string }
+  settings: { P4: string; P24: string; P25: string; P26: string; P27: string; P28: string; P29: string; L23: string; D8?: string; P3?: string; D6?: string; L4?: string; L5?: string; L6?: boolean; L7?: string; L8?: string; P12?: string; P13?: string; P16?: string; P17?: string; P21?: string }
 }
 export interface ZigzagGeometryResult {
   status: 'PARTIAL'; family: 'ZIGZAG'; inputs: Readonly<ZigzagGeometryInput & { normalizedSashCount: string; normalizedOpeningCount: number; framePresent: boolean; switches:Readonly<Record<string,boolean|undefined>> }>
@@ -37,7 +37,7 @@ export function calculateZigzagGeometry(input: ZigzagGeometryInput): ZigzagGeome
   const framePresent=input.frameChoices[frameIndex-1]==='ДА'
   const optionFlags:Record<string,boolean|undefined>={}
   for(const [cell,opt] of Object.entries(input.switches??{})){const idx=opt.settingIndex===3?opt.overrideIndex:opt.settingIndex;if(!Number.isInteger(idx)||idx<1||idx>2)throw new EngineError('INVALID_CONFIGURATION',`Z1!${cell} INDEX requires selector 1 or 2`);optionFlags[cell]=opt.choices[idx-1]==='ДА'}
-  for (const [key,value] of Object.entries(input.settings)) { try { v(value) } catch { throw new EngineError('INVALID_DECIMAL',`Invalid Zigzag setting Настройки!${key}: ${value}`) } }
+  for (const [key,value] of Object.entries(input.settings)) { if(typeof value==='boolean'){if(key!=='L6')throw new EngineError('INVALID_CONFIGURATION',`Unexpected boolean Zigzag setting Настройки!${key}`);continue} try { v(value) } catch { throw new EngineError('INVALID_DECIMAL',`Invalid Zigzag setting Настройки!${key}: ${value}`) } }
   const rules:CalculationRule[]=[]
   const addRule=(id:string,deps:string[],cell:string,formula:string,run:(r:Readonly<Record<string,unknown>>)=>ExactRational)=>rules.push({id,version:'JV-ZIGZAG-GEOMETRY-2026-11-04-v1',dependsOn:deps,source:source(cell,formula),execute:({results})=>run(results)})
   const w=width, d5={numerator:String(sashCount),denominator:'1'} as ExactRational, d6={numerator:String(openingCount),denominator:'1'} as ExactRational
