@@ -1,31 +1,39 @@
-# JV-Zigzag commercial dependency map
+# Zigzag: зависимости цен и коммерческих итогов
 
-Verified directly with Excel 16 `CalculateFullRebuild` on temporary copies of both original books. The same formulas are present in completion and retail workbooks; price source tables differ by profile.
+## Граф
 
-## P38:P44 source formulas
+```text
+Z1 input/settings + #3 lookup
+  └─ N5:N35 (ExactRational)
+      ├─ O5:O35 ← raw per-profile literal price rows + D3/L7/L8
+      │   └─ P5:P35 ← exact quantity × unit price
+      │       ├─ P34 × Клей+акт!O5
+      │       └─ P35 × Клей+акт!O18
+      └─ P38 = SUM(P5:P35), only if all 31 costs exist
 
-| Cell | Excel formula | Role / current status |
-|---|---|---|
-| P38 | `=SUM($P$5:$P$35)` | Sum of the 31 BOM row amounts. P38 cannot be final while N31 has no decimal quantity representation and several price/work rows have not been mapped into the new Zigzag calculation. |
-| P39 | `=IF($C$8<>1,$U$18,0)` | Conditional charge from U18; its condition and source work/catalog pricing still need independent Zigzag parity. |
-| P40 | `=IF(Настройки!$D$32,$H$33,0)` | Conditional paint/work charge; H33 dependency and both branches need porting. |
-| P41 | `=IF(Настройки!$D$33,$D$3*'Прайс-сб+монт'!$C$6/1000,0)+IF(Настройки!$L$3,$N$10*'Прайс-сб+монт'!$C$19,0)` | Assembly and milling-related work; distinct settings and price inputs. |
-| P42 | `=SUM($P$38:$P$41)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$W$5,0)` | Construction subtotal plus an optional order-level glue/activator allocation (W5). |
-| P43 | `=IF(Настройки!$D$34,$D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+$D$5*'Прайс-сб+монт'!$C$13,0)` | Conditional installation work; requires dimensions/counts, three price inputs and D34 branch. |
-| P44 | `=SUM($P$42:$P$43)` | Workbook output consumed by `Главная!S11` after the workbook's own selector/divisor logic. This is not implemented as an engine final price. |
+Order positions + N34/N35 × position quantity
+  ├─ Клей+акт!N12/N25 → O5/O18 → P34/P35
+  └─ ПРМ!AB25:AB31 → W5 → P39/P40 and optional P42 slot fee
 
-The direct P38:P44 formulas are identical in both XLSM. For the baseline 3600 x 2400 four-leaf scenario, Excel produced different P38/P39/P40/P41/P43 amounts by price profile as expected; those cached values are diagnostic only and are not code inputs or parity targets.
+P39 ← C8 selector, U10:U14 → U15, U17 → U18
+P40 ← D32 → C9 glass selector + D28:D31/C29:C31 + glass D5:D16 → H26:H29 → H33
+P41 ← D33 + L3 → width/C6 and N10/C19
+P42 ← P38:P41 + (F28=2 ? C25×W5 : 0)
+P43 ← D34 + width/height/leaf count + C8/C9/C13 service rates
+P44 = P42+P43
+```
 
-## Position price rows and order allocation
+## Входы и источники
 
-P5:P35 calculate per-row amount from the corresponding O price and N quantity. N34/N35 have separate whole-order glue factors in the existing workbook: `P34=O34*N34*'Клей+акт'!O5`, `P35=O35*N35*'Клей+акт'!O18`. The new Zigzag module returns only each construction's exact consumption formula. `Клей+акт!N12/N25` apply `MAX(1,ROUNDUP(SUM(...),0))`-style package minima, and O5/O18 allocate the order packages over eligible consumption. The shared order-level architecture can host the later allocation; duplicating it into each construction would double charge multi-position orders.
+- `O5:O35`: 31 строк каталога и прямых ссылок проверены для обоих оригинальных XLSM. Розничный и комплектационный snapshot различаются и имеют отдельные SHA-256/версии.
+- `P39`: C8 зависит от `Главная!H11`. U18 включает исходные unit-cost G5:G10/G39:G40, значения BOM N5:N10, возможные ручные N40/N41, коэффициент L11 при C8=4, максимальную ветку U10:U14 и заказные C24×W5. В эталонных книгах N40/N41 пусты; runtime требует их явной передачи, поскольку это входные клетки, а не формулы.
+- `P40`: стекло выбрано через `Главная!I11` → `Z1!C9` → `'Прайс-Стекло'!D5:D16`. Геометрические подстроки H26:H29 рассчитаны заново из Z1 геометрии и исходных параметров. Если D32 выключен, `IF` возвращает ноль и стеклянные входы не требуются.
+- `P41`, `P43` и F28 surcharge используют буквальные значения C6/C8/C9/C13/C19/C25 из версионированного источника `'Прайс-сб+монт'`.
+- `W5` получается из `ПРМ!AB25`; область заказа зависит от размеров и количества всех строк Главная!11:17. Неизвестные семейства не исключаются из знаменателя.
 
-## Remaining commercial work
+## Ограничения проверенного покрытия
 
-- Port and parity-check the 31 profile-specific O prices and all P5:P35 amount formulas, including exact glue allocation.
-- Resolve the exact-rational N31 quantity through a rational-compatible specification and pricing contract. It must not be rounded into `DecimalString`.
-- Trace and port U18 -> P39, H33 -> P40, and the source/settings for P41 and P43 with positive and zero branches.
-- Confirm F28 selector allocation for P42/W5 using multi-construction orders; do not reuse JV-Line factors without Zigzag source parity.
-- Compare P38, P39, P40, P41, P42, P43 and P44 against newly rebuilt workbook scenarios only after each dependency is implemented.
-
-**Conclusion:** quantities are mathematically implemented for all 31 cells, with exact-rational serialization needed for N31. No P44 total is calculated or advertised by the engine.
+- Полный P44 подтверждён для отдельных Zigzag позиций в обеих книгах, на сценарии 3600×2400/4 створки с включёнными работами и `F28=2`, а также на сценарии 4200×2500/5 створок с отключёнными добавочными ветками и `F28=1`. Это не утверждение о всех комбинациях.
+- В 4200×2500 сценарии `Z1!H29` показывает Excel `#VALUE!`; D32=0 и ленивый IF возвращает P40=0, поэтому эта ветка не использовалась как стеклянный эталон.
+- Два Zigzag слота с разными размерами и количеством 1/2 подтверждают общие O5/O18, W-доли, P34/P35 и P38 каждого слота. Полный коммерческий итог многопозиционного заказа не заявляется.
+- Смешанное семейство остаётся PARTIAL: его расходы клея и активатора не включаются в точные N12/N25, пока не передан независимо подтверждённый расчёт этого семейства.

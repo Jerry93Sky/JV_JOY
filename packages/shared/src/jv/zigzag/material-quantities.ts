@@ -4,13 +4,13 @@ import { traceStep } from '../trace.ts'
 import type { DecimalString, SpecificationLine, TraceStep } from '../types.ts'
 import type { ZigzagGeometryResult } from './geometry.ts'
 
-type BomSource = { row:number; catalogId:string; description:string; unit:string; formula:string; refs:readonly string[]; kind:'material'|'component' }
-const sources:readonly BomSource[]=[
+export type ZigzagBomSource = { row:number; catalogId:string; description:string; unit:string; formula:string; refs:readonly string[]; kind:'material'|'component' }
+export const zigzagBomSources:readonly ZigzagBomSource[]=[
  {row:5,catalogId:'LN-010',description:'Профиль несущий',unit:'m',formula:'=$D$20/1000+Настройки!$D$8/1000',refs:['Z1.D20','Настройки.D8'],kind:'material'},
  {row:6,catalogId:'LN-020',description:'Профиль створочный верхний',unit:'m',formula:'=($C$22*$D$22+$C$23*$D$23)/1000+Настройки!$D$6/1000',refs:['Z1.D5','Z1.D6','Z1.D29','Z1.D30','Настройки.D6','Настройки.P12','Настройки.P13','Настройки.P16','Настройки.P17','Настройки.L23'],kind:'material'},
  {row:7,catalogId:'LN-030',description:'Профиль створочный нижний',unit:'m',formula:'=$N$6',refs:['Z1.N6'],kind:'material'},
  {row:8,catalogId:'LN-040',description:'Профиль боковой',unit:'m',formula:'=IF(D13="ДА",C21*D21/1000+Настройки!D8/1000,0)',refs:['Z1.D13','Z1.C21','Z1.D21','Настройки.D8'],kind:'material'},
- {row:9,catalogId:'LN-070-A',description:'Роликовая каретка высокая',unit:'piece',formula:'=($D$5-1)*$D$6',refs:['Z1.D5','Z1.D6'],kind:'component'},
+ {row:9,catalogId:'LN-060',description:'Роликовая каретка низкая',unit:'piece',formula:'=($D$5-1)*$D$6',refs:['Z1.D5','Z1.D6'],kind:'component'},
  {row:10,catalogId:'LN-080',description:'Защёлка боковая',unit:'piece',formula:'=$D$5*$D$6',refs:['Z1.D5','Z1.D6'],kind:'component'},
  {row:11,catalogId:'LN-100',description:'Ответная втулка защёлки',unit:'piece',formula:'=$N$10+IF($D$15="ДА",1,0)',refs:['Z1.N10','Z1.D15'],kind:'component'},
  {row:12,catalogId:'LN-110',description:'Ручка-кноб',unit:'piece',formula:'=IF($D$14="ДА",$D$6,0)',refs:['Z1.D14','Z1.D6'],kind:'component'},
@@ -93,16 +93,16 @@ export function calculateZigzagBaseMaterialQuantities(geometry: ZigzagGeometryRe
  const byRow:Record<number,string>={};for(const [row,value] of Object.entries(exact)){const decimal=exactDecimal(value);if(decimal!==undefined)byRow[Number(row)]=decimal}
  const traces:TraceStep[]=[]
  const specification:SpecificationLine[]=[]
- for(const item of sources){
+ for(const item of zigzagBomSources){
   const value=exact[item.row];if(!value)continue
   const decimal=byRow[item.row]
   const id=`JV.ZIGZAG.Z1.N${item.row}`
   const status='ok'
   const dependencyValues=Object.fromEntries(item.refs.map(ref=>{const match=/^Z1\.N(\d+)$/.exec(ref);if(match)return[ref,exact[Number(match[1])]??null];if(ref==='Z1.D13')return[ref,geometry.inputs.framePresent?'ДА':'НЕТ'];if(/^Z1\.D1[4567]$/.test(ref)){const cell=ref.slice(-3) as 'D14'|'D15'|'D16'|'D17';return[ref,geometry.inputs.switches?.[cell]===undefined?null:geometry.inputs.switches[cell]?'ДА':'НЕТ']}if(ref==='Z1.D5')return[ref,d5];if(ref==='Z1.D6')return[ref,d6];const geometryMatch=/^Z1\.(D29|D30|D31)$/.exec(ref);if(geometryMatch)return[ref,geometry.outputs[geometryMatch[1] as keyof typeof geometry.outputs]];const intermediate=ref.startsWith('Z1.')?intermediates[ref.slice(3)]:undefined;if(intermediate)return[ref,intermediate];const settingMatch=/^Настройки\.(.+)$/.exec(ref);if(settingMatch)return[ref,geometry.inputs.settings[settingMatch[1] as keyof typeof geometry.inputs.settings]??null];return[ref,ref.startsWith('#3.')?lookupRows:ref]}))
   traces.push(traceStep({id,kind:item.kind==='material'?'material':'component',label:`Zigzag ${item.catalogId} quantity`,inputRefs:item.refs,ruleId:`JV.ZIGZAG.BOM.N${item.row}`,source:source(`N${item.row}`,item.formula),catalogRefs:[{id:'JV-ZIGZAG-BASE-BOM-2026-10-08',version:'2'},{id:'JV-ZIGZAG-PRICE-LINE-2026-10-08',version:'source-workbook'},{id:'JV-ZIGZAG-LOOKUP-3-2026-10-08',version:'1'}],input:{formula:item.formula,dependencies:dependencyValues,exactResult:value,...(item.row===20||item.row===21?{lookupKey,lookupRow:`#3!${item.row===20?'O':'P'}${lookup.key}`}:{})},result:decimal??value,status,errorIds:[],warningIds:decimal===undefined?['NON_TERMINATING_DECIMAL_SERIALIZATION']:[]}))
-  specification.push({id,positionId:'zigzag',kind:item.kind,catalogId:item.catalogId,description:item.description,...(decimal===undefined?{}:{quantity:{value:decimal as DecimalString,unit:item.unit}}),sourceTraceStepId:id})
+  specification.push({id,positionId:'zigzag',kind:item.kind,catalogId:item.catalogId,description:item.description,...(decimal===undefined?{}:{quantity:{value:decimal as DecimalString,unit:item.unit}}),exactQuantity:value,sourceTraceStepId:id})
  }
  const supported=new Set(Object.keys(exact).map(Number))
- const unsupportedRows=Array.from({length:31},(_,index)=>index+5).filter(row=>row<=35&&(!supported.has(row)||exactDecimal(exact[row])===undefined))
+ const unsupportedRows=Array.from({length:31},(_,index)=>index+5).filter(row=>row<=35&&!supported.has(row))
  return {specification,trace:traces,exactQuantities:Object.freeze(exact),intermediates:Object.freeze(intermediates),unsupportedRows:Object.freeze(unsupportedRows)}
 }

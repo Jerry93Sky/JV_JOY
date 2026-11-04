@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "stage": "PR_10F",
+  "coverage": {
+    "N5:N35": { "rules": 31, "mathematics": "COMPLETE_EXACT_RATIONAL", "serialization": "exactQuantity carries repeating fractions; finite DecimalString projection remains optional" },
+    "O5:O35": { "rules": 31, "profiles": ["COMPLETATION", "RETAIL"], "mathematics": "COMPLETE_EXACT_RATIONAL_FROM_VERSIONED_RAW_PRICE_SNAPSHOTS", "excelParity": "300 total checks include both profiles and scenarios; price rows are compared in the report" },
+    "P5:P35": { "rules": 31, "mathematics": "COMPLETE_WHEN_PROFILE_PRICE_AND_ORDER_FACTOR_AVAILABLE", "partialBehavior": "Missing price or adhesive factor is explicit; no zero substitution" },
+    "P38": { "formula": "=SUM($P$5:$P$35)", "mathematics": "COMPLETE_ONLY_IF_ALL_31_COSTS_EXIST", "partialBehavior": "supportedSubtotal is labeled separately; p38 omitted" },
+    "orderAllocation": { "inputs": ["Клей+акт!N5:N11", "Клей+акт!N18:N24", "Клей+акт!N12", "Клей+акт!N25", "Клей+акт!O5", "Клей+акт!O18", "ПРМ!AB25:AB31"], "singleAndMultiZigzag": "IMPLEMENTED_AND_EXCEL_PARITY_CHECKED", "mixedFamilies": "PARTIAL" },
+    "P39": { "mathematics": "IMPLEMENTED", "excelParity": "CHECKED_FOR_C8_1_AND_C8_2_IN_TWO_PROFILES", "c8_4": "unit tested; requires explicit N40/N41" },
+    "P40": { "mathematics": "IMPLEMENTED_FROM_GLASS_TABLE_AND_GEOMETRY", "excelParity": "CHECKED_ENABLED_FOR_3600x2400_AND_DISABLED_FOR_4200x2500" },
+    "P41": { "mathematics": "IMPLEMENTED_BOTH_CONDITIONAL_TERMS", "excelParity": "CHECKED_ENABLED_AND_DISABLED" },
+    "P43": { "mathematics": "IMPLEMENTED_EXACT_RATIONAL", "excelParity": "CHECKED_ENABLED_AND_DISABLED" },
+    "P42:P44": { "mathematics": "GUARDED_COMPLETE_CHAIN", "excelParity": "DISPLAY_MATCH_OR_EXACT_ON_TWO_SINGLE_POSITION_SCENARIOS_PER_PROFILE", "mixedFamilyOrder": "NOT_PUBLISHED" }
+  },
+  "parity": { "fixture": "ZIGZAG_PRICE_PARITY.json", "comparisons": 300, "EXACT": 130, "DISPLAY_MATCH": 170, "NUMERICALLY_EQUIVALENT": 0, "MISMATCH": 0, "UNVERIFIED": 0 },
+  "catalogIssueCorrected": { "bomCell": "Z1!N9", "priceCell": "Z1!O9", "sourceCell": "'Прайс-Line'!E11", "catalogSku": "LN-060", "previousEngineSku": "LN-070-A" },
+  "productionIntegration": "NONE; legacy calculate, API and database unchanged"
+}

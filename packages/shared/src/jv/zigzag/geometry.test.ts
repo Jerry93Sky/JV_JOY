@@ -16,6 +16,11 @@ test('Z1 confirmed geometry for 3600x2400, four leaves, opening selector 2',()=>
  assert.equal(r.trace.length,16)
  assert.equal(r.trace.find(x=>x.id==='Z1.H6')?.source?.cell,'H6')
 })
+test('PR_10F review confirms H9 subtracts the full Настройки!P29, not half of it',()=>{
+ const result=calculateZigzagGeometry({widthMm:'3600',heightMm:'2400',leafSelector:'4',openingSelector:2,frameSettingIndex:1,frameOverrideIndex:1,frameChoices:['ДА','НЕТ'],settings:{P4:'14',P24:'42',P25:'51',P26:'6.5',P27:'5.7',P28:'5',P29:'2.5',L23:'0'}})
+ assert.deepEqual(result.outputs.D31,{numerator:'139831',denominator:'140'})
+ assert.equal(result.trace.find(step=>step.id==='Z1.H9')?.source?.formula,'=2*H6-0.5*Настройки!P27-Настройки!P29')
+})
 
 test('geometry responds deterministically to dimensions and opening branch',()=>{
  const r=calculateZigzagGeometry(sample({widthMm:'4200',openingSelector:3}))

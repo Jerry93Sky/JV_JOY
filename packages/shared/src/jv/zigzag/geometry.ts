@@ -48,7 +48,7 @@ export function calculateZigzagGeometry(input: ZigzagGeometryInput): ZigzagGeome
   addRule('Z1.H6',['Z1.H4','Z1.H5'],'H6','=H4/H5',r=>divideRational(r['Z1.H4'] as ExactRational,r['Z1.H5'] as ExactRational))
   addRule('Z1.H7',['Z1.H6'],'H7','=H6-0.5*Настройки!P27+Настройки!P24',r=>add(sub(r['Z1.H6'] as ExactRational,half(v(input.settings.P27))),v(input.settings.P24)))
   addRule('Z1.H8',['Z1.H6'],'H8','=2*H6-Настройки!P27',r=>sub(mul(v('2'),r['Z1.H6'] as ExactRational),v(input.settings.P27)))
-  addRule('Z1.H9',['Z1.H6'],'H9','=2*H6-0.5*Настройки!P27-Настройки!P29',r=>sub(sub(mul(v('2'),r['Z1.H6'] as ExactRational),half(v(input.settings.P27))),half(v(input.settings.P29))))
+  addRule('Z1.H9',['Z1.H6'],'H9','=2*H6-0.5*Настройки!P27-Настройки!P29',r=>sub(sub(mul(v('2'),r['Z1.H6'] as ExactRational),half(v(input.settings.P27))),v(input.settings.P29)))
   addRule('Z1.H13',['Z1.D13'],'H13','=D3-IF(D13="ДА",2*Настройки!P4,0)-2*Настройки!P25',r=>sub(sub(w,r['Z1.D13']==='ДА'?mul(v('2'),v(input.settings.P4)):v('0')),mul(v('2'),v(input.settings.P25))))
   addRule('Z1.H14',['input'],'H14','=2*D5-1',()=>sub(mul(v('2'),d5),v('1')))
   addRule('Z1.H15',['Z1.H13','Z1.H14'],'H15','=0.5*H13/H14',r=>divideRational(half(r['Z1.H13'] as ExactRational),r['Z1.H14'] as ExactRational))

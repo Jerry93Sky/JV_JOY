@@ -1,0 +1,1061 @@
+{
+  "schemaVersion": "1.0",
+  "sources": [
+    {
+      "schemaVersion": "1.0",
+      "profile": "COMPLETATION",
+      "version": "JV-ZIGZAG-COMPLETATION-2026-10-08-62dd6d49f059",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "workbookSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "capturedFrom": "EXCEL_COM_VALUE2",
+      "capturedWithExcel": "16.0",
+      "currency": "RUB",
+      "settings": {
+        "D3": "0.9",
+        "L7": "0.95",
+        "L8": "0.95",
+        "L9": "1",
+        "L10": "5500",
+        "L11": "1.15",
+        "P19": "148",
+        "L17": "1.05",
+        "L21": "True"
+      },
+      "serviceRates": {
+        "C6": {
+          "value": "1500",
+          "sourceCell": "'Прайс-сб+монт'!C6",
+          "sourceLiteral": "1500"
+        },
+        "C8": {
+          "value": "4500",
+          "sourceCell": "'Прайс-сб+монт'!C8",
+          "sourceLiteral": "4500"
+        },
+        "C9": {
+          "value": "200",
+          "sourceCell": "'Прайс-сб+монт'!C9",
+          "sourceLiteral": "200"
+        },
+        "C13": {
+          "value": "500",
+          "sourceCell": "'Прайс-сб+монт'!C13",
+          "sourceLiteral": "500"
+        },
+        "C19": {
+          "value": "200",
+          "sourceCell": "'Прайс-сб+монт'!C19",
+          "sourceLiteral": "200"
+        },
+        "C23": {
+          "value": "5625",
+          "sourceCell": "'Прайс-сб+монт'!C23",
+          "sourceLiteral": "5625"
+        },
+        "C24": {
+          "value": "5000",
+          "sourceCell": "'Прайс-сб+монт'!C24",
+          "sourceLiteral": "5000"
+        },
+        "C25": {
+          "value": "10000",
+          "sourceCell": "'Прайс-сб+монт'!C25",
+          "sourceLiteral": "10000"
+        }
+      },
+      "lineCostRates": {
+        "G5": {
+          "value": "325",
+          "sourceCell": "'Прайс-Line'!G5",
+          "sourceLiteral": "325"
+        },
+        "G6": {
+          "value": "225",
+          "sourceCell": "'Прайс-Line'!G6",
+          "sourceLiteral": "225"
+        },
+        "G7": {
+          "value": "287.5",
+          "sourceCell": "'Прайс-Line'!G7",
+          "sourceLiteral": "287.5"
+        },
+        "G8": {
+          "value": "106.25",
+          "sourceCell": "'Прайс-Line'!G8",
+          "sourceLiteral": "106.25"
+        },
+        "G9": {
+          "value": "50",
+          "sourceCell": "'Прайс-Line'!G9",
+          "sourceLiteral": "50"
+        },
+        "G10": {
+          "value": "50",
+          "sourceCell": "'Прайс-Line'!G10",
+          "sourceLiteral": "50"
+        },
+        "G39": {
+          "value": "50",
+          "sourceCell": "'Прайс-Line'!G39",
+          "sourceLiteral": "50"
+        },
+        "G40": {
+          "value": "50",
+          "sourceCell": "'Прайс-Line'!G40",
+          "sourceLiteral": "50"
+        }
+      },
+      "glassRates": [
+        {
+          "selector": 1,
+          "price": "4618.18181818182",
+          "sourceCell": "'Прайс-Стекло'!D5",
+          "sourceLiteral": "4618.18181818182"
+        },
+        {
+          "selector": 2,
+          "price": "9525.45454545454",
+          "sourceCell": "'Прайс-Стекло'!D6",
+          "sourceLiteral": "9525.45454545454"
+        },
+        {
+          "selector": 3,
+          "price": "9525.45454545454",
+          "sourceCell": "'Прайс-Стекло'!D7",
+          "sourceLiteral": "9525.45454545454"
+        },
+        {
+          "selector": 4,
+          "price": "7018.18181818182",
+          "sourceCell": "'Прайс-Стекло'!D8",
+          "sourceLiteral": "7018.18181818182"
+        },
+        {
+          "selector": 5,
+          "price": "5550.90909090909",
+          "sourceCell": "'Прайс-Стекло'!D9",
+          "sourceLiteral": "5550.90909090909"
+        },
+        {
+          "selector": 6,
+          "price": "11800",
+          "sourceCell": "'Прайс-Стекло'!D10",
+          "sourceLiteral": "11800"
+        },
+        {
+          "selector": 7,
+          "price": "11800",
+          "sourceCell": "'Прайс-Стекло'!D11",
+          "sourceLiteral": "11800"
+        },
+        {
+          "selector": 8,
+          "price": "8385.45454545454",
+          "sourceCell": "'Прайс-Стекло'!D12",
+          "sourceLiteral": "8385.45454545454"
+        },
+        {
+          "selector": 9,
+          "price": "6869.09090909091",
+          "sourceCell": "'Прайс-Стекло'!D13",
+          "sourceLiteral": "6869.09090909091"
+        },
+        {
+          "selector": 10,
+          "price": "14556.3636363636",
+          "sourceCell": "'Прайс-Стекло'!D14",
+          "sourceLiteral": "14556.3636363636"
+        },
+        {
+          "selector": 11,
+          "price": "14556.3636363636",
+          "sourceCell": "'Прайс-Стекло'!D15",
+          "sourceLiteral": "14556.3636363636"
+        },
+        {
+          "selector": 12,
+          "price": "11252.7272727273",
+          "sourceCell": "'Прайс-Стекло'!D16",
+          "sourceLiteral": "11252.7272727273"
+        }
+      ],
+      "entries": [
+        {
+          "bomRow": 5,
+          "sku": "LN-010",
+          "description": "Профиль несущий",
+          "excelUnit": "п.м",
+          "price": "4857.5",
+          "sourceCell": "'Прайс-Line'!E5",
+          "sourceLiteral": "4857.5",
+          "excelPriceFormula": "='Прайс-Line'!$E5/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O5*N5"
+        },
+        {
+          "bomRow": 6,
+          "sku": "LN-020",
+          "description": "Профиль створочный верхний",
+          "excelUnit": "п.м",
+          "price": "2717.5",
+          "sourceCell": "'Прайс-Line'!E6",
+          "sourceLiteral": "2717.5",
+          "excelPriceFormula": "='Прайс-Line'!$E6/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O6*N6"
+        },
+        {
+          "bomRow": 7,
+          "sku": "LN-030",
+          "description": "Профиль створочный нижний",
+          "excelUnit": "п.м",
+          "price": "3122.5",
+          "sourceCell": "'Прайс-Line'!E7",
+          "sourceLiteral": "3122.5",
+          "excelPriceFormula": "='Прайс-Line'!$E7/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O7*N7"
+        },
+        {
+          "bomRow": 8,
+          "sku": "LN-040",
+          "description": "Профиль боковой",
+          "excelUnit": "п.м",
+          "price": "1170",
+          "sourceCell": "'Прайс-Line'!E8",
+          "sourceLiteral": "1170",
+          "excelPriceFormula": "='Прайс-Line'!$E8/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O8*N8"
+        },
+        {
+          "bomRow": 9,
+          "sku": "LN-060",
+          "description": "Роликовая каретка низкая",
+          "excelUnit": "шт.",
+          "price": "1372.8813559322",
+          "sourceCell": "'Прайс-Line'!E11",
+          "sourceLiteral": "1372.8813559322",
+          "excelPriceFormula": "='Прайс-Line'!$E11",
+          "amountFormula": "=O9*N9"
+        },
+        {
+          "bomRow": 10,
+          "sku": "LN-080",
+          "description": "Защёлка боковая",
+          "excelUnit": "шт.",
+          "price": "2826.27118644068",
+          "sourceCell": "'Прайс-Line'!E15",
+          "sourceLiteral": "2826.27118644068",
+          "excelPriceFormula": "='Прайс-Line'!$E15",
+          "amountFormula": "=O10*N10"
+        },
+        {
+          "bomRow": 11,
+          "sku": "LN-100",
+          "description": "Ответная втулка защёлки",
+          "excelUnit": "шт.",
+          "price": "1059.32203389831",
+          "sourceCell": "'Прайс-Line'!E17",
+          "sourceLiteral": "1059.32203389831",
+          "excelPriceFormula": "='Прайс-Line'!$E17",
+          "amountFormula": "=O11*N11"
+        },
+        {
+          "bomRow": 12,
+          "sku": "LN-110",
+          "description": "Ручка-кноб",
+          "excelUnit": "шт.",
+          "price": "544.615384615385",
+          "sourceCell": "'Прайс-Line'!E18",
+          "sourceLiteral": "544.615384615385",
+          "excelPriceFormula": "='Прайс-Line'!$E18",
+          "amountFormula": "=O12*N12"
+        },
+        {
+          "bomRow": 13,
+          "sku": "LN-120",
+          "description": "Поворотный узел нижний (комплект)",
+          "excelUnit": "комплект",
+          "price": "3118.64406779661",
+          "sourceCell": "'Прайс-Line'!E19",
+          "sourceLiteral": "3118.64406779661",
+          "excelPriceFormula": "='Прайс-Line'!$E19",
+          "amountFormula": "=O13*N13"
+        },
+        {
+          "bomRow": 14,
+          "sku": "LN-130",
+          "description": "Поворотный узел верхний (комплект)",
+          "excelUnit": "комплект",
+          "price": "2436.4406779661",
+          "sourceCell": "'Прайс-Line'!E20",
+          "sourceLiteral": "2436.4406779661",
+          "excelPriceFormula": "='Прайс-Line'!$E20",
+          "amountFormula": "=O14*N14"
+        },
+        {
+          "bomRow": 15,
+          "sku": "LN-150",
+          "description": "Пластина соединительная",
+          "excelUnit": "шт.",
+          "price": "224.576271186441",
+          "sourceCell": "'Прайс-Line'!E23",
+          "sourceLiteral": "224.576271186441",
+          "excelPriceFormula": "='Прайс-Line'!$E23",
+          "amountFormula": "=O15*N15"
+        },
+        {
+          "bomRow": 16,
+          "sku": "LN-180",
+          "description": "Спейсер",
+          "excelUnit": "шт.",
+          "price": "529.661016949153",
+          "sourceCell": "'Прайс-Line'!E26",
+          "sourceLiteral": "529.661016949153",
+          "excelPriceFormula": "='Прайс-Line'!$E26",
+          "amountFormula": "=O16*N16"
+        },
+        {
+          "bomRow": 17,
+          "sku": "LN-TL",
+          "description": "Заглушка верхняя рядовая левая",
+          "excelUnit": "шт.",
+          "price": "847.457627118644",
+          "sourceCell": "'Прайс-Line'!E29",
+          "sourceLiteral": "847.457627118644",
+          "excelPriceFormula": "='Прайс-Line'!$E29",
+          "amountFormula": "=O17*N17"
+        },
+        {
+          "bomRow": 18,
+          "sku": "LN-TR",
+          "description": "Заглушка верхняя рядовая правая",
+          "excelUnit": "шт.",
+          "price": "847.457627118644",
+          "sourceCell": "'Прайс-Line'!E30",
+          "sourceLiteral": "847.457627118644",
+          "excelPriceFormula": "='Прайс-Line'!$E30",
+          "amountFormula": "=O18*N18"
+        },
+        {
+          "bomRow": 19,
+          "sku": "LN-TF",
+          "description": "Заглушка верхняя боковая плоская",
+          "excelUnit": "шт.",
+          "price": "847.457627118644",
+          "sourceCell": "'Прайс-Line'!E31",
+          "sourceLiteral": "847.457627118644",
+          "excelPriceFormula": "='Прайс-Line'!$E31",
+          "amountFormula": "=O19*N19"
+        },
+        {
+          "bomRow": 20,
+          "sku": "LN-TSL",
+          "description": "Заглушка верхняя боковая левая",
+          "excelUnit": "шт.",
+          "price": "1012.71186440678",
+          "sourceCell": "'Прайс-Line'!E32",
+          "sourceLiteral": "1012.71186440678",
+          "excelPriceFormula": "='Прайс-Line'!$E32",
+          "amountFormula": "=O20*N20"
+        },
+        {
+          "bomRow": 21,
+          "sku": "LN-TSR",
+          "description": "Заглушка верхняя боковая правая",
+          "excelUnit": "шт.",
+          "price": "1012.71186440678",
+          "sourceCell": "'Прайс-Line'!E33",
+          "sourceLiteral": "1012.71186440678",
+          "excelPriceFormula": "='Прайс-Line'!$E33",
+          "amountFormula": "=O21*N21"
+        },
+        {
+          "bomRow": 22,
+          "sku": "LN-BL",
+          "description": "Заглушка нижняя рядовая левая",
+          "excelUnit": "шт.",
+          "price": "957.627118644068",
+          "sourceCell": "'Прайс-Line'!E34",
+          "sourceLiteral": "957.627118644068",
+          "excelPriceFormula": "='Прайс-Line'!$E34",
+          "amountFormula": "=O22*N22"
+        },
+        {
+          "bomRow": 23,
+          "sku": "LN-BR",
+          "description": "Заглушка нижняя рядовая правая",
+          "excelUnit": "шт.",
+          "price": "957.627118644068",
+          "sourceCell": "'Прайс-Line'!E35",
+          "sourceLiteral": "957.627118644068",
+          "excelPriceFormula": "='Прайс-Line'!$E35",
+          "amountFormula": "=O23*N23"
+        },
+        {
+          "bomRow": 24,
+          "sku": "LN-BF",
+          "description": "Заглушка нижняя боковая плоская",
+          "excelUnit": "шт.",
+          "price": "957.627118644068",
+          "sourceCell": "'Прайс-Line'!E36",
+          "sourceLiteral": "957.627118644068",
+          "excelPriceFormula": "='Прайс-Line'!$E36",
+          "amountFormula": "=O24*N24"
+        },
+        {
+          "bomRow": 25,
+          "sku": "LN-BSL",
+          "description": "Заглушка нижняя боковая левая",
+          "excelUnit": "шт.",
+          "price": "1127.1186440678",
+          "sourceCell": "'Прайс-Line'!E37",
+          "sourceLiteral": "1127.1186440678",
+          "excelPriceFormula": "='Прайс-Line'!$E37",
+          "amountFormula": "=O25*N25"
+        },
+        {
+          "bomRow": 26,
+          "sku": "LN-BSR",
+          "description": "Заглушка нижняя боковая правая",
+          "excelUnit": "шт.",
+          "price": "1127.1186440678",
+          "sourceCell": "'Прайс-Line'!E38",
+          "sourceLiteral": "1127.1186440678",
+          "excelPriceFormula": "='Прайс-Line'!$E38",
+          "amountFormula": "=O26*N26"
+        },
+        {
+          "bomRow": 27,
+          "sku": "LN-210",
+          "description": "Верхняя петля + 2 башмака + винты (комплект)",
+          "excelUnit": "шт.",
+          "price": "5199.15254237288",
+          "sourceCell": "'Прайс-Line'!E41",
+          "sourceLiteral": "5199.15254237288",
+          "excelPriceFormula": "='Прайс-Line'!$E41",
+          "amountFormula": "=O27*N27"
+        },
+        {
+          "bomRow": 28,
+          "sku": "LN-220",
+          "description": "Нижняя петля + 2 башмака + винты (комплект)",
+          "excelUnit": "шт.",
+          "price": "7868.64406779661",
+          "sourceCell": "'Прайс-Line'!E42",
+          "sourceLiteral": "7868.64406779661",
+          "excelPriceFormula": "='Прайс-Line'!$E42",
+          "amountFormula": "=O28*N28"
+        },
+        {
+          "bomRow": 29,
+          "sku": "LN-230",
+          "description": "Замок в пол (комплект)",
+          "excelUnit": "шт.",
+          "price": "5279.66101694915",
+          "sourceCell": "'Прайс-Line'!E43",
+          "sourceLiteral": "5279.66101694915",
+          "excelPriceFormula": "='Прайс-Line'!$E43",
+          "amountFormula": "=O29*N29"
+        },
+        {
+          "bomRow": 30,
+          "sku": "AA-010",
+          "description": "Полосовая щётка, 1,6 м",
+          "excelUnit": "шт.",
+          "price": "1355.93220338983",
+          "sourceCell": "'Прайс-Line'!E45",
+          "sourceLiteral": "1355.93220338983",
+          "excelPriceFormula": "='Прайс-Line'!$E45/Настройки!$L7",
+          "divisorSetting": "L7",
+          "amountFormula": "=O30*N30"
+        },
+        {
+          "bomRow": 31,
+          "sku": "AA-020",
+          "description": "Уплотнитель щёточный 7х12",
+          "excelUnit": "м",
+          "price": "52.1186440677966",
+          "sourceCell": "'Прайс-Line'!E46",
+          "sourceLiteral": "52.1186440677966",
+          "excelPriceFormula": "='Прайс-Line'!$E46/Настройки!$L8",
+          "divisorSetting": "L8",
+          "amountFormula": "=O31*N31"
+        },
+        {
+          "bomRow": 32,
+          "sku": "AA-050",
+          "description": "Уплотнитель светопрозр. h-типа, 3 м",
+          "excelUnit": "шт.",
+          "price": "364.114285714286",
+          "sourceCell": "'Прайс-Line'!E47",
+          "sourceLiteral": "364.114285714286",
+          "excelPriceFormula": "='Прайс-Line'!$E47",
+          "amountFormula": "=O32*N32"
+        },
+        {
+          "bomRow": 33,
+          "sku": "AA-070",
+          "description": "Уплотнитель светопрозр. D-типа, 3 м",
+          "excelUnit": "шт.",
+          "price": "364.114285714286",
+          "sourceCell": "'Прайс-Line'!E48",
+          "sourceLiteral": "364.114285714286",
+          "excelPriceFormula": "='Прайс-Line'!$E48",
+          "amountFormula": "=O33*N33"
+        },
+        {
+          "bomRow": 34,
+          "sku": "AA-110",
+          "description": "Активатор (50 мл)",
+          "excelUnit": "шт.",
+          "price": "736",
+          "sourceCell": "'Прайс-Line'!E50",
+          "sourceLiteral": "736",
+          "excelPriceFormula": "='Прайс-Line'!$E50",
+          "amountFormula": "=O34*N34*'Клей+акт'!$O$5"
+        },
+        {
+          "bomRow": 35,
+          "sku": "AA-120",
+          "description": "Клей (уп.\"колбаса\")",
+          "excelUnit": "шт.",
+          "price": "4492",
+          "sourceCell": "'Прайс-Line'!E51",
+          "sourceLiteral": "4492",
+          "excelPriceFormula": "='Прайс-Line'!$E51",
+          "amountFormula": "=O35*N35*'Клей+акт'!$O$18"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "profile": "RETAIL",
+      "version": "JV-ZIGZAG-RETAIL-2026-10-08-025d7e291117",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "capturedFrom": "EXCEL_COM_VALUE2",
+      "capturedWithExcel": "16.0",
+      "currency": "RUB",
+      "settings": {
+        "D3": "0.9",
+        "L7": "0.95",
+        "L8": "0.95",
+        "L9": "1",
+        "L10": "5500",
+        "L11": "1.15",
+        "P19": "148",
+        "L17": "1.05",
+        "L21": "True"
+      },
+      "serviceRates": {
+        "C6": {
+          "value": "1500",
+          "sourceCell": "'Прайс-сб+монт'!C6",
+          "sourceLiteral": "1500"
+        },
+        "C8": {
+          "value": "4500",
+          "sourceCell": "'Прайс-сб+монт'!C8",
+          "sourceLiteral": "4500"
+        },
+        "C9": {
+          "value": "200",
+          "sourceCell": "'Прайс-сб+монт'!C9",
+          "sourceLiteral": "200"
+        },
+        "C13": {
+          "value": "500",
+          "sourceCell": "'Прайс-сб+монт'!C13",
+          "sourceLiteral": "500"
+        },
+        "C19": {
+          "value": "200",
+          "sourceCell": "'Прайс-сб+монт'!C19",
+          "sourceLiteral": "200"
+        },
+        "C23": {
+          "value": "4500",
+          "sourceCell": "'Прайс-сб+монт'!C23",
+          "sourceLiteral": "4500"
+        },
+        "C24": {
+          "value": "4000",
+          "sourceCell": "'Прайс-сб+монт'!C24",
+          "sourceLiteral": "4000"
+        },
+        "C25": {
+          "value": "8000",
+          "sourceCell": "'Прайс-сб+монт'!C25",
+          "sourceLiteral": "8000"
+        }
+      },
+      "lineCostRates": {
+        "G5": {
+          "value": "260",
+          "sourceCell": "'Прайс-Line'!G5",
+          "sourceLiteral": "260"
+        },
+        "G6": {
+          "value": "180",
+          "sourceCell": "'Прайс-Line'!G6",
+          "sourceLiteral": "180"
+        },
+        "G7": {
+          "value": "230",
+          "sourceCell": "'Прайс-Line'!G7",
+          "sourceLiteral": "230"
+        },
+        "G8": {
+          "value": "85",
+          "sourceCell": "'Прайс-Line'!G8",
+          "sourceLiteral": "85"
+        },
+        "G9": {
+          "value": "40",
+          "sourceCell": "'Прайс-Line'!G9",
+          "sourceLiteral": "40"
+        },
+        "G10": {
+          "value": "40",
+          "sourceCell": "'Прайс-Line'!G10",
+          "sourceLiteral": "40"
+        },
+        "G39": {
+          "value": "40",
+          "sourceCell": "'Прайс-Line'!G39",
+          "sourceLiteral": "40"
+        },
+        "G40": {
+          "value": "40",
+          "sourceCell": "'Прайс-Line'!G40",
+          "sourceLiteral": "40"
+        }
+      },
+      "glassRates": [
+        {
+          "selector": 1,
+          "price": "2540",
+          "sourceCell": "'Прайс-Стекло'!D5",
+          "sourceLiteral": "2540"
+        },
+        {
+          "selector": 2,
+          "price": "5239",
+          "sourceCell": "'Прайс-Стекло'!D6",
+          "sourceLiteral": "5239"
+        },
+        {
+          "selector": 3,
+          "price": "5239",
+          "sourceCell": "'Прайс-Стекло'!D7",
+          "sourceLiteral": "5239"
+        },
+        {
+          "selector": 4,
+          "price": "3860",
+          "sourceCell": "'Прайс-Стекло'!D8",
+          "sourceLiteral": "3860"
+        },
+        {
+          "selector": 5,
+          "price": "3053",
+          "sourceCell": "'Прайс-Стекло'!D9",
+          "sourceLiteral": "3053"
+        },
+        {
+          "selector": 6,
+          "price": "6490",
+          "sourceCell": "'Прайс-Стекло'!D10",
+          "sourceLiteral": "6490"
+        },
+        {
+          "selector": 7,
+          "price": "6490",
+          "sourceCell": "'Прайс-Стекло'!D11",
+          "sourceLiteral": "6490"
+        },
+        {
+          "selector": 8,
+          "price": "4612",
+          "sourceCell": "'Прайс-Стекло'!D12",
+          "sourceLiteral": "4612"
+        },
+        {
+          "selector": 9,
+          "price": "3778",
+          "sourceCell": "'Прайс-Стекло'!D13",
+          "sourceLiteral": "3778"
+        },
+        {
+          "selector": 10,
+          "price": "8006",
+          "sourceCell": "'Прайс-Стекло'!D14",
+          "sourceLiteral": "8006"
+        },
+        {
+          "selector": 11,
+          "price": "8006",
+          "sourceCell": "'Прайс-Стекло'!D15",
+          "sourceLiteral": "8006"
+        },
+        {
+          "selector": 12,
+          "price": "6189",
+          "sourceCell": "'Прайс-Стекло'!D16",
+          "sourceLiteral": "6189"
+        }
+      ],
+      "entries": [
+        {
+          "bomRow": 5,
+          "sku": "LN-010",
+          "description": "Профиль несущий",
+          "excelUnit": "п.м",
+          "price": "1146.37",
+          "sourceCell": "'Прайс-Line'!E5",
+          "sourceLiteral": "1146.37",
+          "excelPriceFormula": "='Прайс-Line'!$E5/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O5*N5"
+        },
+        {
+          "bomRow": 6,
+          "sku": "LN-020",
+          "description": "Профиль створочный верхний",
+          "excelUnit": "п.м",
+          "price": "641.33",
+          "sourceCell": "'Прайс-Line'!E6",
+          "sourceLiteral": "641.33",
+          "excelPriceFormula": "='Прайс-Line'!$E6/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O6*N6"
+        },
+        {
+          "bomRow": 7,
+          "sku": "LN-030",
+          "description": "Профиль створочный нижний",
+          "excelUnit": "п.м",
+          "price": "736.91",
+          "sourceCell": "'Прайс-Line'!E7",
+          "sourceLiteral": "736.91",
+          "excelPriceFormula": "='Прайс-Line'!$E7/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O7*N7"
+        },
+        {
+          "bomRow": 8,
+          "sku": "LN-040",
+          "description": "Профиль боковой",
+          "excelUnit": "п.м",
+          "price": "276.12",
+          "sourceCell": "'Прайс-Line'!E8",
+          "sourceLiteral": "276.12",
+          "excelPriceFormula": "='Прайс-Line'!$E8/Настройки!$D3",
+          "divisorSetting": "D3",
+          "amountFormula": "=O8*N8"
+        },
+        {
+          "bomRow": 9,
+          "sku": "LN-060",
+          "description": "Роликовая каретка низкая",
+          "excelUnit": "шт.",
+          "price": "324",
+          "sourceCell": "'Прайс-Line'!E11",
+          "sourceLiteral": "324",
+          "excelPriceFormula": "='Прайс-Line'!$E11",
+          "amountFormula": "=O9*N9"
+        },
+        {
+          "bomRow": 10,
+          "sku": "LN-080",
+          "description": "Защёлка боковая",
+          "excelUnit": "шт.",
+          "price": "667",
+          "sourceCell": "'Прайс-Line'!E15",
+          "sourceLiteral": "667",
+          "excelPriceFormula": "='Прайс-Line'!$E15",
+          "amountFormula": "=O10*N10"
+        },
+        {
+          "bomRow": 11,
+          "sku": "LN-100",
+          "description": "Ответная втулка защёлки",
+          "excelUnit": "шт.",
+          "price": "250",
+          "sourceCell": "'Прайс-Line'!E17",
+          "sourceLiteral": "250",
+          "excelPriceFormula": "='Прайс-Line'!$E17",
+          "amountFormula": "=O11*N11"
+        },
+        {
+          "bomRow": 12,
+          "sku": "LN-110",
+          "description": "Ручка-кноб",
+          "excelUnit": "шт.",
+          "price": "354",
+          "sourceCell": "'Прайс-Line'!E18",
+          "sourceLiteral": "354",
+          "excelPriceFormula": "='Прайс-Line'!$E18",
+          "amountFormula": "=O12*N12"
+        },
+        {
+          "bomRow": 13,
+          "sku": "LN-120",
+          "description": "Поворотный узел нижний (комплект)",
+          "excelUnit": "комплект",
+          "price": "736",
+          "sourceCell": "'Прайс-Line'!E19",
+          "sourceLiteral": "736",
+          "excelPriceFormula": "='Прайс-Line'!$E19",
+          "amountFormula": "=O13*N13"
+        },
+        {
+          "bomRow": 14,
+          "sku": "LN-130",
+          "description": "Поворотный узел верхний (комплект)",
+          "excelUnit": "комплект",
+          "price": "575",
+          "sourceCell": "'Прайс-Line'!E20",
+          "sourceLiteral": "575",
+          "excelPriceFormula": "='Прайс-Line'!$E20",
+          "amountFormula": "=O14*N14"
+        },
+        {
+          "bomRow": 15,
+          "sku": "LN-150",
+          "description": "Пластина соединительная",
+          "excelUnit": "шт.",
+          "price": "53",
+          "sourceCell": "'Прайс-Line'!E23",
+          "sourceLiteral": "53",
+          "excelPriceFormula": "='Прайс-Line'!$E23",
+          "amountFormula": "=O15*N15"
+        },
+        {
+          "bomRow": 16,
+          "sku": "LN-180",
+          "description": "Спейсер",
+          "excelUnit": "шт.",
+          "price": "125",
+          "sourceCell": "'Прайс-Line'!E26",
+          "sourceLiteral": "125",
+          "excelPriceFormula": "='Прайс-Line'!$E26",
+          "amountFormula": "=O16*N16"
+        },
+        {
+          "bomRow": 17,
+          "sku": "LN-TL",
+          "description": "Заглушка верхняя рядовая левая",
+          "excelUnit": "шт.",
+          "price": "200",
+          "sourceCell": "'Прайс-Line'!E29",
+          "sourceLiteral": "200",
+          "excelPriceFormula": "='Прайс-Line'!$E29",
+          "amountFormula": "=O17*N17"
+        },
+        {
+          "bomRow": 18,
+          "sku": "LN-TR",
+          "description": "Заглушка верхняя рядовая правая",
+          "excelUnit": "шт.",
+          "price": "200",
+          "sourceCell": "'Прайс-Line'!E30",
+          "sourceLiteral": "200",
+          "excelPriceFormula": "='Прайс-Line'!$E30",
+          "amountFormula": "=O18*N18"
+        },
+        {
+          "bomRow": 19,
+          "sku": "LN-TF",
+          "description": "Заглушка верхняя боковая плоская",
+          "excelUnit": "шт.",
+          "price": "200",
+          "sourceCell": "'Прайс-Line'!E31",
+          "sourceLiteral": "200",
+          "excelPriceFormula": "='Прайс-Line'!$E31",
+          "amountFormula": "=O19*N19"
+        },
+        {
+          "bomRow": 20,
+          "sku": "LN-TSL",
+          "description": "Заглушка верхняя боковая левая",
+          "excelUnit": "шт.",
+          "price": "239",
+          "sourceCell": "'Прайс-Line'!E32",
+          "sourceLiteral": "239",
+          "excelPriceFormula": "='Прайс-Line'!$E32",
+          "amountFormula": "=O20*N20"
+        },
+        {
+          "bomRow": 21,
+          "sku": "LN-TSR",
+          "description": "Заглушка верхняя боковая правая",
+          "excelUnit": "шт.",
+          "price": "239",
+          "sourceCell": "'Прайс-Line'!E33",
+          "sourceLiteral": "239",
+          "excelPriceFormula": "='Прайс-Line'!$E33",
+          "amountFormula": "=O21*N21"
+        },
+        {
+          "bomRow": 22,
+          "sku": "LN-BL",
+          "description": "Заглушка нижняя рядовая левая",
+          "excelUnit": "шт.",
+          "price": "226",
+          "sourceCell": "'Прайс-Line'!E34",
+          "sourceLiteral": "226",
+          "excelPriceFormula": "='Прайс-Line'!$E34",
+          "amountFormula": "=O22*N22"
+        },
+        {
+          "bomRow": 23,
+          "sku": "LN-BR",
+          "description": "Заглушка нижняя рядовая правая",
+          "excelUnit": "шт.",
+          "price": "226",
+          "sourceCell": "'Прайс-Line'!E35",
+          "sourceLiteral": "226",
+          "excelPriceFormula": "='Прайс-Line'!$E35",
+          "amountFormula": "=O23*N23"
+        },
+        {
+          "bomRow": 24,
+          "sku": "LN-BF",
+          "description": "Заглушка нижняя боковая плоская",
+          "excelUnit": "шт.",
+          "price": "226",
+          "sourceCell": "'Прайс-Line'!E36",
+          "sourceLiteral": "226",
+          "excelPriceFormula": "='Прайс-Line'!$E36",
+          "amountFormula": "=O24*N24"
+        },
+        {
+          "bomRow": 25,
+          "sku": "LN-BSL",
+          "description": "Заглушка нижняя боковая левая",
+          "excelUnit": "шт.",
+          "price": "266",
+          "sourceCell": "'Прайс-Line'!E37",
+          "sourceLiteral": "266",
+          "excelPriceFormula": "='Прайс-Line'!$E37",
+          "amountFormula": "=O25*N25"
+        },
+        {
+          "bomRow": 26,
+          "sku": "LN-BSR",
+          "description": "Заглушка нижняя боковая правая",
+          "excelUnit": "шт.",
+          "price": "266",
+          "sourceCell": "'Прайс-Line'!E38",
+          "sourceLiteral": "266",
+          "excelPriceFormula": "='Прайс-Line'!$E38",
+          "amountFormula": "=O26*N26"
+        },
+        {
+          "bomRow": 27,
+          "sku": "LN-210",
+          "description": "Верхняя петля + 2 башмака + винты (комплект)",
+          "excelUnit": "шт.",
+          "price": "1227",
+          "sourceCell": "'Прайс-Line'!E41",
+          "sourceLiteral": "1227",
+          "excelPriceFormula": "='Прайс-Line'!$E41",
+          "amountFormula": "=O27*N27"
+        },
+        {
+          "bomRow": 28,
+          "sku": "LN-220",
+          "description": "Нижняя петля + 2 башмака + винты (комплект)",
+          "excelUnit": "шт.",
+          "price": "1857",
+          "sourceCell": "'Прайс-Line'!E42",
+          "sourceLiteral": "1857",
+          "excelPriceFormula": "='Прайс-Line'!$E42",
+          "amountFormula": "=O28*N28"
+        },
+        {
+          "bomRow": 29,
+          "sku": "LN-230",
+          "description": "Замок в пол (комплект)",
+          "excelUnit": "шт.",
+          "price": "1246",
+          "sourceCell": "'Прайс-Line'!E43",
+          "sourceLiteral": "1246",
+          "excelPriceFormula": "='Прайс-Line'!$E43",
+          "amountFormula": "=O29*N29"
+        },
+        {
+          "bomRow": 30,
+          "sku": "AA-010",
+          "description": "Полосовая щётка, 1,6 м",
+          "excelUnit": "шт.",
+          "price": "320",
+          "sourceCell": "'Прайс-Line'!E45",
+          "sourceLiteral": "320",
+          "excelPriceFormula": "='Прайс-Line'!$E45/Настройки!$L7",
+          "divisorSetting": "L7",
+          "amountFormula": "=O30*N30"
+        },
+        {
+          "bomRow": 31,
+          "sku": "AA-020",
+          "description": "Уплотнитель щёточный 7х12",
+          "excelUnit": "м",
+          "price": "12.3",
+          "sourceCell": "'Прайс-Line'!E46",
+          "sourceLiteral": "12.3",
+          "excelPriceFormula": "='Прайс-Line'!$E46/Настройки!$L8",
+          "divisorSetting": "L8",
+          "amountFormula": "=O31*N31"
+        },
+        {
+          "bomRow": 32,
+          "sku": "AA-050",
+          "description": "Уплотнитель светопрозр. h-типа, 3 м",
+          "excelUnit": "шт.",
+          "price": "127.44",
+          "sourceCell": "'Прайс-Line'!E47",
+          "sourceLiteral": "127.44",
+          "excelPriceFormula": "='Прайс-Line'!$E47",
+          "amountFormula": "=O32*N32"
+        },
+        {
+          "bomRow": 33,
+          "sku": "AA-070",
+          "description": "Уплотнитель светопрозр. D-типа, 3 м",
+          "excelUnit": "шт.",
+          "price": "127.44",
+          "sourceCell": "'Прайс-Line'!E48",
+          "sourceLiteral": "127.44",
+          "excelPriceFormula": "='Прайс-Line'!$E48",
+          "amountFormula": "=O33*N33"
+        },
+        {
+          "bomRow": 34,
+          "sku": "AA-110",
+          "description": "Активатор (50 мл)",
+          "excelUnit": "шт.",
+          "price": "368",
+          "sourceCell": "'Прайс-Line'!E50",
+          "sourceLiteral": "368",
+          "excelPriceFormula": "='Прайс-Line'!$E50",
+          "amountFormula": "=O34*N34*'Клей+акт'!$O$5"
+        },
+        {
+          "bomRow": 35,
+          "sku": "AA-120",
+          "description": "Клей (уп.\"колбаса\")",
+          "excelUnit": "шт.",
+          "price": "2246",
+          "sourceCell": "'Прайс-Line'!E51",
+          "sourceLiteral": "2246",
+          "excelPriceFormula": "='Прайс-Line'!$E51",
+          "amountFormula": "=O35*N35*'Клей+акт'!$O$18"
+        }
+      ]
+    }
+  ]
+}
