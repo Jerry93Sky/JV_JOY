@@ -3,7 +3,7 @@
   "sourceFixture": "docs/jv/fixtures/zigzag-geometry-excel.json",
   "method": "Fresh Excel 16 CalculateFullRebuild on temporary original workbook copies. Engine uses exact rational arithmetic. Excel COM JSON Value2 lacks the full binary rational; non-terminating engine rationals are UNVERIFIED, with no tolerance.",
   "counts": {
-    "EXACT": 136,
+    "EXACT": 168,
     "DISPLAY_MATCH": 0,
     "NUMERICALLY_EQUIVALENT": 0,
     "MISMATCH": 0,
@@ -228,6 +228,26 @@
     {
       "scenario": "zigzag_yes_3600x2400_4leaf",
       "profile": "COMPLETATION",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "3.65",
+      "engineExact": "3.65",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "4.734",
+      "engineExact": "4.734",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -261,6 +281,16 @@
       "cell": "N14",
       "formula": "=$D$6",
       "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
       "excel": "1",
       "engineExact": "1",
       "classification": "EXACT"
@@ -333,6 +363,16 @@
       "sku": "AA-050",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     },
     {
@@ -553,6 +593,26 @@
     {
       "scenario": "zigzag_no_3600x2400_4leaf",
       "profile": "COMPLETATION",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "3.65",
+      "engineExact": "3.65",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -586,6 +646,16 @@
       "cell": "N14",
       "formula": "=$D$6",
       "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
       "excel": "1",
       "engineExact": "1",
       "classification": "EXACT"
@@ -658,6 +728,16 @@
       "sku": "AA-050",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     },
     {
@@ -878,6 +958,26 @@
     {
       "scenario": "zigzag_yes_4200x2500_5leaf",
       "profile": "COMPLETATION",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "4.25",
+      "engineExact": "4.25",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "4.934",
+      "engineExact": "4.934",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -913,6 +1013,16 @@
       "sku": "LN-130",
       "excel": "2",
       "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
+      "excel": "1",
+      "engineExact": "1",
       "classification": "EXACT"
     },
     {
@@ -983,6 +1093,16 @@
       "sku": "AA-050",
       "excel": "9",
       "engineExact": "9",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     },
     {
@@ -1203,6 +1323,26 @@
     {
       "scenario": "zigzag_no_4200x2500_5leaf",
       "profile": "COMPLETATION",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "4.25",
+      "engineExact": "4.25",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -1238,6 +1378,16 @@
       "sku": "LN-130",
       "excel": "2",
       "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
+      "excel": "1",
+      "engineExact": "1",
       "classification": "EXACT"
     },
     {
@@ -1308,6 +1458,16 @@
       "sku": "AA-050",
       "excel": "9",
       "engineExact": "9",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     },
     {
@@ -1528,6 +1688,26 @@
     {
       "scenario": "zigzag_yes_3600x2400_4leaf",
       "profile": "RETAIL",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "3.65",
+      "engineExact": "3.65",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "4.734",
+      "engineExact": "4.734",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -1561,6 +1741,16 @@
       "cell": "N14",
       "formula": "=$D$6",
       "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
       "excel": "1",
       "engineExact": "1",
       "classification": "EXACT"
@@ -1633,6 +1823,16 @@
       "sku": "AA-050",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     },
     {
@@ -1853,6 +2053,26 @@
     {
       "scenario": "zigzag_no_3600x2400_4leaf",
       "profile": "RETAIL",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "3.65",
+      "engineExact": "3.65",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -1886,6 +2106,16 @@
       "cell": "N14",
       "formula": "=$D$6",
       "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
       "excel": "1",
       "engineExact": "1",
       "classification": "EXACT"
@@ -1958,6 +2188,16 @@
       "sku": "AA-050",
       "excel": "3",
       "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     },
     {
@@ -2178,6 +2418,26 @@
     {
       "scenario": "zigzag_yes_4200x2500_5leaf",
       "profile": "RETAIL",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "4.25",
+      "engineExact": "4.25",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "4.934",
+      "engineExact": "4.934",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -2213,6 +2473,16 @@
       "sku": "LN-130",
       "excel": "2",
       "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
+      "excel": "1",
+      "engineExact": "1",
       "classification": "EXACT"
     },
     {
@@ -2283,6 +2553,16 @@
       "sku": "AA-050",
       "excel": "9",
       "engineExact": "9",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     },
     {
@@ -2503,6 +2783,26 @@
     {
       "scenario": "zigzag_no_4200x2500_5leaf",
       "profile": "RETAIL",
+      "cell": "N5",
+      "formula": "=D20/1000+Настройки!D8/1000",
+      "sku": "LN-010",
+      "excel": "4.25",
+      "engineExact": "4.25",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N8",
+      "formula": "=IF(D13=\"ДА\",C21*D21/1000+Настройки!D8/1000,0)",
+      "sku": "LN-040",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
       "cell": "N9",
       "formula": "=($D$5-1)*$D$6",
       "sku": "LN-070-A",
@@ -2538,6 +2838,16 @@
       "sku": "LN-130",
       "excel": "2",
       "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N15",
+      "formula": "=1",
+      "sku": "LN-150",
+      "excel": "1",
+      "engineExact": "1",
       "classification": "EXACT"
     },
     {
@@ -2608,6 +2918,16 @@
       "sku": "AA-050",
       "excel": "9",
       "engineExact": "9",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N33",
+      "formula": "=2",
+      "sku": "AA-070",
+      "excel": "2",
+      "engineExact": "2",
       "classification": "EXACT"
     }
   ]

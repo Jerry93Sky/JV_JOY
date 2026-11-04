@@ -6,10 +6,10 @@ import type { TraceStep } from '../types.ts'
 export interface ZigzagGeometryInput {
   widthMm: string; heightMm: string; leafSelector: string; openingSelector: number
   frameSettingIndex: number; frameOverrideIndex: number; frameChoices: readonly ['ДА'|'НЕТ','ДА'|'НЕТ']
-  settings: { P4: string; P24: string; P25: string; P26: string; P27: string; P28: string; P29: string; L23: string }
+  settings: { P4: string; P24: string; P25: string; P26: string; P27: string; P28: string; P29: string; L23: string; D8?: string; P3?: string }
 }
 export interface ZigzagGeometryResult {
-  status: 'PARTIAL'; family: 'ZIGZAG'; inputs: Readonly<Record<string, unknown>>
+  status: 'PARTIAL'; family: 'ZIGZAG'; inputs: Readonly<ZigzagGeometryInput & { normalizedSashCount: string; normalizedOpeningCount: number; framePresent: boolean }>
   outputs: Readonly<Record<'H4'|'H5'|'H6'|'H7'|'H8'|'H9'|'H13'|'H14'|'H15'|'H16'|'H17'|'H18'|'D29'|'D30'|'D31', ExactRational>>
   decimalOutputs: Readonly<Record<string, string | null>>; trace: readonly TraceStep[]
   unsupported: readonly string[]
