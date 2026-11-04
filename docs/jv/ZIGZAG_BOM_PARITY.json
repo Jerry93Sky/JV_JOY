@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "fixture": "fixtures/zigzag-geometry-excel.json",
+  "report": "NEXT_FAMILY_EXCEL_PARITY.json",
+  "excelVersion": "16.0",
+  "rebuild": "CalculateFullRebuild on temporary copies",
+  "profiles": ["COMPLETATION", "RETAIL"],
+  "cases": 8,
+  "checks": 224,
+  "counts": {"EXACT":136,"DISPLAY_MATCH":0,"NUMERICALLY_EQUIVALENT":0,"MISMATCH":0,"UNVERIFIED":88},
+  "bomRows": [9,10,13,14,16,17,18,19,27,28,32],
+  "note": "All implemented BOM integer quantities compare EXACT. Non-terminating rational geometry compared against COM Value2 decimal strings is UNVERIFIED; no tolerance or display-only equivalence was inferred. Both D13 branches were exercised."
+}

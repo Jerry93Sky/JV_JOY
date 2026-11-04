@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "JV-ZIGZAG-BASE-BOM-2026-10-08-v1",
+  "sourceSheets": ["Z1", "Прайс-Line"],
+  "quantityRange": "Z1!N5:N35",
+  "quantityRowsFound": 31,
+  "implementedRows": [9,10,13,14,16,17,18,19,27,28,32],
+  "implementedCount": 11,
+  "remainingCount": 20,
+  "excelParityCases": 8,
+  "parityClassification": {"EXACT":136,"DISPLAY_MATCH":0,"NUMERICALLY_EQUIVALENT":0,"MISMATCH":0,"UNVERIFIED":88},
+  "unsupportedGroups": ["N5:N8 profiles: dimensions/options/material catalog and profile pricing", "N11:N12,N15,N20:N26,N29:N31 accessories and geometry/settings branches", "N30:N31 brush/seal consumption and rounding", "N34:N35 adhesive/activator order allocation"],
+  "commercialTotalSupported": false
+}

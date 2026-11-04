@@ -1,0 +1,2614 @@
+{
+  "schemaVersion": 1,
+  "sourceFixture": "docs/jv/fixtures/zigzag-geometry-excel.json",
+  "method": "Fresh Excel 16 CalculateFullRebuild on temporary original workbook copies. Engine uses exact rational arithmetic. Excel COM JSON Value2 lacks the full binary rational; non-terminating engine rationals are UNVERIFIED, with no tolerance.",
+  "counts": {
+    "EXACT": 136,
+    "DISPLAY_MATCH": 0,
+    "NUMERICALLY_EQUIVALENT": 0,
+    "MISMATCH": 0,
+    "UNVERIFIED": 88
+  },
+  "cases": [
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "4",
+      "engineExact": "4",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "1",
+      "engineExact": "1",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "3514.5",
+      "engineExact": "3514.5",
+      "engineRational": {
+        "numerator": "7029",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "502.071428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "7029",
+        "denominator": "14"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "541.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "75771",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "998.442857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "69891",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "998.792857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70003",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "3470",
+      "engineExact": "3470",
+      "engineRational": {
+        "numerator": "3470",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "247.857142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "1735",
+        "denominator": "7"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "287.007142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40181",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "490.014285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "34301",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "490.364285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "68651",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "541.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "75771",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "998.442857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "69891",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "998.792857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70003",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "4",
+      "engineExact": "4",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "4",
+      "engineExact": "4",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "1",
+      "engineExact": "1",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "3542.5",
+      "engineExact": "3542.5",
+      "engineRational": {
+        "numerator": "7085",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "506.071428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "7085",
+        "denominator": "14"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "545.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "76331",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "1006.44285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70451",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "1006.79285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70563",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "3498",
+      "engineExact": "3498",
+      "engineRational": {
+        "numerator": "3498",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "249.857142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "1749",
+        "denominator": "7"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "289.007142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40461",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "494.014285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "34581",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "494.364285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "69211",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "545.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "76331",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "1006.44285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70451",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "1006.79285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70563",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "4",
+      "engineExact": "4",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "COMPLETATION",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "5",
+      "engineExact": "5",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "2",
+      "engineExact": "2",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "4114.5",
+      "engineExact": "4114.5",
+      "engineRational": {
+        "numerator": "8229",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "457.166666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "2743",
+        "denominator": "6"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "496.316666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "29779",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "908.633333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "27259",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "908.983333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "27307",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "4070",
+      "engineExact": "4070",
+      "engineRational": {
+        "numerator": "4070",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "226.111111111111",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "2035",
+        "denominator": "9"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "265.261111111111",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "47747",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "446.522222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40187",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "446.872222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "80437",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "265.261111111111",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "47747",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "446.522222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40187",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "446.872222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "80437",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "10",
+      "engineExact": "10",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "9",
+      "engineExact": "9",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "5",
+      "engineExact": "5",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "2",
+      "engineExact": "2",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "4142.5",
+      "engineExact": "4142.5",
+      "engineRational": {
+        "numerator": "8285",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "460.277777777778",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "8285",
+        "denominator": "18"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "499.427777777778",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "89897",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "914.855555555555",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "82337",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "915.205555555556",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "82481",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "4098",
+      "engineExact": "4098",
+      "engineRational": {
+        "numerator": "4098",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "227.666666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "683",
+        "denominator": "3"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "266.816666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "16009",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "449.633333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "13489",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "449.983333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "26999",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "266.816666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "16009",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "449.633333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "13489",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "449.983333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "26999",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "10",
+      "engineExact": "10",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "COMPLETATION",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "9",
+      "engineExact": "9",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "4",
+      "engineExact": "4",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "1",
+      "engineExact": "1",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "3514.5",
+      "engineExact": "3514.5",
+      "engineRational": {
+        "numerator": "7029",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "502.071428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "7029",
+        "denominator": "14"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "541.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "75771",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "998.442857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "69891",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "998.792857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70003",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "3470",
+      "engineExact": "3470",
+      "engineRational": {
+        "numerator": "3470",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "247.857142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "1735",
+        "denominator": "7"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "287.007142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40181",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "490.014285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "34301",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "490.364285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "68651",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "541.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "75771",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "998.442857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "69891",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "998.792857142857",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70003",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "4",
+      "engineExact": "4",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "4",
+      "engineExact": "4",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "1",
+      "engineExact": "1",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "3542.5",
+      "engineExact": "3542.5",
+      "engineRational": {
+        "numerator": "7085",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "506.071428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "7085",
+        "denominator": "14"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "545.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "76331",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "1006.44285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70451",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "1006.79285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70563",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "3498",
+      "engineExact": "3498",
+      "engineRational": {
+        "numerator": "3498",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "7",
+      "engineExact": "7",
+      "engineRational": {
+        "numerator": "7",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "249.857142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "1749",
+        "denominator": "7"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "289.007142857143",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40461",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "494.014285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "34581",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "494.364285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "69211",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "545.221428571429",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "76331",
+        "denominator": "140"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "1006.44285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70451",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "1006.79285714286",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "70563",
+        "denominator": "70"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "4",
+      "engineExact": "4",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "1",
+      "engineExact": "1",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_3600x2400_4leaf",
+      "profile": "RETAIL",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "3",
+      "engineExact": "3",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "5",
+      "engineExact": "5",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "2",
+      "engineExact": "2",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "4114.5",
+      "engineExact": "4114.5",
+      "engineRational": {
+        "numerator": "8229",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "457.166666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "2743",
+        "denominator": "6"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "496.316666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "29779",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "908.633333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "27259",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "908.983333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "27307",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "4070",
+      "engineExact": "4070",
+      "engineRational": {
+        "numerator": "4070",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "226.111111111111",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "2035",
+        "denominator": "9"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "265.261111111111",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "47747",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "446.522222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40187",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "446.872222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "80437",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "265.261111111111",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "47747",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "446.522222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "40187",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "446.872222222222",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "80437",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "10",
+      "engineExact": "10",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_yes_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "9",
+      "engineExact": "9",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D5",
+      "formula": "=IF(Главная!M11>=2,Главная!M11,\"МАЛО!\")",
+      "excel": "5",
+      "engineExact": "5",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D6",
+      "formula": "=IF(Главная!K11<=2,Главная!K11,\"НЕТ\")",
+      "excel": "2",
+      "engineExact": "2",
+      "engineRational": null,
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H4",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-Настройки!P25-Настройки!P26",
+      "excel": "4142.5",
+      "engineExact": "4142.5",
+      "engineRational": {
+        "numerator": "8285",
+        "denominator": "2"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H5",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H6",
+      "formula": "=H4/H5",
+      "excel": "460.277777777778",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "8285",
+        "denominator": "18"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H7",
+      "formula": "=H6-0.5*Настройки!P27+Настройки!P24",
+      "excel": "499.427777777778",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "89897",
+        "denominator": "180"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H8",
+      "formula": "=2*H6-Настройки!P27",
+      "excel": "914.855555555555",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "82337",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H9",
+      "formula": "=2*H6-0.5*Настройки!P27-Настройки!P29",
+      "excel": "915.205555555556",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "82481",
+        "denominator": "90"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H13",
+      "formula": "=D3-IF(D13=\"ДА\",2*Настройки!P4,0)-2*Настройки!P25",
+      "excel": "4098",
+      "engineExact": "4098",
+      "engineRational": {
+        "numerator": "4098",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H14",
+      "formula": "=2*D5-1",
+      "excel": "9",
+      "engineExact": "9",
+      "engineRational": {
+        "numerator": "9",
+        "denominator": "1"
+      },
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H15",
+      "formula": "=0.5*H13/H14",
+      "excel": "227.666666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "683",
+        "denominator": "3"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H16",
+      "formula": "=H15+Настройки!P24-0.5*Настройки!P27",
+      "excel": "266.816666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "16009",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H17",
+      "formula": "=2*H15-Настройки!P27",
+      "excel": "449.633333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "13489",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "H18",
+      "formula": "=2*H15-0.5*Настройки!P27-0.5*Настройки!P28",
+      "excel": "449.983333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "26999",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D29",
+      "formula": "=IF(D6=1,H7,0)+IF(D6=2,H16,0)-Настройки!L23",
+      "excel": "266.816666666667",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "16009",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D30",
+      "formula": "=IF(D6=1,H8,0)+IF(D6=2,H17,0)-Настройки!L23",
+      "excel": "449.633333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "13489",
+        "denominator": "30"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "D31",
+      "formula": "=IF(D6=1,H9,0)+IF(D6=2,H18,0)-Настройки!L23",
+      "excel": "449.983333333333",
+      "engineExact": null,
+      "engineRational": {
+        "numerator": "26999",
+        "denominator": "60"
+      },
+      "classification": "UNVERIFIED"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N9",
+      "formula": "=($D$5-1)*$D$6",
+      "sku": "LN-070-A",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N10",
+      "formula": "=$D$5*$D$6",
+      "sku": "LN-080",
+      "excel": "10",
+      "engineExact": "10",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N13",
+      "formula": "=$D$6",
+      "sku": "LN-120",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N14",
+      "formula": "=$D$6",
+      "sku": "LN-130",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N16",
+      "formula": "=$N$9",
+      "sku": "LN-180",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N17",
+      "formula": "=0",
+      "sku": "LN-TL",
+      "excel": "0",
+      "engineExact": "0",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N18",
+      "formula": "=IF($D$6=2,2,0)",
+      "sku": "LN-TR",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N19",
+      "formula": "=IF($D$13=\"ДА\",0,2)",
+      "sku": "LN-TF",
+      "excel": "2",
+      "engineExact": "2",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N27",
+      "formula": "=$D$5*$D$6-$D$6",
+      "sku": "LN-210",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N28",
+      "formula": "=$N$27",
+      "sku": "LN-220",
+      "excel": "8",
+      "engineExact": "8",
+      "classification": "EXACT"
+    },
+    {
+      "scenario": "zigzag_no_4200x2500_5leaf",
+      "profile": "RETAIL",
+      "cell": "N32",
+      "formula": "=($D$6*$D$5)-1",
+      "sku": "AA-050",
+      "excel": "9",
+      "engineExact": "9",
+      "classification": "EXACT"
+    }
+  ]
+}
