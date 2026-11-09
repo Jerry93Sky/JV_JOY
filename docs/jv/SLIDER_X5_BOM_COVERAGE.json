@@ -1,0 +1,4694 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioCount": 10,
+  "rows": [
+    {
+      "row": 5,
+      "sku": "S-010",
+      "description": "Профиль верхний 3-дорожечный",
+      "unit": "п.м",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K5",
+        "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$9=I5,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 6,
+      "sku": "S-020",
+      "description": "Профиль верхний 5-дорожечный",
+      "unit": "п.м",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.J6",
+        "JV.SLIDER.X5.D32",
+        "D8"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K6",
+        "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$9=I6,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 7,
+      "sku": "SL-110",
+      "description": "Профиль L опорный плоский 3-дорож.",
+      "unit": "п.м",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K7",
+        "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I7,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 8,
+      "sku": "SL-120",
+      "description": "Профиль L опорный плоский 5-дорож.",
+      "unit": "п.м",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K8",
+        "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I8,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 9,
+      "sku": "SX-110",
+      "description": "Профиль X опорный 3-дорож.",
+      "unit": "п.м",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K9",
+        "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$10=I9,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 10,
+      "sku": "SX-120",
+      "description": "Профиль X опорный 5-дорож.",
+      "unit": "п.м",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.J10",
+        "JV.SLIDER.X5.D31",
+        "D8"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K10",
+        "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$10=I10,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 11,
+      "sku": "S-030",
+      "description": "Боковой профиль",
+      "unit": "п.м",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.J11",
+        "JV.SLIDER.X5.D36",
+        "D8"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K11",
+        "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 12,
+      "sku": "SL-130",
+      "description": "Профиль L створочный",
+      "unit": "п.м",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K12",
+        "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I12,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 13,
+      "sku": "SX-130",
+      "description": "Профиль X створочный",
+      "unit": "п.м",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.J13",
+        "JV.SLIDER.X5.C33",
+        "JV.SLIDER.X5.C34",
+        "D33",
+        "D34",
+        "D6Allowance"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K13",
+        "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I13,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 14,
+      "sku": "SL-140-0",
+      "description": "Заглушка L створочная боковая НОВАЯ",
+      "unit": "шт.",
+      "formula": "=$J$14*2*$D$6",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "C8"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K14",
+        "formula": "=$J$14*2*$D$6"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I14,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 15,
+      "sku": "SL-140-2",
+      "description": "Заглушка L створочная 2-стор.",
+      "unit": "шт.",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "C8"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K15",
+        "formula": "=$J$15*(2*$D$5-$K$14)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 16,
+      "sku": "SL-140-L",
+      "description": "Заглушка L створочная левая НОВАЯ",
+      "unit": "шт.",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "C8"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K16",
+        "formula": "=$J$16*(2*$D$5-$K$14)/$D$6"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 17,
+      "sku": "SL-140-R",
+      "description": "Заглушка L створочная правая НОВАЯ",
+      "unit": "шт.",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "C8"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K17",
+        "formula": "=$J$17*(2*$D$5-$K$14)/$D$6"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 18,
+      "sku": "SX-140-0",
+      "description": "Заглушка X створочная боковая НОВАЯ",
+      "unit": "шт.",
+      "formula": "=$J$18*2*$D$6",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "side"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K18",
+        "formula": "=$J$18*2*$D$6"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I18,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 19,
+      "sku": "SX-140-2",
+      "description": "Заглушка X створочная 2-стор.",
+      "unit": "шт.",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "leaves",
+        "JV.SLIDER.X5.K18",
+        "interlockEnabled"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K19",
+        "formula": "=$J$19*(2*$D$5-$K$18)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 20,
+      "sku": "SX-140-L",
+      "description": "Заглушка X створочная левая НОВАЯ",
+      "unit": "шт.",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "leaves",
+        "side",
+        "JV.SLIDER.X5.K18",
+        "direction",
+        "interlockEnabled"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K20",
+        "formula": "=$J$20*(2*$D$5-$K$18)/$D$6"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 21,
+      "sku": "SX-140-R",
+      "description": "Заглушка X створочная правая НОВАЯ",
+      "unit": "шт.",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "leaves",
+        "side",
+        "JV.SLIDER.X5.K18",
+        "direction",
+        "interlockEnabled"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K21",
+        "formula": "=$J$21*(2*$D$5-$K$18)/$D$6"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 22,
+      "sku": "S-080",
+      "description": "Демпфер заглушки c кольцом",
+      "unit": "шт.",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.K19",
+        "JV.SLIDER.X5.K20",
+        "JV.SLIDER.X5.K21"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K22",
+        "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 23,
+      "sku": "SL-150",
+      "description": "Роликовая каретка L",
+      "unit": "шт.",
+      "formula": "=$J$23*2*$D$5",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K23",
+        "formula": "=$J$23*2*$D$5"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I23,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 24,
+      "sku": "SX-150",
+      "description": "Роликовая каретка X",
+      "unit": "шт.",
+      "formula": "=$J$24*2*$D$5",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "leaves"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K24",
+        "formula": "=$J$24*2*$D$5"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I24,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 25,
+      "sku": "S-040",
+      "description": "Ручка круглая",
+      "unit": "шт.",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "side",
+        "JV.SLIDER.X5.D20",
+        "JV.SLIDER.X5.J25"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K25",
+        "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(J26=1,0,1)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 26,
+      "sku": "S-050",
+      "description": "Ручка светопрозрачная",
+      "unit": "шт.",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "side",
+        "JV.SLIDER.X5.D20",
+        "JV.SLIDER.X5.J26"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K26",
+        "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(Настройки!H27,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 27,
+      "sku": "S-060",
+      "description": "Замок с ответкой на стену",
+      "unit": "шт.",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.D24"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K27",
+        "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 28,
+      "sku": "S-070",
+      "description": "Замок с ответкой на стекло",
+      "unit": "шт.",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.D26"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K28",
+        "formula": "=IF($D$26=\"ОДИН\",1,0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 29,
+      "sku": "SL-160",
+      "description": "Задвижка нижняя L с винтом (комплект)",
+      "unit": "шт.",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K29",
+        "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF($C$8=I29,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 30,
+      "sku": "SL-161",
+      "description": "Задвижка нижняя L с ручкой (комплект)",
+      "unit": "шт.",
+      "formula": "=$J$30*$D$6",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K30",
+        "formula": "=$J$30*$D$6"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": 0,
+            "formula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 31,
+      "sku": "SX-081",
+      "description": "Задвижка нижняя X (комплект 1)",
+      "unit": "шт.",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "side",
+        "JV.SLIDER.X5.D22"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K31",
+        "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I31,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 32,
+      "sku": "SX-082",
+      "description": "Задвижка нижняя X (комплект 2)",
+      "unit": "шт.",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "side",
+        "JV.SLIDER.X5.D22"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K32",
+        "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=I32,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 33,
+      "sku": "AA-030",
+      "description": "Уплотнитель щёточный 5х4",
+      "unit": "п.м",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "width",
+        "leaves",
+        "JV.SLIDER.X5.J33",
+        "D33"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K33",
+        "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": 1,
+            "formula": "=IF($C$8=20,1,0)"
+          }
+        }
+      ]
+    },
+    {
+      "row": 34,
+      "sku": "AA-040",
+      "description": "Уплотнитель щёточный 5x9",
+      "unit": "п.м",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "interlock",
+        "JV.SLIDER.X5.D36"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K34",
+        "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 35,
+      "sku": "AA-041",
+      "description": "Уплотнитель щёточный 5x12 с клеем",
+      "unit": "п.м",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.K38",
+        "height",
+        "h19"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K35",
+        "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 36,
+      "sku": "AA-060",
+      "description": "Уплотнитель светопрозр. F-типа, 3 м",
+      "unit": "шт.",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "leaves",
+        "side",
+        "h19"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K36",
+        "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 37,
+      "sku": "AA-070",
+      "description": "Уплотнитель светопрозр. D-типа, 3 м",
+      "unit": "шт.",
+      "formula": "=2*$D$6-$K$39",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "side",
+        "JV.SLIDER.X5.K39"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K37",
+        "formula": "=2*$D$6-$K$39"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 38,
+      "sku": "AA-071",
+      "description": "Уплотнитель светопрозр. под щётку",
+      "unit": "шт.",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "leaves",
+        "side",
+        "h19"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K38",
+        "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 39,
+      "sku": "AA-080",
+      "description": "Уплотнитель светопрозр. магнитный прямой, 3 м",
+      "unit": "шт.",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "side",
+        "h25"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K39",
+        "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 40,
+      "sku": "AA-110",
+      "description": "Активатор (50 мл)",
+      "unit": "шт.",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "width",
+        "L4",
+        "L6"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K40",
+        "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 41,
+      "sku": "AA-120",
+      "description": "Клей (уп.\"колбаса\")",
+      "unit": "шт.",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "width",
+        "L5",
+        "L6"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K41",
+        "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 42,
+      "sku": "AA-200",
+      "description": "Саморез для опорного профиля",
+      "unit": "шт.",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "width",
+        "S7"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K42",
+        "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 43,
+      "sku": null,
+      "description": "Саморез 3,5х20 головка впотай, крепл. заглушек",
+      "unit": "шт.",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.K18",
+        "JV.SLIDER.X5.K19",
+        "JV.SLIDER.X5.K20",
+        "JV.SLIDER.X5.K21"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K43",
+        "formula": "=2*SUM($K$14:$K$21)"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 44,
+      "sku": null,
+      "description": "Саморез с буром 3,9х22 крепление X-кареток",
+      "unit": "шт.",
+      "formula": "=2*$K$24",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.K24"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K44",
+        "formula": "=2*$K$24"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 45,
+      "sku": null,
+      "description": "Саморез с прессшайбой 4,2x25 - креп. L-задвижки",
+      "unit": "шт.",
+      "formula": "=2*$K$29",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "S1!C8",
+        "S1!C9",
+        "S1!C10"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K45",
+        "formula": "=2*$K$29"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "NOT_APPLICABLE",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    },
+    {
+      "row": 46,
+      "sku": null,
+      "description": "Саморез 3х16 кругл. гол., крепление Х-задвижки",
+      "unit": "шт.",
+      "formula": "=4*$K$31+4*$K$32",
+      "catalogVersion": "JV-комплектация 08.10.2026.xlsm#'Прайс-Slider'!B:D",
+      "ruleVersion": "JV-SLIDER-X5-BOM-2026-11-06-v1",
+      "dependencies": [
+        "JV.SLIDER.X5.K31",
+        "JV.SLIDER.X5.K32"
+      ],
+      "source": {
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sheet": "S1",
+        "cell": "K46",
+        "formula": "=4*$K$31+4*$K$32"
+      },
+      "applicability": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_default",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_1_two_sides_no_magnet",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_no_interlock",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "slider_h19_2_right",
+          "status": "CALCULATED",
+          "sourceSelector": {
+            "value": null,
+            "formula": ""
+          }
+        }
+      ]
+    }
+  ]
+}

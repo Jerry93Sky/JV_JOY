@@ -3,6 +3,8 @@ import { prisma } from '../lib/prisma'
 import { requireAuth, requireRole } from '../lib/auth'
 import { Role } from '@bms/shared'
 import { evaluateFormula } from '../lib/formulaEngine'
+import { GlassComplexity, ParamKind, ParamType, Prisma } from '@prisma/client'
+import { toPrismaJsonInput } from '../lib/prismaJson'
 
 export async function systemRoutes(app: FastifyInstance) {
   // Список систем
@@ -150,13 +152,13 @@ export async function systemRoutes(app: FastifyInstance) {
 
   // ── Параметры ──────────────────────────────────────────────────────────────
 
-  app.post<{ Params: { id: string }; Body: { name: string; variable: string; type: string; paramKind: string; options?: unknown; formula?: string; defaultValue?: string; showInProposal?: boolean; showInAssembly?: boolean; proposalPriority?: number; categoryId?: string; isAdvanced?: boolean } }>(
+  app.post<{ Params: { id: string }; Body: { name: string; variable: string; type: ParamType; paramKind: ParamKind; options?: unknown; formula?: string; defaultValue?: string; showInProposal?: boolean; showInAssembly?: boolean; proposalPriority?: number; categoryId?: string; isAdvanced?: boolean } }>(
     '/:id/parameters', { preHandler: requireRole(Role.OWNER, Role.ADMIN) }, async (req, reply) => {
       const { name, variable, type, paramKind, options, formula, defaultValue, showInProposal, showInAssembly, proposalPriority, categoryId, isAdvanced } = req.body
       if (!name || !variable || !type || !paramKind) return reply.status(400).send({ error: 'Заполните обязательные поля' })
       if (!/^[a-zA-Z_]/.test(variable)) return reply.status(400).send({ error: 'Переменная должна начинаться с буквы или _' })
       return reply.status(201).send(await prisma.systemParameter.create({
-        data: { systemId: req.params.id, name, variable, type: type as never, paramKind: paramKind as never, options: options as never, formula, defaultValue, showInProposal: showInProposal ?? false, showInAssembly: showInAssembly ?? false, proposalPriority: proposalPriority ?? 0, categoryId: categoryId ?? null, isAdvanced: isAdvanced ?? false },
+        data: { systemId: req.params.id, name, variable, type, paramKind, options: toPrismaJsonInput(options), formula, defaultValue, showInProposal: showInProposal ?? false, showInAssembly: showInAssembly ?? false, proposalPriority: proposalPriority ?? 0, categoryId: categoryId ?? null, isAdvanced: isAdvanced ?? false },
         include: { limits: true },
       }))
     }
@@ -164,7 +166,12 @@ export async function systemRoutes(app: FastifyInstance) {
 
   app.patch<{ Params: { id: string; paramId: string }; Body: { name?: string; variable?: string; options?: unknown; formula?: string; defaultValue?: string; showInProposal?: boolean; showInAssembly?: boolean; proposalPriority?: number; categoryId?: string | null; isAdvanced?: boolean } }>(
     '/:id/parameters/:paramId', { preHandler: requireRole(Role.OWNER, Role.ADMIN) }, async (req, reply) => {
-      const data = { ...req.body as never, categoryId: req.body.categoryId === null ? null : (req.body.categoryId || undefined) }
+      const { options, categoryId, ...fields } = req.body
+      const data: Prisma.SystemParameterUncheckedUpdateInput = {
+        ...fields,
+        options: toPrismaJsonInput(options),
+        ...(categoryId === null ? { categoryId: null } : categoryId ? { categoryId } : {}),
+      }
       return prisma.systemParameter.update({
         where: { id: req.params.paramId },
         data,
@@ -362,20 +369,24 @@ export async function systemRoutes(app: FastifyInstance) {
     prisma.systemGlass.findMany({ where: { systemId: req.params.id }, include: { glassType: true }, orderBy: { order: 'asc' } })
   )
 
-  app.post<{ Params: { id: string }; Body: { name: string; widthFormula: string; heightFormula: string; quantityFormula?: string; complexity?: string; glassTypeId?: string | null; order?: number } }>(
+  app.post<{ Params: { id: string }; Body: { name: string; widthFormula: string; heightFormula: string; quantityFormula?: string; complexity?: GlassComplexity; glassTypeId?: string | null; order?: number } }>(
     '/:id/glasses', { preHandler: requireRole(Role.OWNER, Role.ADMIN) }, async (req, reply) => {
       const { name, widthFormula, heightFormula, quantityFormula, complexity, glassTypeId, order } = req.body
       if (!name || !widthFormula || !heightFormula) return reply.status(400).send({ error: 'Заполните обязательные поля' })
       return reply.status(201).send(await prisma.systemGlass.create({
-        data: { systemId: req.params.id, name, widthFormula, heightFormula, quantityFormula: quantityFormula ?? '1', complexity: (complexity as never) ?? 'PLAIN', glassTypeId: glassTypeId ?? null, order: order ?? 0 },
+        data: { systemId: req.params.id, name, widthFormula, heightFormula, quantityFormula: quantityFormula ?? '1', complexity: complexity ?? GlassComplexity.PLAIN, glassTypeId: glassTypeId ?? null, order: order ?? 0 },
         include: { glassType: true },
       }))
     }
   )
 
-  app.patch<{ Params: { id: string; glassId: string }; Body: { name?: string; widthFormula?: string; heightFormula?: string; quantityFormula?: string; complexity?: string; glassTypeId?: string | null; order?: number } }>(
+  app.patch<{ Params: { id: string; glassId: string }; Body: { name?: string; widthFormula?: string; heightFormula?: string; quantityFormula?: string; complexity?: GlassComplexity; glassTypeId?: string | null; order?: number } }>(
     '/:id/glasses/:glassId', { preHandler: requireRole(Role.OWNER, Role.ADMIN) }, async (req) => {
-      const data = { ...req.body as never, glassTypeId: req.body.glassTypeId === null ? null : (req.body.glassTypeId || undefined) }
+      const { glassTypeId, ...fields } = req.body
+      const data: Prisma.SystemGlassUncheckedUpdateInput = {
+        ...fields,
+        ...(glassTypeId === null ? { glassTypeId: null } : glassTypeId ? { glassTypeId } : {}),
+      }
       return prisma.systemGlass.update({ where: { id: req.params.glassId }, data, include: { glassType: true } })
     }
   )

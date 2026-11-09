@@ -1,4 +1,5 @@
 /** Domain-neutral JV contracts. No formula semantics are implied here. */
+import type { ExactRational } from './rational.ts'
 export type DecimalString = string & { readonly __decimalString: unique symbol }
 export type PriceProfile = 'COMPLETATION' | 'RETAIL'
 export type JVVariant = 'LINE' | 'ZIGZAG' | 'SLIDER_L3' | 'SLIDER_L5' | 'SLIDER_X3' | 'SLIDER_X5' | 'FRONT'
@@ -20,7 +21,7 @@ export interface PriceRecord { catalogId: string; price: Price; validFrom?: stri
 export interface LookupTable { id: string; version: string; sourceRef: string; dimensions: readonly string[]; values: readonly (readonly DecimalString[])[] }
 export interface CalculationContext { versions: VersionSet; prices: readonly PriceRecord[]; lookups: readonly LookupTable[]; settings: Readonly<Record<string,string|boolean|DecimalString>> }
 export interface TraceStep { id: string; kind: 'input'|'validation'|'geometry'|'material'|'component'|'filling'|'work'|'pricing'|'summary'; label: string; inputRefs: readonly string[]; ruleId?: string; source?: { workbook?: string; sheet?: string; cell?: string; formula?: string }; catalogRefs: readonly { id: string; version: string }[]; input: Readonly<Record<string,unknown>>; result?: unknown; status: ValueStatus; errorIds: readonly string[]; warningIds: readonly string[] }
-export interface SpecificationLine { id: string; positionId: string; kind: 'material'|'component'|'glass'|'work'|'delivery'|'discount'; catalogId?: string; description: string; quantity?: Quantity; unitPrice?: Price; total?: Price; sourceTraceStepId: string }
+export interface SpecificationLine { id: string; positionId: string; kind: 'material'|'component'|'glass'|'work'|'delivery'|'discount'; catalogId?: string; description: string; quantity?: Quantity; exactQuantity?: ExactRational; unitPrice?: Price; total?: Price; sourceTraceStepId: string }
 export interface CostLine { id: string; positionId?: string; category: string; basis?: Quantity; unitPrice?: Price; amount: Price; traceStepId: string }
 export interface CalculationError { id: string; code: string; message: string; status: Exclude<ValueStatus,'ok'>; positionId?: string; source?: TraceStep['source']; relatedStepIds: readonly string[] }
 export interface CalculationWarning { id: string; code: string; message: string; positionId?: string; relatedStepIds: readonly string[] }
