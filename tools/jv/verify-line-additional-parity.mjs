@@ -44,7 +44,10 @@ for (const scenario of fixture.cases) {
   const result = buildLineAdditionalBom(input)
   if (result.unsupported.length) throw new Error(`${scenario.workbook} ${scenario.scenarioId}: unsupported ${result.unsupported.map((x) => x.sku).join(', ')}`)
   const glue = scenario.additionalSources?.glue ?? {}
-  const adhesiveFactors = Object.fromEntries(['O5','O18'].map((key) => [key, glue[key]?.value]).filter(([, value]) => value != null))
+  // Preserve the exact Excel Double used by the source formula. `value` is a
+  // JSON decimal string, not an ExactRational; passing it through used to make
+  // multiplyRational read undefined numerator/denominator (AA-110 failure).
+  const adhesiveFactors = Object.fromEntries(['O5','O18'].map((key) => [key, binary64(glue[key]?.binary64)]).filter(([, value]) => value != null))
   const priceResult = calculateLineAdditionalMaterialCost({ bom: result, profile: scenario.profile, snapshot: snapshotByProfile.get(scenario.profile), adhesiveFactors })
   const costBySku = new Map(priceResult.positions.map((position) => [position.sku, position]))
   for (const line of result.lines) {

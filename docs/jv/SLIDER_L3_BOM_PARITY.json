@@ -1,0 +1,4387 @@
+{
+  "schemaVersion": "1.0",
+  "method": "Microsoft Excel 16.0 CalculateFullRebuild on temporary workbook copies; exact decimal string comparison; display comparison uses each Excel cell NumberFormat, with no numeric epsilon.",
+  "sourceFixture": "docs/jv/fixtures/slider-pr11c-bom-capture.json",
+  "scenarios": 8,
+  "quantityComparisons": 224,
+  "applicabilityComparisons": 112,
+  "counts": {
+    "EXACT": 210,
+    "NUMERICALLY_EQUIVALENT": 0,
+    "DISPLAY_MATCH": 14,
+    "MISMATCH": 0,
+    "UNVERIFIED": 0,
+    "NOT_APPLICABLE": 112
+  },
+  "comparisons": [
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "61",
+        "denominator": "20"
+      },
+      "excelValue2": 3.05,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "61",
+        "denominator": "20"
+      },
+      "excelValue2": 3.05,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "217",
+        "denominator": "50"
+      },
+      "excelValue2": 4.34,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1547",
+        "denominator": "500"
+      },
+      "excelValue2": 3.0940000000000003,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "18",
+        "denominator": "1"
+      },
+      "excelValue2": 18,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "429",
+        "denominator": "50"
+      },
+      "excelValue2": 8.58,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "21",
+        "denominator": "10"
+      },
+      "excelValue2": 2.1,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "167",
+        "denominator": "1000"
+      },
+      "excelValue2": 0.167,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "167",
+        "denominator": "1000"
+      },
+      "excelValue2": 0.167,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "12",
+        "denominator": "1"
+      },
+      "excelValue2": 12,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "8",
+        "denominator": "1"
+      },
+      "excelValue2": 8,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_default",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "73",
+        "denominator": "20"
+      },
+      "excelValue2": 3.65,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "73",
+        "denominator": "20"
+      },
+      "excelValue2": 3.65,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "237",
+        "denominator": "50"
+      },
+      "excelValue2": 4.74,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1851",
+        "denominator": "500"
+      },
+      "excelValue2": 3.702,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "8",
+        "denominator": "1"
+      },
+      "excelValue2": 8,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "108",
+        "denominator": "5"
+      },
+      "excelValue2": 21.6,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "469",
+        "denominator": "50"
+      },
+      "excelValue2": 9.38,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "5"
+      },
+      "excelValue2": 0.2,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "5"
+      },
+      "excelValue2": 0.2,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "15",
+        "denominator": "1"
+      },
+      "excelValue2": 15,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "16",
+        "denominator": "1"
+      },
+      "excelValue2": 16,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "49",
+        "denominator": "20"
+      },
+      "excelValue2": 2.4499999999999997,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "49",
+        "denominator": "20"
+      },
+      "excelValue2": 2.4499999999999997,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "207",
+        "denominator": "50"
+      },
+      "excelValue2": 4.14,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1243",
+        "denominator": "500"
+      },
+      "excelValue2": 2.486,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "6",
+        "denominator": "1"
+      },
+      "excelValue2": 6,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "-2",
+        "denominator": "1"
+      },
+      "excelValue2": -2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "72",
+        "denominator": "5"
+      },
+      "excelValue2": 14.399999999999999,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "409",
+        "denominator": "50"
+      },
+      "excelValue2": 8.18,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "67",
+        "denominator": "500"
+      },
+      "excelValue2": 0.134,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "67",
+        "denominator": "500"
+      },
+      "excelValue2": 0.134,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "10",
+        "denominator": "1"
+      },
+      "excelValue2": 10,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "12",
+        "denominator": "1"
+      },
+      "excelValue2": 12,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "-4",
+        "denominator": "1"
+      },
+      "excelValue2": -4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "17",
+        "denominator": "4"
+      },
+      "excelValue2": 4.25,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "17",
+        "denominator": "4"
+      },
+      "excelValue2": 4.25,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "247",
+        "denominator": "50"
+      },
+      "excelValue2": 4.9399999999999995,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "541",
+        "denominator": "125"
+      },
+      "excelValue2": 4.327999999999999,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "6",
+        "denominator": "1"
+      },
+      "excelValue2": 6,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "6",
+        "denominator": "1"
+      },
+      "excelValue2": 6,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "8",
+        "denominator": "1"
+      },
+      "excelValue2": 8,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "126",
+        "denominator": "5"
+      },
+      "excelValue2": 25.200000000000003,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "489",
+        "denominator": "50"
+      },
+      "excelValue2": 9.78,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "3",
+        "denominator": "1"
+      },
+      "excelValue2": 3,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "17",
+        "denominator": "1"
+      },
+      "excelValue2": 17,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "16",
+        "denominator": "1"
+      },
+      "excelValue2": 16,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "61",
+        "denominator": "20"
+      },
+      "excelValue2": 3.05,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "61",
+        "denominator": "20"
+      },
+      "excelValue2": 3.05,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "217",
+        "denominator": "50"
+      },
+      "excelValue2": 4.34,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1547",
+        "denominator": "500"
+      },
+      "excelValue2": 3.0940000000000003,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "18",
+        "denominator": "1"
+      },
+      "excelValue2": 18,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "429",
+        "denominator": "50"
+      },
+      "excelValue2": 8.58,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "21",
+        "denominator": "10"
+      },
+      "excelValue2": 2.1,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "167",
+        "denominator": "1000"
+      },
+      "excelValue2": 0.167,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "167",
+        "denominator": "1000"
+      },
+      "excelValue2": 0.167,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "12",
+        "denominator": "1"
+      },
+      "excelValue2": 12,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "8",
+        "denominator": "1"
+      },
+      "excelValue2": 8,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_default",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "73",
+        "denominator": "20"
+      },
+      "excelValue2": 3.65,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "73",
+        "denominator": "20"
+      },
+      "excelValue2": 3.65,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "237",
+        "denominator": "50"
+      },
+      "excelValue2": 4.74,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1851",
+        "denominator": "500"
+      },
+      "excelValue2": 3.702,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "8",
+        "denominator": "1"
+      },
+      "excelValue2": 8,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "108",
+        "denominator": "5"
+      },
+      "excelValue2": 21.6,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "469",
+        "denominator": "50"
+      },
+      "excelValue2": 9.38,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "5"
+      },
+      "excelValue2": 0.2,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "5"
+      },
+      "excelValue2": 0.2,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "15",
+        "denominator": "1"
+      },
+      "excelValue2": 15,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "16",
+        "denominator": "1"
+      },
+      "excelValue2": 16,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "49",
+        "denominator": "20"
+      },
+      "excelValue2": 2.4499999999999997,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "49",
+        "denominator": "20"
+      },
+      "excelValue2": 2.4499999999999997,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "207",
+        "denominator": "50"
+      },
+      "excelValue2": 4.14,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1243",
+        "denominator": "500"
+      },
+      "excelValue2": 2.486,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "6",
+        "denominator": "1"
+      },
+      "excelValue2": 6,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "-2",
+        "denominator": "1"
+      },
+      "excelValue2": -2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "72",
+        "denominator": "5"
+      },
+      "excelValue2": 14.399999999999999,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "409",
+        "denominator": "50"
+      },
+      "excelValue2": 8.18,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "excelValue2": 4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "67",
+        "denominator": "500"
+      },
+      "excelValue2": 0.134,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "67",
+        "denominator": "500"
+      },
+      "excelValue2": 0.134,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "10",
+        "denominator": "1"
+      },
+      "excelValue2": 10,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "12",
+        "denominator": "1"
+      },
+      "excelValue2": 12,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "-4",
+        "denominator": "1"
+      },
+      "excelValue2": -4,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K5",
+      "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "17",
+        "denominator": "4"
+      },
+      "excelValue2": 4.25,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K6",
+      "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K7",
+      "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "17",
+        "denominator": "4"
+      },
+      "excelValue2": 4.25,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K8",
+      "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K9",
+      "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K10",
+      "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K11",
+      "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "247",
+        "denominator": "50"
+      },
+      "excelValue2": 4.9399999999999995,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K12",
+      "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "541",
+        "denominator": "125"
+      },
+      "excelValue2": 4.327999999999999,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K13",
+      "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K14",
+      "formula": "=$J$14*2*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K15",
+      "formula": "=$J$15*(2*$D$5-$K$14)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K16",
+      "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K17",
+      "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "6",
+        "denominator": "1"
+      },
+      "excelValue2": 6,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K18",
+      "formula": "=$J$18*2*$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K19",
+      "formula": "=$J$19*(2*$D$5-$K$18)",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K20",
+      "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K21",
+      "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K22",
+      "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "6",
+        "denominator": "1"
+      },
+      "excelValue2": 6,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K23",
+      "formula": "=$J$23*2*$D$5",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "8",
+        "denominator": "1"
+      },
+      "excelValue2": 8,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K24",
+      "formula": "=$J$24*2*$D$5",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K25",
+      "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K26",
+      "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K27",
+      "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K28",
+      "formula": "=IF($D$26=\"ОДИН\",1,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K29",
+      "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K30",
+      "formula": "=$J$30*$D$6",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K31",
+      "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K32",
+      "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K33",
+      "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "126",
+        "denominator": "5"
+      },
+      "excelValue2": 25.200000000000003,
+      "numberFormat": "0,000",
+      "classification": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K34",
+      "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "489",
+        "denominator": "50"
+      },
+      "excelValue2": 9.78,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K35",
+      "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K36",
+      "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "3",
+        "denominator": "1"
+      },
+      "excelValue2": 3,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K37",
+      "formula": "=2*$D$6-$K$39",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K38",
+      "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K39",
+      "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K40",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K41",
+      "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "excelValue2": 1,
+      "numberFormat": "0,000",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K42",
+      "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "17",
+        "denominator": "1"
+      },
+      "excelValue2": 17,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K43",
+      "formula": "=2*SUM($K$14:$K$21)",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "16",
+        "denominator": "1"
+      },
+      "excelValue2": 16,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K44",
+      "formula": "=2*$K$24",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K45",
+      "formula": "=2*$K$29",
+      "applicability": "CALCULATED",
+      "engineExactRational": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "excelValue2": 2,
+      "numberFormat": "0",
+      "classification": "EXACT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenarioId": "slider_h19_2_right",
+      "cell": "S1!K46",
+      "formula": "=4*$K$31+4*$K$32",
+      "applicability": "NOT_APPLICABLE",
+      "engineExactRational": null,
+      "excelValue2": 0,
+      "numberFormat": "0",
+      "classification": "NOT_APPLICABLE"
+    }
+  ],
+  "coverageNote": "NOT_APPLICABLE rows are counted separately; they have no engine quantity and are not passed off as quantity-parity comparisons."
+}
