@@ -1,11 +1,21 @@
 import { FastifyInstance } from 'fastify'
 import { Role } from '@bms/shared'
 import { requireRole } from '../lib/auth'
-import { calculateJvPreview, JvRequestError, serializeJvResult } from '../domain/jv/jvCalculationService'
+import { calculateJvPreview, getJvUiFormConfig, JvRequestError, serializeJvResult } from '../domain/jv/jvCalculationService'
 
 const MAX_PREVIEW_BODY_BYTES = 256 * 1024
 
 export async function jvRoutes(app: FastifyInstance) {
+  app.get<{ Querystring: { profile?: string } }>(
+    '/orders/form-config', { preHandler: requireRole(Role.OWNER, Role.ADMIN) }, async (request, reply) => {
+      try { return getJvUiFormConfig(request.query.profile) }
+      catch (error) {
+        if (error instanceof JvRequestError) return reply.status(error.statusCode).send({ error: { code: error.code, message: error.message, issues: error.issues, correlationId: request.id } })
+        request.log.error({ correlationId: request.id }, 'JV form configuration failed')
+        return reply.status(500).send({ error: { code: 'JV_CONFIG_FAILED', message: 'Form configuration could not be loaded', correlationId: request.id } })
+      }
+    },
+  )
   app.post<{ Body: unknown }>(
     '/orders/calculate-preview',
     { preHandler: requireRole(Role.OWNER, Role.ADMIN), bodyLimit: MAX_PREVIEW_BODY_BYTES },

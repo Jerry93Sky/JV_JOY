@@ -38,3 +38,9 @@ jobs:
         run: pnpm smoke:jv-line-lab
       - name: Validate versioned JV JSON fixtures
         run: pnpm validate:jv-fixtures
+      - name: Generate Prisma client
+        run: pnpm --filter backend exec prisma generate
+      - name: JV backend API integration tests
+        run: pnpm --filter backend test:jv-api
+      - name: JV order UI and HTTP integration
+        run: pnpm --filter frontend test:jv-order

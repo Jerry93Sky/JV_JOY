@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { calculateJVOrder, EngineError, type PriceProfile, type UnifiedFamily, type UnifiedOrderResult, type UnifiedPositionInput } from '@bms/shared'
 import completionJson from './catalogs/completation-pr13e.json'
 import retailJson from './catalogs/retail-pr13e.json'
+import { getUiDefaults, hydrateUiInputs, JV_UI_SCHEMA_VERSION } from './jvUiInputs'
 
 const DECIMAL = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/
 const FAMILIES = ['LINE', 'ZIGZAG', 'SLIDER_L3', 'SLIDER_L5', 'SLIDER_X3', 'SLIDER_X5', 'FRONT'] as const
@@ -23,6 +24,7 @@ const previewSchema = z.object({
   profile: z.enum(['COMPLETATION', 'RETAIL']),
   rulesVersion: z.string().trim().min(1).max(120),
   priceSnapshotVersion: z.string().trim().min(1).max(120).optional(),
+  uiSchemaVersion: z.string().trim().min(1).max(120).optional(),
   positions: z.array(z.discriminatedUnion('family', [
     positionShape('LINE'), positionShape('ZIGZAG'), positionShape('SLIDER_L3'), positionShape('SLIDER_L5'), positionShape('SLIDER_X3'), positionShape('SLIDER_X5'), positionShape('FRONT'),
   ])).min(1).max(MAX_POSITIONS),
@@ -75,12 +77,24 @@ export class JvRequestError extends Error {
   }
 }
 
+export function getJvUiFormConfig(profile: unknown) {
+  if (profile !== 'COMPLETATION' && profile !== 'RETAIL') throw new JvRequestError(400, 'INVALID_PROFILE', 'Unknown JV price profile')
+  const catalog = catalogs[profile]
+  return {
+    schemaVersion: JV_UI_SCHEMA_VERSION,
+    rulesVersion: catalog.engineRuleVersion,
+    profile,
+    families: Object.fromEntries(FAMILIES.map(family => [family, getUiDefaults(family, catalog.families[family].requestShape)])),
+  }
+}
+
 /** Runtime validates caller data, then attaches only server-owned price sources before the real Engine call. */
 export function calculateJvPreview(input: unknown): JvPreviewResult {
   const parsed = previewSchema.safeParse(input)
   if (!parsed.success) throw new JvRequestError(400, 'INVALID_REQUEST', 'JV calculation request is invalid', parsed.error.issues.map((issue) => `${issue.path.join('.') || 'request'}: ${issue.message}`).slice(0, 20))
   const request = parsed.data as PreviewRequest
   const catalog = catalogs[request.profile]
+  if (request.uiSchemaVersion && request.uiSchemaVersion !== JV_UI_SCHEMA_VERSION) throw new JvRequestError(409, 'UI_SCHEMA_VERSION_MISMATCH', 'Requested JV input schema is unavailable')
   if (request.rulesVersion !== catalog.engineRuleVersion) throw new JvRequestError(409, 'RULE_VERSION_MISMATCH', 'Requested JV rule version is unavailable')
   if (request.priceSnapshotVersion && request.priceSnapshotVersion !== catalog.providerId) throw new JvRequestError(409, 'PRICE_PROFILE_MISMATCH', 'Requested price snapshot does not match the selected profile')
 
@@ -96,10 +110,15 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
 
     const familyCatalog = catalog.families[position.family]
     if (!familyCatalog) throw new JvRequestError(409, 'FAMILY_SNAPSHOT_UNAVAILABLE', `No server snapshot is available for ${position.family}`)
-    const shapeIssues = validateShape(position.calculation, familyCatalog.requestShape, `positions.${index}.calculation`)
-    validatePhysicalInputs(position.family, position.calculation, `positions.${index}.calculation`, shapeIssues)
+    let calculation = structuredClone(position.calculation) as Record<string, unknown>
+    if (request.uiSchemaVersion) {
+      const hydrated = hydrateUiInputs(position.family, familyCatalog.requestShape, calculation)
+      if (!hydrated.calculation) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'UI inputs do not match the permitted fields', hydrated.issues.slice(0, 20))
+      calculation = hydrated.calculation
+    }
+    const shapeIssues = validateShape(calculation, familyCatalog.requestShape, `positions.${index}.calculation`)
+    validatePhysicalInputs(position.family, calculation, `positions.${index}.calculation`, shapeIssues)
     if (shapeIssues.length) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'Calculation inputs do not match the supported typed contract', shapeIssues.slice(0, 20))
-    const calculation = structuredClone(position.calculation) as Record<string, unknown>
     attachSources(position.family, calculation, familyCatalog.sources)
     bindServerContext(position.family, calculation, position.id, position.quantity, catalog)
     return { id: position.id, slot: position.slot, family: position.family, quantity: position.quantity, calculation } as UnifiedPositionInput

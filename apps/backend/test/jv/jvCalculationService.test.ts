@@ -8,6 +8,7 @@ import { calculateJVOrder, multiplyRational, type ExactRational, type UnifiedPos
 import { registerPlugins } from '../../src/plugins'
 import { registerRoutes } from '../../src/routes'
 import { getJvPriceProviderVersion, JV_ORDER_RULES_VERSION, serializeJvResult } from '../../src/domain/jv/jvCalculationService'
+import { getUiDefaults, JV_UI_SCHEMA_VERSION } from '../../src/domain/jv/jvUiInputs'
 import { toPrismaJsonInput } from '../../src/lib/prismaJson'
 import { FINANCE_EXCLUDED_STAGES } from '../../src/routes/finance'
 
@@ -81,6 +82,47 @@ test('real registered JV route is present and uses the authenticated BMS role po
   assert.equal(legacy.statusCode, 401)
 })
 
+test('versioned UI input contract supplies non-price fields and hydrates all seven families on the server', async () => {
+  type Config = { schemaVersion: string; rulesVersion: string; profile: string; families: Record<string, Record<string, unknown>> }
+  const families = ['LINE', 'ZIGZAG', 'SLIDER_L3', 'SLIDER_L5', 'SLIDER_X3', 'SLIDER_X5', 'FRONT']
+  const configRequest = (profile: string, token?: string) => app.inject({ method: 'GET', url: `/api/jv/orders/form-config?profile=${profile}`, headers: token ? { authorization: `Bearer ${token}` } : {} })
+  assert.equal((await configRequest('COMPLETATION')).statusCode, 401)
+  assert.equal((await configRequest('COMPLETATION', userToken)).statusCode, 403)
+  for (const profile of ['COMPLETATION', 'RETAIL']) {
+    const response = await configRequest(profile, adminToken)
+    assert.equal(response.statusCode, 200, response.body)
+    const config = response.json<Config>()
+    assert.equal(config.profile, profile)
+    assert.equal(config.schemaVersion, 'JV-UI-INPUTS-1')
+    assert.deepEqual(Object.keys(config.families).sort(), [...families].sort())
+    const serialized = JSON.stringify(config)
+    assert.doesNotMatch(serialized, /priceSnapshot|glassSnapshot|paintSnapshot|bomSettings|sourceSha256|unitPrice/)
+    const positions = families.map((family, index) => ({ id: `ui-${index}`, slot: index + 1, family, quantity: index === 1 ? '2' : '1', calculation: config.families[family] }))
+    const payload = { orderId: 'ui-contract-comparison', profile, rulesVersion: config.rulesVersion, uiSchemaVersion: config.schemaVersion, positions }
+    const result = await post(payload)
+    assert.equal(result.statusCode, 200, `${profile}: ${result.body}`)
+    assert.equal(result.json<ApiResponse>().calculation.positions.length, 7)
+    const catalogFile = profile === 'COMPLETATION' ? 'completation-pr13e.json' : 'retail-pr13e.json'
+    const catalog = JSON.parse(readFileSync(resolve(process.cwd(), 'src/domain/jv/catalogs', catalogFile), 'utf8')) as { families: Record<string, { requestShape: Record<string, unknown> }> }
+    const legacyPositions = positions.map(position => ({ ...position, calculation: catalog.families[position.family]!.requestShape }))
+    const legacy = await post({ orderId: payload.orderId, profile, rulesVersion: config.rulesVersion, positions: legacyPositions })
+    assert.equal(legacy.statusCode, 200, legacy.body)
+    assert.deepEqual(result.json<ApiResponse>().calculation, legacy.json<ApiResponse>().calculation)
+    for (const position of positions) {
+      const single = await post({ ...payload, positions: [position] })
+      assert.equal(single.statusCode, 200, `${profile}/${position.family}: ${single.body}`)
+      assert.equal(single.json<ApiResponse>().calculation.positions[0]?.family, position.family)
+    }
+    const tampered = structuredClone(payload)
+    ;(tampered.positions[0]!.calculation as Record<string, unknown>)['settings.P2'] = '0'
+    assert.equal((await post(tampered)).statusCode, 400)
+    const selectorTampering = structuredClone(payload)
+    ;(selectorTampering.positions[2]!.calculation as Record<string, unknown>)['bomOptions.selectorControls.I25'] = 3
+    assert.equal((await post(selectorTampering)).statusCode, 400)
+    assert.equal((await post({ ...payload, uiSchemaVersion: 'future' })).statusCode, 409)
+  }
+})
+
 test('all 12 PR_13E Excel cases run through the HTTP endpoint and preserve engine and golden values', async () => {
   assert.equal(scenarios.length, 12)
   assert.equal(parity.cases.length, 12)
@@ -115,6 +157,17 @@ test('all 12 PR_13E Excel cases run through the HTTP endpoint and preserve engin
     assert.ok(actual.calculation.bom.length > 0)
     assert.ok(actual.calculation.trace.length > 0)
     assert.deepEqual(actual.calculation.totalSalePrice, golden.excel.AA18.engineRational)
+  }
+})
+
+test('UI input contract reproduces the 12 source-backed all-seven API scenarios', async () => {
+  for (const scenario of scenarios) {
+    const legacy = requestFor(scenario)
+    const compact = { ...legacy, uiSchemaVersion: JV_UI_SCHEMA_VERSION, positions: legacy.positions.map(position => ({ ...position, calculation: getUiDefaults(position.family, position.calculation) })) }
+    const [fullResponse, uiResponse] = await Promise.all([post(legacy), post(compact)])
+    assert.equal(fullResponse.statusCode, 200, `${scenario.scenarioId}: ${fullResponse.body}`)
+    assert.equal(uiResponse.statusCode, 200, `${scenario.scenarioId}: ${uiResponse.body}`)
+    assert.deepEqual(uiResponse.json<ApiResponse>().calculation, fullResponse.json<ApiResponse>().calculation, scenario.scenarioId)
   }
 })
 
