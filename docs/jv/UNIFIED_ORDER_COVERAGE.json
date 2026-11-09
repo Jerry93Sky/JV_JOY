@@ -1,0 +1,265 @@
+{
+  "schemaVersion": "1.2",
+  "families": [
+    "LINE",
+    "ZIGZAG",
+    "SLIDER_L3",
+    "SLIDER_L5",
+    "SLIDER_X3",
+    "SLIDER_X5",
+    "FRONT"
+  ],
+  "singleFamilyAdapterImplementation": {
+    "LINE": "IMPLEMENTED",
+    "ZIGZAG": "IMPLEMENTED",
+    "SLIDER_L3": "IMPLEMENTED",
+    "SLIDER_L5": "IMPLEMENTED",
+    "SLIDER_X3": "IMPLEMENTED",
+    "SLIDER_X5": "IMPLEMENTED",
+    "FRONT": "IMPLEMENTED"
+  },
+  "sharedResources": {
+    "families": {
+      "LINE": "SOURCE_QUANTITY_ADAPTER",
+      "ZIGZAG": "SOURCE_QUANTITY_ADAPTER",
+      "SLIDER_L3": "SOURCE_QUANTITY_ADAPTER",
+      "SLIDER_L5": "SOURCE_QUANTITY_ADAPTER",
+      "SLIDER_X3": "SOURCE_QUANTITY_ADAPTER",
+      "SLIDER_X5": "SOURCE_QUANTITY_ADAPTER",
+      "FRONT": "CONFIRMED_ZERO"
+    },
+    "glueAndActivator": "IMPLEMENTED_AS_EXACT_ORDER_ALLOCATION",
+    "procurementPackageRules": [
+      "Клей+акт!N12",
+      "Клей+акт!N25"
+    ],
+    "allocationFactors": [
+      "Клей+акт!O5",
+      "Клей+акт!O18",
+      "ПРМ!AB25:AB31"
+    ],
+    "doubleChargePolicy": "SHARED_RESOURCE_VIEW_IS_NOT_ADDED_TO_POSITION_PRICES",
+    "workbookRevision": "All positions must have matching workbook name and SHA-256"
+  },
+  "pairMatrix": [
+    {
+      "pair": "LINE + ZIGZAG",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "COMPLETE_ONLY_WITH_MATCHED_D19_AND_ACTIVE_SLOT_MARKUPS",
+      "excelParity": "EXISTING_MIXED_PATH_EVIDENCE; D19=0 CASES"
+    },
+    {
+      "pair": "LINE + SLIDER_L3",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "LINE + SLIDER_L5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "LINE + SLIDER_X3",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "LINE + SLIDER_X5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "LINE + FRONT",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "ZIGZAG + SLIDER_L3",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "ZIGZAG + SLIDER_L5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "ZIGZAG + SLIDER_X3",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "ZIGZAG + SLIDER_X5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "ZIGZAG + FRONT",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_L3 + SLIDER_L5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_L3 + SLIDER_X3",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_L3 + SLIDER_X5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_L3 + FRONT",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_L5 + SLIDER_X3",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_L5 + SLIDER_X5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_L5 + FRONT",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_X3 + SLIDER_X5",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_X3 + FRONT",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    },
+    {
+      "pair": "SLIDER_X5 + FRONT",
+      "routing": "PASS",
+      "sharedResources": "PASS",
+      "orderCommercial": "PARTIAL_TOTAL_WITHHELD",
+      "excelParity": "UNVERIFIED"
+    }
+  ],
+  "tests": {
+    "fullFamilyMatrix": "PASS_ROUTING_AND_SHARED_RESOURCES_NOT_FULL_COMMERCIAL_PARITY",
+    "allSevenOrder": "PASS_PARTIAL_WITH_SHARED_RESOURCES_AND_NO_UNIFIED_PRICE",
+    "multipleSameFamilyAndQuantity": "PASS_EXACT_CONSUMPTION_AND_AREA_CONSERVATION",
+    "newPR13BTests": 4,
+    "totalJvmTestCount": 202,
+    "newPR13CTests": 1,
+    "lineOnlyMainTransfer": "PASS_WITH_PROVENANCE_MATCHED_MAIN_SETTINGS"
+  },
+  "excelParity": {
+    "unifiedLineOrderScenarios": 12,
+    "profiles": {
+      "COMPLETATION": 6,
+      "RETAIL": 6
+    },
+    "counts": {
+      "EXACT": 32,
+      "NUMERICALLY_EQUIVALENT": 39,
+      "DISPLAY_MATCH": 11,
+      "MISMATCH": 0,
+      "UNVERIFIED": 0
+    },
+    "finalOrderPriceStatuses": {
+      "EXACT": 0,
+      "NUMERICALLY_EQUIVALENT": 3,
+      "DISPLAY_MATCH": 9,
+      "MISMATCH": 0,
+      "UNVERIFIED": 0
+    },
+    "allSevenWorkbookCalculation": "PR13E_12_MANIFEST_DRIVEN_EXCEL16_SCENARIOS_6_PER_PROFILE; ALL_96_AA11_AA18_COMPARED_WITH_ZERO_MISMATCH_OR_UNVERIFIED",
+    "crossFamilyOrderTotals": "PR13E_12_CONTROLLED_MANIFEST_SCENARIOS_DISPLAY_OR_NUMERIC_PARITY; NOT_GENERALIZED_TO_UNTESTED_SIZE_OR_SELECTOR_BRANCHES",
+    "previousUnverifiedRootCause": {
+      "category": "ENGINE_RULE_MISSING",
+      "count": 12,
+      "resolved": true,
+      "details": "The comparator hard-coded UNVERIFIED, omitted captured Main inputs, and Unified Order did not invoke the existing Line order coordinator or Main price transfer."
+    },
+    "mainTransferFormulaEvidence": {
+      "Line": "Rrow='Lslot'!Q58/Настройки!D11",
+      "Zigzag": "Srow='Zslot'!P44/Настройки!D12",
+      "Slider": "Trow='Sslot'!M53/Настройки!D13; U:W aliases Trow",
+      "Front": "Xrow='Fslot'!S38/Настройки!D14",
+      "selectedPrice": "Yrow=INDEX(Rrow:Xrow,Grow)*(100+Настройки!D(20+slot))/100",
+      "extendedPrice": "AArow=Yrow*Zrow*(100+Настройки!D19)/100",
+      "orderTotal": "AA18=SUM(AA11:AA17)"
+    }
+  },
+  "pr13d": {
+    "sharedOrderContext": "IMPLEMENTED_FOR_ALL_SEVEN_FAMILIES",
+    "familyRecalculationWithSharedContext": ["LINE", "ZIGZAG", "SLIDER_L3", "SLIDER_L5", "SLIDER_X3", "SLIDER_X5", "FRONT"],
+    "mainTransfer": "AA11_AA17_AND_AA18_IMPLEMENTED_WITH_EXACT_RATIONALS_AND_SOURCE_TRACE",
+    "multipleInstancesAndDeterminismTests": "PASS_BOTH_PROFILES",
+    "frontSlotIndexedArea": "F1_Y5_TO_AB25_THROUGH_F7_Y5_TO_AB31_CONFIRMED_AND_ROUTED",
+    "excelAllSevenCapture": {"scenarios": 12, "valid": 12, "COMPLETATION": 6, "RETAIL": 6},
+    "engineParity": {"AA11_AA17": "UNVERIFIED_84_COMPARISONS", "AA18": "UNVERIFIED_12_COMPARISONS", "reason": "Current standalone family input fixtures do not describe the same raw settings as the captured all-seven Main scenarios."},
+    "commerciallyConfirmedAllSeven": false,
+    "pr13e": {
+      "canonicalInputManifest": "fixtures/unified-order-all-seven-inputs.json",
+      "scenarioCount": 12,
+      "profiles": {"COMPLETATION": 6, "RETAIL": 6},
+      "positions": 84,
+      "explicitPrimaryCellWrites": 1056,
+      "inputCompatibleScenarios": 12,
+      "requiredComparisons": 96,
+      "comparisons": {"EXACT": 1, "NUMERICALLY_EQUIVALENT": 38, "DISPLAY_MATCH": 45, "MISMATCH": 0, "UNVERIFIED": 0},
+      "AA18": {"EXACT": 0, "NUMERICALLY_EQUIVALENT": 3, "DISPLAY_MATCH": 9, "MISMATCH": 0, "UNVERIFIED": 0},
+      "intermediateComparisons": 216,
+      "intermediateStatuses": {"EXACT": 25, "NUMERICALLY_EQUIVALENT": 87, "DISPLAY_MATCH": 104, "MISMATCH": 0, "UNVERIFIED": 0},
+      "frontSlot7": "F7!Y5 -> ПРМ!AB31; Main price source F7!S38",
+      "scope": "Confirmed only for the 12 manifest-defined configurations; dimensions/openings/material branches are not exhaustive. DISPLAY_MATCH is not exact numeric parity."
+    }
+  }
+}

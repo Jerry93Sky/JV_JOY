@@ -10,12 +10,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@bms/shared": [
-        "../../packages/shared/src/index.ts"
-      ]
-    }
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*"

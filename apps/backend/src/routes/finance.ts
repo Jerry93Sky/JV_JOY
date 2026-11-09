@@ -1,6 +1,9 @@
 import { FastifyInstance } from 'fastify'
+import { DealStage } from '@prisma/client'
 import { prisma } from '../lib/prisma'
 import { requireAuth } from '../lib/auth'
+
+export const FINANCE_EXCLUDED_STAGES = [DealStage.APPLICATION, DealStage.INVOICE_SENT, DealStage.FAILED] satisfies DealStage[]
 
 export async function financeRoutes(app: FastifyInstance) {
   // Сводка за период (поддерживает сравнение двух периодов)
@@ -16,7 +19,7 @@ export async function financeRoutes(app: FastifyInstance) {
             isLead: false,
             paymentStatus: { not: null },
             updatedAt: { gte: dateFrom, lte: end },
-            stage: { notIn: ['APPLICATION', 'CALCULATION', 'PROPOSAL', 'AWAITING_PAYMENT', 'FAILED'] },
+            stage: { notIn: FINANCE_EXCLUDED_STAGES },
           },
           include: { items: true, services: true },
         })
@@ -183,7 +186,7 @@ export async function financeRoutes(app: FastifyInstance) {
       const deals = await prisma.deal.findMany({
         where: {
           isLead: false,
-          stage: { notIn: ['APPLICATION', 'CALCULATION', 'PROPOSAL', 'AWAITING_PAYMENT', 'FAILED'] },
+          stage: { notIn: FINANCE_EXCLUDED_STAGES },
           updatedAt: { gte: dateFrom, lte: dateTo },
         },
         include: { items: { include: { product: { include: { type: true } } } } },

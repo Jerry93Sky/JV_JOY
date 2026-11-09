@@ -2,13 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc",
+    "dev": "pnpm --filter @bms/shared build && tsx watch src/index.ts",
+    "build": "pnpm --filter @bms/shared build && tsc",
     "start": "node dist/apps/backend/src/index.js",
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx src/prisma/seed.ts",
     "db:studio": "prisma studio",
-    "db:generate": "prisma generate"
+    "db:generate": "prisma generate",
+    "pretest:jv-api": "pnpm --filter @bms/shared build",
+    "test:jv-api": "tsx --test test/jv/jvCalculationService.test.ts"
   },
   "dependencies": {
     "@bms/shared": "workspace:*",

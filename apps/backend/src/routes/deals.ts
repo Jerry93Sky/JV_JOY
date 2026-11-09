@@ -2,7 +2,7 @@ import { FastifyInstance } from 'fastify'
 import { prisma } from '../lib/prisma'
 import { requireAuth } from '../lib/auth'
 import { generateDealNumber } from '../lib/dealNumber'
-import { DealStage, Direction, GlassSupply, PaymentType, PaymentStatus, FailReason } from '@prisma/client'
+import { DealStage, Direction, DeliveryType, GlassSupply, PaymentType, PaymentStatus, FailReason, Prisma } from '@prisma/client'
 import { calculateDealExtras } from '../lib/dealExtras'
 
 const DEAL_INCLUDE = {
@@ -65,7 +65,7 @@ export async function dealRoutes(app: FastifyInstance) {
     assigneeId: string; comment?: string; address?: string
     isAgentOrder?: boolean; agentPercent?: number
     glassSupply?: GlassSupply; needPainting?: boolean
-    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: string
+    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: DeliveryType
   } }>('/', { preHandler: requireAuth }, async (req, reply) => {
     const { contactId, direction, assigneeId, comment, address, isAgentOrder, agentPercent, glassSupply, needPainting, companyId, includeInstall, includeTransport, deliveryType } = req.body
     if (!contactId || !direction || !assigneeId) return reply.status(400).send({ error: 'Заполните обязательные поля' })
@@ -98,7 +98,7 @@ export async function dealRoutes(app: FastifyInstance) {
     glassSupply?: GlassSupply; needPainting?: boolean; paintAllOneColor?: boolean
     isAgentOrder?: boolean; agentPercent?: number
     paintingCompany?: string; manualDiscountPct?: number | null
-    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: string
+    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: DeliveryType
   } }>('/:id', { preHandler: requireAuth }, async (req, reply) => {
     const deal = await prisma.deal.findUnique({ where: { id: req.params.id } })
     if (!deal) return reply.status(404).send({ error: 'Не найдена' })
@@ -114,7 +114,8 @@ export async function dealRoutes(app: FastifyInstance) {
       await logDealEvent(deal.id, 'ASSIGNEE_CHANGED', `Ответственный изменён на ${newAssignee?.lastName} ${newAssignee?.firstName}`, caller.id)
     }
 
-    return prisma.deal.update({ where: { id: req.params.id }, data: req.body, include: DEAL_INCLUDE })
+    const updateData: Prisma.DealUncheckedUpdateInput = req.body
+    return prisma.deal.update({ where: { id: req.params.id }, data: updateData, include: DEAL_INCLUDE })
   })
 
   // Возврат на предыдущий этап

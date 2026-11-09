@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "fixture": "fixtures/zigzag-geometry-excel.json",
+  "report": "NEXT_FAMILY_EXCEL_PARITY.json",
+  "excelVersion": "16.0",
+  "rebuild": "CalculateFullRebuild on temporary copies of both original XLSM files",
+  "profiles": ["COMPLETATION", "RETAIL"],
+  "cases": 12,
+  "checks": 696,
+  "counts": {"EXACT": 528, "DISPLAY_MATCH": 0, "NUMERICALLY_EQUIVALENT": 0, "MISMATCH": 0, "UNVERIFIED": 168},
+  "bomRows": [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],
+  "intermediateCells": ["C22","C23","D22","D23","G37","G38","G39","H39","G40","G41"],
+  "scenarioDimensions": {"widthMm": [3600, 4200], "heightMm": [2400, 2500], "sashCounts": [4,5], "openingSelectors": [1,2,3], "frameD13": ["ДА","НЕТ"], "D16": ["ДА","НЕТ"], "gluePrecisionSettingL6": [false,true]},
+  "note": "All terminating BOM quantities and integer lookup intermediates match exactly. N31 and non-terminating geometry intermediates remain UNVERIFIED against finite Excel COM Value2 strings; no tolerance was introduced. N31 exact fractions are preserved by the engine. MISMATCH=0. The returned SpecificationLine stays PARTIAL when N31 has no finite DecimalString representation.",
+  "comparisonReport": "NEXT_FAMILY_EXCEL_PARITY.json"
+}
