@@ -1,0 +1,3003 @@
+{
+  "schemaVersion": "1.0",
+  "scenarioCount": 10,
+  "profiles": [
+    {
+      "profile": "COMPLETATION",
+      "version": "JV-SLIDER-X3-PRICE-COMPLETATION-2026-10-08-62dd6d49f059",
+      "workbookSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8"
+    },
+    {
+      "profile": "RETAIL",
+      "version": "JV-SLIDER-X3-PRICE-RETAIL-2026-10-08-025d7e291117",
+      "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41"
+    }
+  ],
+  "pricedRows": 26,
+  "includedFastenerRows": 3,
+  "notApplicableRows": 13,
+  "rows": [
+    {
+      "bomRow": 5,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E5/Настройки!$D$4",
+      "amountFormula": "=L5*K5",
+      "priceSourceCell": "Прайс-Slider!E5",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        }
+      ]
+    },
+    {
+      "bomRow": 6,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E6/Настройки!$D$4",
+      "amountFormula": "=L6*K6",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 7,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E7/Настройки!$D$4",
+      "amountFormula": "=L7*K7",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 8,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E8/Настройки!$D$4",
+      "amountFormula": "=L8*K8",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 9,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E9/Настройки!$D$4",
+      "amountFormula": "=L9*K9",
+      "priceSourceCell": "Прайс-Slider!E9",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        }
+      ]
+    },
+    {
+      "bomRow": 10,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E10/Настройки!$D$4",
+      "amountFormula": "=L10*K10",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 11,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E11/Настройки!$D$4",
+      "amountFormula": "=L11*K11",
+      "priceSourceCell": "Прайс-Slider!E11",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 12,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E12/Настройки!$D$4",
+      "amountFormula": "=L12*K12",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 13,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+      "priceFormula": "='Прайс-Slider'!E13/Настройки!$D$4",
+      "amountFormula": "=L13*K13",
+      "priceSourceCell": "Прайс-Slider!E13",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        }
+      ]
+    },
+    {
+      "bomRow": 14,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$14*2*$D$6",
+      "priceFormula": "='Прайс-Slider'!E14 * IF($D$28=\"ДА\",Настройки!$S$26,1)",
+      "amountFormula": "=L14*K14",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 15,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$15*(2*$D$5-$K$14)",
+      "priceFormula": "='Прайс-Slider'!E15",
+      "amountFormula": "=L15*K15",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 16,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+      "priceFormula": "='Прайс-Slider'!E16",
+      "amountFormula": "=L16*K16",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 17,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+      "priceFormula": "='Прайс-Slider'!E17",
+      "amountFormula": "=L17*K17",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 18,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$18*2*$D$6",
+      "priceFormula": "='Прайс-Slider'!E18 * IF($D$28=\"ДА\",Настройки!$S$26,1)",
+      "amountFormula": "=L18*K18",
+      "priceSourceCell": "Прайс-Slider!E18",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 19,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$19*(2*$D$5-$K$18)",
+      "priceFormula": "='Прайс-Slider'!E19",
+      "amountFormula": "=L19*K19",
+      "priceSourceCell": "Прайс-Slider!E19",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 20,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+      "priceFormula": "='Прайс-Slider'!E20",
+      "amountFormula": "=L20*K20",
+      "priceSourceCell": "Прайс-Slider!E20",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 21,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+      "priceFormula": "='Прайс-Slider'!E21",
+      "amountFormula": "=L21*K21",
+      "priceSourceCell": "Прайс-Slider!E21",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 22,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+      "priceFormula": "='Прайс-Slider'!E22",
+      "amountFormula": "=L22*K22",
+      "priceSourceCell": "Прайс-Slider!E22",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 23,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$23*2*$D$5",
+      "priceFormula": "='Прайс-Slider'!E23",
+      "amountFormula": "=L23*K23",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 24,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$24*2*$D$5",
+      "priceFormula": "='Прайс-Slider'!E24",
+      "amountFormula": "=L24*K24",
+      "priceSourceCell": "Прайс-Slider!E24",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 25,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "priceFormula": "='Прайс-Slider'!E25",
+      "amountFormula": "=L25*K25",
+      "priceSourceCell": "Прайс-Slider!E25",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 26,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+      "priceFormula": "='Прайс-Slider'!E26",
+      "amountFormula": "=L26*K26",
+      "priceSourceCell": "Прайс-Slider!E26",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 27,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+      "priceFormula": "='Прайс-Slider'!E27",
+      "amountFormula": "=L27*K27",
+      "priceSourceCell": "Прайс-Slider!E27",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 28,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($D$26=\"ОДИН\",1,0)",
+      "priceFormula": "='Прайс-Slider'!E28",
+      "amountFormula": "=L28*K28",
+      "priceSourceCell": "Прайс-Slider!E28",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 29,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+      "priceFormula": "='Прайс-Slider'!E29",
+      "amountFormula": "=L29*K29",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 30,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$30*$D$6",
+      "priceFormula": "='Прайс-Slider'!E30",
+      "amountFormula": "=L30*K30",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 31,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+      "priceFormula": "='Прайс-Slider'!E31",
+      "amountFormula": "=L31*K31",
+      "priceSourceCell": "Прайс-Slider!E31",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 32,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+      "priceFormula": "='Прайс-Slider'!E32",
+      "amountFormula": "=L32*K32",
+      "priceSourceCell": "Прайс-Slider!E32",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 33,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+      "priceFormula": "='Прайс-Slider'!E33/Настройки!$L$8",
+      "amountFormula": "=L33*K33",
+      "priceSourceCell": "Прайс-Slider!E33",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        }
+      ]
+    },
+    {
+      "bomRow": 34,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+      "priceFormula": "='Прайс-Slider'!E34/Настройки!$L$8",
+      "amountFormula": "=L34*K34",
+      "priceSourceCell": "Прайс-Slider!E34",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        }
+      ]
+    },
+    {
+      "bomRow": 35,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+      "priceFormula": "='Прайс-Slider'!E35/Настройки!$L$8",
+      "amountFormula": "=L35*K35",
+      "priceSourceCell": "Прайс-Slider!E35",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 36,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "priceFormula": "='Прайс-Slider'!E36",
+      "amountFormula": "=L36*K36",
+      "priceSourceCell": "Прайс-Slider!E36",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 37,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=2*$D$6-$K$39",
+      "priceFormula": "='Прайс-Slider'!E37",
+      "amountFormula": "=L37*K37",
+      "priceSourceCell": "Прайс-Slider!E37",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 38,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+      "priceFormula": "='Прайс-Slider'!E38",
+      "amountFormula": "=L38*K38",
+      "priceSourceCell": "Прайс-Slider!E38",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 39,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+      "priceFormula": "='Прайс-Slider'!$E$39",
+      "amountFormula": "=$L$39*$K$39",
+      "priceSourceCell": "Прайс-Slider!E39",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 40,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+      "priceFormula": "='Прайс-Slider'!E41",
+      "amountFormula": "=L40*K40*'Клей+акт'!$O$5",
+      "priceSourceCell": "Прайс-Slider!E41",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 41,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+      "priceFormula": "='Прайс-Slider'!E42",
+      "amountFormula": "=L41*K41*'Клей+акт'!$O$18",
+      "priceSourceCell": "Прайс-Slider!E42",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        }
+      ]
+    },
+    {
+      "bomRow": 42,
+      "status": "PRICED",
+      "skuConfirmed": true,
+      "quantityFormula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+      "priceFormula": "='Прайс-Slider'!E43",
+      "amountFormula": "=L42*K42",
+      "priceSourceCell": "Прайс-Slider!E43",
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "DISPLAY_MATCH",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "EXACT",
+          "amount": "EXACT"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "EXACT",
+          "amount": "DISPLAY_MATCH"
+        }
+      ]
+    },
+    {
+      "bomRow": 43,
+      "status": "INCLUDED_IN_PARENT_MATERIAL",
+      "skuConfirmed": false,
+      "quantityFormula": "=2*SUM($K$14:$K$21)",
+      "priceFormula": "учтено в СС заглушек",
+      "amountFormula": "",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 44,
+      "status": "INCLUDED_IN_PARENT_MATERIAL",
+      "skuConfirmed": false,
+      "quantityFormula": "=2*$K$24",
+      "priceFormula": "учтено в СС X-кареток",
+      "amountFormula": "",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 45,
+      "status": "NOT_APPLICABLE",
+      "skuConfirmed": false,
+      "quantityFormula": "=2*$K$29",
+      "priceFormula": "учтено в СС L-задвижки",
+      "amountFormula": "",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "bomRow": 46,
+      "status": "INCLUDED_IN_PARENT_MATERIAL",
+      "skuConfirmed": false,
+      "quantityFormula": "=4*$K$31+4*$K$32",
+      "priceFormula": "учтено в СС X-задвижек",
+      "amountFormula": "",
+      "priceSourceCell": null,
+      "comparisons": [
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "COMPLETATION",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_two_side",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "no_interlock_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "four_leaf_right",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        },
+        {
+          "profile": "RETAIL",
+          "scenarioId": "two_leaf_no_glass",
+          "unitPrice": "UNVERIFIED",
+          "amount": "UNVERIFIED"
+        }
+      ]
+    }
+  ]
+}

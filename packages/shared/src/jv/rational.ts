@@ -3,6 +3,24 @@ import type { DecimalString } from './types.ts'
 export interface ExactRational { readonly numerator: string; readonly denominator: string }
 function gcd(a: bigint, b: bigint): bigint { a = a < 0n ? -a : a; b = b < 0n ? -b : b; while (b) [a, b] = [b, a % b]; return a || 1n }
 function normalized(n: bigint, d: bigint): ExactRational { if (d === 0n) throw new RangeError('Division by zero'); if (d < 0n) { n = -n; d = -d } const g = gcd(n, d); return Object.freeze({ numerator: String(n / g), denominator: String(d / g) }) }
+/** Constructs a reduced exact rational from integer strings; no Number conversion occurs. */
+export function rationalFromFraction(numerator: string, denominator: string): ExactRational {
+  if (!/^[+-]?\d+$/.test(numerator) || !/^[+-]?\d+$/.test(denominator)) throw new TypeError('Rational numerator and denominator must be integer strings')
+  return normalized(BigInt(numerator), BigInt(denominator))
+}
+/** Stable JSON representation intended for persisted exact quantities and amounts. */
+export function serializeRational(value: ExactRational): string {
+  const reduced = rationalFromFraction(value.numerator, value.denominator)
+  return JSON.stringify({ numerator: reduced.numerator, denominator: reduced.denominator })
+}
+/** Validates and reduces a persisted rational without passing through JavaScript Number. */
+export function deserializeRational(value: string): ExactRational {
+  const parsed: unknown = JSON.parse(value)
+  if (typeof parsed !== 'object' || parsed === null || !('numerator' in parsed) || !('denominator' in parsed) || typeof parsed.numerator !== 'string' || typeof parsed.denominator !== 'string') {
+    throw new TypeError('Serialized rational must contain string numerator and denominator')
+  }
+  return rationalFromFraction(parsed.numerator, parsed.denominator)
+}
 export function rationalFromDecimal(value: DecimalString | string): ExactRational { const m = /^([+-]?)(?:(\d+)(?:\.(\d*))?|\.(\d+))$/.exec(value); if (!m) throw new TypeError(`Invalid decimal: ${value}`); const fraction = m[3] ?? m[4] ?? ''; const digits = `${m[2] ?? '0'}${fraction}`; const n = BigInt((m[1] === '-' ? '-' : '') + digits); return normalized(n, 10n ** BigInt(fraction.length)) }
 export function multiplyRational(a: ExactRational, b: ExactRational): ExactRational { return normalized(BigInt(a.numerator) * BigInt(b.numerator), BigInt(a.denominator) * BigInt(b.denominator)) }
 export function divideRational(a: ExactRational, b: ExactRational): ExactRational { return normalized(BigInt(a.numerator) * BigInt(b.denominator), BigInt(a.denominator) * BigInt(b.numerator)) }

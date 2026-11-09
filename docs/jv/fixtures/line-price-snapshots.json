@@ -298,7 +298,10 @@
         "L6": "false",
         "L7": "0.95",
         "L8": "0.95",
-        "P21": "1600"
+        "P21": "1600",
+        "D11": "1",
+        "D21": "0",
+        "D22": "0"
       },
       "additionalSources": {
         "assemblyInstallPrices": {
@@ -613,7 +616,10 @@
         "L6": "false",
         "L7": "0.95",
         "L8": "0.95",
-        "P21": "1600"
+        "P21": "1600",
+        "D11": "0.3",
+        "D21": "0",
+        "D22": "0"
       },
       "additionalSources": {
         "assemblyInstallPrices": {
