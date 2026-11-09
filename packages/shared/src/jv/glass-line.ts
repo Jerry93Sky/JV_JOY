@@ -42,9 +42,6 @@ export function calculateLineGlass(input: {
   readonly priceSnapshot: LineGlassPriceSnapshot
   readonly settings: Readonly<{ P19: string; L17: string; L18: string; L21: boolean; L22: string; D32: boolean }>
   readonly fixedChargePrice: string // 'Прайс-сб+монт'!C23
-  /** Order-level X5 = ПРМ!AB slot allocation. Omit for isolated construction mode. */
-  readonly orderSystemAllocationFactor?: ExactRational
-  readonly orderSlot?: number
 }) {
   if (input.workbook !== input.priceSnapshot.workbook || input.profile !== input.priceSnapshot.profile) throw new EngineError('INVALID_CONFIGURATION', 'Glass prices must match workbook and price profile')
   if (!Number.isSafeInteger(input.glassSelectionIndex) || input.glassSelectionIndex < 1 || input.glassSelectionIndex > 12) throw new EngineError('INVALID_CONFIGURATION', 'Glass selection index must resolve to one of Excel #1!D11:D22 / Прайс-Стекло!D5:D16', { index: input.glassSelectionIndex })
@@ -55,7 +52,6 @@ export function calculateLineGlass(input: {
   for (const key of required) if (input.sash[key] === undefined) throw new EngineError('MISSING_INPUT', `Sash geometry ${key} is required for glass`, { sourceCell: `L1!${key}` })
   const values: Record<string, unknown> = {
     height: rationalFromDecimal(input.heightMm), p19: rationalFromDecimal(input.settings.P19), price: rationalFromDecimal(price.value),
-    ...(input.orderSystemAllocationFactor===undefined?{}:{orderX5:input.orderSystemAllocationFactor}),
     l17: rationalFromDecimal(input.settings.L17), l18: rationalFromDecimal(input.settings.L18), l21: input.settings.L21,
     quantity: rationalFromDecimal(input.constructionQuantity), l22: rationalFromDecimal(input.settings.L22), d32: input.settings.D32,
     fixedCharge: rationalFromDecimal(input.fixedChargePrice),
@@ -75,7 +71,7 @@ export function calculateLineGlass(input: {
     { id:'JV.LINE.GLASS.I55',version:'JV-LINE-GLASS-2026-10-08',dependsOn:['l22'],source:{workbook:input.workbook,sheet:'L1',cell:'I55',formula:`=INDEX('#1'!$D$11:$D$22,$C$11)*Настройки!$L$22`},execute:()=>multiplyRational(rationalFromDecimal(choice.thickness),rationalFromDecimal(input.settings.L22)) },
     // In the isolated single-system scope, PRM!AB25 reduces to 1/Главная!Z11;
     // the shared quote denominator equals its sole active area row.
-    { id:'JV.LINE.GLASS.X5_SINGLE_SLOT',version:'JV-LINE-GLASS-2026-10-08',dependsOn:input.orderSystemAllocationFactor===undefined?['quantity']:['orderX5'],source:{workbook:input.workbook,sheet:'L1',cell:'X5',formula:input.orderSystemAllocationFactor===undefined?'=ПРМ!$AB$25; isolated slot: AA25/(AA32*W25)=1/W25':input.orderSlot===undefined?'=ПРМ!$AB$25; order allocation AA25/(AA32*W25)':`=ПРМ!$AB$${24+input.orderSlot}`},execute:({inputs}:any)=>input.orderSystemAllocationFactor??divideRational(rationalFromDecimal('1'),inputs.quantity) },
+    { id:'JV.LINE.GLASS.X5_SINGLE_SLOT',version:'JV-LINE-GLASS-2026-10-08',dependsOn:['quantity'],source:{workbook:input.workbook,sheet:'L1',cell:'X5',formula:'=ПРМ!$AB$25; isolated slot: AA25/(AA32*W25)=1/W25'},execute:({inputs}:any)=>divideRational(rationalFromDecimal('1'),inputs.quantity) },
     { id:'JV.LINE.GLASS.D54',version:'JV-LINE-GLASS-2026-10-08',dependsOn:['fixedCharge','JV.LINE.GLASS.G49','JV.LINE.GLASS.X5_SINGLE_SLOT'],source:{workbook:input.workbook,sheet:'L1',cell:'D54',formula:"=$G$49+'Прайс-сб+монт'!$C$23*$X$5"},execute:({inputs,results}:any)=>addRational(results['JV.LINE.GLASS.G49'],multiplyRational(inputs.fixedCharge,results['JV.LINE.GLASS.X5_SINGLE_SLOT'])) },
     { id:'JV.LINE.GLASS.Q54',version:'JV-LINE-GLASS-2026-10-08',dependsOn:['d32','JV.LINE.GLASS.D54'],source:{workbook:input.workbook,sheet:'L1',cell:'Q54',formula:'=IF(Настройки!$D$32,$D$54,0)'},execute:({inputs,results}:any)=> inputs.d32===true ? results['JV.LINE.GLASS.D54'] : rationalFromDecimal('0') },
   ]
