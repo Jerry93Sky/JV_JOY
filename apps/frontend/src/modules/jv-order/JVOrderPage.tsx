@@ -18,7 +18,7 @@ const selectClass = 'h-9 w-full rounded-md border border-input bg-background px-
 const labels: Record<string, string> = {
   widthMm: 'Ширина, мм', heightMm: 'Высота, мм', leaves: 'Количество створок', leafCount: 'Количество створок', leafSelector: 'Количество створок', sectionDemand: 'Количество секций',
   openingSelector: 'Вариант открывания', direction: 'Направление открывания', sideCount: 'Количество сторон', profileCount: 'Количество профилей', connectorAngle: 'Угол соединения, °',
-  glassSelectionIndex: 'Вариант стекла', glassSelector: 'Вариант стекла', glassTypeSelector: 'Вариант стекла', finishSelectionIndex: 'Вариант отделки', finishSelector: 'Вариант отделки', commercialModeIndex: 'Режим расчёта', priceMode: 'Режим расчёта', mainSurchargeSelector: 'Режим надбавки', F28: 'Режим надбавки',
+  glassSelectionIndex: 'Вариант стекла', glassSelector: 'Вариант стекла', glassTypeSelector: 'Вариант стекла', finishSelectionIndex: 'Вариант отделки', finishSelector: 'Вариант отделки', commercialModeIndex: 'Транспортная опция', priceMode: 'Отделка', mainSurchargeSelector: 'Транспортная опция', F28: 'Транспортная опция',
   frameState: 'Монтажная рама', knobState: 'Ручка-кноб', latchState: 'Защёлка', weatherSealState: 'Уплотнитель', floorLockState: 'Замок в пол', bottomPivotState: 'Напольный доводчик', specialSashEnabled: 'Специальное полотно', specialSashWidthMm: 'Ширина специального полотна, мм', rollerAxisToEdgeMm: 'Ось ролика до края, мм', parkedDoorSelected: 'Паркуемая дверь', parkedDoorPosition: 'Позиция паркуемой двери', parkedDoorReuseOpening: 'Использовать ширину проёма', parkedDoorWidthMm: 'Ширина паркуемой двери, мм',
   interlockState: 'Замковый профиль', meetingSealState: 'Уплотнение притвора', jointPairSelection: 'Выбор пары соединений', glassEnabled: 'Стекло', finishingEnabled: 'Отделка', glassServiceEnabled: 'Обработка стекла', installationEnabled: 'Монтаж', frameOverrideIndex: 'Вариант рамы', c8: 'Параметр комплектации C8', N40: 'Ручное количество N40', N41: 'Ручное количество N41', D18: 'Размер D18, мм', D19: 'Размер D19, мм', C18: 'Выбор ширины двери', C19: 'Выбор высоты двери', C20: 'Примыкание двери', C21: 'Вариант доводчика', C22: 'Вариант ручки', C23: 'Вариант замка', C24: 'Вариант дополнительного замка',
 }
@@ -26,36 +26,9 @@ const keyOf = (path: string) => { const parts = path.split('.'); return parts[pa
 const fieldLabel = (path: string) => labels[keyOf(path)] ?? `Выбор ${path}`
 const exact = (value?: ExactRational) => value ? rationalToDecimalExact(value) ?? `${value.numerator}/${value.denominator}` : 'не подтверждено'
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/
-const glassNames = ['6 мм прозрачное','6 мм осветлённое','6 мм тонированное','6 мм матовое','8 мм прозрачное','8 мм осветлённое','8 мм тонированное','8 мм матовое','10 мм прозрачное','10 мм осветлённое','10 мм тонированное','10 мм матовое']
-function optionLabel(path: string, option: JvUiValue): string {
-  const key = keyOf(path)
-  if (typeof option === 'number' && ['glassSelectionIndex','glassSelector','glassTypeSelector'].includes(key)) return glassNames[option - 1] ?? String(option)
-  if (typeof option === 'number' && ['finishSelectionIndex','finishSelector','priceMode'].includes(key)) return ['Некрашеное','Глянец','Матовый','Муар'][option - 1] ?? String(option)
-  if (path === 'construction.controls.C20' && typeof option === 'number') return ['Стекло — дверь — стекло','Стена — дверь — стекло','Стена — дверь — стена'][option - 1] ?? String(option)
-  return String(option)
-}
-
-function choices(path: string, value: JvUiValue, family: UnifiedFamily): JvUiValue[] | null {
-  const key = keyOf(path)
-  if (typeof value === 'boolean') return null
-  if (key === 'direction') return ['НАЛЕВО', 'НАПРАВО', 'ДВУХСТОР']
-  if (typeof value === 'string' && (value === 'ДА' || value === 'НЕТ')) return ['ДА', 'НЕТ']
-  if (key === 'sideCount') return ['1', '2']
-  if (key === 'connectorAngle') return ['90', '135']
-  if (key === 'frameOverrideIndex' || key === 'overrideIndex') return [1, 2]
-  if (key === 'openingSelector') return family === 'FRONT' ? [1, 2, 3, 4] : [1, 2, 3]
-  if (['glassSelectionIndex','glassSelector','glassTypeSelector'].includes(key)) return Array.from({ length: 12 }, (_, i) => i + 1)
-  if (['finishSelectionIndex','finishSelector','priceMode'].includes(key)) return [1, 2, 3, 4]
-  if (key === 'mainSurchargeSelector' || key === 'F28') return [1, 2]
-  if (family === 'FRONT' && path === 'construction.controls.C18') return [1, 2]
-  if (family === 'FRONT' && path === 'construction.controls.C19') return [1, 2]
-  if (family === 'FRONT' && path === 'construction.controls.C20') return [1, 2, 3]
-  // Other selectors are kept at their source-backed example value until their choices are mapped.
-  if (typeof value === 'number') return [value]
-  if (key === 'jointPairSelection') return [value]
-  return null
-}
+const transportField = (path: string) => ['input.commercialModeIndex','position.commercial.F28','controls.mainSurchargeSelector','commercial.mainSurchargeSelector'].includes(path)
 function fieldDisabled(path: string, inputs: Record<string, JvUiValue>): boolean {
+  if (inputs['construction.openingSelector'] === 4 && /^construction\.controls\.(C18|C19|C20|C21|C22|C23|C24|D18|D19)$/.test(path)) return true
   if (path === 'input.specialSashWidthMm') return inputs['input.specialSashEnabled'] !== true
   if (path === 'input.parkedDoorPosition' || path === 'input.parkedDoorReuseOpening') return inputs['input.parkedDoorSelected'] !== true
   if (path === 'input.parkedDoorWidthMm') return inputs['input.parkedDoorSelected'] !== true || inputs['input.parkedDoorReuseOpening'] !== true
@@ -97,10 +70,22 @@ export default function JVOrderPage() {
     const used = new Set(positions.map(p => p.slot)), slot = [1, 2, 3, 4, 5, 6, 7].find(s => !used.has(s))
     if (!slot) return
     invalidate()
-    setPositions(old => [...old, { id: crypto.randomUUID(), slot, family: copy?.family ?? 'LINE', quantity: copy?.quantity ?? '1', inputs: { ...(copy?.inputs ?? config.families.LINE) } }])
+    const inputs = { ...(copy?.inputs ?? config.families.LINE) }
+    const existingMode = positions.flatMap(p => Object.entries(p.inputs).filter(([path]) => transportField(path)))[0]?.[1]
+    if (existingMode !== undefined) for (const path of Object.keys(inputs)) if (transportField(path)) inputs[path] = existingMode
+    setPositions(old => [...old, { id: crypto.randomUUID(), slot, family: copy?.family ?? 'LINE', quantity: copy?.quantity ?? '1', inputs }])
   }
   function update(id: string, change: Partial<Pick<DraftPosition, 'slot' | 'family' | 'quantity' | 'inputs'>>) {
     invalidate(); setPositions(old => old.map(p => p.id === id ? { ...p, ...change } : p))
+  }
+  function updateField(id: string, path: string, value: JvUiValue) {
+    invalidate()
+    setPositions(old => old.map(p => {
+      const inputs = { ...p.inputs }
+      if (p.id === id) inputs[path] = value
+      if (transportField(path)) for (const otherPath of Object.keys(inputs)) if (transportField(otherPath)) inputs[otherPath] = value
+      return { ...p, inputs }
+    }))
   }
   function move(index: number, delta: number) {
     setPositions(old => { const next = [...old], target = index + delta; if (target < 0 || target >= next.length) return old; [next[index], next[target]] = [next[target], next[index]]; return next })
@@ -140,14 +125,15 @@ export default function JVOrderPage() {
     {positions.map((p, index) => <section key={p.id} className="space-y-4 rounded-lg border bg-card p-4">
       <h3 className="font-medium">Позиция {index + 1} · слот {p.slot}</h3>
       <div className="grid gap-3 sm:grid-cols-3">
-        <label className="space-y-1 text-sm">Семейство<select className={selectClass} value={p.family} onChange={e => { const family = e.target.value as UnifiedFamily; if (config) update(p.id, { family, inputs: { ...config.families[family] } }) }}>{families.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}</select></label>
+        <label className="space-y-1 text-sm">Семейство<select className={selectClass} value={p.family} onChange={e => { const family = e.target.value as UnifiedFamily; if (config) { const inputs = { ...config.families[family] }; const mode = Object.entries(p.inputs).find(([path]) => transportField(path))?.[1]; if (mode !== undefined) for (const path of Object.keys(inputs)) if (transportField(path)) inputs[path] = mode; update(p.id, { family, inputs }) } }}>{families.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}</select></label>
         <label className="space-y-1 text-sm">Слот<select className={selectClass} value={p.slot} onChange={e => update(p.id, { slot: Number(e.target.value) })}>{[1, 2, 3, 4, 5, 6, 7].map(s => <option key={s} value={s} disabled={s !== p.slot && positions.some(other => other.slot === s)}>{s}</option>)}</select></label>
         <label className="space-y-1 text-sm">Количество, шт.<Input inputMode="numeric" value={p.quantity} aria-invalid={!/^[1-9]\d{0,5}$/.test(p.quantity)} onChange={e => update(p.id, { quantity: e.target.value })}/></label>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{Object.entries(p.inputs).map(([path, value]) => {
-        const options = choices(path, value, p.family)
+        const field = config?.fieldMetadata[p.family].find(entry => entry.path === path)
+        const options = field?.options
         const disabled = fieldDisabled(path, p.inputs)
-        return <label key={path} className="space-y-1 text-sm"><span className="block">{fieldLabel(path)}</span>{typeof value === 'boolean' ? <input type="checkbox" checked={value} disabled={disabled} onChange={e => update(p.id, { inputs: { ...p.inputs, [path]: e.target.checked } })}/> : options ? <select className={selectClass} value={String(value)} disabled={disabled || options.length === 1} onChange={e => update(p.id, { inputs: { ...p.inputs, [path]: typeof value === 'number' ? Number(e.target.value) : e.target.value } })}>{options.map(option => <option key={String(option)} value={String(option)}>{optionLabel(path, option)}</option>)}</select> : <Input value={String(value)} inputMode="decimal" disabled={disabled} onChange={e => update(p.id, { inputs: { ...p.inputs, [path]: e.target.value } })}/>}</label>
+        return <label key={path} className="space-y-1 text-sm"><span className="block">{field ? `${field.label}${field.unit ? `, ${field.unit}` : ''}` : fieldLabel(path)}</span>{typeof value === 'boolean' ? <input type="checkbox" checked={value} disabled={disabled} onChange={e => updateField(p.id, path, e.target.checked)}/> : options ? <select className={selectClass} value={String(value)} disabled={disabled || options.filter(option => option.supported).length <= 1} onChange={e => updateField(p.id, path, typeof value === 'number' ? Number(e.target.value) : e.target.value)}>{options.map(option => <option key={String(option.value)} value={String(option.value)} disabled={!option.supported}>{option.label}{!option.supported ? ' (не поддерживается)' : ''}</option>)}</select> : <Input value={String(value)} inputMode="decimal" disabled={disabled} onChange={e => updateField(p.id, path, e.target.value)}/>} {field?.status === 'LIMITED' && <span className="block text-xs text-muted-foreground">{field.dependsOn ?? 'Часть вариантов пока не подтверждена.'}</span>}</label>
       })}</div>
       <div className="flex flex-wrap gap-2"><Button variant="outline" onClick={() => move(index, -1)} disabled={index === 0}>Выше</Button><Button variant="outline" onClick={() => move(index, 1)} disabled={index === positions.length - 1}>Ниже</Button><Button variant="outline" onClick={() => add(p)} disabled={positions.length >= 7}>Дублировать</Button><Button variant="outline" onClick={() => { invalidate(); setPositions(old => old.filter(item => item.id !== p.id)) }}>Удалить</Button></div>
     </section>)}

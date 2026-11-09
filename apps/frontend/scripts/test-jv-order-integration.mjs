@@ -72,7 +72,7 @@ try {
   assert.ok(contents().includes('Расчёт завершён'), 'edited order must recalculate through the real API')
 
   const front = sections()[6]
-  const toggle = text => front.findAllByType('label').find(label => label.findAllByType('span').some(span => span.children.includes(text))).findByType('input')
+  const toggle = text => front.findAllByType('label').find(label => label.findAllByType('span').some(span => span.children.includes(text)) && label.findAllByType('input').some(input => input.props.type === 'checkbox')).findByType('input')
   await act(async () => { toggle('Стекло').props.onChange({ target: { checked: false } }) })
   await act(async () => { toggle('Отделка').props.onChange({ target: { checked: false } }) })
   assert.ok(!contents().includes('Итог:'), 'editing a Front option must invalidate the prior total')

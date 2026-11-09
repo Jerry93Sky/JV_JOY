@@ -93,7 +93,7 @@ test('versioned UI input contract supplies non-price fields and hydrates all sev
     assert.equal(response.statusCode, 200, response.body)
     const config = response.json<Config>()
     assert.equal(config.profile, profile)
-    assert.equal(config.schemaVersion, 'JV-UI-INPUTS-1')
+    assert.equal(config.schemaVersion, 'JV-UI-INPUTS-2')
     assert.deepEqual(Object.keys(config.families).sort(), [...families].sort())
     const serialized = JSON.stringify(config)
     assert.doesNotMatch(serialized, /priceSnapshot|glassSnapshot|paintSnapshot|bomSettings|sourceSha256|unitPrice/)
@@ -119,6 +119,26 @@ test('versioned UI input contract supplies non-price fields and hydrates all sev
     const selectorTampering = structuredClone(payload)
     ;(selectorTampering.positions[2]!.calculation as Record<string, unknown>)['bomOptions.selectorControls.I25'] = 3
     assert.equal((await post(selectorTampering)).statusCode, 400)
+    const unsupported = structuredClone(payload)
+    ;(unsupported.positions[0]!.calculation as Record<string, unknown>)['input.commercialModeIndex'] = 3
+    assert.equal((await post(unsupported)).statusCode, 422)
+    const unsupportedFront = structuredClone(payload)
+    ;(unsupportedFront.positions[6]!.calculation as Record<string, unknown>)['construction.openingSelector'] = 1
+    assert.equal((await post(unsupportedFront)).statusCode, 422)
+    const unavailableDoorControl = structuredClone(payload)
+    ;(unavailableDoorControl.positions[6]!.calculation as Record<string, unknown>)['construction.controls.C18'] = 2
+    assert.equal((await post(unavailableDoorControl)).statusCode, 422)
+    const inconsistent = structuredClone(payload)
+    ;(inconsistent.positions[0]!.calculation as Record<string, unknown>)['input.commercialModeIndex'] = 2
+    assert.equal((await post(inconsistent)).statusCode, 400)
+    const mode2 = structuredClone(payload)
+    for (const position of mode2.positions) {
+      const path = position.family === 'LINE' ? 'input.commercialModeIndex' : position.family === 'ZIGZAG' ? 'position.commercial.F28' : position.family === 'FRONT' ? 'commercial.mainSurchargeSelector' : 'controls.mainSurchargeSelector'
+      ;(position.calculation as Record<string, unknown>)[path] = 2
+    }
+    const mode2Response = await post(mode2)
+    assert.equal(mode2Response.statusCode, 200, `${profile}/F28=2: ${mode2Response.body}`)
+    assert.equal((await post({ ...payload, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 200)
     assert.equal((await post({ ...payload, uiSchemaVersion: 'future' })).statusCode, 409)
   }
 })

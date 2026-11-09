@@ -44,3 +44,5 @@ jobs:
         run: pnpm --filter backend test:jv-api
       - name: JV order UI and HTTP integration
         run: pnpm --filter frontend test:jv-order
+      - name: JV order browser end-to-end
+        run: pnpm --filter frontend test:jv-browser

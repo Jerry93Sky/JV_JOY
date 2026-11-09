@@ -30,11 +30,22 @@ export interface JvPreviewRequest {
 }
 
 export type JvUiValue = string | number | boolean
+export interface JvUiField {
+  path: string
+  label: string
+  type: 'decimal' | 'boolean' | 'select'
+  unit?: string
+  options?: { value: string | number; label: string; supported: boolean }[]
+  status: 'CONFIRMED' | 'LIMITED'
+  source?: string
+  dependsOn?: string
+}
 export interface JvUiConfig {
   schemaVersion: string
   rulesVersion: string
   profile: PriceProfile
   families: Record<UnifiedFamily, Record<string, JvUiValue>>
+  fieldMetadata: Record<UnifiedFamily, JvUiField[]>
 }
 export interface JvUiPreviewRequest {
   orderId?: string
