@@ -2350,10 +2350,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "625000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "14073748835532800"
       },
-      "engineDecimalIfTerminating": "367.5869809203145808",
+      "engineDecimalIfTerminating": "367.5869809203141803521930341958068311214447021484375",
       "excelValue2": "367.586980920314",
       "excelBinary64": "4076F964461B0201",
       "excelDisplayed": "367,59",
@@ -2386,10 +2386,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "5000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "112589990684262400"
       },
-      "engineDecimalIfTerminating": "2243.4792368125721426",
+      "engineDecimalIfTerminating": "2243.4792368125696985625694424015819095075130462646484375",
       "excelValue2": "2243.47923681257",
       "excelBinary64": "40A186F55E870A0E",
       "excelDisplayed": "2 243,48",
@@ -2566,10 +2566,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "625000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "14073748835532800"
       },
-      "engineDecimalIfTerminating": "367.5869809203145808",
+      "engineDecimalIfTerminating": "367.5869809203141803521930341958068311214447021484375",
       "excelValue2": "367.586980920314",
       "excelBinary64": "4076F964461B0201",
       "excelDisplayed": "367,59",
@@ -2602,10 +2602,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "5000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "112589990684262400"
       },
-      "engineDecimalIfTerminating": "2243.4792368125721426",
+      "engineDecimalIfTerminating": "2243.4792368125696985625694424015819095075130462646484375",
       "excelValue2": "2243.47923681257",
       "excelBinary64": "40A186F55E870A0E",
       "excelDisplayed": "2 243,48",
@@ -2782,10 +2782,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "625000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "14073748835532800"
       },
-      "engineDecimalIfTerminating": "367.5869809203145808",
+      "engineDecimalIfTerminating": "367.5869809203141803521930341958068311214447021484375",
       "excelValue2": "367.586980920314",
       "excelBinary64": "4076F964461B0201",
       "excelDisplayed": "367,59",
@@ -2818,10 +2818,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "5000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "112589990684262400"
       },
-      "engineDecimalIfTerminating": "2243.4792368125721426",
+      "engineDecimalIfTerminating": "2243.4792368125696985625694424015819095075130462646484375",
       "excelValue2": "2243.47923681257",
       "excelBinary64": "40A186F55E870A0E",
       "excelDisplayed": "2 243,48",
@@ -2998,10 +2998,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "625000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "14073748835532800"
       },
-      "engineDecimalIfTerminating": "367.5869809203145808",
+      "engineDecimalIfTerminating": "367.5869809203141803521930341958068311214447021484375",
       "excelValue2": "367.586980920314",
       "excelBinary64": "4076F964461B0201",
       "excelDisplayed": "367,59",
@@ -3034,10 +3034,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "5000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "112589990684262400"
       },
-      "engineDecimalIfTerminating": "2243.4792368125721426",
+      "engineDecimalIfTerminating": "2243.4792368125696985625694424015819095075130462646484375",
       "excelValue2": "2243.47923681257",
       "excelBinary64": "40A186F55E870A0E",
       "excelDisplayed": "2 243,48",
@@ -3214,10 +3214,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "168885367142102927",
-        "denominator": "390625000000000"
+        "numerator": "15211841530590037999",
+        "denominator": "35184372088832000"
       },
-      "engineDecimalIfTerminating": "432.34653988378349312",
+      "engineDecimalIfTerminating": "432.346539883782213536278504761867225170135498046875",
       "excelValue2": "432.346539883782",
       "excelBinary64": "407B058B6D67B9AB",
       "excelDisplayed": "432,35",
@@ -3250,10 +3250,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "8246011621764416827",
-        "denominator": "3125000000000000"
+        "numerator": "742734697341417942299",
+        "denominator": "281474976710656000"
       },
-      "engineDecimalIfTerminating": "2638.72371896461338464",
+      "engineDecimalIfTerminating": "2638.723718964605575006743265475961379706859588623046875",
       "excelValue2": "2638.72371896461",
       "excelBinary64": "40A49D728B4AC8F4",
       "excelDisplayed": "2 638,72",
@@ -3430,10 +3430,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "625000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "14073748835532800"
       },
-      "engineDecimalIfTerminating": "367.5869809203145808",
+      "engineDecimalIfTerminating": "367.5869809203141803521930341958068311214447021484375",
       "excelValue2": "367.586980920314",
       "excelBinary64": "4076F964461B0201",
       "excelDisplayed": "367,59",
@@ -3466,10 +3466,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "5000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "112589990684262400"
       },
-      "engineDecimalIfTerminating": "2243.4792368125721426",
+      "engineDecimalIfTerminating": "2243.4792368125696985625694424015819095075130462646484375",
       "excelValue2": "2243.47923681257",
       "excelBinary64": "40A186F55E870A0E",
       "excelDisplayed": "2 243,48",
@@ -3646,10 +3646,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "459724715739076509",
-        "denominator": "1562500000000000"
+        "numerator": "20704160584955202739",
+        "denominator": "70368744177664000"
       },
-      "engineDecimalIfTerminating": "294.22381807300896576",
+      "engineDecimalIfTerminating": "294.2238180730101183115721141803078353404998779296875",
       "excelValue2": "294.22381807301",
       "excelBinary64": "40726394C2427D51",
       "excelDisplayed": "294,22",
@@ -3682,10 +3682,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "22446558946738387809",
-        "denominator": "12500000000000000"
+        "numerator": "1010903145082812725039",
+        "denominator": "562949953421312000"
       },
-      "engineDecimalIfTerminating": "1795.72471573907102472",
+      "engineDecimalIfTerminating": "1795.7247157390780590429102403504657559096813201904296875",
       "excelValue2": "1795.72471573908",
       "excelBinary64": "409C0EE61BE1F8F2",
       "excelDisplayed": "1 795,72",
@@ -3862,10 +3862,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "459311377245508339",
-        "denominator": "625000000000000"
+        "numerator": "10342772737049514987",
+        "denominator": "14073748835532800"
       },
-      "engineDecimalIfTerminating": "734.8982035928133424",
+      "engineDecimalIfTerminating": "734.8982035928141689140602466068230569362640380859375",
       "excelValue2": "734.898203592814",
       "excelBinary64": "4086F72F855D824B",
       "excelDisplayed": "734,90",
@@ -3898,10 +3898,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "22426377245508950639",
-        "denominator": "5000000000000000"
+        "numerator": "504997121030721970887",
+        "denominator": "112589990684262400"
       },
-      "engineDecimalIfTerminating": "4485.2754491017901278",
+      "engineDecimalIfTerminating": "4485.2754491017951722309220485840342007577419281005859375",
       "excelValue2": "4485.2754491018",
       "excelBinary64": "40B1854683D513ED",
       "excelDisplayed": "4 485,28",
@@ -4078,10 +4078,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "656440406199894579",
-        "denominator": "1562500000000000"
+        "numerator": "29563447687527747609",
+        "denominator": "70368744177664000"
       },
-      "engineDecimalIfTerminating": "420.12185996793253056",
+      "engineDecimalIfTerminating": "420.1218599679314651353934095823206007480621337890625",
       "excelValue2": "420.121859967931",
       "excelBinary64": "407A41F323700F51",
       "excelDisplayed": "420,12",
@@ -4114,10 +4114,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "32051416354890504879",
-        "denominator": "12500000000000000"
+        "numerator": "1443467467525811328909",
+        "denominator": "562949953421312000"
       },
-      "engineDecimalIfTerminating": "2564.11330839124039032",
+      "engineDecimalIfTerminating": "2564.1133083912338877556891247877501882612705230712890625",
       "excelValue2": "2564.11330839123",
       "excelBinary64": "40A4083A038EB56D",
       "excelDisplayed": "2 564,11",
@@ -4294,10 +4294,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "13884073107049591",
-        "denominator": "31250000000000"
+        "numerator": "488502394306979173",
+        "denominator": "1099511627776000"
       },
-      "engineDecimalIfTerminating": "444.290339425586912",
+      "engineDecimalIfTerminating": "444.2903394255874200098332948982715606689453125",
       "excelValue2": "444.290339425587",
       "excelBinary64": "407BC4A53AF41A32",
       "excelDisplayed": "444,29",
@@ -4330,10 +4330,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "677904960835508291",
-        "denominator": "250000000000000"
+        "numerator": "23851660382901635273",
+        "denominator": "8796093022208000"
       },
-      "engineDecimalIfTerminating": "2711.619843342033164",
+      "engineDecimalIfTerminating": "2711.6198433420362645165369031019508838653564453125",
       "excelValue2": "2711.61984334204",
       "excelBinary64": "40A52F3D5C1B4560",
       "excelDisplayed": "2 711,62",
@@ -4510,10 +4510,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "1250000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "28147497671065600"
       },
-      "engineDecimalIfTerminating": "183.7934904601572904",
+      "engineDecimalIfTerminating": "183.79349046015709017609651709790341556072235107421875",
       "excelValue2": "183.793490460157",
       "excelBinary64": "4066F964461B0201",
       "excelDisplayed": "183,79",
@@ -4546,10 +4546,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "10000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "225179981368524800"
       },
-      "engineDecimalIfTerminating": "1121.7396184062860713",
+      "engineDecimalIfTerminating": "1121.73961840628484928128472120079095475375652313232421875",
       "excelValue2": "1121.73961840628",
       "excelBinary64": "409186F55E870A0E",
       "excelDisplayed": "1 121,74",
@@ -4726,10 +4726,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "1250000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "28147497671065600"
       },
-      "engineDecimalIfTerminating": "183.7934904601572904",
+      "engineDecimalIfTerminating": "183.79349046015709017609651709790341556072235107421875",
       "excelValue2": "183.793490460157",
       "excelBinary64": "4066F964461B0201",
       "excelDisplayed": "183,79",
@@ -4762,10 +4762,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "10000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "225179981368524800"
       },
-      "engineDecimalIfTerminating": "1121.7396184062860713",
+      "engineDecimalIfTerminating": "1121.73961840628484928128472120079095475375652313232421875",
       "excelValue2": "1121.73961840628",
       "excelBinary64": "409186F55E870A0E",
       "excelDisplayed": "1 121,74",
@@ -4942,10 +4942,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "1250000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "28147497671065600"
       },
-      "engineDecimalIfTerminating": "183.7934904601572904",
+      "engineDecimalIfTerminating": "183.79349046015709017609651709790341556072235107421875",
       "excelValue2": "183.793490460157",
       "excelBinary64": "4066F964461B0201",
       "excelDisplayed": "183,79",
@@ -4978,10 +4978,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "10000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "225179981368524800"
       },
-      "engineDecimalIfTerminating": "1121.7396184062860713",
+      "engineDecimalIfTerminating": "1121.73961840628484928128472120079095475375652313232421875",
       "excelValue2": "1121.73961840628",
       "excelBinary64": "409186F55E870A0E",
       "excelDisplayed": "1 121,74",
@@ -5158,10 +5158,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "1250000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "28147497671065600"
       },
-      "engineDecimalIfTerminating": "183.7934904601572904",
+      "engineDecimalIfTerminating": "183.79349046015709017609651709790341556072235107421875",
       "excelValue2": "183.793490460157",
       "excelBinary64": "4066F964461B0201",
       "excelDisplayed": "183,79",
@@ -5194,10 +5194,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "10000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "225179981368524800"
       },
-      "engineDecimalIfTerminating": "1121.7396184062860713",
+      "engineDecimalIfTerminating": "1121.73961840628484928128472120079095475375652313232421875",
       "excelValue2": "1121.73961840628",
       "excelBinary64": "409186F55E870A0E",
       "excelDisplayed": "1 121,74",
@@ -5374,10 +5374,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "168885367142102927",
-        "denominator": "781250000000000"
+        "numerator": "15211841530590037999",
+        "denominator": "70368744177664000"
       },
-      "engineDecimalIfTerminating": "216.17326994189174656",
+      "engineDecimalIfTerminating": "216.1732699418911067681392523809336125850677490234375",
       "excelValue2": "216.173269941891",
       "excelBinary64": "406B058B6D67B9AB",
       "excelDisplayed": "216,17",
@@ -5410,10 +5410,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "8246011621764416827",
-        "denominator": "6250000000000000"
+        "numerator": "742734697341417942299",
+        "denominator": "562949953421312000"
       },
-      "engineDecimalIfTerminating": "1319.36185948230669232",
+      "engineDecimalIfTerminating": "1319.3618594823027875033716327379806898534297943115234375",
       "excelValue2": "1319.3618594823",
       "excelBinary64": "40949D728B4AC8F4",
       "excelDisplayed": "1 319,36",
@@ -5590,10 +5590,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "229741863075196613",
-        "denominator": "1250000000000000"
+        "numerator": "5173326844684289267",
+        "denominator": "28147497671065600"
       },
-      "engineDecimalIfTerminating": "183.7934904601572904",
+      "engineDecimalIfTerminating": "183.79349046015709017609651709790341556072235107421875",
       "excelValue2": "183.793490460157",
       "excelBinary64": "4066F964461B0201",
       "excelDisplayed": "183,79",
@@ -5626,10 +5626,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "11217396184062860713",
-        "denominator": "10000000000000000"
+        "numerator": "252593306373063341167",
+        "denominator": "225179981368524800"
       },
-      "engineDecimalIfTerminating": "1121.7396184062860713",
+      "engineDecimalIfTerminating": "1121.73961840628484928128472120079095475375652313232421875",
       "excelValue2": "1121.73961840628",
       "excelBinary64": "409186F55E870A0E",
       "excelDisplayed": "1 121,74",
@@ -5806,10 +5806,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "459724715739076509",
-        "denominator": "3125000000000000"
+        "numerator": "20704160584955202739",
+        "denominator": "140737488355328000"
       },
-      "engineDecimalIfTerminating": "147.11190903650448288",
+      "engineDecimalIfTerminating": "147.11190903650505915578605709015391767024993896484375",
       "excelValue2": "147.111909036505",
       "excelBinary64": "40626394C2427D51",
       "excelDisplayed": "147,11",
@@ -5842,10 +5842,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "22446558946738387809",
-        "denominator": "25000000000000000"
+        "numerator": "1010903145082812725039",
+        "denominator": "1125899906842624000"
       },
-      "engineDecimalIfTerminating": "897.86235786953551236",
+      "engineDecimalIfTerminating": "897.86235786953902952145512017523287795484066009521484375",
       "excelValue2": "897.862357869539",
       "excelBinary64": "408C0EE61BE1F8F2",
       "excelDisplayed": "897,86",
@@ -6022,10 +6022,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "459311377245508339",
-        "denominator": "1250000000000000"
+        "numerator": "10342772737049514987",
+        "denominator": "28147497671065600"
       },
-      "engineDecimalIfTerminating": "367.4491017964066712",
+      "engineDecimalIfTerminating": "367.44910179640708445703012330341152846813201904296875",
       "excelValue2": "367.449101796407",
       "excelBinary64": "4076F72F855D824B",
       "excelDisplayed": "367,45",
@@ -6058,10 +6058,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "22426377245508950639",
-        "denominator": "10000000000000000"
+        "numerator": "504997121030721970887",
+        "denominator": "225179981368524800"
       },
-      "engineDecimalIfTerminating": "2242.6377245508950639",
+      "engineDecimalIfTerminating": "2242.63772455089758611546102429201710037887096405029296875",
       "excelValue2": "2242.6377245509",
       "excelBinary64": "40A1854683D513ED",
       "excelDisplayed": "2 242,64",
@@ -6238,10 +6238,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "656440406199894579",
-        "denominator": "3125000000000000"
+        "numerator": "29563447687527747609",
+        "denominator": "140737488355328000"
       },
-      "engineDecimalIfTerminating": "210.06092998396626528",
+      "engineDecimalIfTerminating": "210.06092998396573256769670479116030037403106689453125",
       "excelValue2": "210.060929983966",
       "excelBinary64": "406A41F323700F51",
       "excelDisplayed": "210,06",
@@ -6274,10 +6274,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "32051416354890504879",
-        "denominator": "25000000000000000"
+        "numerator": "1443467467525811328909",
+        "denominator": "1125899906842624000"
       },
-      "engineDecimalIfTerminating": "1282.05665419562019516",
+      "engineDecimalIfTerminating": "1282.05665419561694387784456239387509413063526153564453125",
       "excelValue2": "1282.05665419562",
       "excelBinary64": "4094083A038EB56D",
       "excelDisplayed": "1 282,06",
@@ -6454,10 +6454,10 @@
       "cell": "Q49",
       "formula": "=$P49*$O49*'Клей+акт'!$O$5",
       "engineExactRational": {
-        "numerator": "13884073107049591",
-        "denominator": "62500000000000"
+        "numerator": "488502394306979173",
+        "denominator": "2199023255552000"
       },
-      "engineDecimalIfTerminating": "222.145169712793456",
+      "engineDecimalIfTerminating": "222.14516971279371000491664744913578033447265625",
       "excelValue2": "222.145169712794",
       "excelBinary64": "406BC4A53AF41A32",
       "excelDisplayed": "222,15",
@@ -6490,10 +6490,10 @@
       "cell": "Q50",
       "formula": "=$P50*$O50*'Клей+акт'!$O$18",
       "engineExactRational": {
-        "numerator": "677904960835508291",
-        "denominator": "500000000000000"
+        "numerator": "23851660382901635273",
+        "denominator": "17592186044416000"
       },
-      "engineDecimalIfTerminating": "1355.809921671016582",
+      "engineDecimalIfTerminating": "1355.80992167101813225826845155097544193267822265625",
       "excelValue2": "1355.80992167102",
       "excelBinary64": "40952F3D5C1B4560",
       "excelDisplayed": "1 355,81",

@@ -1,0 +1,6668 @@
+{
+  "schemaVersion": "1.0",
+  "generatedBy": "tools/jv/compare-slider-x3-pr11g.mjs",
+  "sources": [
+    "docs/jv/fixtures/slider-pr11a-selector-capture.json",
+    "docs/jv/fixtures/slider-pr11g-bom-capture.json"
+  ],
+  "classification": "EXACT compares exact rational to decimal Value2; DISPLAY_MATCH compares source NumberFormat decimal places; UNVERIFIED covers inactive rows",
+  "counts": {
+    "EXACT": 342,
+    "NUMERICALLY_EQUIVALENT": 0,
+    "DISPLAY_MATCH": 18,
+    "MISMATCH": 0,
+    "UNVERIFIED": 130
+  },
+  "scenarios": [
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "slider_default",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 3000,
+        "height": 2200,
+        "leaves": 2,
+        "opening": 1
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 3000,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3000",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 3000,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3000",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 1497,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1497",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 1496,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1496",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2100,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2100",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 1506,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1506",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.05,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "61",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.05,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "61",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.314,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2157",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 3.0940000000000003,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1547",
+            "denominator": "500"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 23.988,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "5997",
+            "denominator": "250"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 8.528,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1066",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 2.1,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "21",
+            "denominator": "10"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.167,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "167",
+            "denominator": "1000"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.167,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "167",
+            "denominator": "1000"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 3600,
+        "height": 2400,
+        "leaves": 4,
+        "opening": 3
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 3600,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3600",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 3600,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3600",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 898,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "898",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 903,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "903",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 897,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "897",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2300,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2300",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 907,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "907",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.65,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "73",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.65,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "73",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.7139999999999995,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2357",
+            "denominator": "500"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 3.702,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1851",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 28.784000000000002,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "3598",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 9.328,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1166",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.2,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "5"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.2,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "5"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 15,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "15",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 2400,
+        "height": 2100,
+        "leaves": 3,
+        "opening": 3
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 2400,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2400",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 2400,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2400",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 792,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "792",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 797,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "797",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 791,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "791",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2000,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2000",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 801,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "801",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 2.4499999999999997,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "49",
+            "denominator": "20"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 2.4499999999999997,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "49",
+            "denominator": "20"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.114,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2057",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 2.486,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1243",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 19.151999999999997,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2394",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 8.128,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1016",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 2,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.134,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "67",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.134,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "67",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 10,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "10",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "slider_no_interlock",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 3200,
+        "height": 2300,
+        "leaves": 3,
+        "opening": 1
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 3200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 3200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 1071,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1071",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 1070,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1070",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 1080,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1080",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "13",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "13",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.514,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2257",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 3.313,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "3313",
+            "denominator": "1000"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 25.626000000000005,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "12813",
+            "denominator": "500"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 8.928,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1116",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 4.4,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "22",
+            "denominator": "5"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.178,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "89",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.178,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "89",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 13,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "13",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "scenarioId": "slider_h19_2_right",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 4200,
+        "height": 2500,
+        "leaves": 4,
+        "opening": 2
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 4200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 4200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 1057,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1057",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 1056,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1056",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2400,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2400",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 1066,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1066",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "17",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "17",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.914,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2457",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 4.327999999999999,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "541",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 33.656000000000006,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "4207",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 9.728,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1216",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 3,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 1,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 1,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 17,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "17",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "slider_default",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 3000,
+        "height": 2200,
+        "leaves": 2,
+        "opening": 1
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 3000,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3000",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 3000,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3000",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 1497,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1497",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 1496,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1496",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2100,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2100",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 1506,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1506",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.05,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "61",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.05,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "61",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.314,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2157",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 3.0940000000000003,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1547",
+            "denominator": "500"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 23.988,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "5997",
+            "denominator": "250"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 8.528,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1066",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 2.1,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "21",
+            "denominator": "10"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.167,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "167",
+            "denominator": "1000"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.167,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "167",
+            "denominator": "1000"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "slider_h19_2_handle_transparent_double_lock",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 3600,
+        "height": 2400,
+        "leaves": 4,
+        "opening": 3
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 3600,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3600",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 3600,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3600",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 898,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "898",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 903,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "903",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 897,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "897",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2300,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2300",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 907,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "907",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.65,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "73",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.65,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "73",
+            "denominator": "20"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.7139999999999995,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2357",
+            "denominator": "500"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 3.702,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1851",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 28.784000000000002,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "3598",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 9.328,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1166",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.2,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "5"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.2,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "5"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 15,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "15",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "slider_h19_1_two_sides_no_magnet",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 2400,
+        "height": 2100,
+        "leaves": 3,
+        "opening": 3
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 2400,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2400",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 2400,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2400",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 792,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "792",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 797,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "797",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 791,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "791",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2000,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2000",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 801,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "801",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 2.4499999999999997,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "49",
+            "denominator": "20"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 2.4499999999999997,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "49",
+            "denominator": "20"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.114,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2057",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 2.486,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1243",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 19.151999999999997,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2394",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 8.128,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1016",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 2,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.134,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "67",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.134,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "67",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 10,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "10",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "slider_no_interlock",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 3200,
+        "height": 2300,
+        "leaves": 3,
+        "opening": 1
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 3200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 3200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 1071,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1071",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 1070,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1070",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 1080,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1080",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "13",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 3.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "13",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.514,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2257",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 3.313,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "3313",
+            "denominator": "1000"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 4,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 25.626000000000005,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "12813",
+            "denominator": "500"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 8.928,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1116",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 4.4,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "22",
+            "denominator": "5"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.178,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "89",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 0.178,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "89",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 13,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "13",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 12,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "scenarioId": "slider_h19_2_right",
+      "recalc": "CalculateFullRebuild",
+      "inputs": {
+        "width": 4200,
+        "height": 2500,
+        "leaves": 4,
+        "opening": 2
+      },
+      "selector": {
+        "F11": 5,
+        "G11": 3,
+        "C8": 20,
+        "C9": 3,
+        "C10": 23
+      },
+      "applicableRows": [
+        5,
+        9,
+        11,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ],
+      "notApplicableRows": [
+        6,
+        7,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        23,
+        29,
+        30,
+        45
+      ],
+      "comparisons": [
+        {
+          "address": "S1!D31",
+          "formula": "=ROUNDUP($D$3-IF(AND($C$8=20,$D$18=\"ДА\"),2*Настройки!$S$6,0),0)",
+          "excelValue2": 4200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D31"
+        },
+        {
+          "address": "S1!D32",
+          "formula": "=ROUNDUP($D$3-IF($D$18=\"ДА\",2*Настройки!$S$6,0),0)",
+          "excelValue2": 4200,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "4200",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D32"
+        },
+        {
+          "address": "S1!D33",
+          "formula": "=$D$43+Настройки!$S$4",
+          "excelValue2": 1057,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1057",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D33"
+        },
+        {
+          "address": "S1!D34",
+          "formula": "=IF( $D$6=2, $D$33+Настройки!$S$3, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D34"
+        },
+        {
+          "address": "S1!D43",
+          "formula": "=ROUNDUP(($D$3 + ($D$5-$D$6)*Настройки!$S$2 -  2*$C$13 - $C$14)/ $D$5, 0) + Настройки!$L$23",
+          "excelValue2": 1056,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1056",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D43"
+        },
+        {
+          "address": "S1!D44",
+          "formula": "=$D$4-IF($C$10=13,Настройки!$S$21,0)-IF($C$10=15,Настройки!$S$22,0)-IF($C$10=23,Настройки!$S$23,0)-IF($C$10=25,Настройки!$S$24,0)",
+          "excelValue2": 2400,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2400",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D44"
+        },
+        {
+          "address": "S1!D45",
+          "formula": "=$D$43+2*Настройки!$S$3",
+          "excelValue2": 1066,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1066",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.D45"
+        },
+        {
+          "address": "S1!K5",
+          "formula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "17",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K5"
+        },
+        {
+          "address": "S1!K6",
+          "formula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K6"
+        },
+        {
+          "address": "S1!K7",
+          "formula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K7"
+        },
+        {
+          "address": "S1!K8",
+          "formula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K8"
+        },
+        {
+          "address": "S1!K9",
+          "formula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.25,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "17",
+            "denominator": "4"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K9"
+        },
+        {
+          "address": "S1!K10",
+          "formula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K10"
+        },
+        {
+          "address": "S1!K11",
+          "formula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "excelValue2": 4.914,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "2457",
+            "denominator": "500"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K11"
+        },
+        {
+          "address": "S1!K12",
+          "formula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K12"
+        },
+        {
+          "address": "S1!K13",
+          "formula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "excelValue2": 4.327999999999999,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "541",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K13"
+        },
+        {
+          "address": "S1!K14",
+          "formula": "=$J$14*2*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K14"
+        },
+        {
+          "address": "S1!K15",
+          "formula": "=$J$15*(2*$D$5-$K$14)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K15"
+        },
+        {
+          "address": "S1!K16",
+          "formula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K16"
+        },
+        {
+          "address": "S1!K17",
+          "formula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K17"
+        },
+        {
+          "address": "S1!K18",
+          "formula": "=$J$18*2*$D$6",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K18"
+        },
+        {
+          "address": "S1!K19",
+          "formula": "=$J$19*(2*$D$5-$K$18)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K19"
+        },
+        {
+          "address": "S1!K20",
+          "formula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K20"
+        },
+        {
+          "address": "S1!K21",
+          "formula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K21"
+        },
+        {
+          "address": "S1!K22",
+          "formula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "excelValue2": 6,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "6",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K22"
+        },
+        {
+          "address": "S1!K23",
+          "formula": "=$J$23*2*$D$5",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K23"
+        },
+        {
+          "address": "S1!K24",
+          "formula": "=$J$24*2*$D$5",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K24"
+        },
+        {
+          "address": "S1!K25",
+          "formula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K25"
+        },
+        {
+          "address": "S1!K26",
+          "formula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K26"
+        },
+        {
+          "address": "S1!K27",
+          "formula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K27"
+        },
+        {
+          "address": "S1!K28",
+          "formula": "=IF($D$26=\"ОДИН\",1,0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K28"
+        },
+        {
+          "address": "S1!K29",
+          "formula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K29"
+        },
+        {
+          "address": "S1!K30",
+          "formula": "=$J$30*$D$6",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K30"
+        },
+        {
+          "address": "S1!K31",
+          "formula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K31"
+        },
+        {
+          "address": "S1!K32",
+          "formula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "excelValue2": 1,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K32"
+        },
+        {
+          "address": "S1!K33",
+          "formula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "excelValue2": 33.656000000000006,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "4207",
+            "denominator": "125"
+          },
+          "status": "DISPLAY_MATCH",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K33"
+        },
+        {
+          "address": "S1!K34",
+          "formula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "excelValue2": 9.728,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1216",
+            "denominator": "125"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K34"
+        },
+        {
+          "address": "S1!K35",
+          "formula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "excelValue2": 0,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K35"
+        },
+        {
+          "address": "S1!K36",
+          "formula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 3,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "3",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K36"
+        },
+        {
+          "address": "S1!K37",
+          "formula": "=2*$D$6-$K$39",
+          "excelValue2": 2,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "2",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K37"
+        },
+        {
+          "address": "S1!K38",
+          "formula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K38"
+        },
+        {
+          "address": "S1!K39",
+          "formula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K39"
+        },
+        {
+          "address": "S1!K40",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 1,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K40"
+        },
+        {
+          "address": "S1!K41",
+          "formula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "excelValue2": 1,
+          "numberFormat": "0.000",
+          "engineExact": {
+            "numerator": "1",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K41"
+        },
+        {
+          "address": "S1!K42",
+          "formula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "excelValue2": 17,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "17",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K42"
+        },
+        {
+          "address": "S1!K43",
+          "formula": "=2*SUM($K$14:$K$21)",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K43"
+        },
+        {
+          "address": "S1!K44",
+          "formula": "=2*$K$24",
+          "excelValue2": 16,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "16",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K44"
+        },
+        {
+          "address": "S1!K45",
+          "formula": "=2*$K$29",
+          "excelValue2": 0,
+          "numberFormat": "0",
+          "engineExact": null,
+          "status": "UNVERIFIED",
+          "applicable": false,
+          "traceStepId": "JV.SLIDER.X3.K45"
+        },
+        {
+          "address": "S1!K46",
+          "formula": "=4*$K$31+4*$K$32",
+          "excelValue2": 8,
+          "numberFormat": "0",
+          "engineExact": {
+            "numerator": "8",
+            "denominator": "1"
+          },
+          "status": "EXACT",
+          "applicable": true,
+          "traceStepId": "JV.SLIDER.X3.K46"
+        }
+      ]
+    }
+  ]
+}
