@@ -12,6 +12,7 @@ const nav = [
   { to: '/warehouse', label: 'Склад', icon: Package },
   { to: '/vendors', label: 'Поставщики', icon: Truck },
   { to: '/systems', label: 'Системы', icon: Layers },
+  { to: '/jv/orders/new', label: 'JV-заказы', icon: Layers },
   { to: '/jv-line-lab', label: 'JV-Line Lab', icon: FlaskConical },
   { to: '/finance', label: 'Финансы', icon: BarChart3 },
   { to: '/settings', label: 'Настройки', icon: Settings },
@@ -19,6 +20,7 @@ const nav = [
 
 export default function Layout() {
   const { user, logout } = useAuthStore()
+  const visibleNav = nav.filter(item => item.to !== '/jv/orders/new' || user?.role === 'OWNER' || user?.role === 'ADMIN')
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
@@ -41,7 +43,7 @@ export default function Layout() {
         </div>
 
         <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
-          {nav.map(({ to, label, icon: Icon }) => (
+          {visibleNav.map(({ to, label, icon: Icon }) => (
             <NavLink
               key={to}
               to={to}
@@ -78,17 +80,17 @@ export default function Layout() {
       </main>
 
       {/* Нижняя навигация — только на мобильных */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t border-border/50 flex z-50"
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t border-border/50 flex overflow-x-auto z-50"
         style={{
           background: 'linear-gradient(180deg, rgba(30,35,50,0.97) 0%, rgba(20,25,38,0.99) 100%)',
           backdropFilter: 'blur(20px)',
         }}>
-        {nav.slice(0, 5).map(({ to, label, icon: Icon }) => (
+        {visibleNav.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}
             to={to}
             className={({ isActive }) =>
-              `flex-1 flex flex-col items-center justify-center py-2 gap-0.5 text-xs transition-all ${
+              `min-w-16 flex-1 flex flex-col items-center justify-center py-2 gap-0.5 text-xs transition-all ${
                 isActive ? 'text-primary' : 'text-muted-foreground'
               }`
             }
