@@ -1,0 +1,4883 @@
+{
+  "schemaVersion": "1.0",
+  "providerId": "JV-PR13E-RETAIL-EXCEL16",
+  "profile": "RETAIL",
+  "workbook": "JV-розница 08.10.2026.xlsm",
+  "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+  "capturedWithExcel": "16.0",
+  "sourceManifest": "docs/jv/fixtures/unified-order-all-seven-inputs.json",
+  "sourceScenarioId": "pr13e-retail-base",
+  "engineRuleVersion": "JV-UNIFIED-ORDER-PR13E-1",
+  "mainDiscount": {
+    "schemaVersion": "1.0",
+    "profile": "RETAIL",
+    "workbook": "JV-розница 08.10.2026.xlsm",
+    "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+    "capturedWithExcel": "16.0",
+    "sourceCell": "Настройки!D19",
+    "sourceFormula": "0",
+    "value": "0",
+    "positionMarkups": [
+      {
+        "slot": 1,
+        "sourceCell": "Настройки!D21",
+        "sourceFormula": "0",
+        "value": "0"
+      },
+      {
+        "slot": 2,
+        "sourceCell": "Настройки!D22",
+        "sourceFormula": "0",
+        "value": "0"
+      },
+      {
+        "slot": 3,
+        "sourceCell": "Настройки!D23",
+        "sourceFormula": "0",
+        "value": "0"
+      },
+      {
+        "slot": 4,
+        "sourceCell": "Настройки!D24",
+        "sourceFormula": "0",
+        "value": "0"
+      },
+      {
+        "slot": 5,
+        "sourceCell": "Настройки!D25",
+        "sourceFormula": "0",
+        "value": "0"
+      },
+      {
+        "slot": 6,
+        "sourceCell": "Настройки!D26",
+        "sourceFormula": "0",
+        "value": "0"
+      },
+      {
+        "slot": 7,
+        "sourceCell": "Настройки!D27",
+        "sourceFormula": "0",
+        "value": "0"
+      }
+    ],
+    "positionDivisors": [
+      {
+        "family": "LINE",
+        "sourceCell": "Настройки!D11",
+        "sourceFormula": "0.3",
+        "value": "0.3"
+      },
+      {
+        "family": "ZIGZAG",
+        "sourceCell": "Настройки!D12",
+        "sourceFormula": "0.3",
+        "value": "0.3"
+      },
+      {
+        "family": "SLIDER",
+        "sourceCell": "Настройки!D13",
+        "sourceFormula": "0.3",
+        "value": "0.3"
+      },
+      {
+        "family": "FRONT",
+        "sourceCell": "Настройки!D14",
+        "sourceFormula": "0.5",
+        "value": "0.5"
+      }
+    ]
+  },
+  "families": {
+    "LINE": {
+      "requestShape": {
+        "input": {
+          "constructionId": "line-1",
+          "constructionQuantity": "1",
+          "commercialModeIndex": 1,
+          "glassSelectionIndex": 9,
+          "finishSelectionIndex": 1,
+          "profile": "RETAIL",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "widthMm": "4000",
+          "heightMm": "2500",
+          "leaves": "5",
+          "sideCount": "1",
+          "direction": "НАЛЕВО",
+          "profileCount": "0",
+          "connectorAngle": "90",
+          "frameState": "ДА",
+          "knobState": "ДА",
+          "latchState": "ДА",
+          "weatherSealState": "НЕТ",
+          "floorLockState": "НЕТ",
+          "bottomPivotState": "НЕТ",
+          "specialSashEnabled": false,
+          "specialSashWidthMm": "900",
+          "rollerAxisToEdgeMm": "50",
+          "parkedDoorSelected": true,
+          "parkedDoorPosition": "2",
+          "parkedDoorReuseOpening": false,
+          "parkedDoorWidthMm": "900",
+          "assemblyEnabled": false,
+          "millingEnabled": true,
+          "installationEnabled": false
+        },
+        "settings": {
+          "P2": "44",
+          "P3": "58",
+          "P4": "14",
+          "P5": "34",
+          "P6": "218",
+          "P7": "109",
+          "P8": "52",
+          "P9": "9",
+          "P10": "70",
+          "P12": "17",
+          "P13": "6",
+          "P14": "1",
+          "P15": "5",
+          "P16": "2",
+          "P17": "0.5",
+          "L23": "0",
+          "D6": "100",
+          "D7": "100",
+          "D8": "50",
+          "L4": "18",
+          "L5": "18",
+          "L7": "0.95",
+          "L8": "0.95",
+          "P21": "1600",
+          "P19": "148",
+          "L17": "1.05",
+          "L18": "1.21",
+          "L22": "2.5",
+          "L6": false,
+          "L21": true,
+          "D32": true
+        }
+      },
+      "sources": {
+        "priceSnapshot": {
+          "schemaVersion": "1.0",
+          "profile": "RETAIL",
+          "version": "JV-RETAIL-2026-10-08-025d7e291117",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "capturedFrom": "EXCEL_COM_VALUE2",
+          "capturedWithExcel": "16.0",
+          "currency": "RUB",
+          "priceValueColumnHeading": "CC",
+          "unitPriceHeading": "руб.",
+          "lineAmountHeading": "руб.",
+          "entries": [
+            {
+              "sku": "LN-010",
+              "unit": "п.м",
+              "value": "1146.37",
+              "sourceCell": "'Прайс-Line'!E5"
+            },
+            {
+              "sku": "LN-020",
+              "unit": "п.м",
+              "value": "641.33",
+              "sourceCell": "'Прайс-Line'!E6"
+            },
+            {
+              "sku": "LN-030",
+              "unit": "п.м",
+              "value": "736.91",
+              "sourceCell": "'Прайс-Line'!E7"
+            },
+            {
+              "sku": "LN-040",
+              "unit": "п.м",
+              "value": "276.12",
+              "sourceCell": "'Прайс-Line'!E8"
+            },
+            {
+              "sku": "LN-050-L",
+              "unit": "шт.",
+              "value": "2488",
+              "sourceCell": "'Прайс-Line'!E9"
+            },
+            {
+              "sku": "LN-050-R",
+              "unit": "шт.",
+              "value": "2488",
+              "sourceCell": "'Прайс-Line'!E10"
+            },
+            {
+              "sku": "LN-060",
+              "unit": "шт.",
+              "value": "324",
+              "sourceCell": "'Прайс-Line'!E11"
+            },
+            {
+              "sku": "LN-070-A",
+              "unit": "шт.",
+              "value": "315",
+              "sourceCell": "'Прайс-Line'!E12"
+            },
+            {
+              "sku": "LN-070-B",
+              "unit": "шт.",
+              "value": "315",
+              "sourceCell": "'Прайс-Line'!E13"
+            },
+            {
+              "sku": "LN-070-C",
+              "unit": "шт.",
+              "value": "316",
+              "sourceCell": "'Прайс-Line'!E14"
+            },
+            {
+              "sku": "LN-080",
+              "unit": "шт.",
+              "value": "667",
+              "sourceCell": "'Прайс-Line'!E15"
+            },
+            {
+              "sku": "LN-090",
+              "unit": "шт.",
+              "value": "652",
+              "sourceCell": "'Прайс-Line'!E16"
+            },
+            {
+              "sku": "LN-100",
+              "unit": "шт.",
+              "value": "250",
+              "sourceCell": "'Прайс-Line'!E17"
+            },
+            {
+              "sku": "LN-110",
+              "unit": "шт.",
+              "value": "354",
+              "sourceCell": "'Прайс-Line'!E18"
+            },
+            {
+              "sku": "LN-120",
+              "unit": "комплект",
+              "value": "736",
+              "sourceCell": "'Прайс-Line'!E19"
+            },
+            {
+              "sku": "LN-130",
+              "unit": "комплект",
+              "value": "575",
+              "sourceCell": "'Прайс-Line'!E20"
+            },
+            {
+              "sku": "LN-140-L",
+              "unit": "шт.",
+              "value": "232",
+              "sourceCell": "'Прайс-Line'!E21"
+            },
+            {
+              "sku": "LN-140-R",
+              "unit": "шт.",
+              "value": "232",
+              "sourceCell": "'Прайс-Line'!E22"
+            },
+            {
+              "sku": "LN-150",
+              "unit": "шт.",
+              "value": "53",
+              "sourceCell": "'Прайс-Line'!E23"
+            },
+            {
+              "sku": "LN-160",
+              "unit": "шт.",
+              "value": "62",
+              "sourceCell": "'Прайс-Line'!E24"
+            },
+            {
+              "sku": "LN-170",
+              "unit": "шт.",
+              "value": "76",
+              "sourceCell": "'Прайс-Line'!E25"
+            },
+            {
+              "sku": "LN-190",
+              "unit": "шт.",
+              "value": "314",
+              "sourceCell": "'Прайс-Line'!E27"
+            },
+            {
+              "sku": "LN-200",
+              "unit": "шт.",
+              "value": "1510",
+              "sourceCell": "'Прайс-Line'!E28"
+            },
+            {
+              "sku": "LN-TL",
+              "unit": "шт.",
+              "value": "200",
+              "sourceCell": "'Прайс-Line'!E29"
+            },
+            {
+              "sku": "LN-TR",
+              "unit": "шт.",
+              "value": "200",
+              "sourceCell": "'Прайс-Line'!E30"
+            },
+            {
+              "sku": "LN-TF",
+              "unit": "шт.",
+              "value": "200",
+              "sourceCell": "'Прайс-Line'!E31"
+            },
+            {
+              "sku": "LN-TSL",
+              "unit": "шт.",
+              "value": "239",
+              "sourceCell": "'Прайс-Line'!E32"
+            },
+            {
+              "sku": "LN-TSR",
+              "unit": "шт.",
+              "value": "239",
+              "sourceCell": "'Прайс-Line'!E33"
+            },
+            {
+              "sku": "LN-BL",
+              "unit": "шт.",
+              "value": "226",
+              "sourceCell": "'Прайс-Line'!E34"
+            },
+            {
+              "sku": "LN-BR",
+              "unit": "шт.",
+              "value": "226",
+              "sourceCell": "'Прайс-Line'!E35"
+            },
+            {
+              "sku": "LN-BF",
+              "unit": "шт.",
+              "value": "226",
+              "sourceCell": "'Прайс-Line'!E36"
+            },
+            {
+              "sku": "LN-BSL",
+              "unit": "шт.",
+              "value": "266",
+              "sourceCell": "'Прайс-Line'!E37"
+            },
+            {
+              "sku": "LN-BSR",
+              "unit": "шт.",
+              "value": "266",
+              "sourceCell": "'Прайс-Line'!E38"
+            },
+            {
+              "sku": "LN-T90",
+              "unit": "пара",
+              "value": "691",
+              "sourceCell": "'Прайс-Line'!E39"
+            },
+            {
+              "sku": "LN-B90",
+              "unit": "пара",
+              "value": "958",
+              "sourceCell": "'Прайс-Line'!E40"
+            },
+            {
+              "sku": "LN-210",
+              "unit": "шт.",
+              "value": "1227",
+              "sourceCell": "'Прайс-Line'!E41"
+            },
+            {
+              "sku": "LN-220",
+              "unit": "шт.",
+              "value": "1857",
+              "sourceCell": "'Прайс-Line'!E42"
+            },
+            {
+              "sku": "LN-230",
+              "unit": "шт.",
+              "value": "1246",
+              "sourceCell": "'Прайс-Line'!E43"
+            },
+            {
+              "sku": "LN-240",
+              "unit": "шт.",
+              "value": "1635",
+              "sourceCell": "'Прайс-Line'!E44"
+            },
+            {
+              "sku": "AA-010",
+              "unit": "шт.",
+              "value": "320",
+              "sourceCell": "'Прайс-Line'!E45"
+            },
+            {
+              "sku": "AA-020",
+              "unit": "м",
+              "value": "12.3",
+              "sourceCell": "'Прайс-Line'!E46"
+            },
+            {
+              "sku": "AA-050",
+              "unit": "шт.",
+              "value": "127.44",
+              "sourceCell": "'Прайс-Line'!E47"
+            },
+            {
+              "sku": "AA-070",
+              "unit": "шт.",
+              "value": "127.44",
+              "sourceCell": "'Прайс-Line'!E48"
+            },
+            {
+              "sku": "AA-090",
+              "unit": "шт.",
+              "value": "232",
+              "sourceCell": "'Прайс-Line'!E49"
+            },
+            {
+              "sku": "AA-110",
+              "unit": "шт.",
+              "value": "368",
+              "sourceCell": "'Прайс-Line'!E50"
+            },
+            {
+              "sku": "AA-120",
+              "unit": "шт.",
+              "value": "2246",
+              "sourceCell": "'Прайс-Line'!E51"
+            }
+          ],
+          "settings": {
+            "D2": "0.9",
+            "L4": "18",
+            "L5": "18",
+            "L6": "false",
+            "L7": "0.95",
+            "L8": "0.95",
+            "P21": "1600",
+            "D11": "0.3",
+            "D21": "0",
+            "D22": "0"
+          },
+          "additionalSources": {
+            "assemblyInstallPrices": {
+              "C5": "1500",
+              "C8": "4500",
+              "C9": "200",
+              "C10": "2000",
+              "C11": "500",
+              "C12": "5000",
+              "C19": "200",
+              "C25": "8000",
+              "C28": "1000",
+              "C23": "4500",
+              "C24": "4000"
+            }
+          }
+        },
+        "glassSnapshot": {
+          "profile": "RETAIL",
+          "prices": [
+            {
+              "index": 1,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 6 мм прозрачное",
+              "sourceCell": "'Прайс-Стекло'!D5",
+              "value": "2540"
+            },
+            {
+              "index": 2,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 6 мм осветлённое",
+              "sourceCell": "'Прайс-Стекло'!D6",
+              "value": "5239"
+            },
+            {
+              "index": 3,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 6 мм тонированное",
+              "sourceCell": "'Прайс-Стекло'!D7",
+              "value": "5239"
+            },
+            {
+              "index": 4,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 6 мм матированное",
+              "sourceCell": "'Прайс-Стекло'!D8",
+              "value": "3860"
+            },
+            {
+              "index": 5,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 8 мм прозрачное",
+              "sourceCell": "'Прайс-Стекло'!D9",
+              "value": "3053"
+            },
+            {
+              "index": 6,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 8 мм осветлённое",
+              "sourceCell": "'Прайс-Стекло'!D10",
+              "value": "6490"
+            },
+            {
+              "index": 7,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 8 мм тонированное",
+              "sourceCell": "'Прайс-Стекло'!D11",
+              "value": "6490"
+            },
+            {
+              "index": 8,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 8 мм матированное",
+              "sourceCell": "'Прайс-Стекло'!D12",
+              "value": "4612"
+            },
+            {
+              "index": 9,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 10 мм прозрачное",
+              "sourceCell": "'Прайс-Стекло'!D13",
+              "value": "3778"
+            },
+            {
+              "index": 10,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 10 мм осветлённое",
+              "sourceCell": "'Прайс-Стекло'!D14",
+              "value": "8006"
+            },
+            {
+              "index": 11,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 10 мм тонированное",
+              "sourceCell": "'Прайс-Стекло'!D15",
+              "value": "8006"
+            },
+            {
+              "index": 12,
+              "unit": "кв.м",
+              "name": "Стекло закалённое 10 мм матированное",
+              "sourceCell": "'Прайс-Стекло'!D16",
+              "value": "6189"
+            }
+          ],
+          "currency": "RUB",
+          "settings": {
+            "D32": "True",
+            "L17": "1.05",
+            "L22": "2.5",
+            "P19": "148",
+            "L21": "True",
+            "L18": "1.21"
+          },
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "glassChoices": [
+            {
+              "index": 1,
+              "name": "6 мм проз.",
+              "sourceCell": "'#1'!D11",
+              "thickness": "6"
+            },
+            {
+              "index": 2,
+              "name": "6 мм освет.",
+              "sourceCell": "'#1'!D12",
+              "thickness": "6"
+            },
+            {
+              "index": 3,
+              "name": "6 мм тон.",
+              "sourceCell": "'#1'!D13",
+              "thickness": "6"
+            },
+            {
+              "index": 4,
+              "name": "6 мм мат.",
+              "sourceCell": "'#1'!D14",
+              "thickness": "6"
+            },
+            {
+              "index": 5,
+              "name": "8 мм проз.",
+              "sourceCell": "'#1'!D15",
+              "thickness": "8"
+            },
+            {
+              "index": 6,
+              "name": "8 мм освет.",
+              "sourceCell": "'#1'!D16",
+              "thickness": "8"
+            },
+            {
+              "index": 7,
+              "name": "8 мм тон.",
+              "sourceCell": "'#1'!D17",
+              "thickness": "8"
+            },
+            {
+              "index": 8,
+              "name": "8 мм мат.",
+              "sourceCell": "'#1'!D18",
+              "thickness": "8"
+            },
+            {
+              "index": 9,
+              "name": "10 мм проз.",
+              "sourceCell": "'#1'!D19",
+              "thickness": "10"
+            },
+            {
+              "index": 10,
+              "name": "10 мм освет.",
+              "sourceCell": "'#1'!D20",
+              "thickness": "10"
+            },
+            {
+              "index": 11,
+              "name": "10 мм тон.",
+              "sourceCell": "'#1'!D21",
+              "thickness": "10"
+            },
+            {
+              "index": 12,
+              "name": "10 мм мат.",
+              "sourceCell": "'#1'!D22",
+              "thickness": "10"
+            }
+          ],
+          "workbook": "JV-розница 08.10.2026.xlsm"
+        },
+        "paintSnapshot": {
+          "profile": "RETAIL",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "currency": "RUB",
+          "entries": [
+            {
+              "sourceCell": "'Прайс-Line'!G5",
+              "row": 5,
+              "value": "260"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G6",
+              "row": 6,
+              "value": "180"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G7",
+              "row": 7,
+              "value": "230"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G8",
+              "row": 8,
+              "value": "85"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G9",
+              "row": 9,
+              "value": "40"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G10",
+              "row": 10,
+              "value": "40"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G11",
+              "row": 11,
+              "value": "0"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G12",
+              "row": 12,
+              "value": "0"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G39",
+              "row": 39,
+              "value": "40"
+            },
+            {
+              "sourceCell": "'Прайс-Line'!G40",
+              "row": 40,
+              "value": "40"
+            }
+          ],
+          "settings": {
+            "L9": "1",
+            "L10": "5500",
+            "L11": "1.15"
+          },
+          "transportPrice": "4000"
+        }
+      }
+    },
+    "ZIGZAG": {
+      "requestShape": {
+        "position": {
+          "geometry": {
+            "widthMm": "5000",
+            "heightMm": "2600",
+            "leafSelector": "5",
+            "openingSelector": 2,
+            "frameSettingIndex": 1,
+            "frameOverrideIndex": 1,
+            "frameChoices": [
+              "ДА",
+              "НЕТ"
+            ],
+            "settings": {
+              "P4": "14",
+              "P24": "42",
+              "P25": "51",
+              "P26": "6.5",
+              "P27": "5.7",
+              "P28": "5",
+              "P29": "2.5",
+              "L23": "0",
+              "D8": "50",
+              "P3": "58",
+              "D6": "100",
+              "L4": "18",
+              "L5": "18",
+              "L6": false,
+              "L7": "0.95",
+              "L8": "0.95",
+              "P12": "17",
+              "P13": "6",
+              "P16": "2",
+              "P17": "0.5",
+              "P21": "1600"
+            },
+            "switches": {
+              "D14": {
+                "settingIndex": 1,
+                "overrideIndex": 1,
+                "choices": [
+                  "ДА",
+                  "НЕТ"
+                ]
+              },
+              "D15": {
+                "settingIndex": 1,
+                "overrideIndex": 1,
+                "choices": [
+                  "ДА",
+                  "НЕТ"
+                ]
+              },
+              "D16": {
+                "settingIndex": 2,
+                "overrideIndex": 1,
+                "choices": [
+                  "ДА",
+                  "НЕТ"
+                ]
+              },
+              "D17": {
+                "settingIndex": 2,
+                "overrideIndex": 1,
+                "choices": [
+                  "ДА",
+                  "НЕТ"
+                ]
+              }
+            }
+          },
+          "commercial": {
+            "c8": "1",
+            "F28": 1,
+            "D32": true,
+            "D33": false,
+            "D34": false,
+            "L3": true,
+            "glassTypeSelector": 9,
+            "N40": "0",
+            "N41": "0"
+          }
+        }
+      },
+      "sources": {
+        "snapshot": {
+          "schemaVersion": "1.0",
+          "profile": "RETAIL",
+          "version": "JV-ZIGZAG-RETAIL-2026-10-08-025d7e291117",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "capturedFrom": "EXCEL_COM_VALUE2",
+          "capturedWithExcel": "16.0",
+          "currency": "RUB",
+          "settings": {
+            "D3": "0.9",
+            "D12": "0.3",
+            "L7": "0.95",
+            "L8": "0.95",
+            "L9": "1",
+            "L10": "5500",
+            "L11": "1.15",
+            "L26": "0.125",
+            "P19": "148",
+            "L17": "1.05",
+            "L21": "True"
+          },
+          "serviceRates": {
+            "C6": {
+              "value": "1500",
+              "sourceCell": "'Прайс-сб+монт'!C6",
+              "sourceLiteral": "1500"
+            },
+            "C8": {
+              "value": "4500",
+              "sourceCell": "'Прайс-сб+монт'!C8",
+              "sourceLiteral": "4500"
+            },
+            "C9": {
+              "value": "200",
+              "sourceCell": "'Прайс-сб+монт'!C9",
+              "sourceLiteral": "200"
+            },
+            "C13": {
+              "value": "500",
+              "sourceCell": "'Прайс-сб+монт'!C13",
+              "sourceLiteral": "500"
+            },
+            "C19": {
+              "value": "200",
+              "sourceCell": "'Прайс-сб+монт'!C19",
+              "sourceLiteral": "200"
+            },
+            "C23": {
+              "value": "4500",
+              "sourceCell": "'Прайс-сб+монт'!C23",
+              "sourceLiteral": "4500"
+            },
+            "C24": {
+              "value": "4000",
+              "sourceCell": "'Прайс-сб+монт'!C24",
+              "sourceLiteral": "4000"
+            },
+            "C25": {
+              "value": "8000",
+              "sourceCell": "'Прайс-сб+монт'!C25",
+              "sourceLiteral": "8000"
+            }
+          },
+          "lineCostRates": {
+            "G5": {
+              "value": "260",
+              "sourceCell": "'Прайс-Line'!G5",
+              "sourceLiteral": "260"
+            },
+            "G6": {
+              "value": "180",
+              "sourceCell": "'Прайс-Line'!G6",
+              "sourceLiteral": "180"
+            },
+            "G7": {
+              "value": "230",
+              "sourceCell": "'Прайс-Line'!G7",
+              "sourceLiteral": "230"
+            },
+            "G8": {
+              "value": "85",
+              "sourceCell": "'Прайс-Line'!G8",
+              "sourceLiteral": "85"
+            },
+            "G9": {
+              "value": "40",
+              "sourceCell": "'Прайс-Line'!G9",
+              "sourceLiteral": "40"
+            },
+            "G10": {
+              "value": "40",
+              "sourceCell": "'Прайс-Line'!G10",
+              "sourceLiteral": "40"
+            },
+            "G39": {
+              "value": "40",
+              "sourceCell": "'Прайс-Line'!G39",
+              "sourceLiteral": "40"
+            },
+            "G40": {
+              "value": "40",
+              "sourceCell": "'Прайс-Line'!G40",
+              "sourceLiteral": "40"
+            }
+          },
+          "glassRates": [
+            {
+              "selector": 1,
+              "price": "2540",
+              "sourceCell": "'Прайс-Стекло'!D5",
+              "sourceLiteral": "2540"
+            },
+            {
+              "selector": 2,
+              "price": "5239",
+              "sourceCell": "'Прайс-Стекло'!D6",
+              "sourceLiteral": "5239"
+            },
+            {
+              "selector": 3,
+              "price": "5239",
+              "sourceCell": "'Прайс-Стекло'!D7",
+              "sourceLiteral": "5239"
+            },
+            {
+              "selector": 4,
+              "price": "3860",
+              "sourceCell": "'Прайс-Стекло'!D8",
+              "sourceLiteral": "3860"
+            },
+            {
+              "selector": 5,
+              "price": "3053",
+              "sourceCell": "'Прайс-Стекло'!D9",
+              "sourceLiteral": "3053"
+            },
+            {
+              "selector": 6,
+              "price": "6490",
+              "sourceCell": "'Прайс-Стекло'!D10",
+              "sourceLiteral": "6490"
+            },
+            {
+              "selector": 7,
+              "price": "6490",
+              "sourceCell": "'Прайс-Стекло'!D11",
+              "sourceLiteral": "6490"
+            },
+            {
+              "selector": 8,
+              "price": "4612",
+              "sourceCell": "'Прайс-Стекло'!D12",
+              "sourceLiteral": "4612"
+            },
+            {
+              "selector": 9,
+              "price": "3778",
+              "sourceCell": "'Прайс-Стекло'!D13",
+              "sourceLiteral": "3778"
+            },
+            {
+              "selector": 10,
+              "price": "8006",
+              "sourceCell": "'Прайс-Стекло'!D14",
+              "sourceLiteral": "8006"
+            },
+            {
+              "selector": 11,
+              "price": "8006",
+              "sourceCell": "'Прайс-Стекло'!D15",
+              "sourceLiteral": "8006"
+            },
+            {
+              "selector": 12,
+              "price": "6189",
+              "sourceCell": "'Прайс-Стекло'!D16",
+              "sourceLiteral": "6189"
+            }
+          ],
+          "entries": [
+            {
+              "bomRow": 5,
+              "sku": "LN-010",
+              "description": "Профиль несущий",
+              "excelUnit": "п.м",
+              "price": "1146.37",
+              "sourceCell": "'Прайс-Line'!E5",
+              "sourceLiteral": "1146.37",
+              "excelPriceFormula": "='Прайс-Line'!$E5/Настройки!$D3",
+              "divisorSetting": "D3",
+              "amountFormula": "=O5*N5"
+            },
+            {
+              "bomRow": 6,
+              "sku": "LN-020",
+              "description": "Профиль створочный верхний",
+              "excelUnit": "п.м",
+              "price": "641.33",
+              "sourceCell": "'Прайс-Line'!E6",
+              "sourceLiteral": "641.33",
+              "excelPriceFormula": "='Прайс-Line'!$E6/Настройки!$D3",
+              "divisorSetting": "D3",
+              "amountFormula": "=O6*N6"
+            },
+            {
+              "bomRow": 7,
+              "sku": "LN-030",
+              "description": "Профиль створочный нижний",
+              "excelUnit": "п.м",
+              "price": "736.91",
+              "sourceCell": "'Прайс-Line'!E7",
+              "sourceLiteral": "736.91",
+              "excelPriceFormula": "='Прайс-Line'!$E7/Настройки!$D3",
+              "divisorSetting": "D3",
+              "amountFormula": "=O7*N7"
+            },
+            {
+              "bomRow": 8,
+              "sku": "LN-040",
+              "description": "Профиль боковой",
+              "excelUnit": "п.м",
+              "price": "276.12",
+              "sourceCell": "'Прайс-Line'!E8",
+              "sourceLiteral": "276.12",
+              "excelPriceFormula": "='Прайс-Line'!$E8/Настройки!$D3",
+              "divisorSetting": "D3",
+              "amountFormula": "=O8*N8"
+            },
+            {
+              "bomRow": 9,
+              "sku": "LN-060",
+              "description": "Роликовая каретка низкая",
+              "excelUnit": "шт.",
+              "price": "324",
+              "sourceCell": "'Прайс-Line'!E11",
+              "sourceLiteral": "324",
+              "excelPriceFormula": "='Прайс-Line'!$E11",
+              "amountFormula": "=O9*N9"
+            },
+            {
+              "bomRow": 10,
+              "sku": "LN-080",
+              "description": "Защёлка боковая",
+              "excelUnit": "шт.",
+              "price": "667",
+              "sourceCell": "'Прайс-Line'!E15",
+              "sourceLiteral": "667",
+              "excelPriceFormula": "='Прайс-Line'!$E15",
+              "amountFormula": "=O10*N10"
+            },
+            {
+              "bomRow": 11,
+              "sku": "LN-100",
+              "description": "Ответная втулка защёлки",
+              "excelUnit": "шт.",
+              "price": "250",
+              "sourceCell": "'Прайс-Line'!E17",
+              "sourceLiteral": "250",
+              "excelPriceFormula": "='Прайс-Line'!$E17",
+              "amountFormula": "=O11*N11"
+            },
+            {
+              "bomRow": 12,
+              "sku": "LN-110",
+              "description": "Ручка-кноб",
+              "excelUnit": "шт.",
+              "price": "354",
+              "sourceCell": "'Прайс-Line'!E18",
+              "sourceLiteral": "354",
+              "excelPriceFormula": "='Прайс-Line'!$E18",
+              "amountFormula": "=O12*N12"
+            },
+            {
+              "bomRow": 13,
+              "sku": "LN-120",
+              "description": "Поворотный узел нижний (комплект)",
+              "excelUnit": "комплект",
+              "price": "736",
+              "sourceCell": "'Прайс-Line'!E19",
+              "sourceLiteral": "736",
+              "excelPriceFormula": "='Прайс-Line'!$E19",
+              "amountFormula": "=O13*N13"
+            },
+            {
+              "bomRow": 14,
+              "sku": "LN-130",
+              "description": "Поворотный узел верхний (комплект)",
+              "excelUnit": "комплект",
+              "price": "575",
+              "sourceCell": "'Прайс-Line'!E20",
+              "sourceLiteral": "575",
+              "excelPriceFormula": "='Прайс-Line'!$E20",
+              "amountFormula": "=O14*N14"
+            },
+            {
+              "bomRow": 15,
+              "sku": "LN-150",
+              "description": "Пластина соединительная",
+              "excelUnit": "шт.",
+              "price": "53",
+              "sourceCell": "'Прайс-Line'!E23",
+              "sourceLiteral": "53",
+              "excelPriceFormula": "='Прайс-Line'!$E23",
+              "amountFormula": "=O15*N15"
+            },
+            {
+              "bomRow": 16,
+              "sku": "LN-180",
+              "description": "Спейсер",
+              "excelUnit": "шт.",
+              "price": "125",
+              "sourceCell": "'Прайс-Line'!E26",
+              "sourceLiteral": "125",
+              "excelPriceFormula": "='Прайс-Line'!$E26",
+              "amountFormula": "=O16*N16"
+            },
+            {
+              "bomRow": 17,
+              "sku": "LN-TL",
+              "description": "Заглушка верхняя рядовая левая",
+              "excelUnit": "шт.",
+              "price": "200",
+              "sourceCell": "'Прайс-Line'!E29",
+              "sourceLiteral": "200",
+              "excelPriceFormula": "='Прайс-Line'!$E29",
+              "amountFormula": "=O17*N17"
+            },
+            {
+              "bomRow": 18,
+              "sku": "LN-TR",
+              "description": "Заглушка верхняя рядовая правая",
+              "excelUnit": "шт.",
+              "price": "200",
+              "sourceCell": "'Прайс-Line'!E30",
+              "sourceLiteral": "200",
+              "excelPriceFormula": "='Прайс-Line'!$E30",
+              "amountFormula": "=O18*N18"
+            },
+            {
+              "bomRow": 19,
+              "sku": "LN-TF",
+              "description": "Заглушка верхняя боковая плоская",
+              "excelUnit": "шт.",
+              "price": "200",
+              "sourceCell": "'Прайс-Line'!E31",
+              "sourceLiteral": "200",
+              "excelPriceFormula": "='Прайс-Line'!$E31",
+              "amountFormula": "=O19*N19"
+            },
+            {
+              "bomRow": 20,
+              "sku": "LN-TSL",
+              "description": "Заглушка верхняя боковая левая",
+              "excelUnit": "шт.",
+              "price": "239",
+              "sourceCell": "'Прайс-Line'!E32",
+              "sourceLiteral": "239",
+              "excelPriceFormula": "='Прайс-Line'!$E32",
+              "amountFormula": "=O20*N20"
+            },
+            {
+              "bomRow": 21,
+              "sku": "LN-TSR",
+              "description": "Заглушка верхняя боковая правая",
+              "excelUnit": "шт.",
+              "price": "239",
+              "sourceCell": "'Прайс-Line'!E33",
+              "sourceLiteral": "239",
+              "excelPriceFormula": "='Прайс-Line'!$E33",
+              "amountFormula": "=O21*N21"
+            },
+            {
+              "bomRow": 22,
+              "sku": "LN-BL",
+              "description": "Заглушка нижняя рядовая левая",
+              "excelUnit": "шт.",
+              "price": "226",
+              "sourceCell": "'Прайс-Line'!E34",
+              "sourceLiteral": "226",
+              "excelPriceFormula": "='Прайс-Line'!$E34",
+              "amountFormula": "=O22*N22"
+            },
+            {
+              "bomRow": 23,
+              "sku": "LN-BR",
+              "description": "Заглушка нижняя рядовая правая",
+              "excelUnit": "шт.",
+              "price": "226",
+              "sourceCell": "'Прайс-Line'!E35",
+              "sourceLiteral": "226",
+              "excelPriceFormula": "='Прайс-Line'!$E35",
+              "amountFormula": "=O23*N23"
+            },
+            {
+              "bomRow": 24,
+              "sku": "LN-BF",
+              "description": "Заглушка нижняя боковая плоская",
+              "excelUnit": "шт.",
+              "price": "226",
+              "sourceCell": "'Прайс-Line'!E36",
+              "sourceLiteral": "226",
+              "excelPriceFormula": "='Прайс-Line'!$E36",
+              "amountFormula": "=O24*N24"
+            },
+            {
+              "bomRow": 25,
+              "sku": "LN-BSL",
+              "description": "Заглушка нижняя боковая левая",
+              "excelUnit": "шт.",
+              "price": "266",
+              "sourceCell": "'Прайс-Line'!E37",
+              "sourceLiteral": "266",
+              "excelPriceFormula": "='Прайс-Line'!$E37",
+              "amountFormula": "=O25*N25"
+            },
+            {
+              "bomRow": 26,
+              "sku": "LN-BSR",
+              "description": "Заглушка нижняя боковая правая",
+              "excelUnit": "шт.",
+              "price": "266",
+              "sourceCell": "'Прайс-Line'!E38",
+              "sourceLiteral": "266",
+              "excelPriceFormula": "='Прайс-Line'!$E38",
+              "amountFormula": "=O26*N26"
+            },
+            {
+              "bomRow": 27,
+              "sku": "LN-210",
+              "description": "Верхняя петля + 2 башмака + винты (комплект)",
+              "excelUnit": "шт.",
+              "price": "1227",
+              "sourceCell": "'Прайс-Line'!E41",
+              "sourceLiteral": "1227",
+              "excelPriceFormula": "='Прайс-Line'!$E41",
+              "amountFormula": "=O27*N27"
+            },
+            {
+              "bomRow": 28,
+              "sku": "LN-220",
+              "description": "Нижняя петля + 2 башмака + винты (комплект)",
+              "excelUnit": "шт.",
+              "price": "1857",
+              "sourceCell": "'Прайс-Line'!E42",
+              "sourceLiteral": "1857",
+              "excelPriceFormula": "='Прайс-Line'!$E42",
+              "amountFormula": "=O28*N28"
+            },
+            {
+              "bomRow": 29,
+              "sku": "LN-230",
+              "description": "Замок в пол (комплект)",
+              "excelUnit": "шт.",
+              "price": "1246",
+              "sourceCell": "'Прайс-Line'!E43",
+              "sourceLiteral": "1246",
+              "excelPriceFormula": "='Прайс-Line'!$E43",
+              "amountFormula": "=O29*N29"
+            },
+            {
+              "bomRow": 30,
+              "sku": "AA-010",
+              "description": "Полосовая щётка, 1,6 м",
+              "excelUnit": "шт.",
+              "price": "320",
+              "sourceCell": "'Прайс-Line'!E45",
+              "sourceLiteral": "320",
+              "excelPriceFormula": "='Прайс-Line'!$E45/Настройки!$L7",
+              "divisorSetting": "L7",
+              "amountFormula": "=O30*N30"
+            },
+            {
+              "bomRow": 31,
+              "sku": "AA-020",
+              "description": "Уплотнитель щёточный 7х12",
+              "excelUnit": "м",
+              "price": "12.3",
+              "sourceCell": "'Прайс-Line'!E46",
+              "sourceLiteral": "12.3",
+              "excelPriceFormula": "='Прайс-Line'!$E46/Настройки!$L8",
+              "divisorSetting": "L8",
+              "amountFormula": "=O31*N31"
+            },
+            {
+              "bomRow": 32,
+              "sku": "AA-050",
+              "description": "Уплотнитель светопрозр. h-типа, 3 м",
+              "excelUnit": "шт.",
+              "price": "127.44",
+              "sourceCell": "'Прайс-Line'!E47",
+              "sourceLiteral": "127.44",
+              "excelPriceFormula": "='Прайс-Line'!$E47",
+              "amountFormula": "=O32*N32"
+            },
+            {
+              "bomRow": 33,
+              "sku": "AA-070",
+              "description": "Уплотнитель светопрозр. D-типа, 3 м",
+              "excelUnit": "шт.",
+              "price": "127.44",
+              "sourceCell": "'Прайс-Line'!E48",
+              "sourceLiteral": "127.44",
+              "excelPriceFormula": "='Прайс-Line'!$E48",
+              "amountFormula": "=O33*N33"
+            },
+            {
+              "bomRow": 34,
+              "sku": "AA-110",
+              "description": "Активатор (50 мл)",
+              "excelUnit": "шт.",
+              "price": "368",
+              "sourceCell": "'Прайс-Line'!E50",
+              "sourceLiteral": "368",
+              "excelPriceFormula": "='Прайс-Line'!$E50",
+              "amountFormula": "=O34*N34*'Клей+акт'!$O$5"
+            },
+            {
+              "bomRow": 35,
+              "sku": "AA-120",
+              "description": "Клей (уп.\"колбаса\")",
+              "excelUnit": "шт.",
+              "price": "2246",
+              "sourceCell": "'Прайс-Line'!E51",
+              "sourceLiteral": "2246",
+              "excelPriceFormula": "='Прайс-Line'!$E51",
+              "amountFormula": "=O35*N35*'Клей+акт'!$O$18"
+            }
+          ]
+        }
+      }
+    },
+    "SLIDER_L3": {
+      "requestShape": {
+        "geometry": {
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "widthMm": "3000",
+          "heightMm": "2200",
+          "leafCount": "2",
+          "openingSelector": 1,
+          "interlockState": "ДА",
+          "meetingSealState": "НЕТ",
+          "systemSelector": 3,
+          "settings": {
+            "D8": "50",
+            "S2": "16",
+            "S3": "5",
+            "S4": "1",
+            "S6": "7.4",
+            "S9": "9.5",
+            "S10": "12",
+            "S11": "12",
+            "S12": "20",
+            "S13": "19",
+            "S14": "23",
+            "L23": "0",
+            "H25": true,
+            "S21": "105"
+          }
+        },
+        "bomOptions": {
+          "interlockEnabled": true,
+          "fittingUpgradeEnabled": true,
+          "selectorControls": {
+            "I25": 2,
+            "C20": 2,
+            "I29": 3,
+            "C24": 3,
+            "I31": 2,
+            "C26": 2
+          },
+          "jointPairSelection": "2 / 4"
+        },
+        "bomSettings": {
+          "D6": "100",
+          "D8": "50",
+          "S7": "4",
+          "L4": "18",
+          "L5": "18",
+          "L6": false,
+          "H19": 1,
+          "H25": true,
+          "H27": false,
+          "S16": "55.4"
+        },
+        "controls": {
+          "priceMode": 2,
+          "mainSurchargeSelector": 1,
+          "glassSelector": 9,
+          "additionalWorkEnabled": true,
+          "widthServiceEnabled": false,
+          "l3SpecificLatchChargeEnabled": true,
+          "installationEnabled": false
+        }
+      },
+      "sources": {
+        "snapshot": {
+          "schemaVersion": "1.0",
+          "profile": "RETAIL",
+          "version": "JV-SLIDER-L3-PRICE-RETAIL-2026-10-08-025d7e291117",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "capturedFrom": "EXCEL_COM_LITERAL_FORMULAS",
+          "capturedWithExcel": "16.0",
+          "currency": "RUB",
+          "settings": {
+            "D4": {
+              "value": "0.8",
+              "sourceFormula": "0.8",
+              "sourceValue2": 0.8,
+              "numberFormat": "0,00",
+              "sourceCell": "Настройки!D4"
+            },
+            "L8": {
+              "value": "0.95",
+              "sourceFormula": "0.95",
+              "sourceValue2": 0.95,
+              "numberFormat": "Основной",
+              "sourceCell": "Настройки!L8"
+            },
+            "L9": {
+              "value": "1",
+              "sourceFormula": "1",
+              "sourceValue2": 1,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L9"
+            },
+            "L10": {
+              "value": "5500",
+              "sourceFormula": "5500",
+              "sourceValue2": 5500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L10"
+            },
+            "L11": {
+              "value": "1.15",
+              "sourceFormula": "1.15",
+              "sourceValue2": 1.15,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Настройки!L11"
+            },
+            "L17": {
+              "value": "1.05",
+              "sourceFormula": "1.05",
+              "sourceValue2": 1.05,
+              "numberFormat": "0,00",
+              "sourceCell": "Настройки!L17"
+            },
+            "L18": {
+              "value": "1.21",
+              "sourceFormula": "1.21",
+              "sourceValue2": 1.21,
+              "numberFormat": "0,00",
+              "sourceCell": "Настройки!L18"
+            },
+            "S26": {
+              "value": "2",
+              "sourceFormula": "2",
+              "sourceValue2": 2,
+              "numberFormat": "0,0",
+              "sourceCell": "Настройки!S26"
+            }
+          },
+          "materialPrices": {
+            "5": {
+              "value": "877.33",
+              "sourceFormula": "877.33",
+              "sourceValue2": 877.33,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E5"
+            },
+            "6": {
+              "value": "1551.7",
+              "sourceFormula": "1551.7",
+              "sourceValue2": 1551.7,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E6"
+            },
+            "7": {
+              "value": "402.38",
+              "sourceFormula": "402.38",
+              "sourceValue2": 402.38000000000005,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E7"
+            },
+            "8": {
+              "value": "615.96",
+              "sourceFormula": "615.96",
+              "sourceValue2": 615.96,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E8"
+            },
+            "9": {
+              "value": "643.69",
+              "sourceFormula": "643.69",
+              "sourceValue2": 643.6899999999999,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E9"
+            },
+            "10": {
+              "value": "994.15",
+              "sourceFormula": "994.15",
+              "sourceValue2": 994.15,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E10"
+            },
+            "11": {
+              "value": "188.8",
+              "sourceFormula": "188.8",
+              "sourceValue2": 188.8,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E11"
+            },
+            "12": {
+              "value": "635.562",
+              "sourceFormula": "635.562",
+              "sourceValue2": 635.562,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E12"
+            },
+            "13": {
+              "value": "604.872",
+              "sourceFormula": "604.872",
+              "sourceValue2": 604.8720000000001,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E13"
+            },
+            "14": {
+              "value": "83.7",
+              "sourceFormula": "83.7",
+              "sourceValue2": 83.7,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E14"
+            },
+            "15": {
+              "value": "87.74",
+              "sourceFormula": "87.74",
+              "sourceValue2": 87.74,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E15"
+            },
+            "16": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E16"
+            },
+            "17": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E17"
+            },
+            "18": {
+              "value": "77.14",
+              "sourceFormula": "77.14",
+              "sourceValue2": 77.14,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E18"
+            },
+            "19": {
+              "value": "83.19",
+              "sourceFormula": "83.19",
+              "sourceValue2": 83.19,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E19"
+            },
+            "20": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E20"
+            },
+            "21": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E21"
+            },
+            "22": {
+              "value": "13.76",
+              "sourceFormula": "13.76",
+              "sourceValue2": 13.76,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E22"
+            },
+            "23": {
+              "value": "76.02",
+              "sourceFormula": "76.02",
+              "sourceValue2": 76.02,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E23"
+            },
+            "24": {
+              "value": "206.68",
+              "sourceFormula": "206.68",
+              "sourceValue2": 206.68,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E24"
+            },
+            "25": {
+              "value": "380",
+              "sourceFormula": "380",
+              "sourceValue2": 380,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E25"
+            },
+            "26": {
+              "value": "439",
+              "sourceFormula": "439",
+              "sourceValue2": 439,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E26"
+            },
+            "27": {
+              "value": "845",
+              "sourceFormula": "845",
+              "sourceValue2": 845,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E27"
+            },
+            "28": {
+              "value": "1060",
+              "sourceFormula": "1060",
+              "sourceValue2": 1060,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E28"
+            },
+            "29": {
+              "value": "705",
+              "sourceFormula": "705",
+              "sourceValue2": 705,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E29"
+            },
+            "30": {
+              "value": "821",
+              "sourceFormula": "821",
+              "sourceValue2": 821,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E30"
+            },
+            "31": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E31"
+            },
+            "32": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E32"
+            },
+            "33": {
+              "value": "7.8",
+              "sourceFormula": "7.8",
+              "sourceValue2": 7.8,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E33"
+            },
+            "34": {
+              "value": "10.65",
+              "sourceFormula": "10.65",
+              "sourceValue2": 10.65,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E34"
+            },
+            "35": {
+              "value": "21.3",
+              "sourceFormula": "21.3",
+              "sourceValue2": 21.3,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E35"
+            },
+            "36": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E36"
+            },
+            "37": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E37"
+            },
+            "38": {
+              "value": "134",
+              "sourceFormula": "134",
+              "sourceValue2": 134,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E38"
+            },
+            "39": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E39"
+            },
+            "40": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E40"
+            },
+            "41": {
+              "value": "368",
+              "sourceFormula": "368",
+              "sourceValue2": 368,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E41"
+            },
+            "42": {
+              "value": "2246",
+              "sourceFormula": "2246",
+              "sourceValue2": 2246,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E42"
+            },
+            "43": {
+              "value": "9.96",
+              "sourceFormula": "9.96",
+              "sourceValue2": 9.96,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E43"
+            }
+          },
+          "paintRates": {
+            "5": {
+              "value": "350",
+              "sourceFormula": "350",
+              "sourceValue2": 350,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G5"
+            },
+            "6": {
+              "value": "520",
+              "sourceFormula": "520",
+              "sourceValue2": 520,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G6"
+            },
+            "7": {
+              "value": "120",
+              "sourceFormula": "120",
+              "sourceValue2": 120,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G7"
+            },
+            "8": {
+              "value": "180",
+              "sourceFormula": "180",
+              "sourceValue2": 180,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G8"
+            },
+            "9": {
+              "value": "170",
+              "sourceFormula": "170",
+              "sourceValue2": 170,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G9"
+            },
+            "10": {
+              "value": "250",
+              "sourceFormula": "250",
+              "sourceValue2": 250,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G10"
+            },
+            "11": {
+              "value": "100",
+              "sourceFormula": "100",
+              "sourceValue2": 100,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G11"
+            },
+            "12": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G12"
+            },
+            "13": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G13"
+            },
+            "14": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G14"
+            },
+            "15": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G15"
+            },
+            "16": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G16"
+            },
+            "17": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G17"
+            },
+            "18": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G18"
+            },
+            "19": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G19"
+            },
+            "20": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G20"
+            },
+            "21": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G21"
+            }
+          },
+          "glassRates": {
+            "1": {
+              "value": "2540",
+              "sourceFormula": "2540",
+              "sourceValue2": 2540,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D5"
+            },
+            "2": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D6"
+            },
+            "3": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D7"
+            },
+            "4": {
+              "value": "3860",
+              "sourceFormula": "3860",
+              "sourceValue2": 3860,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D8"
+            },
+            "5": {
+              "value": "3053",
+              "sourceFormula": "3053",
+              "sourceValue2": 3053,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D9"
+            },
+            "6": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D10"
+            },
+            "7": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D11"
+            },
+            "8": {
+              "value": "4612",
+              "sourceFormula": "4612",
+              "sourceValue2": 4612,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D12"
+            },
+            "9": {
+              "value": "3778",
+              "sourceFormula": "3778",
+              "sourceValue2": 3778,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D13"
+            },
+            "10": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D14"
+            },
+            "11": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D15"
+            },
+            "12": {
+              "value": "6189",
+              "sourceFormula": "6189",
+              "sourceValue2": 6189,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D16"
+            }
+          },
+          "serviceRates": {
+            "C7": {
+              "value": "1000",
+              "sourceFormula": "1000",
+              "sourceValue2": 1000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C7"
+            },
+            "C14": {
+              "value": "3000",
+              "sourceFormula": "3000",
+              "sourceValue2": 3000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C14"
+            },
+            "C15": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C15"
+            },
+            "C19": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C19"
+            },
+            "C23": {
+              "value": "4500",
+              "sourceFormula": "4500",
+              "sourceValue2": 4500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C23"
+            },
+            "C24": {
+              "value": "4000",
+              "sourceFormula": "4000",
+              "sourceValue2": 4000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C24"
+            },
+            "C25": {
+              "value": "8000",
+              "sourceFormula": "8000",
+              "sourceValue2": 8000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C25"
+            }
+          },
+          "provenance": {
+            "captureFixture": "docs/jv/fixtures/slider-pr11d-commercial-capture.json",
+            "scenarioId": "two_leaf_glass",
+            "priceCellsAreSourceLiterals": true
+          }
+        }
+      }
+    },
+    "SLIDER_L5": {
+      "requestShape": {
+        "geometry": {
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "widthMm": "3000",
+          "heightMm": "2200",
+          "leafCount": "2",
+          "openingSelector": 1,
+          "interlockState": "ДА",
+          "meetingSealState": "НЕТ",
+          "systemSelector": 4,
+          "settings": {
+            "D8": "50",
+            "S2": "16",
+            "S3": "5",
+            "S4": "1",
+            "S6": "7.4",
+            "S9": "9.5",
+            "S10": "12",
+            "S11": "12",
+            "S12": "20",
+            "S13": "19",
+            "S14": "23",
+            "L23": "0",
+            "H25": true,
+            "S21": "105",
+            "S22": "110"
+          }
+        },
+        "bomOptions": {
+          "interlockEnabled": true,
+          "fittingUpgradeEnabled": true,
+          "selectorControls": {
+            "I25": 2,
+            "C20": 2,
+            "I29": 3,
+            "C24": 3,
+            "I31": 2,
+            "C26": 2
+          },
+          "jointPairSelection": "2 / 4"
+        },
+        "bomSettings": {
+          "D6": "100",
+          "D8": "50",
+          "S7": "4",
+          "L4": "18",
+          "L5": "18",
+          "L6": false,
+          "H19": 1,
+          "H25": true,
+          "H27": false,
+          "S17": "59.4"
+        },
+        "controls": {
+          "priceMode": 2,
+          "mainSurchargeSelector": 1,
+          "glassSelector": 9,
+          "additionalWorkEnabled": true,
+          "widthServiceEnabled": false,
+          "l3SpecificLatchChargeEnabled": true,
+          "installationEnabled": false
+        }
+      },
+      "sources": {
+        "snapshot": {
+          "schemaVersion": "1.0",
+          "profile": "RETAIL",
+          "version": "JV-SLIDER-L5-PRICE-RETAIL-2026-10-08-025d7e291117",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "capturedFrom": "EXCEL_COM_LITERAL_FORMULAS",
+          "capturedWithExcel": "16.0",
+          "currency": "RUB",
+          "settings": {
+            "D4": {
+              "value": "0.8",
+              "sourceFormula": "0.8",
+              "sourceValue2": 0.8,
+              "numberFormat": "0,00",
+              "sourceCell": "Настройки!D4"
+            },
+            "L8": {
+              "value": "0.95",
+              "sourceFormula": "0.95",
+              "sourceValue2": 0.95,
+              "numberFormat": "Основной",
+              "sourceCell": "Настройки!L8"
+            },
+            "L9": {
+              "value": "1",
+              "sourceFormula": "1",
+              "sourceValue2": 1,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L9"
+            },
+            "L10": {
+              "value": "5500",
+              "sourceFormula": "5500",
+              "sourceValue2": 5500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L10"
+            },
+            "L11": {
+              "value": "1.15",
+              "sourceFormula": "1.15",
+              "sourceValue2": 1.15,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Настройки!L11"
+            },
+            "L17": {
+              "value": "1.05",
+              "sourceFormula": "1.05",
+              "sourceValue2": 1.05,
+              "numberFormat": "0,00",
+              "sourceCell": "Настройки!L17"
+            },
+            "L18": {
+              "value": "1.21",
+              "sourceFormula": "1.21",
+              "sourceValue2": 1.21,
+              "numberFormat": "0,00",
+              "sourceCell": "Настройки!L18"
+            },
+            "S26": {
+              "value": "2",
+              "sourceFormula": "2",
+              "sourceValue2": 2,
+              "numberFormat": "0,0",
+              "sourceCell": "Настройки!S26"
+            }
+          },
+          "materialPrices": {
+            "5": {
+              "value": "877.33",
+              "sourceFormula": "877.33",
+              "sourceValue2": 877.33,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E5"
+            },
+            "6": {
+              "value": "1551.7",
+              "sourceFormula": "1551.7",
+              "sourceValue2": 1551.7,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E6"
+            },
+            "7": {
+              "value": "402.38",
+              "sourceFormula": "402.38",
+              "sourceValue2": 402.38000000000005,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E7"
+            },
+            "8": {
+              "value": "615.96",
+              "sourceFormula": "615.96",
+              "sourceValue2": 615.96,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E8"
+            },
+            "9": {
+              "value": "643.69",
+              "sourceFormula": "643.69",
+              "sourceValue2": 643.6899999999999,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E9"
+            },
+            "10": {
+              "value": "994.15",
+              "sourceFormula": "994.15",
+              "sourceValue2": 994.15,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E10"
+            },
+            "11": {
+              "value": "188.8",
+              "sourceFormula": "188.8",
+              "sourceValue2": 188.8,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E11"
+            },
+            "12": {
+              "value": "635.562",
+              "sourceFormula": "635.562",
+              "sourceValue2": 635.562,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E12"
+            },
+            "13": {
+              "value": "604.872",
+              "sourceFormula": "604.872",
+              "sourceValue2": 604.8720000000001,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E13"
+            },
+            "14": {
+              "value": "83.7",
+              "sourceFormula": "83.7",
+              "sourceValue2": 83.7,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E14"
+            },
+            "15": {
+              "value": "87.74",
+              "sourceFormula": "87.74",
+              "sourceValue2": 87.74,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E15"
+            },
+            "16": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E16"
+            },
+            "17": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E17"
+            },
+            "18": {
+              "value": "77.14",
+              "sourceFormula": "77.14",
+              "sourceValue2": 77.14,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E18"
+            },
+            "19": {
+              "value": "83.19",
+              "sourceFormula": "83.19",
+              "sourceValue2": 83.19,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E19"
+            },
+            "20": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E20"
+            },
+            "21": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E21"
+            },
+            "22": {
+              "value": "13.76",
+              "sourceFormula": "13.76",
+              "sourceValue2": 13.76,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E22"
+            },
+            "23": {
+              "value": "76.02",
+              "sourceFormula": "76.02",
+              "sourceValue2": 76.02,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E23"
+            },
+            "24": {
+              "value": "206.68",
+              "sourceFormula": "206.68",
+              "sourceValue2": 206.68,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E24"
+            },
+            "25": {
+              "value": "380",
+              "sourceFormula": "380",
+              "sourceValue2": 380,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E25"
+            },
+            "26": {
+              "value": "439",
+              "sourceFormula": "439",
+              "sourceValue2": 439,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E26"
+            },
+            "27": {
+              "value": "845",
+              "sourceFormula": "845",
+              "sourceValue2": 845,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E27"
+            },
+            "28": {
+              "value": "1060",
+              "sourceFormula": "1060",
+              "sourceValue2": 1060,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E28"
+            },
+            "29": {
+              "value": "705",
+              "sourceFormula": "705",
+              "sourceValue2": 705,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E29"
+            },
+            "30": {
+              "value": "821",
+              "sourceFormula": "821",
+              "sourceValue2": 821,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E30"
+            },
+            "31": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E31"
+            },
+            "32": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E32"
+            },
+            "33": {
+              "value": "7.8",
+              "sourceFormula": "7.8",
+              "sourceValue2": 7.8,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E33"
+            },
+            "34": {
+              "value": "10.65",
+              "sourceFormula": "10.65",
+              "sourceValue2": 10.65,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E34"
+            },
+            "35": {
+              "value": "21.3",
+              "sourceFormula": "21.3",
+              "sourceValue2": 21.3,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E35"
+            },
+            "36": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E36"
+            },
+            "37": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E37"
+            },
+            "38": {
+              "value": "134",
+              "sourceFormula": "134",
+              "sourceValue2": 134,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E38"
+            },
+            "39": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E39"
+            },
+            "40": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E40"
+            },
+            "41": {
+              "value": "368",
+              "sourceFormula": "368",
+              "sourceValue2": 368,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E41"
+            },
+            "42": {
+              "value": "2246",
+              "sourceFormula": "2246",
+              "sourceValue2": 2246,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E42"
+            },
+            "43": {
+              "value": "9.96",
+              "sourceFormula": "9.96",
+              "sourceValue2": 9.96,
+              "numberFormat": "# ##0,00",
+              "sourceCell": "Прайс-Slider!E43"
+            }
+          },
+          "paintRates": {
+            "5": {
+              "value": "350",
+              "sourceFormula": "350",
+              "sourceValue2": 350,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G5"
+            },
+            "6": {
+              "value": "520",
+              "sourceFormula": "520",
+              "sourceValue2": 520,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G6"
+            },
+            "7": {
+              "value": "120",
+              "sourceFormula": "120",
+              "sourceValue2": 120,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G7"
+            },
+            "8": {
+              "value": "180",
+              "sourceFormula": "180",
+              "sourceValue2": 180,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G8"
+            },
+            "9": {
+              "value": "170",
+              "sourceFormula": "170",
+              "sourceValue2": 170,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G9"
+            },
+            "10": {
+              "value": "250",
+              "sourceFormula": "250",
+              "sourceValue2": 250,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G10"
+            },
+            "11": {
+              "value": "100",
+              "sourceFormula": "100",
+              "sourceValue2": 100,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G11"
+            },
+            "12": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G12"
+            },
+            "13": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G13"
+            },
+            "14": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G14"
+            },
+            "15": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G15"
+            },
+            "16": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G16"
+            },
+            "17": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G17"
+            },
+            "18": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G18"
+            },
+            "19": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G19"
+            },
+            "20": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G20"
+            },
+            "21": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G21"
+            }
+          },
+          "glassRates": {
+            "1": {
+              "value": "2540",
+              "sourceFormula": "2540",
+              "sourceValue2": 2540,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D5"
+            },
+            "2": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D6"
+            },
+            "3": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D7"
+            },
+            "4": {
+              "value": "3860",
+              "sourceFormula": "3860",
+              "sourceValue2": 3860,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D8"
+            },
+            "5": {
+              "value": "3053",
+              "sourceFormula": "3053",
+              "sourceValue2": 3053,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D9"
+            },
+            "6": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D10"
+            },
+            "7": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D11"
+            },
+            "8": {
+              "value": "4612",
+              "sourceFormula": "4612",
+              "sourceValue2": 4612,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D12"
+            },
+            "9": {
+              "value": "3778",
+              "sourceFormula": "3778",
+              "sourceValue2": 3778,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D13"
+            },
+            "10": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D14"
+            },
+            "11": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D15"
+            },
+            "12": {
+              "value": "6189",
+              "sourceFormula": "6189",
+              "sourceValue2": 6189,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D16"
+            }
+          },
+          "serviceRates": {
+            "C7": {
+              "value": "1000",
+              "sourceFormula": "1000",
+              "sourceValue2": 1000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C7"
+            },
+            "C14": {
+              "value": "3000",
+              "sourceFormula": "3000",
+              "sourceValue2": 3000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C14"
+            },
+            "C15": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C15"
+            },
+            "C19": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C19"
+            },
+            "C23": {
+              "value": "4500",
+              "sourceFormula": "4500",
+              "sourceValue2": 4500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C23"
+            },
+            "C24": {
+              "value": "4000",
+              "sourceFormula": "4000",
+              "sourceValue2": 4000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C24"
+            },
+            "C25": {
+              "value": "8000",
+              "sourceFormula": "8000",
+              "sourceValue2": 8000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C25"
+            }
+          },
+          "provenance": {
+            "captureFixture": "docs/jv/fixtures/slider-pr11f-commercial-capture.json",
+            "scenarioId": "two_leaf_glass",
+            "priceCellsAreSourceLiterals": true
+          }
+        }
+      }
+    },
+    "SLIDER_X3": {
+      "requestShape": {
+        "geometry": {
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "widthMm": "3000",
+          "heightMm": "2200",
+          "leafCount": "2",
+          "openingSelector": 1,
+          "interlockState": "ДА",
+          "meetingSealState": "НЕТ",
+          "systemSelector": 5,
+          "settings": {
+            "D8": "50",
+            "S2": "16",
+            "S3": "5",
+            "S4": "1",
+            "S6": "7.4",
+            "S9": "9.5",
+            "S10": "12",
+            "S11": "12",
+            "S12": "20",
+            "S13": "19",
+            "S14": "23",
+            "L23": "0",
+            "H25": true,
+            "S21": "105",
+            "S23": "100"
+          }
+        },
+        "bomOptions": {
+          "interlockEnabled": true,
+          "fittingUpgradeEnabled": true,
+          "selectorControls": {
+            "I25": 2,
+            "C20": 2,
+            "I29": 3,
+            "C24": 3,
+            "I31": 2,
+            "C26": 2
+          },
+          "jointPairSelection": "2 / 4"
+        },
+        "bomSettings": {
+          "D6": "100",
+          "D8": "50",
+          "S7": "4",
+          "L4": "18",
+          "L5": "18",
+          "L6": false,
+          "H19": 1,
+          "H25": true,
+          "H27": false,
+          "S18": "68.7"
+        },
+        "controls": {
+          "priceMode": 2,
+          "mainSurchargeSelector": 1,
+          "glassSelector": 9,
+          "additionalWorkEnabled": true,
+          "widthServiceEnabled": false,
+          "l3SpecificLatchChargeEnabled": true,
+          "installationEnabled": false
+        }
+      },
+      "sources": {
+        "snapshot": {
+          "schemaVersion": "1.0",
+          "profile": "RETAIL",
+          "version": "JV-SLIDER-X3-PRICE-RETAIL-2026-10-08-025d7e291117",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "capturedFrom": "EXCEL_COM_LITERAL_FORMULAS",
+          "capturedWithExcel": "16.0",
+          "currency": "RUB",
+          "settings": {
+            "D4": {
+              "value": "0.8",
+              "sourceFormula": "0.8",
+              "sourceValue2": 0.8,
+              "numberFormat": "0.00",
+              "sourceCell": "Настройки!D4"
+            },
+            "D13": {
+              "value": "0.3",
+              "sourceFormula": "0.3",
+              "sourceValue2": 0.3,
+              "numberFormat": "0.000",
+              "sourceCell": "Настройки!D13"
+            },
+            "D21": {
+              "value": "0",
+              "sourceFormula": "0",
+              "sourceValue2": 0,
+              "numberFormat": "Основной",
+              "sourceCell": "Настройки!D21"
+            },
+            "L8": {
+              "value": "0.95",
+              "sourceFormula": "0.95",
+              "sourceValue2": 0.95,
+              "numberFormat": "Основной",
+              "sourceCell": "Настройки!L8"
+            },
+            "L9": {
+              "value": "1",
+              "sourceFormula": "1",
+              "sourceValue2": 1,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L9"
+            },
+            "L10": {
+              "value": "5500",
+              "sourceFormula": "5500",
+              "sourceValue2": 5500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L10"
+            },
+            "L11": {
+              "value": "1.15",
+              "sourceFormula": "1.15",
+              "sourceValue2": 1.15,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Настройки!L11"
+            },
+            "L17": {
+              "value": "1.05",
+              "sourceFormula": "1.05",
+              "sourceValue2": 1.05,
+              "numberFormat": "0.00",
+              "sourceCell": "Настройки!L17"
+            },
+            "L18": {
+              "value": "1.21",
+              "sourceFormula": "1.21",
+              "sourceValue2": 1.21,
+              "numberFormat": "0.00",
+              "sourceCell": "Настройки!L18"
+            },
+            "S26": {
+              "value": "2",
+              "sourceFormula": "2",
+              "sourceValue2": 2,
+              "numberFormat": "0.0",
+              "sourceCell": "Настройки!S26"
+            }
+          },
+          "materialPrices": {
+            "5": {
+              "value": "877.33",
+              "sourceFormula": "877.33",
+              "sourceValue2": 877.33,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E5"
+            },
+            "6": {
+              "value": "1551.7",
+              "sourceFormula": "1551.7",
+              "sourceValue2": 1551.7,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E6"
+            },
+            "7": {
+              "value": "402.38",
+              "sourceFormula": "402.38",
+              "sourceValue2": 402.38000000000005,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E7"
+            },
+            "8": {
+              "value": "615.96",
+              "sourceFormula": "615.96",
+              "sourceValue2": 615.96,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E8"
+            },
+            "9": {
+              "value": "643.69",
+              "sourceFormula": "643.69",
+              "sourceValue2": 643.6899999999999,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E9"
+            },
+            "10": {
+              "value": "994.15",
+              "sourceFormula": "994.15",
+              "sourceValue2": 994.15,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E10"
+            },
+            "11": {
+              "value": "188.8",
+              "sourceFormula": "188.8",
+              "sourceValue2": 188.8,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E11"
+            },
+            "12": {
+              "value": "635.562",
+              "sourceFormula": "635.562",
+              "sourceValue2": 635.562,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E12"
+            },
+            "13": {
+              "value": "604.872",
+              "sourceFormula": "604.872",
+              "sourceValue2": 604.8720000000001,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E13"
+            },
+            "14": {
+              "value": "83.7",
+              "sourceFormula": "83.7",
+              "sourceValue2": 83.7,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E14"
+            },
+            "15": {
+              "value": "87.74",
+              "sourceFormula": "87.74",
+              "sourceValue2": 87.74,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E15"
+            },
+            "16": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E16"
+            },
+            "17": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E17"
+            },
+            "18": {
+              "value": "77.14",
+              "sourceFormula": "77.14",
+              "sourceValue2": 77.14,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E18"
+            },
+            "19": {
+              "value": "83.19",
+              "sourceFormula": "83.19",
+              "sourceValue2": 83.19,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E19"
+            },
+            "20": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E20"
+            },
+            "21": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E21"
+            },
+            "22": {
+              "value": "13.76",
+              "sourceFormula": "13.76",
+              "sourceValue2": 13.76,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E22"
+            },
+            "23": {
+              "value": "76.02",
+              "sourceFormula": "76.02",
+              "sourceValue2": 76.02,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E23"
+            },
+            "24": {
+              "value": "206.68",
+              "sourceFormula": "206.68",
+              "sourceValue2": 206.68,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E24"
+            },
+            "25": {
+              "value": "380",
+              "sourceFormula": "380",
+              "sourceValue2": 380,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E25"
+            },
+            "26": {
+              "value": "439",
+              "sourceFormula": "439",
+              "sourceValue2": 439,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E26"
+            },
+            "27": {
+              "value": "845",
+              "sourceFormula": "845",
+              "sourceValue2": 845,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E27"
+            },
+            "28": {
+              "value": "1060",
+              "sourceFormula": "1060",
+              "sourceValue2": 1060,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E28"
+            },
+            "29": {
+              "value": "705",
+              "sourceFormula": "705",
+              "sourceValue2": 705,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E29"
+            },
+            "30": {
+              "value": "821",
+              "sourceFormula": "821",
+              "sourceValue2": 821,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E30"
+            },
+            "31": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E31"
+            },
+            "32": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E32"
+            },
+            "33": {
+              "value": "7.8",
+              "sourceFormula": "7.8",
+              "sourceValue2": 7.8,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E33"
+            },
+            "34": {
+              "value": "10.65",
+              "sourceFormula": "10.65",
+              "sourceValue2": 10.65,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E34"
+            },
+            "35": {
+              "value": "21.3",
+              "sourceFormula": "21.3",
+              "sourceValue2": 21.3,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E35"
+            },
+            "36": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E36"
+            },
+            "37": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E37"
+            },
+            "38": {
+              "value": "134",
+              "sourceFormula": "134",
+              "sourceValue2": 134,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E38"
+            },
+            "39": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E39"
+            },
+            "40": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E40"
+            },
+            "41": {
+              "value": "368",
+              "sourceFormula": "368",
+              "sourceValue2": 368,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E41"
+            },
+            "42": {
+              "value": "2246",
+              "sourceFormula": "2246",
+              "sourceValue2": 2246,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E42"
+            },
+            "43": {
+              "value": "9.96",
+              "sourceFormula": "9.96",
+              "sourceValue2": 9.96,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E43"
+            }
+          },
+          "paintRates": {
+            "5": {
+              "value": "350",
+              "sourceFormula": "350",
+              "sourceValue2": 350,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G5"
+            },
+            "6": {
+              "value": "520",
+              "sourceFormula": "520",
+              "sourceValue2": 520,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G6"
+            },
+            "7": {
+              "value": "120",
+              "sourceFormula": "120",
+              "sourceValue2": 120,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G7"
+            },
+            "8": {
+              "value": "180",
+              "sourceFormula": "180",
+              "sourceValue2": 180,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G8"
+            },
+            "9": {
+              "value": "170",
+              "sourceFormula": "170",
+              "sourceValue2": 170,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G9"
+            },
+            "10": {
+              "value": "250",
+              "sourceFormula": "250",
+              "sourceValue2": 250,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G10"
+            },
+            "11": {
+              "value": "100",
+              "sourceFormula": "100",
+              "sourceValue2": 100,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G11"
+            },
+            "12": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G12"
+            },
+            "13": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G13"
+            },
+            "14": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G14"
+            },
+            "15": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G15"
+            },
+            "16": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G16"
+            },
+            "17": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G17"
+            },
+            "18": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G18"
+            },
+            "19": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G19"
+            },
+            "20": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G20"
+            },
+            "21": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G21"
+            }
+          },
+          "glassRates": {
+            "1": {
+              "value": "2540",
+              "sourceFormula": "2540",
+              "sourceValue2": 2540,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D5"
+            },
+            "2": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D6"
+            },
+            "3": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D7"
+            },
+            "4": {
+              "value": "3860",
+              "sourceFormula": "3860",
+              "sourceValue2": 3860,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D8"
+            },
+            "5": {
+              "value": "3053",
+              "sourceFormula": "3053",
+              "sourceValue2": 3053,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D9"
+            },
+            "6": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D10"
+            },
+            "7": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D11"
+            },
+            "8": {
+              "value": "4612",
+              "sourceFormula": "4612",
+              "sourceValue2": 4612,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D12"
+            },
+            "9": {
+              "value": "3778",
+              "sourceFormula": "3778",
+              "sourceValue2": 3778,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D13"
+            },
+            "10": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D14"
+            },
+            "11": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D15"
+            },
+            "12": {
+              "value": "6189",
+              "sourceFormula": "6189",
+              "sourceValue2": 6189,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D16"
+            }
+          },
+          "serviceRates": {
+            "C7": {
+              "value": "1000",
+              "sourceFormula": "1000",
+              "sourceValue2": 1000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C7"
+            },
+            "C14": {
+              "value": "3000",
+              "sourceFormula": "3000",
+              "sourceValue2": 3000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C14"
+            },
+            "C15": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C15"
+            },
+            "C19": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C19"
+            },
+            "C23": {
+              "value": "4500",
+              "sourceFormula": "4500",
+              "sourceValue2": 4500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C23"
+            },
+            "C24": {
+              "value": "4000",
+              "sourceFormula": "4000",
+              "sourceValue2": 4000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C24"
+            },
+            "C25": {
+              "value": "8000",
+              "sourceFormula": "8000",
+              "sourceValue2": 8000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C25"
+            }
+          },
+          "provenance": {
+            "captureFixture": "docs/jv/fixtures/slider-pr11h-commercial-capture.json",
+            "scenarioId": "two_leaf_glass",
+            "priceCellsAreSourceLiterals": true
+          }
+        }
+      }
+    },
+    "SLIDER_X5": {
+      "requestShape": {
+        "geometry": {
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "widthMm": "3000",
+          "heightMm": "2200",
+          "leafCount": "2",
+          "openingSelector": 1,
+          "interlockState": "ДА",
+          "meetingSealState": "НЕТ",
+          "systemSelector": 6,
+          "selectorControls": {
+            "I15": 1,
+            "C17": 1,
+            "I17": 2,
+            "C18": 2
+          },
+          "settings": {
+            "D8": "50",
+            "S2": "16",
+            "S3": "5",
+            "S4": "1",
+            "S6": "7.4",
+            "S9": "9.5",
+            "S10": "12",
+            "S11": "12",
+            "S12": "20",
+            "S13": "19",
+            "S14": "23",
+            "L23": "0",
+            "H25": true,
+            "S24": "105"
+          }
+        },
+        "bomOptions": {
+          "interlockEnabled": true,
+          "fittingUpgradeEnabled": true,
+          "selectorControls": {
+            "I25": 2,
+            "C20": 2,
+            "I27": 2,
+            "C22": 3,
+            "I29": 3,
+            "C24": 3,
+            "I31": 2,
+            "C26": 2
+          }
+        },
+        "bomSettings": {
+          "D6": "100",
+          "D8": "50",
+          "S7": "4",
+          "L4": "18",
+          "L5": "18",
+          "L6": false,
+          "H19": 1,
+          "H25": true,
+          "H27": false,
+          "S19": "72.7"
+        },
+        "controls": {
+          "priceMode": 2,
+          "mainSurchargeSelector": 1,
+          "glassSelector": 9,
+          "additionalWorkEnabled": true,
+          "widthServiceEnabled": false,
+          "l3SpecificLatchChargeEnabled": true,
+          "installationEnabled": false
+        }
+      },
+      "sources": {
+        "snapshot": {
+          "schemaVersion": "1.0",
+          "profile": "RETAIL",
+          "version": "JV-SLIDER-X5-PRICE-RETAIL-2026-10-08-025d7e291117",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "capturedFrom": "EXCEL_COM_LITERAL_FORMULAS",
+          "capturedWithExcel": "16.0",
+          "currency": "RUB",
+          "settings": {
+            "D4": {
+              "value": "0.8",
+              "sourceFormula": "0.8",
+              "sourceValue2": 0.8,
+              "numberFormat": "0.00",
+              "sourceCell": "Настройки!D4"
+            },
+            "D13": {
+              "value": "0.3",
+              "sourceFormula": "0.3",
+              "sourceValue2": 0.3,
+              "numberFormat": "0.000",
+              "sourceCell": "Настройки!D13"
+            },
+            "D21": {
+              "value": "0",
+              "sourceFormula": "0",
+              "sourceValue2": 0,
+              "numberFormat": "Основной",
+              "sourceCell": "Настройки!D21"
+            },
+            "L8": {
+              "value": "0.95",
+              "sourceFormula": "0.95",
+              "sourceValue2": 0.95,
+              "numberFormat": "Основной",
+              "sourceCell": "Настройки!L8"
+            },
+            "L9": {
+              "value": "1",
+              "sourceFormula": "1",
+              "sourceValue2": 1,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L9"
+            },
+            "L10": {
+              "value": "5500",
+              "sourceFormula": "5500",
+              "sourceValue2": 5500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Настройки!L10"
+            },
+            "L11": {
+              "value": "1.15",
+              "sourceFormula": "1.15",
+              "sourceValue2": 1.15,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Настройки!L11"
+            },
+            "L17": {
+              "value": "1.05",
+              "sourceFormula": "1.05",
+              "sourceValue2": 1.05,
+              "numberFormat": "0.00",
+              "sourceCell": "Настройки!L17"
+            },
+            "L18": {
+              "value": "1.21",
+              "sourceFormula": "1.21",
+              "sourceValue2": 1.21,
+              "numberFormat": "0.00",
+              "sourceCell": "Настройки!L18"
+            },
+            "S26": {
+              "value": "2",
+              "sourceFormula": "2",
+              "sourceValue2": 2,
+              "numberFormat": "0.0",
+              "sourceCell": "Настройки!S26"
+            }
+          },
+          "materialPrices": {
+            "5": {
+              "value": "877.33",
+              "sourceFormula": "877.33",
+              "sourceValue2": 877.33,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E5"
+            },
+            "6": {
+              "value": "1551.7",
+              "sourceFormula": "1551.7",
+              "sourceValue2": 1551.7,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E6"
+            },
+            "7": {
+              "value": "402.38",
+              "sourceFormula": "402.38",
+              "sourceValue2": 402.38000000000005,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E7"
+            },
+            "8": {
+              "value": "615.96",
+              "sourceFormula": "615.96",
+              "sourceValue2": 615.96,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E8"
+            },
+            "9": {
+              "value": "643.69",
+              "sourceFormula": "643.69",
+              "sourceValue2": 643.6899999999999,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E9"
+            },
+            "10": {
+              "value": "994.15",
+              "sourceFormula": "994.15",
+              "sourceValue2": 994.15,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E10"
+            },
+            "11": {
+              "value": "188.8",
+              "sourceFormula": "188.8",
+              "sourceValue2": 188.8,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E11"
+            },
+            "12": {
+              "value": "635.562",
+              "sourceFormula": "635.562",
+              "sourceValue2": 635.562,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E12"
+            },
+            "13": {
+              "value": "604.872",
+              "sourceFormula": "604.872",
+              "sourceValue2": 604.8720000000001,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E13"
+            },
+            "14": {
+              "value": "83.7",
+              "sourceFormula": "83.7",
+              "sourceValue2": 83.7,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E14"
+            },
+            "15": {
+              "value": "87.74",
+              "sourceFormula": "87.74",
+              "sourceValue2": 87.74,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E15"
+            },
+            "16": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E16"
+            },
+            "17": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E17"
+            },
+            "18": {
+              "value": "77.14",
+              "sourceFormula": "77.14",
+              "sourceValue2": 77.14,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E18"
+            },
+            "19": {
+              "value": "83.19",
+              "sourceFormula": "83.19",
+              "sourceValue2": 83.19,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E19"
+            },
+            "20": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E20"
+            },
+            "21": {
+              "value": "173",
+              "sourceFormula": "173",
+              "sourceValue2": 173,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E21"
+            },
+            "22": {
+              "value": "13.76",
+              "sourceFormula": "13.76",
+              "sourceValue2": 13.76,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E22"
+            },
+            "23": {
+              "value": "76.02",
+              "sourceFormula": "76.02",
+              "sourceValue2": 76.02,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E23"
+            },
+            "24": {
+              "value": "206.68",
+              "sourceFormula": "206.68",
+              "sourceValue2": 206.68,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E24"
+            },
+            "25": {
+              "value": "380",
+              "sourceFormula": "380",
+              "sourceValue2": 380,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E25"
+            },
+            "26": {
+              "value": "439",
+              "sourceFormula": "439",
+              "sourceValue2": 439,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E26"
+            },
+            "27": {
+              "value": "845",
+              "sourceFormula": "845",
+              "sourceValue2": 845,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E27"
+            },
+            "28": {
+              "value": "1060",
+              "sourceFormula": "1060",
+              "sourceValue2": 1060,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E28"
+            },
+            "29": {
+              "value": "705",
+              "sourceFormula": "705",
+              "sourceValue2": 705,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E29"
+            },
+            "30": {
+              "value": "821",
+              "sourceFormula": "821",
+              "sourceValue2": 821,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E30"
+            },
+            "31": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E31"
+            },
+            "32": {
+              "value": "575",
+              "sourceFormula": "575",
+              "sourceValue2": 575,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E32"
+            },
+            "33": {
+              "value": "7.8",
+              "sourceFormula": "7.8",
+              "sourceValue2": 7.8,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E33"
+            },
+            "34": {
+              "value": "10.65",
+              "sourceFormula": "10.65",
+              "sourceValue2": 10.65,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E34"
+            },
+            "35": {
+              "value": "21.3",
+              "sourceFormula": "21.3",
+              "sourceValue2": 21.3,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E35"
+            },
+            "36": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E36"
+            },
+            "37": {
+              "value": "127.44",
+              "sourceFormula": "127.44",
+              "sourceValue2": 127.44,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E37"
+            },
+            "38": {
+              "value": "134",
+              "sourceFormula": "134",
+              "sourceValue2": 134,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E38"
+            },
+            "39": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E39"
+            },
+            "40": {
+              "value": "232",
+              "sourceFormula": "232",
+              "sourceValue2": 232,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E40"
+            },
+            "41": {
+              "value": "368",
+              "sourceFormula": "368",
+              "sourceValue2": 368,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E41"
+            },
+            "42": {
+              "value": "2246",
+              "sourceFormula": "2246",
+              "sourceValue2": 2246,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E42"
+            },
+            "43": {
+              "value": "9.96",
+              "sourceFormula": "9.96",
+              "sourceValue2": 9.96,
+              "numberFormat": "# ##0.00",
+              "sourceCell": "Прайс-Slider!E43"
+            }
+          },
+          "paintRates": {
+            "5": {
+              "value": "350",
+              "sourceFormula": "350",
+              "sourceValue2": 350,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G5"
+            },
+            "6": {
+              "value": "520",
+              "sourceFormula": "520",
+              "sourceValue2": 520,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G6"
+            },
+            "7": {
+              "value": "120",
+              "sourceFormula": "120",
+              "sourceValue2": 120,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G7"
+            },
+            "8": {
+              "value": "180",
+              "sourceFormula": "180",
+              "sourceValue2": 180,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G8"
+            },
+            "9": {
+              "value": "170",
+              "sourceFormula": "170",
+              "sourceValue2": 170,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G9"
+            },
+            "10": {
+              "value": "250",
+              "sourceFormula": "250",
+              "sourceValue2": 250,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G10"
+            },
+            "11": {
+              "value": "100",
+              "sourceFormula": "100",
+              "sourceValue2": 100,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G11"
+            },
+            "12": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G12"
+            },
+            "13": {
+              "value": "190",
+              "sourceFormula": "190",
+              "sourceValue2": 190,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G13"
+            },
+            "14": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G14"
+            },
+            "15": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G15"
+            },
+            "16": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G16"
+            },
+            "17": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G17"
+            },
+            "18": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G18"
+            },
+            "19": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G19"
+            },
+            "20": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G20"
+            },
+            "21": {
+              "value": "20",
+              "sourceFormula": "20",
+              "sourceValue2": 20,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Slider!G21"
+            }
+          },
+          "glassRates": {
+            "1": {
+              "value": "2540",
+              "sourceFormula": "2540",
+              "sourceValue2": 2540,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D5"
+            },
+            "2": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D6"
+            },
+            "3": {
+              "value": "5239",
+              "sourceFormula": "5239",
+              "sourceValue2": 5239,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D7"
+            },
+            "4": {
+              "value": "3860",
+              "sourceFormula": "3860",
+              "sourceValue2": 3860,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D8"
+            },
+            "5": {
+              "value": "3053",
+              "sourceFormula": "3053",
+              "sourceValue2": 3053,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D9"
+            },
+            "6": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D10"
+            },
+            "7": {
+              "value": "6490",
+              "sourceFormula": "6490",
+              "sourceValue2": 6490,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D11"
+            },
+            "8": {
+              "value": "4612",
+              "sourceFormula": "4612",
+              "sourceValue2": 4612,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D12"
+            },
+            "9": {
+              "value": "3778",
+              "sourceFormula": "3778",
+              "sourceValue2": 3778,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D13"
+            },
+            "10": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D14"
+            },
+            "11": {
+              "value": "8006",
+              "sourceFormula": "8006",
+              "sourceValue2": 8006,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D15"
+            },
+            "12": {
+              "value": "6189",
+              "sourceFormula": "6189",
+              "sourceValue2": 6189,
+              "numberFormat": "0",
+              "sourceCell": "Прайс-Стекло!D16"
+            }
+          },
+          "serviceRates": {
+            "C7": {
+              "value": "1000",
+              "sourceFormula": "1000",
+              "sourceValue2": 1000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C7"
+            },
+            "C14": {
+              "value": "3000",
+              "sourceFormula": "3000",
+              "sourceValue2": 3000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C14"
+            },
+            "C15": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C15"
+            },
+            "C19": {
+              "value": "200",
+              "sourceFormula": "200",
+              "sourceValue2": 200,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C19"
+            },
+            "C23": {
+              "value": "4500",
+              "sourceFormula": "4500",
+              "sourceValue2": 4500,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C23"
+            },
+            "C24": {
+              "value": "4000",
+              "sourceFormula": "4000",
+              "sourceValue2": 4000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C24"
+            },
+            "C25": {
+              "value": "8000",
+              "sourceFormula": "8000",
+              "sourceValue2": 8000,
+              "numberFormat": "# ##0",
+              "sourceCell": "Прайс-сб+монт!C25"
+            }
+          },
+          "provenance": {
+            "captureFixture": "docs/jv/fixtures/slider-pr11j-commercial-capture.json",
+            "scenarioId": "two_leaf_glass",
+            "priceCellsAreSourceLiterals": true
+          }
+        }
+      }
+    },
+    "FRONT": {
+      "requestShape": {
+        "construction": {
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "sourceSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "systemSelector": 7,
+          "widthMm": "3000",
+          "heightMm": "2200",
+          "sectionDemand": "3",
+          "finishSelector": 2,
+          "glassSelector": 9,
+          "openingSelector": 4,
+          "controls": {
+            "C11": 1,
+            "C12": 1,
+            "C13": 1,
+            "C14": 1,
+            "C15": 1,
+            "C18": 1,
+            "C19": 1,
+            "C20": 1,
+            "C21": 1,
+            "C22": 8,
+            "C23": 10,
+            "C24": 1,
+            "D18": "1000",
+            "D19": "2150"
+          },
+          "settings": {
+            "D8": "50",
+            "S29": "42",
+            "S30": "30",
+            "S31": "12",
+            "S32": "4",
+            "S33": "300",
+            "S34": "500",
+            "L22": "2.5",
+            "L23": "0",
+            "H38": 1,
+            "H40": 1,
+            "H42": 1,
+            "H44": 2,
+            "I42": 1,
+            "I44": 1
+          }
+        },
+        "commercial": {
+          "order": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sourceSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+            "positions": [
+              {
+                "mainRow": 11,
+                "widthMm": "3000",
+                "heightMm": "2200",
+                "quantity": "1"
+              },
+              {
+                "mainRow": 12,
+                "widthMm": "0",
+                "heightMm": "0",
+                "quantity": "0"
+              },
+              {
+                "mainRow": 13,
+                "widthMm": "0",
+                "heightMm": "0",
+                "quantity": "0"
+              },
+              {
+                "mainRow": 14,
+                "widthMm": "0",
+                "heightMm": "0",
+                "quantity": "0"
+              },
+              {
+                "mainRow": 15,
+                "widthMm": "0",
+                "heightMm": "0",
+                "quantity": "0"
+              },
+              {
+                "mainRow": 16,
+                "widthMm": "0",
+                "heightMm": "0",
+                "quantity": "0"
+              },
+              {
+                "mainRow": 17,
+                "widthMm": "0",
+                "heightMm": "0",
+                "quantity": "0"
+              }
+            ]
+          },
+          "glassEnabled": true,
+          "finishingEnabled": true,
+          "glassServiceEnabled": true,
+          "installationEnabled": false,
+          "mainSurchargeSelector": 1,
+          "mainQuantity": "1",
+          "markupPercent": "0",
+          "discountPercent": "0",
+          "retailDivisor": "0.8"
+        }
+      },
+      "sources": {
+        "snapshot": {
+          "schemaVersion": "1.0",
+          "profile": "RETAIL",
+          "version": "FRONT-COMPONENT-RETAIL-025d7e291117",
+          "workbook": "JV-розница 08.10.2026.xlsm",
+          "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+          "capturedWithExcel": "16.0",
+          "currency": "RUB",
+          "prices": {
+            "Прайс-Front!E5": {
+              "value": "1227.48",
+              "sourceCell": "Прайс-Front!E5",
+              "sourceFormula": "1227.48"
+            },
+            "Прайс-Front!E6": {
+              "value": "308.68",
+              "sourceCell": "Прайс-Front!E6",
+              "sourceFormula": "308.68"
+            },
+            "Прайс-Front!E7": {
+              "value": "130.04",
+              "sourceCell": "Прайс-Front!E7",
+              "sourceFormula": "130.04"
+            },
+            "Прайс-Front!E8": {
+              "value": "107.71",
+              "sourceCell": "Прайс-Front!E8",
+              "sourceFormula": "107.71"
+            },
+            "Прайс-Front!E9": {
+              "value": "13.35",
+              "sourceCell": "Прайс-Front!E9",
+              "sourceFormula": "13.35"
+            },
+            "Прайс-Front!E10": {
+              "value": "37",
+              "sourceCell": "Прайс-Front!E10",
+              "sourceFormula": "37"
+            },
+            "Прайс-Front!E11": {
+              "value": "19",
+              "sourceCell": "Прайс-Front!E11",
+              "sourceFormula": "19"
+            },
+            "Прайс-Front!E12": {
+              "value": "271.05",
+              "sourceCell": "Прайс-Front!E12",
+              "sourceFormula": "271.05"
+            },
+            "Прайс-Front!E13": {
+              "value": "445.9",
+              "sourceCell": "Прайс-Front!E13",
+              "sourceFormula": "445.9"
+            },
+            "Прайс-Front!E14": {
+              "value": "158",
+              "sourceCell": "Прайс-Front!E14",
+              "sourceFormula": "158"
+            },
+            "Прайс-Front!E15": {
+              "value": "21.45",
+              "sourceCell": "Прайс-Front!E15",
+              "sourceFormula": "21.45"
+            },
+            "Прайс-Front!E16": {
+              "value": "20.8",
+              "sourceCell": "Прайс-Front!E16",
+              "sourceFormula": "20.8"
+            },
+            "Прайс-Front!E17": {
+              "value": "32.5",
+              "sourceCell": "Прайс-Front!E17",
+              "sourceFormula": "32.5"
+            },
+            "Прайс-Front!E18": {
+              "value": "39",
+              "sourceCell": "Прайс-Front!E18",
+              "sourceFormula": "39"
+            },
+            "Прайс-Front!E19": {
+              "value": "127.44",
+              "sourceCell": "Прайс-Front!E19",
+              "sourceFormula": "127.44"
+            },
+            "Прайс-Front!E20": {
+              "value": "127.44",
+              "sourceCell": "Прайс-Front!E20",
+              "sourceFormula": "127.44"
+            },
+            "Прайс-Аксессуары!D12": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!D12",
+              "sourceFormula": ""
+            },
+            "Прайс-Аксессуары!D13": {
+              "value": "354",
+              "sourceCell": "Прайс-Аксессуары!D13",
+              "sourceFormula": "354"
+            },
+            "Прайс-Аксессуары!D14": {
+              "value": "520",
+              "sourceCell": "Прайс-Аксессуары!D14",
+              "sourceFormula": "520"
+            },
+            "Прайс-Аксессуары!D15": {
+              "value": "359.45",
+              "sourceCell": "Прайс-Аксессуары!D15",
+              "sourceFormula": "359.45"
+            },
+            "Прайс-Аксессуары!D16": {
+              "value": "599.95",
+              "sourceCell": "Прайс-Аксессуары!D16",
+              "sourceFormula": "599.95"
+            },
+            "Прайс-Аксессуары!D17": {
+              "value": "588.25",
+              "sourceCell": "Прайс-Аксессуары!D17",
+              "sourceFormula": "588.25"
+            },
+            "Прайс-Аксессуары!D18": {
+              "value": "3435.25",
+              "sourceCell": "Прайс-Аксессуары!D18",
+              "sourceFormula": "3435.25"
+            },
+            "Прайс-Аксессуары!D19": {
+              "value": "1152",
+              "sourceCell": "Прайс-Аксессуары!D19",
+              "sourceFormula": "1152"
+            },
+            "Прайс-Аксессуары!D20": {
+              "value": "1560",
+              "sourceCell": "Прайс-Аксессуары!D20",
+              "sourceFormula": "1560"
+            },
+            "Прайс-Аксессуары!D21": {
+              "value": "1750",
+              "sourceCell": "Прайс-Аксессуары!D21",
+              "sourceFormula": "1750"
+            },
+            "Прайс-Аксессуары!D22": {
+              "value": "1750",
+              "sourceCell": "Прайс-Аксессуары!D22",
+              "sourceFormula": "1750"
+            },
+            "Прайс-Аксессуары!D23": {
+              "value": "1690",
+              "sourceCell": "Прайс-Аксессуары!D23",
+              "sourceFormula": "1690"
+            },
+            "Прайс-Аксессуары!D24": {
+              "value": "974.35",
+              "sourceCell": "Прайс-Аксессуары!D24",
+              "sourceFormula": "974.35"
+            },
+            "Прайс-Аксессуары!D25": {
+              "value": "2302.3",
+              "sourceCell": "Прайс-Аксессуары!D25",
+              "sourceFormula": "2302.3"
+            },
+            "Прайс-Аксессуары!D26": {
+              "value": "3315",
+              "sourceCell": "Прайс-Аксессуары!D26",
+              "sourceFormula": "3315"
+            },
+            "Прайс-Аксессуары!D27": {
+              "value": "2990",
+              "sourceCell": "Прайс-Аксессуары!D27",
+              "sourceFormula": "2990"
+            },
+            "Прайс-Аксессуары!D28": {
+              "value": "4845",
+              "sourceCell": "Прайс-Аксессуары!D28",
+              "sourceFormula": "4845"
+            },
+            "Прайс-Аксессуары!D29": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!D29",
+              "sourceFormula": ""
+            },
+            "Прайс-Аксессуары!D30": {
+              "value": "7442.5",
+              "sourceCell": "Прайс-Аксессуары!D30",
+              "sourceFormula": "7442.5"
+            },
+            "Прайс-Аксессуары!D31": {
+              "value": "7552.35",
+              "sourceCell": "Прайс-Аксессуары!D31",
+              "sourceFormula": "7552.35"
+            },
+            "Прайс-Аксессуары!D32": {
+              "value": "8932.95",
+              "sourceCell": "Прайс-Аксессуары!D32",
+              "sourceFormula": "8932.95"
+            },
+            "Прайс-Аксессуары!D33": {
+              "value": "6370",
+              "sourceCell": "Прайс-Аксессуары!D33",
+              "sourceFormula": "6370"
+            },
+            "Прайс-Аксессуары!D34": {
+              "value": "4898.4",
+              "sourceCell": "Прайс-Аксессуары!D34",
+              "sourceFormula": "4898.4"
+            },
+            "Прайс-Аксессуары!D35": {
+              "value": "1267.5",
+              "sourceCell": "Прайс-Аксессуары!D35",
+              "sourceFormula": "1267.5"
+            },
+            "Прайс-Аксессуары!D36": {
+              "value": "2080",
+              "sourceCell": "Прайс-Аксессуары!D36",
+              "sourceFormula": "2080"
+            },
+            "Прайс-Аксессуары!D37": {
+              "value": "0",
+              "sourceCell": "Прайс-Аксессуары!D37",
+              "sourceFormula": "0"
+            },
+            "Прайс-Аксессуары!D38": {
+              "value": "3308.5",
+              "sourceCell": "Прайс-Аксессуары!D38",
+              "sourceFormula": "3308.5"
+            },
+            "Прайс-Аксессуары!D39": {
+              "value": "0",
+              "sourceCell": "Прайс-Аксессуары!D39",
+              "sourceFormula": "0"
+            },
+            "Прайс-Аксессуары!D40": {
+              "value": "2140.45",
+              "sourceCell": "Прайс-Аксессуары!D40",
+              "sourceFormula": "2140.45"
+            },
+            "Прайс-Аксессуары!D41": {
+              "value": "1254.5",
+              "sourceCell": "Прайс-Аксессуары!D41",
+              "sourceFormula": "1254.5"
+            },
+            "Прайс-Аксессуары!D42": {
+              "value": "1426",
+              "sourceCell": "Прайс-Аксессуары!D42",
+              "sourceFormula": "1426"
+            },
+            "Прайс-Аксессуары!D43": {
+              "value": "1252",
+              "sourceCell": "Прайс-Аксессуары!D43",
+              "sourceFormula": "1252"
+            },
+            "Прайс-Аксессуары!D44": {
+              "value": "520",
+              "sourceCell": "Прайс-Аксессуары!D44",
+              "sourceFormula": "520"
+            },
+            "Прайс-Аксессуары!D45": {
+              "value": "3094",
+              "sourceCell": "Прайс-Аксессуары!D45",
+              "sourceFormula": "3094"
+            },
+            "Прайс-Аксессуары!D46": {
+              "value": "8316",
+              "sourceCell": "Прайс-Аксессуары!D46",
+              "sourceFormula": "8316"
+            },
+            "Прайс-Аксессуары!D47": {
+              "value": "5093",
+              "sourceCell": "Прайс-Аксессуары!D47",
+              "sourceFormula": "5093"
+            },
+            "Прайс-Аксессуары!D48": {
+              "value": "0",
+              "sourceCell": "Прайс-Аксессуары!D48",
+              "sourceFormula": "0"
+            },
+            "Прайс-Аксессуары!D49": {
+              "value": "516.1",
+              "sourceCell": "Прайс-Аксессуары!D49",
+              "sourceFormula": "516.1"
+            },
+            "Прайс-Аксессуары!D50": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!D50",
+              "sourceFormula": ""
+            },
+            "Прайс-Аксессуары!D51": {
+              "value": "516.1",
+              "sourceCell": "Прайс-Аксессуары!D51",
+              "sourceFormula": "516.1"
+            },
+            "Прайс-Аксессуары!D52": {
+              "value": "547.3",
+              "sourceCell": "Прайс-Аксессуары!D52",
+              "sourceFormula": "547.3"
+            },
+            "Прайс-Аксессуары!D53": {
+              "value": "780",
+              "sourceCell": "Прайс-Аксессуары!D53",
+              "sourceFormula": "780"
+            },
+            "Прайс-Аксессуары!D54": {
+              "value": "845",
+              "sourceCell": "Прайс-Аксессуары!D54",
+              "sourceFormula": "845"
+            },
+            "Прайс-Аксессуары!D55": {
+              "value": "1820",
+              "sourceCell": "Прайс-Аксессуары!D55",
+              "sourceFormula": "1820"
+            },
+            "Прайс-Аксессуары!D56": {
+              "value": "650",
+              "sourceCell": "Прайс-Аксессуары!D56",
+              "sourceFormula": "650"
+            },
+            "Прайс-Аксессуары!D57": {
+              "value": "785.2",
+              "sourceCell": "Прайс-Аксессуары!D57",
+              "sourceFormula": "785.2"
+            },
+            "Прайс-Аксессуары!D58": {
+              "value": "214.5",
+              "sourceCell": "Прайс-Аксессуары!D58",
+              "sourceFormula": "214.5"
+            },
+            "Прайс-Аксессуары!D59": {
+              "value": "4615",
+              "sourceCell": "Прайс-Аксессуары!D59",
+              "sourceFormula": "4615"
+            },
+            "Прайс-Аксессуары!D60": {
+              "value": "10414",
+              "sourceCell": "Прайс-Аксессуары!D60",
+              "sourceFormula": "10414"
+            },
+            "Прайс-Аксессуары!D61": {
+              "value": "13928",
+              "sourceCell": "Прайс-Аксессуары!D61",
+              "sourceFormula": "13928"
+            },
+            "Прайс-Аксессуары!E51": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E51",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F51": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F51",
+              "sourceFormula": "=D51/E51"
+            },
+            "Прайс-Аксессуары!E52": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E52",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F52": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F52",
+              "sourceFormula": "=D52/E52"
+            },
+            "Прайс-Аксессуары!E53": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E53",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F53": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F53",
+              "sourceFormula": "=D53/E53"
+            },
+            "Прайс-Аксессуары!E54": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E54",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F54": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F54",
+              "sourceFormula": "=D54/E54"
+            },
+            "Прайс-Аксессуары!E55": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E55",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F55": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F55",
+              "sourceFormula": "=D55/E55"
+            },
+            "Прайс-Аксессуары!E56": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E56",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F56": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F56",
+              "sourceFormula": "=D56/E56"
+            },
+            "Прайс-Аксессуары!E57": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E57",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F57": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F57",
+              "sourceFormula": "=D57/E57"
+            },
+            "Прайс-Аксессуары!E58": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!E58",
+              "sourceFormula": "=Настройки!$D$15"
+            },
+            "Прайс-Аксессуары!F58": {
+              "value": "",
+              "sourceCell": "Прайс-Аксессуары!F58",
+              "sourceFormula": "=D58/E58"
+            }
+          },
+          "settings": {
+            "D5": {
+              "value": "0.8",
+              "sourceCell": "Настройки!D5",
+              "sourceFormula": "0.8"
+            },
+            "D14": {
+              "value": "0.5",
+              "sourceCell": "Настройки!D14",
+              "sourceFormula": "0.5"
+            },
+            "D15": {
+              "value": "0.65",
+              "sourceCell": "Настройки!D15",
+              "sourceFormula": "0.65"
+            },
+            "L17": {
+              "value": "1.05",
+              "sourceCell": "Настройки!L17",
+              "sourceFormula": "1.05"
+            },
+            "L18": {
+              "value": "1.21",
+              "sourceCell": "Настройки!L18",
+              "sourceFormula": "1.21"
+            },
+            "L9": {
+              "value": "1",
+              "sourceCell": "Настройки!L9",
+              "sourceFormula": "1"
+            },
+            "L10": {
+              "value": "5500",
+              "sourceCell": "Настройки!L10",
+              "sourceFormula": "5500"
+            },
+            "L11": {
+              "value": "1.15",
+              "sourceCell": "Настройки!L11",
+              "sourceFormula": "1.15"
+            },
+            "D32": {
+              "value": "TRUE",
+              "sourceCell": "Настройки!D32",
+              "sourceFormula": "TRUE"
+            },
+            "D34": {
+              "value": "TRUE",
+              "sourceCell": "Настройки!D34",
+              "sourceFormula": "TRUE"
+            }
+          },
+          "glassRates": {
+            "1": {
+              "value": "2540",
+              "sourceCell": "Прайс-Стекло!D5",
+              "sourceFormula": "2540"
+            },
+            "2": {
+              "value": "5239",
+              "sourceCell": "Прайс-Стекло!D6",
+              "sourceFormula": "5239"
+            },
+            "3": {
+              "value": "5239",
+              "sourceCell": "Прайс-Стекло!D7",
+              "sourceFormula": "5239"
+            },
+            "4": {
+              "value": "3860",
+              "sourceCell": "Прайс-Стекло!D8",
+              "sourceFormula": "3860"
+            },
+            "5": {
+              "value": "3053",
+              "sourceCell": "Прайс-Стекло!D9",
+              "sourceFormula": "3053"
+            },
+            "6": {
+              "value": "6490",
+              "sourceCell": "Прайс-Стекло!D10",
+              "sourceFormula": "6490"
+            },
+            "7": {
+              "value": "6490",
+              "sourceCell": "Прайс-Стекло!D11",
+              "sourceFormula": "6490"
+            },
+            "8": {
+              "value": "4612",
+              "sourceCell": "Прайс-Стекло!D12",
+              "sourceFormula": "4612"
+            },
+            "9": {
+              "value": "3778",
+              "sourceCell": "Прайс-Стекло!D13",
+              "sourceFormula": "3778"
+            },
+            "10": {
+              "value": "8006",
+              "sourceCell": "Прайс-Стекло!D14",
+              "sourceFormula": "8006"
+            },
+            "11": {
+              "value": "8006",
+              "sourceCell": "Прайс-Стекло!D15",
+              "sourceFormula": "8006"
+            },
+            "12": {
+              "value": "6189",
+              "sourceCell": "Прайс-Стекло!D16",
+              "sourceFormula": "6189"
+            }
+          },
+          "assemblyRates": {
+            "5": {
+              "value": "0.576",
+              "sourceCell": "Прайс-Front!F5",
+              "sourceFormula": "0.576"
+            },
+            "6": {
+              "value": "0.156",
+              "sourceCell": "Прайс-Front!F6",
+              "sourceFormula": "0.156"
+            },
+            "7": {
+              "value": "0.05",
+              "sourceCell": "Прайс-Front!F7",
+              "sourceFormula": "0.05"
+            },
+            "8": {
+              "value": "0.05",
+              "sourceCell": "Прайс-Front!F8",
+              "sourceFormula": "0.05"
+            },
+            "9": {
+              "value": "0.01",
+              "sourceCell": "Прайс-Front!F9",
+              "sourceFormula": "0.01"
+            },
+            "10": {
+              "value": "0.02",
+              "sourceCell": "Прайс-Front!F10",
+              "sourceFormula": "0.02"
+            },
+            "11": {
+              "value": "0.015",
+              "sourceCell": "Прайс-Front!F11",
+              "sourceFormula": "0.015"
+            },
+            "12": {
+              "value": "0.24",
+              "sourceCell": "Прайс-Front!F12",
+              "sourceFormula": "0.24"
+            },
+            "13": {
+              "value": "0.38",
+              "sourceCell": "Прайс-Front!F13",
+              "sourceFormula": "0.38"
+            },
+            "14": {
+              "value": "0.39",
+              "sourceCell": "Прайс-Front!F14",
+              "sourceFormula": "0.39"
+            },
+            "15": {
+              "value": "0",
+              "sourceCell": "Прайс-Front!F15",
+              "sourceFormula": "0"
+            },
+            "16": {
+              "value": "0",
+              "sourceCell": "Прайс-Front!F16",
+              "sourceFormula": "0"
+            },
+            "17": {
+              "value": "0",
+              "sourceCell": "Прайс-Front!F17",
+              "sourceFormula": "0"
+            },
+            "18": {
+              "value": "0",
+              "sourceCell": "Прайс-Front!F18",
+              "sourceFormula": "0"
+            }
+          },
+          "paintRates": {
+            "5": {
+              "value": "69",
+              "sourceCell": "Прайс-Front!G5",
+              "sourceFormula": "69"
+            },
+            "6": {
+              "value": "69",
+              "sourceCell": "Прайс-Front!G6",
+              "sourceFormula": "69"
+            },
+            "7": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G7",
+              "sourceFormula": ""
+            },
+            "8": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G8",
+              "sourceFormula": ""
+            },
+            "9": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G9",
+              "sourceFormula": ""
+            },
+            "10": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G10",
+              "sourceFormula": ""
+            },
+            "11": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G11",
+              "sourceFormula": ""
+            },
+            "12": {
+              "value": "69",
+              "sourceCell": "Прайс-Front!G12",
+              "sourceFormula": "69"
+            },
+            "13": {
+              "value": "69",
+              "sourceCell": "Прайс-Front!G13",
+              "sourceFormula": "69"
+            },
+            "14": {
+              "value": "69",
+              "sourceCell": "Прайс-Front!G14",
+              "sourceFormula": "69"
+            },
+            "15": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G15",
+              "sourceFormula": ""
+            },
+            "16": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G16",
+              "sourceFormula": ""
+            },
+            "17": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G17",
+              "sourceFormula": ""
+            },
+            "18": {
+              "value": "",
+              "sourceCell": "Прайс-Front!G18",
+              "sourceFormula": ""
+            }
+          },
+          "serviceRates": {
+            "C16": {
+              "value": "3650",
+              "sourceCell": "Прайс-сб+монт!C16",
+              "sourceFormula": "3650"
+            },
+            "C17": {
+              "value": "3000",
+              "sourceCell": "Прайс-сб+монт!C17",
+              "sourceFormula": "3000"
+            },
+            "C18": {
+              "value": "1500",
+              "sourceCell": "Прайс-сб+монт!C18",
+              "sourceFormula": "1500"
+            },
+            "C23": {
+              "value": "4500",
+              "sourceCell": "Прайс-сб+монт!C23",
+              "sourceFormula": "4500"
+            },
+            "C24": {
+              "value": "4000",
+              "sourceCell": "Прайс-сб+монт!C24",
+              "sourceFormula": "4000"
+            },
+            "C25": {
+              "value": "8000",
+              "sourceCell": "Прайс-сб+монт!C25",
+              "sourceFormula": "8000"
+            }
+          }
+        }
+      }
+    }
+  }
+}

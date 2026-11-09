@@ -12,7 +12,7 @@
     "db:studio": "pnpm --filter backend db:studio",
     "typecheck:shared": "pnpm --filter frontend exec tsc -p ../../packages/shared/tsconfig.jv.json",
     "test:jv": "pnpm --filter @bms/shared test:jv",
-    "build:shared": "pnpm --filter frontend exec tsc -p ../../packages/shared/tsconfig.jv.json",
+    "build:shared": "pnpm --filter @bms/shared build",
     "validate:jv-fixtures": "node tools/jv/validate-json-fixtures.mjs",
     "parity:jv-order": "node --experimental-strip-types tools/jv/compare-line-order-excel-golden.mjs",
     "smoke:jv-line-lab": "pnpm --filter frontend exec node scripts/smoke-line-lab-ssr.mjs"

@@ -2,8 +2,9 @@ import { FastifyInstance } from 'fastify'
 import { prisma } from '../lib/prisma'
 import { requireAuth } from '../lib/auth'
 import { generateDealNumber } from '../lib/dealNumber'
-import { DealStage, Direction, GlassSupply, PaymentType, PaymentStatus, FailReason } from '@prisma/client'
+import { DealStage, Direction, DeliveryType, GlassSupply, PaymentType, PaymentStatus, FailReason, Prisma } from '@prisma/client'
 import { calculateDealExtras } from '../lib/dealExtras'
+import { buildPaymentUpdate, createProposalVersion, decidePaymentWorkflow, issueDealInvoice } from '../domain/deals/stageWorkflow'
 
 const DEAL_INCLUDE = {
   creator: { select: { id: true, firstName: true, lastName: true } },
@@ -65,7 +66,7 @@ export async function dealRoutes(app: FastifyInstance) {
     assigneeId: string; comment?: string; address?: string
     isAgentOrder?: boolean; agentPercent?: number
     glassSupply?: GlassSupply; needPainting?: boolean
-    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: string
+    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: DeliveryType
   } }>('/', { preHandler: requireAuth }, async (req, reply) => {
     const { contactId, direction, assigneeId, comment, address, isAgentOrder, agentPercent, glassSupply, needPainting, companyId, includeInstall, includeTransport, deliveryType } = req.body
     if (!contactId || !direction || !assigneeId) return reply.status(400).send({ error: 'Заполните обязательные поля' })
@@ -98,7 +99,7 @@ export async function dealRoutes(app: FastifyInstance) {
     glassSupply?: GlassSupply; needPainting?: boolean; paintAllOneColor?: boolean
     isAgentOrder?: boolean; agentPercent?: number
     paintingCompany?: string; manualDiscountPct?: number | null
-    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: string
+    includeInstall?: boolean; includeTransport?: boolean; deliveryType?: DeliveryType
   } }>('/:id', { preHandler: requireAuth }, async (req, reply) => {
     const deal = await prisma.deal.findUnique({ where: { id: req.params.id } })
     if (!deal) return reply.status(404).send({ error: 'Не найдена' })
@@ -114,7 +115,8 @@ export async function dealRoutes(app: FastifyInstance) {
       await logDealEvent(deal.id, 'ASSIGNEE_CHANGED', `Ответственный изменён на ${newAssignee?.lastName} ${newAssignee?.firstName}`, caller.id)
     }
 
-    return prisma.deal.update({ where: { id: req.params.id }, data: req.body, include: DEAL_INCLUDE })
+    const updateData: Prisma.DealUncheckedUpdateInput = req.body
+    return prisma.deal.update({ where: { id: req.params.id }, data: updateData, include: DEAL_INCLUDE })
   })
 
   // Возврат на предыдущий этап
@@ -393,11 +395,15 @@ export async function dealRoutes(app: FastifyInstance) {
   app.post<{ Params: { id: string } }>('/:id/proposal', { preHandler: requireAuth }, async (req, reply) => {
     const deal = await prisma.deal.findUnique({ where: { id: req.params.id }, include: { proposals: true } })
     if (!deal) return reply.status(404).send({ error: 'Не найдена' })
-    if (deal.stage !== 'CALCULATION' && deal.stage !== 'PROPOSAL') return reply.status(400).send({ error: 'Недопустимый этап' })
-    const version = (deal.proposals.length || 0) + 1
-    await prisma.commercialProposal.create({ data: { dealId: deal.id, version, url: `/proposals/${deal.number}_v${version}.pdf` } })
-    await prisma.deal.update({ where: { id: req.params.id }, data: { stage: DealStage.PROPOSAL } })
-    return { version, url: `/proposals/${deal.number}_v${version}.pdf` }
+    const result = await createProposalVersion({
+      stage: deal.stage,
+      proposalCount: deal.proposals.length,
+      dealId: deal.id,
+      dealNumber: deal.number,
+      create: (data) => prisma.commercialProposal.create({ data }),
+    })
+    if (!result.ok) return reply.status(400).send({ error: 'Недопустимый этап' })
+    return { version: result.version, url: result.url }
   })
 
   // 1.4 → Выставить счёт
@@ -405,24 +411,28 @@ export async function dealRoutes(app: FastifyInstance) {
     '/:id/invoice', { preHandler: requireAuth }, async (req, reply) => {
       const deal = await prisma.deal.findUnique({
         where: { id: req.params.id },
-        include: { items: { include: { product: { select: { bundleLength: true } } } } },
+        include: { items: { include: { product: { select: { bundleLength: true } } } }, proposals: { select: { id: true } } },
       })
       if (!deal) return reply.status(404).send({ error: 'Не найдена' })
-      if (deal.stage !== 'PROPOSAL' && deal.stage !== 'AWAITING_PAYMENT') return reply.status(400).send({ error: 'Недопустимый этап' })
       const caller = req.user as { id: string }
-
-      if (deal.stage === 'PROPOSAL') {
-        for (const item of deal.items) {
-          const bundleLength = item.product?.bundleLength ? Number(item.product.bundleLength) : null
-          const reserveQty = bundleLength && bundleLength > 0
-            ? Math.ceil(Number(item.quantity) / bundleLength)
-            : Number(item.quantity)
-          await prisma.product.update({ where: { id: item.productId }, data: { reservedQty: { increment: reserveQty } } })
-        }
-      }
-
-      await prisma.deal.update({ where: { id: req.params.id }, data: { stage: DealStage.AWAITING_PAYMENT, paymentType: req.body.paymentType, invoiceUrl: 'pending' } })
-      await logDealEvent(req.params.id, 'STAGE_CHANGED', 'Счёт выставлен → Ожидание оплаты', caller.id)
+      const result = await issueDealInvoice({
+        stage: deal.stage,
+        proposalCount: deal.proposals.length,
+        invoiceSentAt: deal.invoiceSentAt,
+        now: new Date(),
+        reserveInventory: async () => {
+          for (const item of deal.items) {
+            const bundleLength = item.product?.bundleLength ? Number(item.product.bundleLength) : null
+            const reserveQty = bundleLength && bundleLength > 0
+              ? Math.ceil(Number(item.quantity) / bundleLength)
+              : Number(item.quantity)
+            await prisma.product.update({ where: { id: item.productId }, data: { reservedQty: { increment: reserveQty } } })
+          }
+        },
+        updateInvoice: (invoice) => prisma.deal.update({ where: { id: req.params.id }, data: { ...invoice, paymentType: req.body.paymentType, invoiceUrl: 'pending' } }).then(() => undefined),
+        logTransition: () => logDealEvent(req.params.id, 'STAGE_CHANGED', 'Счёт выставлен → Ожидание оплаты', caller.id),
+      })
+      if (!result.allowed) return reply.status(400).send({ error: 'Недопустимый этап' })
       return { ok: true }
     }
   )
@@ -432,18 +442,15 @@ export async function dealRoutes(app: FastifyInstance) {
     '/:id/payment', { preHandler: requireAuth }, async (req, reply) => {
       const deal = await prisma.deal.findUnique({ where: { id: req.params.id } })
       if (!deal) return reply.status(404).send({ error: 'Не найдена' })
-      if (deal.stage !== DealStage.INVOICE_SENT && deal.paymentStatus !== 'PARTIAL') return reply.status(400).send({ error: 'Недопустимый этап' })
+      const decision = decidePaymentWorkflow(deal.stage, deal.paymentStatus, req.body.paymentStatus)
+      if (!decision.allowed) return reply.status(400).send({ error: 'Недопустимый этап' })
       const caller = req.user as { id: string }
       const { paymentStatus, paidAmount, isOfficialPayment } = req.body
-      const newStage = paymentStatus === 'FULL' ? DealStage.PAID : deal.stage
+      const paymentUpdate = buildPaymentUpdate({ decision, paymentStatus, paidAmount, isOfficialPayment, now: new Date() })
       await prisma.deal.update({
         where: { id: req.params.id },
         data: {
-          stage: newStage,
-          paymentStatus,
-          paidAmount: paidAmount ?? null,
-          isOfficialPayment: isOfficialPayment ?? false,
-          paidAt: paymentStatus === 'FULL' ? new Date() : undefined,
+          ...paymentUpdate,
         },
       })
       const paymentLabel = paymentStatus === 'FULL' ? 'Полная оплата' : `Частичная оплата: ${paidAmount?.toLocaleString('ru-RU')} ₽`

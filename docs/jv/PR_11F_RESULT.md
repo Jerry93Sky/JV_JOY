@@ -1,0 +1,13 @@
+# PR_11F — Slider-L5 commercial calculation
+
+`packages/shared/src/jv/slider/l5-pricing.ts` now exports `calculateSliderL5Commercial` and a versioned profile-specific price snapshot builder. The function calculates L5 geometry, 42-row BOM, 26 separate material costs, glass, painting, extra work, services, order consumables and `S1!M53` when the explicit order context is closed. It returns `PARTIAL` without a fabricated material subtotal or final price when order-wide inputs are missing. K43/K45 quantities remain in BOM and are not charged twice.
+
+Eight independent Excel 16 `CalculateFullRebuild` scenarios (four per source workbook) use temporary copies and varied width, height, leaf count, opening, glass, work, installation and F28 choices. The [price parity](SLIDER_L5_PRICE_PARITY.json) compares 576 candidate cells: 306 `EXACT`, 142 `DISPLAY_MATCH`, 0 `MISMATCH`, 128 `UNVERIFIED` inactive or nonnumeric branches. All eight M53 cases are `DISPLAY_MATCH` at two decimals. This does not assert equality of underlying Excel binary64 and exact rational values.
+
+The [price coverage](SLIDER_L5_PRICE_COVERAGE.json) documents all 42 rows: 28 applicable, 26 separately priced, 2 included in related materials, 14 not applicable in the verified L5 branch. The raw snapshots in `fixtures/slider-l5-price-snapshots.json` have 39 source catalog literals per profile and separate workbook hashes/versions. [Rules](SLIDER_L5_PRICE_RULES.md) and [dependencies](SLIDER_L5_COMMERCIAL_DEPENDENCIES.md) list the source formulas and order allocation.
+
+The COMPLETE scope proven here is an isolated L5 position in Main row 11 with the other order quantities zero. Other nonzero families require independently calculated K40/K41 input, verified source workbook and formula provenance. That combination returns `PARTIAL` until its context is supplied; full mixed-order L5 integration is not certified. Other untested selector combinations and size boundaries remain outside this parity set.
+
+L3 geometry, BOM, commercial module and parity fixtures were not modified. Legacy `/calculate`, Prisma and the React workflow are unchanged. Original XLSM books were not saved. Pre-existing `apps/backend/pnpm` and `query` remain untouched and excluded from the commit.
+
+Verification passed: `pnpm test:jv` 137/137, `pnpm typecheck:shared`, `pnpm build:frontend`, `pnpm validate:jv-fixtures` (29 fixtures), and `pnpm smoke:jv-line-lab`. Resolver tests passed 5/5. Slider-L3 geometry/BOM/price, Slider-L5 geometry/BOM/price, JV-Line, JV-Zigzag, and Mixed Order parity commands reported zero mismatches. The frontend build retained existing Vite/Browserslist and bundle-size warnings. The local commit and patch are reported in the delivery message.

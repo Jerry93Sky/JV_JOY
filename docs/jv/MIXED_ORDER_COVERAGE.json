@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "feature": "mixed JV-Line + JV-Zigzag order",
+  "implementation": "packages/shared/src/jv/mixed-order.ts#calculateMixedOrder",
+  "supportedFamilies": ["LINE", "ZIGZAG"],
+  "unsupportedFamilies": ["SLIDER", "FRONT", "OTHER"],
+  "scenarioCount": 10,
+  "profiles": ["COMPLETATION", "RETAIL"],
+  "coverage": {
+    "mixedSelectorsAndSlots": "EXCEL_PARITY_VERIFIED_FOR_CAPTURED_CASES",
+    "sharedAdhesiveActivatorPackages": "EXCEL_PARITY_VERIFIED_FOR_CAPTURED_CASES",
+    "minimumAndMultiplePackages": "EXCEL_PARITY_VERIFIED_FOR_CAPTURED_CASES",
+    "prmAreaAllocation": "EXCEL_PARITY_VERIFIED_FOR_CAPTURED_CASES",
+    "lineCommercialQ58AndMainPrice": "EXCEL_PARITY_VERIFIED_FOR_CAPTURED_CASES",
+    "zigzagP38ToP44AndMainPrice": "EXCEL_PARITY_VERIFIED_FOR_CAPTURED_CASES",
+    "overall": "PARTIAL_OUTSIDE_CAPTURED_INPUT_DOMAIN"
+  },
+  "parity": {"EXACT": 746, "NUMERICALLY_EQUIVALENT": 374, "DISPLAY_MATCH": 418, "MISMATCH": 0, "UNVERIFIED": 0},
+  "notes": [
+    "Display matches are not exact numeric equality.",
+    "No epsilon tolerance was used.",
+    "No parity assertion extends to Slider, Front, or uncaptured settings/selector combinations.",
+    "Source workbooks were recalculated in Excel 16 on temporary copies."
+  ]
+}
