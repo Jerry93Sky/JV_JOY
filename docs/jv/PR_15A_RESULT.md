@@ -17,3 +17,5 @@ Backend `validateShape` в `apps/backend/src/domain/jv/jvCalculationService.ts` 
 ## Проверки
 
 После изменения кода: frontend build и backend build — PASS; `typecheck:shared` — PASS; `test:jv` — 202 PASS; `validate:jv-fixtures` — 45 PASS; `smoke:jv-line-lab` — PASS (при параллельном запуске выведено предупреждение Vite о занятом WebSocket-порту); backend JV API — 8 PASS. `pnpm --filter frontend exec node scripts/smoke-jv-order-ssr.mjs` проверил отказ при отсутствии роли и политику `canCalculateJv` — PASS. Полные UI-тесты, тесты действий с позициями, API-интеграция страницы и E2E — NOT_RUN: соответствующая функциональность ещё не готова.
+
+Первый GitHub Actions run завершился ошибкой frontend build: в чистом окружении отсутствовали декларации `@bms/shared`. Скрипт frontend build теперь сначала собирает shared. Результат повторного CI следует проверять в соответствующем run; предыдущий не считается успешным.
