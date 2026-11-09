@@ -133,7 +133,7 @@ try {
         for ($row = 3; $row -le 51; $row++) {
           foreach ($column in @('B','C','D','E','F','G')) { $priceCells["$column$row"] = Read-Cell $priceSheet "$column$row" }
         }
-        $settingCells = @('P1','P2','P3','P4','P5','P6','P7','P8','P9','P10','P12','P13','P14','P15','P16','P17','D2','D6','D7','D8','D32','D33','D34','L3','L4','L5','L6','L7','L8','L23','P21')
+        $settingCells = @('P1','P2','P3','P4','P5','P6','P7','P8','P9','P10','P12','P13','P14','P15','P16','P17','D2','D6','D7','D8','D11','D21','D22','D32','D33','D34','L3','L4','L5','L6','L7','L8','L23','P21')
         $lineValues = [ordered]@{}
         foreach ($cell in $lineCells) { $lineValues[$cell] = Read-Cell $line $cell }
         $settingValues = [ordered]@{}

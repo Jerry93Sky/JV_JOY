@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "JV-MAIN-2026-10-08-v1",
+  "sourceBooks": {
+    "completion": { "file": "JV-комплектация 08.10.2026.xlsm", "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8" },
+    "retail": { "file": "JV-розница 08.10.2026.xlsm", "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41" }
+  },
+  "headers": { "source": "Главная!R10:X10", "values": ["Line", "Zigzag", "Slider-L3", "Slider-L5", "Slider-X3", "Slider-X5", "Front"] },
+  "normalization": { "sourceCell": "Главная!G11:G17", "formula": "=IF(OR(Frow=4,Frow=5,Frow=6),3,IF(Frow=11,10,Frow))", "rules": [{"when":"F in [4,5,6]","result":3},{"when":"F=11","result":10},{"when":"otherwise","result":"F"}] },
+  "commercialSelector": {"source":"Главная!Y11:Y17","formula":"=INDEX(Rrow:Xrow,Grow)*(100+Настройки!D21:D27)/100","note":"G is a one-based index into the seven headers R:X; selector 11 normalizes to 10 and is out of range. Must remain unsupported pending confirmation of intended Excel behavior."},
+  "families": [
+    {"index":1,"label":"Line","sheet":"L1-L7","provenance":"Главная!R10; Главная!R11='L1'!Q58/Настройки!D11; row n links to Ln"},
+    {"index":2,"label":"Zigzag","sheet":"Z1-Z7","provenance":"Главная!S10; Главная!S11='Z1'!P44/Настройки!D12; row n links to Zn"},
+    {"index":3,"label":"Slider-L3","sheet":"S1-S7","provenance":"Главная!T10; Главная!T11='S1'!M53/Настройки!D13"},
+    {"index":4,"label":"Slider-L5","sheet":"S1-S7","provenance":"Главная!U10; Главная!U11=T11"},
+    {"index":5,"label":"Slider-X3","sheet":"S1-S7","provenance":"Главная!V10; Главная!V11=T11"},
+    {"index":6,"label":"Slider-X5","sheet":"S1-S7","provenance":"Главная!W10; Главная!W11=T11"},
+    {"index":7,"label":"Front","sheet":"F1-F7","provenance":"Главная!X10; Главная!X11='F1'!S38/Настройки!D14"}
+  ],
+  "dataValidation": {"checkedCells":"Главная!F11,F12:F17,H11,I11,J11,L11","result":"No cell-level DataValidation found by Excel COM. Control objects/linked cells and workbook names require separate inspection."},
+  "profileDifferences": {"H11":"saved value differs: completion 1, retail 2; this is a workbook input state, not a proven profile constant", "F28":"saved value differs: completion 1, retail 3; commercial selector state, not a proven universal default"}
+}
