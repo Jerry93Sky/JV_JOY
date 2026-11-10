@@ -30,6 +30,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: JV unit and Excel-fixture tests
         run: pnpm test:jv
+      - name: Compare Front commercial Excel captures
+        run: node --experimental-strip-types tools/jv/compare-front-commercial-r1.mjs
       - name: Shared TypeScript typecheck
         run: pnpm typecheck:shared
       - name: Frontend production build

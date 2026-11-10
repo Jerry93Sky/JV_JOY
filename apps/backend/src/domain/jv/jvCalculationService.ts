@@ -101,6 +101,7 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
 
   const ids = new Set<string>()
   const slots = new Set<number>()
+  const transportModes = new Set<unknown>()
   const positions: UnifiedPositionInput[] = request.positions.map((position, index) => {
     if (ids.has(position.id)) throw new JvRequestError(400, 'DUPLICATE_POSITION_ID', 'Position ids must be unique', [`positions.${index}.id`])
     if (slots.has(position.slot)) throw new JvRequestError(400, 'DUPLICATE_SLOT', 'Each Excel slot may be used once', [`positions.${index}.slot`])
@@ -115,24 +116,21 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
     if (request.uiSchemaVersion) {
       const hydrated = hydrateUiInputs(position.family, familyCatalog.requestShape, calculation)
       if (!hydrated.calculation) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'UI inputs do not match the permitted fields', hydrated.issues.slice(0, 20))
-      if (request.uiSchemaVersion === JV_UI_SCHEMA_VERSION) {
-        const optionIssues = validateUiOptions(position.family, familyCatalog.requestShape, calculation)
-        if (optionIssues.length) throw new JvRequestError(422, 'UNSUPPORTED_UI_SELECTOR', 'Selected UI option is not supported', optionIssues.slice(0, 20))
-      }
       calculation = hydrated.calculation
     }
     const shapeIssues = validateShape(calculation, familyCatalog.requestShape, `positions.${index}.calculation`)
     validatePhysicalInputs(position.family, calculation, `positions.${index}.calculation`, shapeIssues)
     if (shapeIssues.length) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'Calculation inputs do not match the supported typed contract', shapeIssues.slice(0, 20))
+    const userInputs = getUiDefaults(position.family, calculation)
+    const optionIssues = validateUiOptions(position.family, familyCatalog.requestShape, userInputs)
+    if (optionIssues.length) throw new JvRequestError(422, 'UNSUPPORTED_UI_SELECTOR', 'Selected UI option is not supported', optionIssues.slice(0, 20))
+    const modePaths: Record<UnifiedFamily, string> = { LINE: 'input.commercialModeIndex', ZIGZAG: 'position.commercial.F28', SLIDER_L3: 'controls.mainSurchargeSelector', SLIDER_L5: 'controls.mainSurchargeSelector', SLIDER_X3: 'controls.mainSurchargeSelector', SLIDER_X5: 'controls.mainSurchargeSelector', FRONT: 'commercial.mainSurchargeSelector' }
+    transportModes.add(userInputs[modePaths[position.family]])
     attachSources(position.family, calculation, familyCatalog.sources)
     bindServerContext(position.family, calculation, position.id, position.quantity, catalog)
     return { id: position.id, slot: position.slot, family: position.family, quantity: position.quantity, calculation } as UnifiedPositionInput
   })
-  if (request.uiSchemaVersion === JV_UI_SCHEMA_VERSION) {
-    const modePaths: Record<UnifiedFamily, string> = { LINE: 'input.commercialModeIndex', ZIGZAG: 'position.commercial.F28', SLIDER_L3: 'controls.mainSurchargeSelector', SLIDER_L5: 'controls.mainSurchargeSelector', SLIDER_X3: 'controls.mainSurchargeSelector', SLIDER_X5: 'controls.mainSurchargeSelector', FRONT: 'commercial.mainSurchargeSelector' }
-    const transportModes = new Set(request.positions.map(position => position.calculation[modePaths[position.family]]))
-    if (transportModes.size > 1) throw new JvRequestError(400, 'INCONSISTENT_ORDER_TRANSPORT', 'Transport option must be the same for all positions', ['Главная!F28 is an order-level setting'])
-  }
+  if (transportModes.size > 1) throw new JvRequestError(400, 'INCONSISTENT_ORDER_TRANSPORT', 'Transport option must be the same for all positions', ['Главная!F28 is an order-level setting'])
   bindOrderContext(positions, catalog)
 
   const correlationId = randomUUID()

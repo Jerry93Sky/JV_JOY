@@ -43,6 +43,9 @@ export function calculateJVOrder(input:{readonly orderId:string;readonly profile
  if(!input.positions.length)throw new EngineError('MISSING_INPUT','A JV order requires at least one position')
  if(new Set(input.positions.map(p=>p.id)).size!==input.positions.length)throw new EngineError('INVALID_CONFIGURATION','Order position ids must be unique')
  if(new Set(input.positions.map(p=>p.slot)).size!==input.positions.length||input.positions.some(p=>!Number.isInteger(p.slot)||p.slot<1||p.slot>7))throw new EngineError('INVALID_CONFIGURATION','Each position must use a unique Excel slot 1..7')
+ // Both original books use Главная!B26, rather than F28, in F7!S36.
+ // B26 is not part of the current source-bound order context: never certify this branch.
+ if(input.positions.some(p=>p.family==='FRONT'&&p.slot===7&&p.calculation.commercial.mainSurchargeSelector===2))throw new EngineError('RULE_UNCONFIRMED','Front slot 7 with F28=2 requires an explicit source-bound Главная!B26; F7!S36 does not use F28')
  const parsed=input.positions.map(p=>{let quantity:ExactRational;try{quantity=rationalFromDecimal(p.quantity)}catch{throw new EngineError('INVALID_DECIMAL',`Invalid quantity for ${p.id}`,{positionId:p.id})}if(BigInt(quantity.numerator)<=0n||BigInt(quantity.denominator)!==1n)throw new EngineError('INVALID_CONFIGURATION','Position quantity must be a positive integer',{positionId:p.id,quantity:p.quantity});return {position:p,quantity}})
  const families=new Set(parsed.map(x=>x.position.family));const profiles=parsed.map(({position})=>profileOf(position))
  if(profiles.some(p=>p!==input.profile))throw new EngineError('INVALID_CONFIGURATION','All positions and their price snapshots must use the selected order profile')

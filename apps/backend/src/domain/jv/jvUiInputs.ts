@@ -61,7 +61,7 @@ export function getUiMetadata(family: UnifiedFamily, template: RecordValue): UiF
     if (path === 'construction.controls.D18') { field.source = 'F1!D18'; field.dependsOn = 'Дверь доступна и C18=2' }
     if (path === 'construction.controls.D19') { field.source = 'F1!D19'; field.dependsOn = 'Дверь доступна и C19=2' }
     let options: UiOption[] | undefined
-    if (['commercialModeIndex','F28','mainSurchargeSelector'].includes(name)) { options = keys([1,2,3], transport, [3]); field.source = 'Главная!F28 → #1!C29:C31'; field.dependsOn = 'Общий параметр заказа; вариант 3 не подтверждён для смешанного заказа' }
+    if (['commercialModeIndex','F28','mainSurchargeSelector'].includes(name)) { options = keys([1,2,3], transport, [3]); field.source = 'Главная!F28 → #1!C29:C31'; field.dependsOn = family === 'FRONT' ? 'Общий параметр заказа; вариант 3 не подтверждён, вариант 2 для Front в слоте 7 заблокирован до проверки B26' : 'Общий параметр заказа; вариант 3 не подтверждён для смешанного заказа' }
     else if (['glassSelectionIndex','glassSelector','glassTypeSelector'].includes(name)) { options = keys(Array.from({length:12}, (_,i)=>i+1), glass); field.source = 'Главная!I11 → #1!C11:C22' }
     else if (['finishSelectionIndex','finishSelector','priceMode'].includes(name)) { options = keys([1,2,3,4], finish); field.source = 'Главная!H11 → #1!C24:C27' }
     else if (name === 'openingSelector') { options = family === 'FRONT' ? keys([1,2,3,4],['налево','направо','2-сторон.','нет'],[1,2,3]) : keys([1,2,3],['налево','направо','2-сторон.']); field.source = 'Главная!J11 → #1!K3:K6'; if (family === 'FRONT') field.dependsOn = 'При серверной настройке I42=1 варианты 1–3 недоступны' }

@@ -1,0 +1,3311 @@
+{
+  "scenarioCount": 10,
+  "comparisonCount": 70,
+  "counts": {
+    "EXACT": 8,
+    "NUMERICALLY_EQUIVALENT": 31,
+    "DISPLAY_MATCH": 31,
+    "MISMATCH": 0,
+    "UNVERIFIED": 0
+  },
+  "comparisons": [
+    {
+      "scenarioId": "COMPLETATION-base",
+      "profile": "COMPLETATION",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 58238.257142857125,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "1819945535714285527",
+        "denominator": "31250000000000"
+      },
+      "trace": [],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-base",
+      "profile": "COMPLETATION",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 58238.257142857125,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "1819945535714285527",
+        "denominator": "31250000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "1819945535714285527",
+              "denominator": "31250000000000"
+            },
+            "glass": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "painting": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "1819945535714285527",
+            "denominator": "31250000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-base",
+      "profile": "COMPLETATION",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 0,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34"
+            ]
+          },
+          "result": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "COMPLETATION-base",
+      "profile": "COMPLETATION",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 58238.257142857125,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "1819945535714285527",
+        "denominator": "31250000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "1819945535714285527",
+              "denominator": "31250000000000"
+            },
+            "s37": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "1819945535714285527",
+            "denominator": "31250000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-base",
+      "profile": "COMPLETATION",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 58238.257142857125,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "1819945535714285527",
+        "denominator": "31250000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "1819945535714285527",
+            "denominator": "31250000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-base",
+      "profile": "COMPLETATION",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 58238.257142857125,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "1819945535714285527",
+        "denominator": "31250000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "1819945535714285527",
+            "denominator": "31250000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-base",
+      "profile": "COMPLETATION",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 58238.257142857125,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "1819945535714285527",
+        "denominator": "31250000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "1819945535714285527",
+            "denominator": "31250000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-wide",
+      "profile": "COMPLETATION",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 64656.72698412697,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "32328363492063488733",
+        "denominator": "500000000000000"
+      },
+      "trace": [],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-wide",
+      "profile": "COMPLETATION",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 125514.60776470292,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "252598148126464614526179",
+        "denominator": "2012500000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "32328363492063488733",
+              "denominator": "500000000000000"
+            },
+            "glass": {
+              "numerator": "58981620035454536187927",
+              "denominator": "1006250000000000000"
+            },
+            "painting": {
+              "numerator": "1805298",
+              "denominator": "805"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "252598148126464614526179",
+            "denominator": "2012500000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-wide",
+      "profile": "COMPLETATION",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 0,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34"
+            ]
+          },
+          "result": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "COMPLETATION-wide",
+      "profile": "COMPLETATION",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 125514.60776470292,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "252598148126464614526179",
+        "denominator": "2012500000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "252598148126464614526179",
+              "denominator": "2012500000000000000"
+            },
+            "s37": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "252598148126464614526179",
+            "denominator": "2012500000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-wide",
+      "profile": "COMPLETATION",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 125514.60776470292,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "252598148126464614526179",
+        "denominator": "2012500000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "252598148126464614526179",
+            "denominator": "2012500000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-wide",
+      "profile": "COMPLETATION",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 125514.60776470293,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "252598148126464614526179",
+        "denominator": "2012500000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "252598148126464614526179",
+            "denominator": "2012500000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-wide",
+      "profile": "COMPLETATION",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 251029.21552940586,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "252598148126464614526179",
+        "denominator": "1006250000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "252598148126464614526179",
+            "denominator": "1006250000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-door_one",
+      "profile": "COMPLETATION",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 58121.99889865689,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "4649759911892551493",
+        "denominator": "80000000000000"
+      },
+      "trace": [],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-door_one",
+      "profile": "COMPLETATION",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 100151.060635603,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "13895959663189915822813271",
+        "denominator": "138750000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "4649759911892551493",
+              "denominator": "80000000000000"
+            },
+            "glass": {
+              "numerator": "464462138229272652261783",
+              "denominator": "11562500000000000000"
+            },
+            "painting": {
+              "numerator": "1031946629",
+              "denominator": "555000"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "13895959663189915822813271",
+            "denominator": "138750000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-door_one",
+      "profile": "COMPLETATION",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 10300,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "10300",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34",
+              "F1!D3",
+              "F1!C17",
+              "F1!Q27",
+              "Прайс-сб+монт!C16:C18"
+            ]
+          },
+          "result": {
+            "numerator": "10300",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "COMPLETATION-door_one",
+      "profile": "COMPLETATION",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 110451.060635603,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "15325084663189915822813271",
+        "denominator": "138750000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "13895959663189915822813271",
+              "denominator": "138750000000000000000"
+            },
+            "s37": {
+              "numerator": "10300",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "15325084663189915822813271",
+            "denominator": "138750000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-door_one",
+      "profile": "COMPLETATION",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 110451.060635603,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "15325084663189915822813271",
+        "denominator": "138750000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "15325084663189915822813271",
+            "denominator": "138750000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-door_one",
+      "profile": "COMPLETATION",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 110451.06063560299,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "15325084663189915822813271",
+        "denominator": "138750000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "15325084663189915822813271",
+            "denominator": "138750000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-door_one",
+      "profile": "COMPLETATION",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 110451.06063560299,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "15325084663189915822813271",
+        "denominator": "138750000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "15325084663189915822813271",
+            "denominator": "138750000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-transom",
+      "profile": "COMPLETATION",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 71883.34545421245,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "57506676363369958367",
+        "denominator": "800000000000000"
+      },
+      "trace": [],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-transom",
+      "profile": "COMPLETATION",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 137155.73429615432,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "303457062130241383039968143",
+        "denominator": "2212500000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "57506676363369958367",
+              "denominator": "800000000000000"
+            },
+            "glass": {
+              "numerator": "17236089717224542741404221",
+              "denominator": "276562500000000000000"
+            },
+            "painting": {
+              "numerator": "523173109",
+              "denominator": "265500"
+            },
+            "additionalWork": {
+              "numerator": "520000",
+              "denominator": "531"
+            }
+          },
+          "result": {
+            "numerator": "303457062130241383039968143",
+            "denominator": "2212500000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-transom",
+      "profile": "COMPLETATION",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 10786.666666666668,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "32360",
+        "denominator": "3"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34",
+              "F1!D3",
+              "F1!C17",
+              "F1!Q27",
+              "Прайс-сб+монт!C16:C18"
+            ]
+          },
+          "result": {
+            "numerator": "32360",
+            "denominator": "3"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-transom",
+      "profile": "COMPLETATION",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 147942.40096282098,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "327322562130241383039968143",
+        "denominator": "2212500000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "303457062130241383039968143",
+              "denominator": "2212500000000000000000"
+            },
+            "s37": {
+              "numerator": "32360",
+              "denominator": "3"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "327322562130241383039968143",
+            "denominator": "2212500000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-transom",
+      "profile": "COMPLETATION",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 147942.40096282098,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "327322562130241383039968143",
+        "denominator": "2212500000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "327322562130241383039968143",
+            "denominator": "2212500000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-transom",
+      "profile": "COMPLETATION",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 147942.40096282098,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "327322562130241383039968143",
+        "denominator": "2212500000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "327322562130241383039968143",
+            "denominator": "2212500000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-transom",
+      "profile": "COMPLETATION",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 443827.2028884629,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "327322562130241383039968143",
+        "denominator": "737500000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "327322562130241383039968143",
+            "denominator": "737500000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "COMPLETATION-fittings",
+      "profile": "COMPLETATION",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 86329.8501208791,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "345319400483516459373",
+        "denominator": "4000000000000000"
+      },
+      "trace": [],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-fittings",
+      "profile": "COMPLETATION",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 86329.8501208791,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "345319400483516459373",
+        "denominator": "4000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "345319400483516459373",
+              "denominator": "4000000000000000"
+            },
+            "glass": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "painting": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "345319400483516459373",
+            "denominator": "4000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-fittings",
+      "profile": "COMPLETATION",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 0,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34"
+            ]
+          },
+          "result": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "COMPLETATION-fittings",
+      "profile": "COMPLETATION",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 86329.8501208791,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "345319400483516459373",
+        "denominator": "4000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "345319400483516459373",
+              "denominator": "4000000000000000"
+            },
+            "s37": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "345319400483516459373",
+            "denominator": "4000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-fittings",
+      "profile": "COMPLETATION",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 86329.8501208791,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "345319400483516459373",
+        "denominator": "4000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "345319400483516459373",
+            "denominator": "4000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-fittings",
+      "profile": "COMPLETATION",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 86329.8501208791,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "345319400483516459373",
+        "denominator": "4000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "345319400483516459373",
+            "denominator": "4000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "COMPLETATION-fittings",
+      "profile": "COMPLETATION",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 86329.8501208791,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "345319400483516459373",
+        "denominator": "4000000000000000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "345319400483516459373",
+            "denominator": "4000000000000000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-комплектация 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-COMPLETATION-62dd6d49f059"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-base",
+      "profile": "RETAIL",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 26061.57,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "2606157",
+        "denominator": "100"
+      },
+      "trace": [],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-base",
+      "profile": "RETAIL",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 52695.037558342345,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "365571823061",
+        "denominator": "6937500"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "2606157",
+              "denominator": "100"
+            },
+            "glass": {
+              "numerator": "28645251031",
+              "denominator": "1156250"
+            },
+            "painting": {
+              "numerator": "1031854",
+              "denominator": "555"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "365571823061",
+            "denominator": "6937500"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-base",
+      "profile": "RETAIL",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 10950,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "10950",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34",
+              "F1!D3",
+              "F1!C17",
+              "F1!Q27",
+              "Прайс-сб+монт!C16:C18"
+            ]
+          },
+          "result": {
+            "numerator": "10950",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "RETAIL-base",
+      "profile": "RETAIL",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 63645.037558342345,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "441537448061",
+        "denominator": "6937500"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "365571823061",
+              "denominator": "6937500"
+            },
+            "s37": {
+              "numerator": "10950",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "441537448061",
+            "denominator": "6937500"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-base",
+      "profile": "RETAIL",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 127290.07511668469,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "441537448061",
+        "denominator": "3468750"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "441537448061",
+            "denominator": "3468750"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-base",
+      "profile": "RETAIL",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 127290.0751166847,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "441537448061",
+        "denominator": "3468750"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "441537448061",
+            "denominator": "3468750"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-base",
+      "profile": "RETAIL",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 127290.0751166847,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "441537448061",
+        "denominator": "3468750"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "441537448061",
+            "denominator": "3468750"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-wide",
+      "profile": "RETAIL",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 28913.469999999998,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "2891347",
+        "denominator": "100"
+      },
+      "trace": [],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-wide",
+      "profile": "RETAIL",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 63439.89647900621,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "31918197916",
+        "denominator": "503125"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "2891347",
+              "denominator": "100"
+            },
+            "glass": {
+              "numerator": "65196188289",
+              "denominator": "2012500"
+            },
+            "painting": {
+              "numerator": "1715298",
+              "denominator": "805"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "31918197916",
+            "denominator": "503125"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-wide",
+      "profile": "RETAIL",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 13140,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "13140",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34",
+              "F1!D3",
+              "F1!C17",
+              "F1!Q27",
+              "Прайс-сб+монт!C16:C18"
+            ]
+          },
+          "result": {
+            "numerator": "13140",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "RETAIL-wide",
+      "profile": "RETAIL",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 76579.89647900622,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "38529260416",
+        "denominator": "503125"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "31918197916",
+              "denominator": "503125"
+            },
+            "s37": {
+              "numerator": "13140",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "38529260416",
+            "denominator": "503125"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-wide",
+      "profile": "RETAIL",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 153159.79295801243,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "77058520832",
+        "denominator": "503125"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "77058520832",
+            "denominator": "503125"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-wide",
+      "profile": "RETAIL",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 153159.79295801243,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "77058520832",
+        "denominator": "503125"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "77058520832",
+            "denominator": "503125"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-wide",
+      "profile": "RETAIL",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 306319.58591602487,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "154117041664",
+        "denominator": "503125"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "154117041664",
+            "denominator": "503125"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-door_one",
+      "profile": "RETAIL",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 27980.1039,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "279801039",
+        "denominator": "10000"
+      },
+      "trace": [],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-door_one",
+      "profile": "RETAIL",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 51973.060347302344,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "36056310615941",
+        "denominator": "693750000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "279801039",
+              "denominator": "10000"
+            },
+            "glass": {
+              "numerator": "2570655041511",
+              "denominator": "115625000"
+            },
+            "painting": {
+              "numerator": "976946629",
+              "denominator": "555000"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "36056310615941",
+            "denominator": "693750000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-door_one",
+      "profile": "RETAIL",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 10300,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "10300",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34",
+              "F1!D3",
+              "F1!C17",
+              "F1!Q27",
+              "Прайс-сб+монт!C16:C18"
+            ]
+          },
+          "result": {
+            "numerator": "10300",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "RETAIL-door_one",
+      "profile": "RETAIL",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 62273.060347302344,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "43201935615941",
+        "denominator": "693750000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "36056310615941",
+              "denominator": "693750000"
+            },
+            "s37": {
+              "numerator": "10300",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "43201935615941",
+            "denominator": "693750000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-door_one",
+      "profile": "RETAIL",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 124546.12069460469,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "43201935615941",
+        "denominator": "346875000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "43201935615941",
+            "denominator": "346875000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-door_one",
+      "profile": "RETAIL",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 124546.12069460469,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "43201935615941",
+        "denominator": "346875000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "43201935615941",
+            "denominator": "346875000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-door_one",
+      "profile": "RETAIL",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 124546.12069460469,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "43201935615941",
+        "denominator": "346875000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "43201935615941",
+            "denominator": "346875000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-transom",
+      "profile": "RETAIL",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 34566.70984999999,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "691334197",
+        "denominator": "20000"
+      },
+      "trace": [],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-transom",
+      "profile": "RETAIL",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 71637.86231589287,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "52832923457971",
+        "denominator": "737500000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "691334197",
+              "denominator": "20000"
+            },
+            "glass": {
+              "numerator": "19035870563947",
+              "denominator": "553125000"
+            },
+            "painting": {
+              "numerator": "497173109",
+              "denominator": "265500"
+            },
+            "additionalWork": {
+              "numerator": "416000",
+              "denominator": "531"
+            }
+          },
+          "result": {
+            "numerator": "52832923457971",
+            "denominator": "737500000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-transom",
+      "profile": "RETAIL",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 10786.666666666668,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "32360",
+        "denominator": "3"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34",
+              "F1!D3",
+              "F1!C17",
+              "F1!Q27",
+              "Прайс-сб+монт!C16:C18"
+            ]
+          },
+          "result": {
+            "numerator": "32360",
+            "denominator": "3"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-transom",
+      "profile": "RETAIL",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 82424.52898255954,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "182364270373913",
+        "denominator": "2212500000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "52832923457971",
+              "denominator": "737500000"
+            },
+            "s37": {
+              "numerator": "32360",
+              "denominator": "3"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "182364270373913",
+            "denominator": "2212500000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-transom",
+      "profile": "RETAIL",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 164849.05796511908,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "182364270373913",
+        "denominator": "1106250000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "182364270373913",
+            "denominator": "1106250000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-transom",
+      "profile": "RETAIL",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 164849.05796511908,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "182364270373913",
+        "denominator": "1106250000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "182364270373913",
+            "denominator": "1106250000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-transom",
+      "profile": "RETAIL",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 494547.17389535723,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "182364270373913",
+        "denominator": "368750000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "182364270373913",
+            "denominator": "368750000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-fittings",
+      "profile": "RETAIL",
+      "address": "F1!S33",
+      "formula": "=SUM($S$5:$S$32)",
+      "excelValue": 44357.23694999999,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "887144739",
+        "denominator": "20000"
+      },
+      "trace": [],
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "scenarioId": "RETAIL-fittings",
+      "profile": "RETAIL",
+      "address": "F1!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue": 77906.89033482797,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "6598226693295337",
+        "denominator": "84693750000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S36",
+          "kind": "summary",
+          "label": "F1!S36",
+          "ruleId": "JV.FRONT.COMMERCIAL.S36",
+          "inputRefs": [
+            "JV.FRONT.PRICE.S33",
+            "JV.FRONT.GLASS.S35",
+            "JV.FRONT.WORK.S34",
+            "JV.FRONT.WORK.ADDITIONAL"
+          ],
+          "input": {
+            "materials": {
+              "numerator": "887144739",
+              "denominator": "20000"
+            },
+            "glass": {
+              "numerator": "5362307099147549",
+              "denominator": "169387500000"
+            },
+            "painting": {
+              "numerator": "4274464181",
+              "denominator": "2258500"
+            },
+            "additionalWork": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          "result": {
+            "numerator": "6598226693295337",
+            "denominator": "84693750000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S36",
+            "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-fittings",
+      "profile": "RETAIL",
+      "address": "F1!S37",
+      "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+      "excelValue": 11030,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11030",
+        "denominator": "1"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.WORK.S37",
+          "kind": "work",
+          "label": "F1!S37",
+          "ruleId": "JV.FRONT.WORK.S37",
+          "input": {
+            "sourceCells": [
+              "Настройки!D34",
+              "F1!D3",
+              "F1!C17",
+              "F1!Q27",
+              "Прайс-сб+монт!C16:C18"
+            ]
+          },
+          "result": {
+            "numerator": "11030",
+            "denominator": "1"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S37",
+            "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-work-S37",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "EXACT"
+    },
+    {
+      "scenarioId": "RETAIL-fittings",
+      "profile": "RETAIL",
+      "address": "F1!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue": 88936.89033482797,
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "7532398755795337",
+        "denominator": "84693750000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.COMMERCIAL.S38",
+          "kind": "summary",
+          "label": "F1!S38",
+          "ruleId": "JV.FRONT.COMMERCIAL.S38",
+          "input": {
+            "s36": {
+              "numerator": "6598226693295337",
+              "denominator": "84693750000"
+            },
+            "s37": {
+              "numerator": "11030",
+              "denominator": "1"
+            },
+            "validation": "НЕТ"
+          },
+          "result": {
+            "numerator": "7532398755795337",
+            "denominator": "84693750000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "F1",
+            "cell": "S38",
+            "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-commercial-components",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S36",
+            "JV.FRONT.WORK.S37"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-fittings",
+      "profile": "RETAIL",
+      "address": "Главная!X11",
+      "formula": "='F1'!$S$38/Настройки!$D$14",
+      "excelValue": 177873.78066965594,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "7532398755795337",
+        "denominator": "42346875000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.X11",
+          "kind": "summary",
+          "label": "Главная!X11",
+          "ruleId": "JV.FRONT.MAIN.X11",
+          "input": {
+            "references": [
+              "JV.FRONT.COMMERCIAL.S38"
+            ]
+          },
+          "result": {
+            "numerator": "7532398755795337",
+            "denominator": "42346875000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "X11",
+            "formula": "='F1'!$S$38/Настройки!$D$14"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "JV.FRONT.COMMERCIAL.S38"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-fittings",
+      "profile": "RETAIL",
+      "address": "Главная!Y11",
+      "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+      "excelValue": 177873.78066965594,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "7532398755795337",
+        "denominator": "42346875000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.Y11",
+          "kind": "summary",
+          "label": "Главная!Y11",
+          "ruleId": "JV.FRONT.MAIN.Y11",
+          "input": {
+            "references": [
+              "Главная!G11",
+              "Главная!X11"
+            ]
+          },
+          "result": {
+            "numerator": "7532398755795337",
+            "denominator": "42346875000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "Y11",
+            "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!G11",
+            "Главная!X11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "scenarioId": "RETAIL-fittings",
+      "profile": "RETAIL",
+      "address": "Главная!AA11",
+      "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+      "excelValue": 177873.78066965594,
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "7532398755795337",
+        "denominator": "42346875000"
+      },
+      "trace": [
+        {
+          "id": "JV.FRONT.MAIN.AA11",
+          "kind": "summary",
+          "label": "Главная!AA11",
+          "ruleId": "JV.FRONT.MAIN.AA11",
+          "input": {
+            "references": [
+              "Главная!Y11",
+              "Главная!Z11"
+            ]
+          },
+          "result": {
+            "numerator": "7532398755795337",
+            "denominator": "42346875000"
+          },
+          "status": "ok",
+          "source": {
+            "workbook": "JV-розница 08.10.2026.xlsm",
+            "sheet": "Главная",
+            "cell": "AA11",
+            "formula": "=Y11*Z11*(100+Настройки!$D$19)/100"
+          },
+          "catalogRefs": [
+            {
+              "id": "front-main-transfer",
+              "version": "FRONT-COMPONENT-RETAIL-025d7e291117"
+            }
+          ],
+          "inputRefs": [
+            "Главная!Y11",
+            "Главная!Z11"
+          ],
+          "errorIds": [],
+          "warningIds": []
+        }
+      ],
+      "status": "NUMERICALLY_EQUIVALENT"
+    }
+  ]
+}

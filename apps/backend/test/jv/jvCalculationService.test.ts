@@ -125,19 +125,35 @@ test('versioned UI input contract supplies non-price fields and hydrates all sev
     const unsupportedFront = structuredClone(payload)
     ;(unsupportedFront.positions[6]!.calculation as Record<string, unknown>)['construction.openingSelector'] = 1
     assert.equal((await post(unsupportedFront)).statusCode, 422)
+    assert.equal((await post({ ...unsupportedFront, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
     const unavailableDoorControl = structuredClone(payload)
     ;(unavailableDoorControl.positions[6]!.calculation as Record<string, unknown>)['construction.controls.C18'] = 2
     assert.equal((await post(unavailableDoorControl)).statusCode, 422)
+    assert.equal((await post({ ...unavailableDoorControl, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
+    const unavailableHardware = structuredClone(payload)
+    ;(unavailableHardware.positions[6]!.calculation as Record<string, unknown>)['construction.controls.C22'] = 2
+    assert.equal((await post({ ...unavailableHardware, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
     const inconsistent = structuredClone(payload)
     ;(inconsistent.positions[0]!.calculation as Record<string, unknown>)['input.commercialModeIndex'] = 2
     assert.equal((await post(inconsistent)).statusCode, 400)
+    assert.equal((await post({ ...inconsistent, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 400)
+    const legacyUnsupported = structuredClone(legacyPositions)
+    ;((legacyUnsupported[6]!.calculation as Record<string, unknown>).construction as Record<string, unknown>).openingSelector = 1
+    assert.equal((await post({ ...payload, uiSchemaVersion: undefined, positions: legacyUnsupported })).statusCode, 422)
+    const legacyHardware = structuredClone(legacyPositions)
+    ;((((legacyHardware[6]!.calculation as Record<string, unknown>).construction as Record<string, unknown>).controls) as Record<string, unknown>).C22 = 2
+    assert.equal((await post({ ...payload, uiSchemaVersion: undefined, positions: legacyHardware })).statusCode, 422)
+    const legacyInconsistent = structuredClone(legacyPositions)
+    ;((legacyInconsistent[0]!.calculation as Record<string, unknown>).input as Record<string, unknown>).commercialModeIndex = 2
+    assert.equal((await post({ ...payload, uiSchemaVersion: undefined, positions: legacyInconsistent })).statusCode, 400)
     const mode2 = structuredClone(payload)
     for (const position of mode2.positions) {
       const path = position.family === 'LINE' ? 'input.commercialModeIndex' : position.family === 'ZIGZAG' ? 'position.commercial.F28' : position.family === 'FRONT' ? 'commercial.mainSurchargeSelector' : 'controls.mainSurchargeSelector'
       ;(position.calculation as Record<string, unknown>)[path] = 2
     }
     const mode2Response = await post(mode2)
-    assert.equal(mode2Response.statusCode, 200, `${profile}/F28=2: ${mode2Response.body}`)
+    assert.equal(mode2Response.statusCode, 422, `${profile}/F28=2 with Front slot 7: ${mode2Response.body}`)
+    assert.equal((await post({ ...mode2, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
     assert.equal((await post({ ...payload, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 200)
     assert.equal((await post({ ...payload, uiSchemaVersion: 'future' })).statusCode, 409)
   }

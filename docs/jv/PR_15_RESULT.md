@@ -9,3 +9,5 @@ PR_15A now has a real protected order editor and server calculation for seven fa
 `pnpm build:frontend` passed after this change. This build alone does not validate request compatibility or establish a working user interface.
 
 The original WIP note above records the earlier client-only state. Full selector coverage, detailed BOM/trace views, persistent orders, and final PR_15 documentation remain outstanding. Browser coverage and its limitations are recorded in [JV_UI_BROWSER_E2E_REPORT.md](./JV_UI_BROWSER_E2E_REPORT.md).
+
+R1 adds independent Excel comparisons and corrects a Front closer price index. A different formula in Front slot 7 blocks F28=2 until B26 is represented independently; the editor remains PARTIAL. See [PR_15A_PARITY_RESULT.md](./PR_15A_PARITY_RESULT.md).
