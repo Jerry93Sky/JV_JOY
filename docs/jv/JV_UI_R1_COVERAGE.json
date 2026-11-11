@@ -3,7 +3,7 @@
   "commercialStatusIsScenarioSpecific": true,
   "cases": [
     {"family":"ALL_SEVEN","selector":"Главная!F28","value":1,"status":"CONFIRMED","scope":"12 previously captured PR13E all-seven scenarios; both profiles","evidence":"UNIFIED_ORDER_ALL_SEVEN_PARITY.json"},
-    {"family":"ALL_SEVEN","selector":"Главная!F28","value":2,"status":"UNSUPPORTED","scope":"Front in slot 7; independent B26 not represented; 12 current order comparisons blocked","evidence":"JV_UI_F28_PARITY.json","previousMismatches":"JV_UI_F28_BEFORE_GUARD.json"},
+    {"family":"ALL_SEVEN","selector":"Главная!F28","value":2,"status":"LIMITED","scope":"12 all-seven scenarios verified for server scenario B26=1; other combinations require their own parity","evidence":"JV_UI_F28_PARITY.json","previousMismatches":"JV_UI_F28_BEFORE_GUARD.json"},
     {"family":"ALL_SEVEN","selector":"Главная!F28","value":3,"status":"UNSUPPORTED","scope":"Mixed order","evidence":"packages/shared/src/jv/mixed-order.ts"},
     {"family":"FRONT","selector":"Настройки!I42","value":1,"status":"LIMITED","scope":"Current server profile, no-door scenarios","evidence":"JV_UI_SELECTOR_MAPPING.md"},
     {"family":"FRONT","selector":"Настройки!I42","value":2,"status":"LIMITED","scope":"Isolated F1 door_one, transom and fittings in both profiles; unavailable through server UI","evidence":"FRONT_COMMERCIAL_R1_PARITY.json"},

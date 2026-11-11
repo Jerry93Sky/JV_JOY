@@ -10,4 +10,4 @@ PR_15A now has a real protected order editor and server calculation for seven fa
 
 The original WIP note above records the earlier client-only state. Full selector coverage, detailed BOM/trace views, persistent orders, and final PR_15 documentation remain outstanding. Browser coverage and its limitations are recorded in [JV_UI_BROWSER_E2E_REPORT.md](./JV_UI_BROWSER_E2E_REPORT.md).
 
-R1 adds independent Excel comparisons and corrects a Front closer price index. A different formula in Front slot 7 blocks F28=2 until B26 is represented independently; the editor remains PARTIAL. See [PR_15A_PARITY_RESULT.md](./PR_15A_PARITY_RESULT.md).
+R1 adds independent Excel comparisons and corrects a Front closer price index. R2 represents B26 independently and verifies the Front slot 7 formula; the editor remains PARTIAL because door and hardware profiles are still restricted. See [PR_15A_B26_RESULT.md](./PR_15A_B26_RESULT.md).

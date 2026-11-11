@@ -62,7 +62,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "1819945535714285527",
@@ -389,7 +392,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "252598148126464614526179",
@@ -716,7 +722,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "13895959663189915822813271",
@@ -1047,7 +1056,10 @@
             "additionalWork": {
               "numerator": "520000",
               "denominator": "531"
-            }
+            },
+            "selectorValue": 2,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "303457062130241383039968143",
@@ -1378,7 +1390,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "345319400483516459373",
@@ -1705,7 +1720,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "365571823061",
@@ -2036,7 +2054,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "31918197916",
@@ -2367,7 +2388,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "36056310615941",
@@ -2698,7 +2722,10 @@
             "additionalWork": {
               "numerator": "416000",
               "denominator": "531"
-            }
+            },
+            "selectorValue": 2,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "52832923457971",
@@ -3029,7 +3056,10 @@
             "additionalWork": {
               "numerator": "0",
               "denominator": "1"
-            }
+            },
+            "selectorValue": 1,
+            "selectorSource": "Главная!F28",
+            "selectorVersion": null
           },
           "result": {
             "numerator": "6598226693295337",

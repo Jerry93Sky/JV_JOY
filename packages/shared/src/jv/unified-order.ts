@@ -12,7 +12,7 @@ import { calculateSliderL3Commercial, type SliderL3CommercialInput, type SliderL
 import { calculateSliderL5Commercial, calculateSliderX3Commercial, calculateSliderX5Commercial, type SliderL5CommercialInput, type SliderL5CommercialResult, type SliderX3CommercialInput, type SliderX3CommercialResult, type SliderX5CommercialInput, type SliderX5CommercialResult } from './slider/l5-pricing.ts'
 import { calculateFrontCommercial, type FrontCommercialResult } from './front/commercial.ts'
 import type { FrontInput } from './front/calculator.ts'
-import type { FrontOrderAreaContext } from './front/commercial-context.ts'
+import type { FrontB26Snapshot, FrontOrderAreaContext } from './front/commercial-context.ts'
 import { calculateMixedOrder, type MixedOrderCalculationResult, type MixedOrderPositionInput } from './mixed-order.ts'
 import { calculateLineOrder, type LineOrderResult } from './order-line.ts'
 import { calculateZigzagOrderAdhesiveAllocation, type ZigzagOrderAllocationResult, type ZigzagAdhesivePosition } from './zigzag/order-allocation.ts'
@@ -38,14 +38,15 @@ export interface UnifiedOrderResult {readonly orderId:string;readonly profile:Pr
 export interface UnifiedMainDiscountSnapshot {readonly schemaVersion:'1.0';readonly profile:PriceProfile;readonly workbook:string;readonly workbookSha256:string;readonly capturedWithExcel:'16.0';readonly sourceCell:'Настройки!D19';readonly sourceFormula:string;readonly value:string;readonly positionMarkups?:readonly Readonly<{slot:number;sourceCell:string;sourceFormula:string;value:string}>[];readonly positionDivisors?:readonly Readonly<{family:UnifiedFamily|'SLIDER';sourceCell:string;sourceFormula:string;value:string}>[]}
 
 /** Routes each position through its existing family calculator. No family math is reimplemented here. */
-export function calculateJVOrder(input:{readonly orderId:string;readonly profile:PriceProfile;readonly positions:readonly UnifiedPositionInput[];readonly mainDiscount?:UnifiedMainDiscountSnapshot}):UnifiedOrderResult {
+export function calculateJVOrder(input:{readonly orderId:string;readonly profile:PriceProfile;readonly positions:readonly UnifiedPositionInput[];readonly mainDiscount?:UnifiedMainDiscountSnapshot;readonly frontSlot7B26?:FrontB26Snapshot}):UnifiedOrderResult {
  if(!input.orderId.trim())throw new EngineError('INVALID_CONFIGURATION','orderId must not be empty')
  if(!input.positions.length)throw new EngineError('MISSING_INPUT','A JV order requires at least one position')
  if(new Set(input.positions.map(p=>p.id)).size!==input.positions.length)throw new EngineError('INVALID_CONFIGURATION','Order position ids must be unique')
  if(new Set(input.positions.map(p=>p.slot)).size!==input.positions.length||input.positions.some(p=>!Number.isInteger(p.slot)||p.slot<1||p.slot>7))throw new EngineError('INVALID_CONFIGURATION','Each position must use a unique Excel slot 1..7')
  // Both original books use Главная!B26, rather than F28, in F7!S36.
- // B26 is not part of the current source-bound order context: never certify this branch.
- if(input.positions.some(p=>p.family==='FRONT'&&p.slot===7&&p.calculation.commercial.mainSurchargeSelector===2))throw new EngineError('RULE_UNCONFIRMED','Front slot 7 with F28=2 requires an explicit source-bound Главная!B26; F7!S36 does not use F28')
+ // The optional B26 snapshot is independent of F28; never certify this branch when it is absent.
+ if(input.positions.some(p=>p.family==='FRONT'&&p.slot===7&&p.calculation.commercial.mainSurchargeSelector===2)&&!input.frontSlot7B26)throw new EngineError('RULE_UNCONFIRMED','Front slot 7 with F28=2 requires an explicit source-bound Главная!B26; F7!S36 does not use F28')
+ if(input.frontSlot7B26)input={...input,positions:input.positions.map(p=>p.family==='FRONT'&&p.slot===7?{...p,calculation:{...p.calculation,commercial:{...p.calculation.commercial,order:{...p.calculation.commercial.order,positionMainRow:17,frontSlot7B26:input.frontSlot7B26}}}}:p)}
  const parsed=input.positions.map(p=>{let quantity:ExactRational;try{quantity=rationalFromDecimal(p.quantity)}catch{throw new EngineError('INVALID_DECIMAL',`Invalid quantity for ${p.id}`,{positionId:p.id})}if(BigInt(quantity.numerator)<=0n||BigInt(quantity.denominator)!==1n)throw new EngineError('INVALID_CONFIGURATION','Position quantity must be a positive integer',{positionId:p.id,quantity:p.quantity});return {position:p,quantity}})
  const families=new Set(parsed.map(x=>x.position.family));const profiles=parsed.map(({position})=>profileOf(position))
  if(profiles.some(p=>p!==input.profile))throw new EngineError('INVALID_CONFIGURATION','All positions and their price snapshots must use the selected order profile')
@@ -217,7 +218,7 @@ function dispatchWithSharedContext(position:UnifiedPositionInput,allPositions:re
   switch(position.family){case'SLIDER_L3':return calculateSliderL3Commercial({...position.calculation,orderContext});case'SLIDER_L5':return calculateSliderL5Commercial({...position.calculation,orderContext});case'SLIDER_X3':return calculateSliderX3Commercial({...position.calculation,orderContext});case'SLIDER_X5':return calculateSliderX5Commercial({...position.calculation,orderContext})}
  }
  const front=position.calculation,areaPositions=buildFrontAreaPositions(allPositions)
- const order:FrontOrderAreaContext={workbook:context.workbook,sourceSha256:context.workbookSha256,positionMainRow:(10+position.slot) as 11|12|13|14|15|16|17,positions:areaPositions}
+ const order:FrontOrderAreaContext={workbook:context.workbook,sourceSha256:context.workbookSha256,positionMainRow:(10+position.slot) as 11|12|13|14|15|16|17,positions:areaPositions,frontSlot7B26:front.commercial.order.frontSlot7B26}
  return calculateFrontCommercial({...front.commercial,construction:front.construction,order,mainQuantity:position.quantity})
 }
 function buildSliderContextPositions(positions:readonly UnifiedPositionInput[],results:readonly UnifiedPositionResult[],context:UnifiedOrderContext):NonNullable<SliderL3CommercialInput['orderContext']>['positions'] {

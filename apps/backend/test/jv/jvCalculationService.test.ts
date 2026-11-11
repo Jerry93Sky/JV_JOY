@@ -152,8 +152,22 @@ test('versioned UI input contract supplies non-price fields and hydrates all sev
       ;(position.calculation as Record<string, unknown>)[path] = 2
     }
     const mode2Response = await post(mode2)
-    assert.equal(mode2Response.statusCode, 422, `${profile}/F28=2 with Front slot 7: ${mode2Response.body}`)
-    assert.equal((await post({ ...mode2, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
+    assert.equal(mode2Response.statusCode, 200, `${profile}/F28=2 with Front slot 7: ${mode2Response.body}`)
+    assert.equal(mode2Response.json<ApiResponse>().status, 'COMPLETE')
+    assert.equal((await post({ ...mode2, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 200)
+    assert.equal((await post({ ...mode2, frontSlot7B26: {value: 2} })).statusCode, 400)
+    const injectedB26 = structuredClone(mode2)
+    ;(injectedB26.positions[6]!.calculation as Record<string, unknown>)['commercial.order.frontSlot7B26'] = 2
+    assert.equal((await post(injectedB26)).statusCode, 400)
+    const legacyMode2 = structuredClone(legacyPositions)
+    for (const position of legacyMode2) {
+      const c = position.calculation as Record<string, any>
+      if (position.family === 'LINE') c.input.commercialModeIndex = 2
+      else if (position.family === 'ZIGZAG') c.position.commercial.F28 = 2
+      else if (position.family === 'FRONT') c.commercial.mainSurchargeSelector = 2
+      else c.controls.mainSurchargeSelector = 2
+    }
+    assert.equal((await post({ ...mode2, uiSchemaVersion: undefined, positions: legacyMode2 })).statusCode, 200)
     assert.equal((await post({ ...payload, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 200)
     assert.equal((await post({ ...payload, uiSchemaVersion: 'future' })).statusCode, 409)
   }
@@ -173,7 +187,9 @@ test('all 12 PR_13E Excel cases run through the HTTP endpoint and preserve engin
     const response = await post(requestFor(scenario))
     assert.equal(response.statusCode, 200, `${scenario.scenarioId}: ${response.body}`)
     const actual = response.json<ApiResponse>()
-    const expected = calculateJVOrder(scenario.engineInput)
+    const sourceFile = scenario.profile === 'COMPLETATION' ? 'completation-pr13e.json' : 'retail-pr13e.json'
+    const catalog = JSON.parse(readFileSync(resolve(process.cwd(), 'src/domain/jv/catalogs', sourceFile), 'utf8'))
+    const expected = calculateJVOrder({...scenario.engineInput, frontSlot7B26:catalog.frontSlot7B26})
     assert.equal(actual.profile, scenario.profile)
     assert.equal(actual.status, expected.status)
     assert.equal(actual.calculation.status, expected.status)

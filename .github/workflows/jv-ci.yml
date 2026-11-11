@@ -32,6 +32,10 @@ jobs:
         run: pnpm test:jv
       - name: Compare Front commercial Excel captures
         run: node --experimental-strip-types tools/jv/compare-front-commercial-r1.mjs
+      - name: Compare independent F28 and B26 Excel scenarios
+        run: |
+          node --experimental-strip-types tools/jv/compare-unified-order-f28-2.mjs
+          node --experimental-strip-types tools/jv/compare-front-slot7-b26-r2.mjs
       - name: Shared TypeScript typecheck
         run: pnpm typecheck:shared
       - name: Frontend production build

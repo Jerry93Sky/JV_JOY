@@ -93,7 +93,6 @@ export default function JVOrderPage() {
   async function calculate() {
     if (!config || !positions.length) return
     for (const p of positions) {
-      if (p.family === 'FRONT' && p.slot === 7 && p.inputs['commercial.mainSurchargeSelector'] === 2) { setError('Front в слоте 7 при отправке через ТК пока недоступен: в Excel используется отдельная неподтверждённая настройка B26.'); return }
       if (!/^[1-9]\d{0,5}$/.test(p.quantity)) { setError(`Слот ${p.slot}: количество должно быть целым от 1 до 999999.`); return }
       for (const [path, value] of Object.entries(p.inputs)) {
         const key = keyOf(path)

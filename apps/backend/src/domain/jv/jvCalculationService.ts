@@ -44,6 +44,7 @@ interface CatalogSnapshot {
   readonly sourceScenarioId: string
   readonly engineRuleVersion: string
   readonly mainDiscount: NonNullable<Parameters<typeof calculateJVOrder>[0]['mainDiscount']>
+  readonly frontSlot7B26: NonNullable<Parameters<typeof calculateJVOrder>[0]['frontSlot7B26']>
   readonly families: Readonly<Record<UnifiedFamily, CatalogFamily>>
 }
 
@@ -137,7 +138,7 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
   const orderId = request.orderId ?? correlationId
   let calculation: UnifiedOrderResult
   try {
-    calculation = calculateJVOrder({ orderId, profile: request.profile, positions, mainDiscount: catalog.mainDiscount })
+    calculation = calculateJVOrder({ orderId, profile: request.profile, positions, mainDiscount: catalog.mainDiscount, frontSlot7B26: catalog.frontSlot7B26 })
   } catch (error) {
     if (error instanceof EngineError) {
       if (error.code === 'RULE_FAILED' || error.code === 'DEPENDENCY_CYCLE' || error.code === 'DIVISION_BY_ZERO') throw error
@@ -170,6 +171,7 @@ function validateCatalog(catalog: CatalogSnapshot, profile: PriceProfile): Catal
     }
   }
   if (catalog.mainDiscount.profile !== profile || catalog.mainDiscount.workbookSha256 !== catalog.workbookSha256) throw new Error(`Main settings provenance mismatch for ${profile}`)
+  if (catalog.frontSlot7B26?.sourceCell !== 'Главная!B26' || catalog.frontSlot7B26.workbook !== catalog.workbook || catalog.frontSlot7B26.workbookSha256 !== catalog.workbookSha256 || catalog.frontSlot7B26.value !== 1 || catalog.frontSlot7B26.sourceScenarioId !== catalog.sourceScenarioId || catalog.frontSlot7B26.version !== 'JV-PR13E-B26-SCENARIO-1') throw new Error(`Front B26 scenario provenance mismatch for ${profile}`)
   if (!catalog.mainDiscount.positionMarkups?.some((entry) => entry.slot === 7) || !catalog.mainDiscount.positionDivisors?.some((entry) => entry.family === 'FRONT')) throw new Error(`Front Main price settings are missing for ${profile}`)
   return Object.freeze(catalog)
 }
@@ -263,27 +265,27 @@ function bindServerContext(family: UnifiedFamily, calculation: Record<string, un
 }
 
 function bindOrderContext(positions: readonly UnifiedPositionInput[], catalog: CatalogSnapshot): void {
-  const front = positions.find((position) => position.family === 'FRONT')
-  if (!front) return
-  const calculation = front.calculation as unknown as { construction: Record<string, unknown>; commercial: Record<string, unknown> }
-  const markup = catalog.mainDiscount.positionMarkups?.find((entry) => entry.slot === front.slot)
-  const divisor = catalog.mainDiscount.positionDivisors?.find((entry) => entry.family === 'FRONT')
-  if (!markup || !divisor) throw new JvRequestError(409, 'MAIN_SETTINGS_UNAVAILABLE', 'Server Main price settings for Front are unavailable')
-  const snapshot = calculation.commercial.snapshot as { settings?: Record<string, { value?: string }> } | undefined
-  const frontDivisor = snapshot?.settings?.D5?.value
-  if (!frontDivisor) throw new JvRequestError(409, 'FRONT_SETTINGS_UNAVAILABLE', 'Server Front divisor setting is unavailable')
-  calculation.commercial.mainQuantity = front.quantity
-  calculation.commercial.markupPercent = markup.value
-  calculation.commercial.discountPercent = catalog.mainDiscount.value
-  calculation.commercial.retailDivisor = frontDivisor
-  calculation.commercial.order = {
-    workbook: catalog.workbook,
-    sourceSha256: catalog.workbookSha256,
-    positionMainRow: 10 + front.slot,
-    positions: positions.map((position) => {
-      const dimensions = positionDimensions(position)
-      return { mainRow: 10 + position.slot, widthMm: dimensions.widthMm, heightMm: dimensions.heightMm, quantity: position.quantity }
-    }),
+  for (const front of positions.filter((position) => position.family === 'FRONT')) {
+    const calculation = front.calculation as unknown as { construction: Record<string, unknown>; commercial: Record<string, unknown> }
+    const markup = catalog.mainDiscount.positionMarkups?.find((entry) => entry.slot === front.slot)
+    const divisor = catalog.mainDiscount.positionDivisors?.find((entry) => entry.family === 'FRONT')
+    if (!markup || !divisor) throw new JvRequestError(409, 'MAIN_SETTINGS_UNAVAILABLE', 'Server Main price settings for Front are unavailable')
+    const snapshot = calculation.commercial.snapshot as { settings?: Record<string, { value?: string }> } | undefined
+    const frontDivisor = snapshot?.settings?.D5?.value
+    if (!frontDivisor) throw new JvRequestError(409, 'FRONT_SETTINGS_UNAVAILABLE', 'Server Front divisor setting is unavailable')
+    calculation.commercial.mainQuantity = front.quantity
+    calculation.commercial.markupPercent = markup.value
+    calculation.commercial.discountPercent = catalog.mainDiscount.value
+    calculation.commercial.retailDivisor = frontDivisor
+    calculation.commercial.order = {
+      workbook: catalog.workbook,
+      sourceSha256: catalog.workbookSha256,
+      positionMainRow: 10 + front.slot,
+      positions: positions.map((position) => {
+        const dimensions = positionDimensions(position)
+        return { mainRow: 10 + position.slot, widthMm: dimensions.widthMm, heightMm: dimensions.heightMm, quantity: position.quantity }
+      }),
+    }
   }
 }
 
