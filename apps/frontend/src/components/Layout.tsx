@@ -25,11 +25,7 @@ export default function Layout() {
   return (
     <div className="flex h-screen bg-background overflow-hidden">
       {/* Сайдбар — только на десктопе */}
-      <aside className="hidden md:flex w-56 flex-col border-r border-border/50"
-        style={{
-          background: 'linear-gradient(180deg, rgba(30,35,50,0.95) 0%, rgba(20,25,38,0.98) 100%)',
-          backdropFilter: 'blur(20px)',
-        }}>
+      <aside className="hidden md:flex w-56 flex-col border-r bg-card text-card-foreground">
         <div className="p-5 border-b border-border/30">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
@@ -51,7 +47,7 @@ export default function Layout() {
                 `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-150 ${
                   isActive
                     ? 'bg-primary/20 text-primary border border-primary/25 shadow-sm shadow-primary/10'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-white/5'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                 }`
               }
             >
@@ -80,11 +76,7 @@ export default function Layout() {
       </main>
 
       {/* Нижняя навигация — только на мобильных */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t border-border/50 flex overflow-x-auto z-50"
-        style={{
-          background: 'linear-gradient(180deg, rgba(30,35,50,0.97) 0%, rgba(20,25,38,0.99) 100%)',
-          backdropFilter: 'blur(20px)',
-        }}>
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t border-border/50 bg-card text-card-foreground flex overflow-x-auto z-50">
         {visibleNav.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { getThemePreference, setThemePreference, type ThemePreference } from '@/lib/theme'
 import { Users, Package, Wrench, Percent, Building2, Layers } from 'lucide-react'
 import UsersTab from '@/modules/settings/UsersTab'
 import ServicesTab from '@/modules/settings/ServicesTab'
@@ -20,6 +21,7 @@ const tabs = [
 
 export default function SettingsPage() {
   const [tab, setTab] = useState<Tab>('users')
+  const [theme,setTheme]=useState<ThemePreference>(()=>getThemePreference())
 
   return (
     <div className="space-y-4">
@@ -33,6 +35,7 @@ export default function SettingsPage() {
         ))}
       </div>
       {tab === 'users' && <UsersTab />}
+      <section className="rounded-lg border bg-card p-4"><label className="flex items-center justify-between gap-4"><span><strong>Оформление</strong><span className="block text-sm text-muted-foreground">Светлая, тёмная или системная тема</span></span><select aria-label="Тема интерфейса" className="rounded-md border bg-background px-3 py-2" value={theme} onChange={e=>{const value=e.target.value as ThemePreference;setTheme(value);setThemePreference(value)}}><option value="system">Как в системе</option><option value="light">Светлая</option><option value="dark">Тёмная</option></select></label></section>
       {tab === 'services' && <ServicesTab />}
       {tab === 'productTypes' && <ProductTypesTab />}
       {tab === 'discounts' && <DiscountThresholdsTab />}
