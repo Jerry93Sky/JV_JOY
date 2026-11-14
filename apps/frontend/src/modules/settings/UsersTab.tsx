@@ -12,10 +12,10 @@ const ROLE_LABELS: Record<Role, string> = {
   [Role.USER]: 'Пользователь', [Role.GUEST]: 'Гость',
 }
 const ROLE_COLORS: Record<Role, string> = {
-  [Role.OWNER]: 'bg-purple-500/20 text-purple-300 border border-purple-500/30',
-  [Role.ADMIN]: 'bg-blue-500/20 text-blue-300 border border-blue-500/30',
-  [Role.USER]: 'bg-slate-500/20 text-slate-300 border border-slate-500/30',
-  [Role.GUEST]: 'bg-green-500/20 text-green-300 border border-green-500/30',
+  [Role.OWNER]: 'bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/30',
+  [Role.ADMIN]: 'bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/30',
+  [Role.USER]: 'bg-slate-500/20 text-slate-700 dark:text-slate-300 border border-slate-500/30',
+  [Role.GUEST]: 'bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30',
 }
 
 interface UserForm { login: string; password: string; firstName: string; lastName: string; middleName: string; role: Role }
@@ -58,8 +58,8 @@ export default function UsersTab() {
         <Button size="sm" onClick={openCreate}><Plus size={15} className="mr-1" />Добавить пользователя</Button>
       </div>
 
-      <div className="border rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <div className="border rounded-lg overflow-x-auto">
+        <table className="w-full min-w-[560px] text-sm">
           <thead className="bg-muted text-muted-foreground">
             <tr>
               <th className="text-left px-4 py-2 font-medium">ФИО</th>
@@ -78,7 +78,7 @@ export default function UsersTab() {
                   <span className={`text-xs px-2 py-0.5 rounded-full ${ROLE_COLORS[u.role]}`}>{ROLE_LABELS[u.role]}</span>
                 </td>
                 <td className="px-4 py-2">
-                  <span className={`text-xs ${u.isActive ? 'text-green-400' : 'text-muted-foreground'}`}>
+                  <span className={`text-xs ${u.isActive ? 'text-green-700 dark:text-green-400' : 'text-muted-foreground'}`}>
                     {u.isActive ? 'Активен' : 'Отключён'}
                   </span>
                 </td>

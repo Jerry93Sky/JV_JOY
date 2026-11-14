@@ -24,18 +24,18 @@ const STAGE_LABELS: Record<DealStage, string> = {
 }
 
 const STAGE_COLORS: Partial<Record<DealStage, string>> = {
-  [DealStage.APPLICATION]:    'bg-slate-500/20 text-slate-300 border border-slate-500/30',
-  [DealStage.IN_PROGRESS]:    'bg-blue-500/20 text-blue-300 border border-blue-500/30',
-  [DealStage.INVOICE_SENT]:   'bg-amber-500/20 text-amber-300 border border-amber-500/30',
-  [DealStage.PAID]:           'bg-green-500/20 text-green-300 border border-green-500/30',
-  [DealStage.ASSEMBLY]:       'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30',
-  [DealStage.PAINTING]:       'bg-orange-500/20 text-orange-300 border border-orange-500/30',
-  [DealStage.INSTALL_FIRST]:  'bg-violet-500/20 text-violet-300 border border-violet-500/30',
-  [DealStage.INSTALL_SECOND]: 'bg-purple-500/20 text-purple-300 border border-purple-500/30',
-  [DealStage.SHIPMENT]:       'bg-lime-500/20 text-lime-300 border border-lime-500/30',
-  [DealStage.DOCS]:           'bg-teal-500/20 text-teal-300 border border-teal-500/30',
-  [DealStage.COMPLETED]:      'bg-green-500/30 text-green-200 border border-green-500/40',
-  [DealStage.FAILED]:         'bg-red-500/20 text-red-300 border border-red-500/30',
+  [DealStage.APPLICATION]:    'bg-slate-500/20 text-slate-700 dark:text-slate-300 border border-slate-500/30',
+  [DealStage.IN_PROGRESS]:    'bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/30',
+  [DealStage.INVOICE_SENT]:   'bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30',
+  [DealStage.PAID]:           'bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30',
+  [DealStage.ASSEMBLY]:       'bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30',
+  [DealStage.PAINTING]:       'bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30',
+  [DealStage.INSTALL_FIRST]:  'bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30',
+  [DealStage.INSTALL_SECOND]: 'bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/30',
+  [DealStage.SHIPMENT]:       'bg-lime-500/20 text-lime-700 dark:text-lime-300 border border-lime-500/30',
+  [DealStage.DOCS]:           'bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/30',
+  [DealStage.COMPLETED]:      'bg-green-500/30 text-green-700 dark:text-green-200 border border-green-500/40',
+  [DealStage.FAILED]:         'bg-red-500/20 text-red-700 dark:text-red-300 border border-red-500/30',
 }
 
 export { STAGE_LABELS, STAGE_COLORS }

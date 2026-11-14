@@ -13,10 +13,10 @@ const STATUS_LABELS: Record<LeadStatus, string> = {
   NEW: '1.1 Новый', IN_PROGRESS: '1.2 В работе', CONVERTED: 'Конвертирован', REJECTED: 'Отклонён',
 }
 const STATUS_COLORS: Record<LeadStatus, string> = {
-  NEW: 'bg-slate-500/20 text-slate-300 border border-slate-500/30',
-  IN_PROGRESS: 'bg-blue-500/20 text-blue-300 border border-blue-500/30',
-  CONVERTED: 'bg-green-500/20 text-green-300 border border-green-500/30',
-  REJECTED: 'bg-red-500/20 text-red-300 border border-red-500/30',
+  NEW: 'bg-slate-500/20 text-slate-700 dark:text-slate-300 border border-slate-500/30',
+  IN_PROGRESS: 'bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/30',
+  CONVERTED: 'bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30',
+  REJECTED: 'bg-red-500/20 text-red-700 dark:text-red-300 border border-red-500/30',
 }
 const SOURCE_ICONS: Record<string, React.ReactNode> = {
   CALL: <Phone size={13} />, WEBSITE: <Globe size={13} />, MANUAL: <User size={13} />, OTHER: <MessageSquare size={13} />,
@@ -39,7 +39,7 @@ function LeadRow({ lead, onClick }: { lead: LeadListItem; onClick: () => void })
               {lead.leadSource === 'CALL' ? 'Звонок' : lead.leadSource === 'WEBSITE' ? 'Сайт' : lead.leadSource === 'MANUAL' ? 'Вручную' : 'Другое'}
             </span>
             {noContact && (
-              <span className="flex items-center gap-1 text-xs text-amber-400 font-medium">
+              <span className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 font-medium">
                 <AlertCircle size={12} />Нет контакта
               </span>
             )}
@@ -50,7 +50,7 @@ function LeadRow({ lead, onClick }: { lead: LeadListItem; onClick: () => void })
               {lead.company && <span className="text-muted-foreground font-normal"> · {lead.company.name}</span>}
             </div>
           ) : (
-            <div className="mt-1 text-amber-400/80 text-sm italic">Контакт не указан</div>
+            <div className="mt-1 text-amber-700 dark:text-amber-400/80 text-sm italic">Контакт не указан</div>
           )}
           {lead.contact && <div className="text-sm text-muted-foreground">{lead.contact.phone}</div>}
           {lead.comment && <div className="text-xs text-muted-foreground mt-1 truncate">{lead.comment}</div>}

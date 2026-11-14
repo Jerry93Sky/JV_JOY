@@ -26,10 +26,10 @@ export default function SettingsPage() {
   return (
     <div className="space-y-4">
       <h1 className="text-xl font-semibold">Настройки</h1>
-      <div className="flex border-b gap-1">
+      <div className="flex overflow-x-auto border-b gap-1">
         {tabs.map(({ id, label, icon: Icon }) => (
           <button key={id} onClick={() => setTab(id)}
-            className={`flex items-center gap-2 px-4 py-2 text-sm transition-colors border-b-2 -mb-px ${tab === id ? 'border-primary text-primary font-medium' : 'border-transparent text-muted-foreground hover:text-foreground'}`}>
+            className={`flex shrink-0 whitespace-nowrap items-center gap-2 px-4 py-2 text-sm transition-colors border-b-2 -mb-px ${tab === id ? 'border-primary text-primary font-medium' : 'border-transparent text-muted-foreground hover:text-foreground'}`}>
             <Icon size={14} />{label}
           </button>
         ))}
