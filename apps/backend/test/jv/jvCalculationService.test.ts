@@ -355,3 +355,65 @@ test('Prisma JSON inputs preserve SQL-null, omitted and structured-value semanti
 test('Finance exclusions use only post-migration Prisma stages for application, invoice-waiting and failed records', () => {
   assert.deepEqual(FINANCE_EXCLUDED_STAGES, ['APPLICATION', 'INVOICE_SENT', 'FAILED'])
 })
+
+// PR_15B.1: exact projection, structural isolation and bounded trace lifecycle.
+test('compact DTO preserves commercial values and rejects cross-user trace access', async () => {
+  for (const scenario of scenarios) {
+    const payload=requestFor(scenario)
+    const legacy=await post(payload)
+    const compact=await app.inject({method:'POST',url:'/api/jv/orders/calculate-preview-v1',headers:{authorization:`Bearer ${adminToken}`},payload})
+    assert.equal(legacy.statusCode,200);assert.equal(compact.statusCode,200)
+    const a=legacy.json(),b=compact.json()
+    assert.equal(b.schemaVersion,'JV-RESULT-1');assert.equal(a.status,b.status);assert.deepEqual(a.calculation.totalSalePrice,b.calculation.totalSalePrice)
+    assert.deepEqual(a.calculation.diagnostics,b.calculation.diagnostics);assert.deepEqual(a.calculation.limitations,b.calculation.limitations)
+    assert.deepEqual(a.versions.familyPriceSnapshots,b.versions.familyPriceSnapshots)
+    assert.equal(b.calculation.bom.length,a.calculation.bom.length)
+    for(let j=0;j<a.calculation.bom.length;j++)for(const key of ['sku','description','unit','quantity','sourcePositionId','family','sourceCell','traceStepId','unitPrice','amount'])assert.deepEqual(b.calculation.bom[j][key],a.calculation.bom[j][key],key)
+    for(let i=0;i<a.calculation.positions.length;i++){
+      const x=a.calculation.positions[i],y=b.calculation.positions[i]
+      for(const key of ['id','slot','family','quantity','status','confirmedUnitAmount','diagnostics'])assert.deepEqual(y[key],x[key],key)
+      for(let j=0;j<x.bom.length;j++)for(const key of ['sku','description','unit','quantity','sourcePositionId','family','sourceCell','traceStepId','unitPrice','amount'])assert.deepEqual(y.bom[j][key],x.bom[j][key],key)
+    }
+    assert.ok(compact.body.length<legacy.body.length/2)
+    assert.equal('trace' in b.calculation,false)
+    const path=`/api/jv/orders/results/${b.traceHandle}/trace`
+    const page=await app.inject({method:'GET',url:path,headers:{authorization:`Bearer ${adminToken}`}})
+    assert.equal(page.statusCode,200);assert.ok(page.json().steps.length<=100);assert.equal(page.json().total,a.calculation.trace.length)
+    const next=await app.inject({method:'GET',url:path+'?offset=1&limit=1',headers:{authorization:`Bearer ${adminToken}`}})
+    assert.deepEqual(next.json().steps[0],page.json().steps[1])
+    assert.equal((await app.inject({method:'GET',url:path+'?limit=101',headers:{authorization:`Bearer ${adminToken}`}})).statusCode,400)
+    const filtered=await app.inject({method:'GET',url:path+'?query='+encodeURIComponent(String(page.json().steps[0].ruleId)),headers:{authorization:`Bearer ${adminToken}`}})
+    assert.ok(filtered.json().steps.some((step:any)=>step.id===page.json().steps[0].id))
+    const position=await app.inject({method:'GET',url:path+'?position='+encodeURIComponent(b.calculation.positions[0].id),headers:{authorization:`Bearer ${adminToken}`}})
+    assert.equal(position.json().total,a.calculation.positions[0].trace.length)
+    assert.equal((await app.inject({method:'GET',url:path+'?query=a&query=b',headers:{authorization:`Bearer ${adminToken}`}})).statusCode,400)
+    const other=app.jwt.sign({id:'another-admin',role:'ADMIN'})
+    assert.equal((await app.inject({method:'GET',url:path,headers:{authorization:`Bearer ${other}`}})).statusCode,404)
+    assert.equal((await app.inject({method:'GET',url:path,headers:{authorization:`Bearer ${userToken}`}})).statusCode,403)
+    assert.equal((await app.inject({method:'GET',url:path})).statusCode,401)
+  }
+})
+
+test('DTO uses a structural allowlist and trace cache expires and evicts', async () => {
+  const {createResultDto,JvTraceStore}=await import('../../src/domain/jv/jvResultDto')
+  const secret={token:'nested-secret',snapshot:{price:'secret'}}
+  const raw:any={orderId:'x',profile:'RETAIL',status:'PARTIAL',engineVersion:'1',correlationId:'x',versions:{rules:'r',provider:'p',workbook:'w',familyPriceSnapshots:{LINE:'v',unknown:secret}},calculation:{status:'PARTIAL',totalSalePrice:{numerator:1n,denominator:1n},trace:[{id:'a',input:secret,result:secret,source:{cell:'A1',snapshot:secret}}],diagnostics:[],limitations:[],bom:[{sku:'x',quantity:{numerator:1n,denominator:1n},snapshot:secret}],positions:[]},snapshot:secret}
+  const dto=createResultDto(raw), serialized=JSON.stringify(dto)
+  assert.equal(serialized.includes('nested-secret'),false);assert.equal(serialized.includes('snapshot'),false)
+  assert.equal('totalSalePrice' in dto.calculation,false)
+  let now=0;const store=new JvTraceStore(1,10000,50,()=>now)
+  const first=store.put('a',raw)!;const page=store.get('a',first,'','',0,100)!
+  assert.equal(JSON.stringify(page).includes('nested-secret'),false);assert.equal(store.get('b',first,'','',0,100),null)
+  const second=store.put('a',raw)!;assert.equal(store.get('a',first,'','',0,100),null);assert.ok(store.get('a',second,'','',0,100))
+  now=51;assert.equal(store.get('a',second,'','',0,100),null)
+  assert.equal(new JvTraceStore(1,1).put('a',raw),null)
+})
+
+test('compact partial response never publishes order total', async () => {
+  const body=requestFor(scenarios.find(x=>x.profile==='COMPLETATION')!)
+  body.positions=body.positions.filter(x=>x.family==='FRONT')
+  const front=body.positions[0]!.calculation.commercial as Record<string,unknown>
+  front.glassEnabled=false;front.finishingEnabled=false
+  const response=await app.inject({method:'POST',url:'/api/jv/orders/calculate-preview-v1',headers:{authorization:`Bearer ${adminToken}`},payload:body})
+  assert.equal(response.statusCode,200);assert.equal(response.json().status,'PARTIAL');assert.equal('totalSalePrice' in response.json().calculation,false);assert.ok(response.json().calculation.bom.length)
+})

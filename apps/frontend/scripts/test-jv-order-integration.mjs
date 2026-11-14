@@ -34,7 +34,7 @@ try {
   const sections = () => renderer.root.findAllByType('section')
   const contents = () => JSON.stringify(renderer.toJSON())
   const sent = []
-  const requestObserver = client.interceptors.request.use(request => { if (request.url === '/jv/orders/calculate-preview') sent.push(structuredClone(request.data)); return request })
+  const requestObserver = client.interceptors.request.use(request => { if (request.url === '/jv/orders/calculate-preview-v1') sent.push(structuredClone(request.data)); return request })
   await act(async () => { renderer = TestRenderer.create(React.createElement(Page)) })
   await waitFor(() => button('Добавить конструкцию') && !button('Добавить конструкцию').props.disabled)
   await act(async () => { button('Добавить конструкцию').props.onClick() })
@@ -96,7 +96,7 @@ try {
   const oldResponseGate = new Promise(resolveGate => { releaseOld = resolveGate })
   let delayed = false
   const interceptor = client.interceptors.response.use(async response => {
-    if (response.config.url === '/jv/orders/calculate-preview' && !delayed) { delayed = true; await oldResponseGate }
+    if (response.config.url === '/jv/orders/calculate-preview-v1' && !delayed) { delayed = true; await oldResponseGate }
     return response
   })
   await act(async () => { widthInput.props.onChange({ target: { value: '4300' } }) })
@@ -112,7 +112,7 @@ try {
   const errors = [[400, 'сервер отклонил ввод'], [401, 'Сессия истекла'], [403, 'Недостаточно прав'], [409, 'Версия правил'], [500, 'Ошибка сервера'], [null, 'Нет соединения']]
   for (const [status, message] of errors) {
     const errorInterceptor = client.interceptors.response.use(response => {
-      if (response.config.url === '/jv/orders/calculate-preview') throw Object.assign(new Error('simulated test error'), { isAxiosError: true, response: status ? { status, data: { error: { issues: [] } } } : undefined })
+      if (response.config.url === '/jv/orders/calculate-preview-v1') throw Object.assign(new Error('simulated test error'), { isAxiosError: true, response: status ? { status, data: { error: { issues: [] } } } : undefined })
       return response
     })
     await act(async () => { button('Рассчитать').props.onClick() })

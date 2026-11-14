@@ -1,0 +1,5 @@
+# Multicore architecture plan
+
+The synchronous engine and trace projection block the Node event loop; v1 reduces serialization cost but does not parallelize calculations. Measure real HTTP under an isolated reproducible workload, fixed versions, 1/2/4/8 workers/processes, controlled warmup, 1/8/32 concurrent clients, both profiles, single/all-seven/PARTIAL and realistic trace/BOM sizes. Record p50/p95/p99, CPU, event-loop lag, memory, errors, queue wait, limits and stable throughput over a longer run; check exact rational output and role isolation against the baseline.
+
+Evaluate a bounded worker pool with bounded input queue, cancellation, deadlines and overload responses; structured-clone overhead and trace transfer must be included. Multiple processes or horizontal instances require sticky routing for the current ephemeral trace cache, or a separately designed shared, access-controlled TTL store with byte limits. Avoid unbounded queues or per-request workers. No worker, queue or production capacity claim is introduced in this PR.

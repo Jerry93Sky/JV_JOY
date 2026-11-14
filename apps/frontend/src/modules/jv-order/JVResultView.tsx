@@ -1,5 +1,4 @@
-import { memo, useMemo, useState } from 'react'
-import { type UnifiedBomLine, type UnifiedPositionResult } from '@bms/shared/jv'
+import { memo, useEffect, useState } from 'react'
 import {
   object,
   rational,
@@ -10,7 +9,7 @@ import {
   address,
   type RecordData,
 } from './jvResultAdapter'
-import type { JvPreviewResponse, JvUiValue } from '@/api/jv'
+import { getJvTrace, type JvPreviewResponse, type JvUiValue, type JvResultBomLine } from '@/api/jv'
 
 type InputPosition = { id: string; inputs: Record<string, JvUiValue> }
 
@@ -18,7 +17,7 @@ const BomTable = memo(function BomTable({
   lines,
   confirmed,
 }: {
-  lines: readonly UnifiedBomLine[]
+  lines: readonly JvResultBomLine[]
   confirmed: boolean
 }) {
   if (!lines.length) return <p>Нет доступных строк спецификации.</p>
@@ -125,20 +124,34 @@ function GlassPieces({ value }: { value: unknown }) {
     </table>
   )
 }
-function Trace({ steps }: { steps: readonly unknown[] }) {
-  const [query, setQuery] = useState(''),
-    [limit, setLimit] = useState(100)
-  const filtered = useMemo(
-    () =>
-      steps
-        .map(object)
-        .filter((s) =>
-          [s.id, s.kind, s.ruleId, s.source?.sheet, s.source?.cell].some(
-            (v) => typeof v === 'string' && v.toLowerCase().includes(query.toLowerCase()),
-          ),
-        ),
-    [steps, query],
-  )
+function Trace({ handle, position }: { handle: string | null; position: string }) {
+  const [query, setQuery] = useState('')
+  const [offset, setOffset] = useState(0)
+  const [page, setPage] = useState<{ steps: unknown[]; total: number } | null>(null)
+  const [error, setError] = useState('')
+  useEffect(() => {
+    setPage(null)
+    setError('')
+    if (!handle) {
+      setError('Трассировка недоступна.')
+      return
+    }
+    const controller = new AbortController()
+    const timer = setTimeout(() => {
+      getJvTrace(handle, position, query, offset, controller.signal)
+        .then(setPage)
+        .catch(() => {
+          if (!controller.signal.aborted)
+            setError(
+              'Трассировка недоступна или срок её хранения истёк. Выполните расчёт повторно.',
+            )
+        })
+    }, 250)
+    return () => {
+      clearTimeout(timer)
+      controller.abort()
+    }
+  }, [handle, position, query, offset])
   return (
     <>
       <label className="block text-sm">
@@ -148,48 +161,62 @@ function Trace({ steps }: { steps: readonly unknown[] }) {
           value={query}
           onChange={(e) => {
             setQuery(e.target.value)
-            setLimit(100)
+            setOffset(0)
           }}
         />
       </label>
-      <p className="text-sm">
-        Найдено: {filtered.length}; показано: {Math.min(limit, filtered.length)}
-      </p>
-      <ol className="space-y-2">
-        {filtered.slice(0, limit).map((s, i) => (
-          <li className="rounded border p-2 text-sm" key={`${s.id}-${i}`}>
-            <div>
-              {String(s.label ?? s.id ?? 'Шаг')} · {String(s.status ?? '—')}
-            </div>
-            <div>
-              Правило: {String(s.ruleId ?? '—')} · тип: {String(s.kind ?? '—')} · источник:{' '}
-              {address(s.source)}
-            </div>
-            <div>
-              Зависимости:{' '}
-              {Array.isArray(s.inputRefs)
-                ? s.inputRefs.filter((x: unknown) => typeof x === 'string').join(', ')
-                : '—'}
-            </div>
-            <div>Результат: {scalar(s.result)}</div>
-            {Array.isArray(s.errorIds) && s.errorIds.length > 0 && (
-              <div>Ошибки: {s.errorIds.join(', ')}</div>
-            )}
-            {Array.isArray(s.warningIds) && s.warningIds.length > 0 && (
-              <div>Предупреждения: {s.warningIds.join(', ')}</div>
-            )}
-          </li>
-        ))}
-      </ol>
-      {filtered.length > limit && (
-        <button className="rounded border p-2" onClick={() => setLimit(limit + 100)}>
-          Показать ещё 100
-        </button>
+      {error && <p role="alert">{error}</p>}
+      {!page && !error && <p>Загрузка трассировки…</p>}
+      {page && (
+        <>
+          <p className="text-sm">
+            Найдено: {page.total}; показано: {Math.min(offset + page.steps.length, page.total)}
+          </p>
+          <ol className="space-y-2">
+            {page.steps.map((raw, i) => {
+              const s = object(raw)
+              return (
+                <li className="rounded border p-2 text-sm" key={`${s.id}-${i}`}>
+                  <div>
+                    {String(s.label ?? s.id ?? 'Шаг')} · {String(s.status ?? '—')}
+                  </div>
+                  <div>
+                    Правило: {String(s.ruleId ?? '—')} · тип: {String(s.kind ?? '—')} · источник:{' '}
+                    {address(s.source)}
+                  </div>
+                  <div>
+                    Зависимости: {Array.isArray(s.inputRefs) ? s.inputRefs.join(', ') : '—'}
+                  </div>
+                  <div>Результат: {scalar(s.result)}</div>
+                  {Array.isArray(s.errorIds) && s.errorIds.length > 0 && (
+                    <div>Ошибки: {s.errorIds.join(', ')}</div>
+                  )}
+                  {Array.isArray(s.warningIds) && s.warningIds.length > 0 && (
+                    <div>Предупреждения: {s.warningIds.join(', ')}</div>
+                  )}
+                </li>
+              )
+            })}
+          </ol>
+          {offset > 0 && (
+            <button
+              className="rounded border p-2"
+              onClick={() => setOffset(Math.max(0, offset - 100))}
+            >
+              Назад
+            </button>
+          )}
+          {offset + page.steps.length < page.total && (
+            <button className="rounded border p-2" onClick={() => setOffset(offset + 100)}>
+              Показать ещё 100
+            </button>
+          )}
+        </>
       )}
     </>
   )
 }
-function Cuts({ position }: { position: UnifiedPositionResult }) {
+function Cuts({ position }: { position: JvPreviewResponse['calculation']['positions'][number] }) {
   const c = object(position.calculation),
     g = object(c.geometry)
   const lines =
@@ -226,8 +253,10 @@ function Cuts({ position }: { position: UnifiedPositionResult }) {
 function PositionDetails({
   position,
   input,
+  handle,
 }: {
-  position: UnifiedPositionResult
+  handle: string | null
+  position: JvPreviewResponse['calculation']['positions'][number]
   input?: InputPosition
 }) {
   const c = object(position.calculation),
@@ -333,8 +362,8 @@ function PositionDetails({
       <Details title="Расходные материалы">
         <Values values={object(c.consumables)} />
       </Details>
-      <Details title={`Шаги расчёта (${position.trace.length})`}>
-        <Trace steps={position.trace} />
+      <Details title={`Шаги расчёта (${position.traceCount})`}>
+        <Trace handle={handle} position={position.id} />
       </Details>
     </section>
   )
@@ -393,10 +422,15 @@ export default function JVResultView({
         <BomTable lines={calculation.bom} confirmed={result.status === 'COMPLETE'} />
       </Details>
       {calculation.positions.map((p) => (
-        <PositionDetails key={p.id} position={p} input={inputs.find((i) => i.id === p.id)} />
+        <PositionDetails
+          key={p.id}
+          position={p}
+          handle={result.traceHandle}
+          input={inputs.find((i) => i.id === p.id)}
+        />
       ))}
-      <Details title={`Шаги заказа (${calculation.trace.length})`}>
-        <Trace steps={calculation.trace} />
+      <Details title={`Шаги заказа (${calculation.traceCount})`}>
+        <Trace handle={result.traceHandle} position="" />
       </Details>
     </section>
   )

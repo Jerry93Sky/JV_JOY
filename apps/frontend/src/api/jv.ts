@@ -1,4 +1,4 @@
-import type { PriceProfile, UnifiedFamily, UnifiedOrderResult, UnifiedPositionInput } from '@bms/shared/jv'
+import type { PriceProfile, UnifiedFamily, UnifiedPositionInput } from '@bms/shared/jv'
 import api from './client'
 
 type PositionFor<F extends UnifiedFamily> = Extract<UnifiedPositionInput, { family: F }>
@@ -56,6 +56,9 @@ export interface JvUiPreviewRequest {
   positions: readonly { id: string; slot: number; family: UnifiedFamily; quantity: string; calculation: Record<string, JvUiValue>; configurationId?: string }[]
 }
 
+export interface JvResultRational { numerator: string; denominator: string }
+export interface JvResultBomLine { sku: string; description: string; unit: string; quantity: JvResultRational; sourcePositionId: string; family: UnifiedFamily; sourceCell?: string; traceStepId?: string; unitPrice?: JvResultRational; amount?: JvResultRational }
+export interface JvResultPosition { id: string; slot: number; family: UnifiedFamily; status: 'COMPLETE' | 'PARTIAL'; quantity: JvResultRational; confirmedUnitAmount?: JvResultRational; bom: JvResultBomLine[]; diagnostics: string[]; traceCount: number; calculation: Record<string, unknown> }
 export interface JvPreviewResponse {
   correlationId: string
   orderId: string
@@ -63,13 +66,15 @@ export interface JvPreviewResponse {
   engineVersion: string
   versions: { rules: string; provider: string; workbook: string; workbookSha256: string; familyPriceSnapshots: Record<string, string> }
   status: 'COMPLETE' | 'PARTIAL'
-  calculation: UnifiedOrderResult
+  schemaVersion: 'JV-RESULT-1'
+  traceHandle: string | null
+  calculation: { status: 'COMPLETE' | 'PARTIAL'; totalSalePrice?: JvResultRational; positions: JvResultPosition[]; bom: JvResultBomLine[]; diagnostics: string[]; limitations: string[]; traceCount: number }
 }
 
 export const JV_RULES_VERSION = 'JV-UNIFIED-ORDER-PR13E-1'
 
 export async function calculateJvPreview(request: JvPreviewRequest | JvUiPreviewRequest, signal?: AbortSignal): Promise<JvPreviewResponse> {
-  const response = await api.post<JvPreviewResponse>('/jv/orders/calculate-preview', request, { signal })
+  const response = await api.post<JvPreviewResponse>('/jv/orders/calculate-preview-v1', request, { signal })
   return response.data
 }
 
@@ -80,4 +85,9 @@ export async function getJvUiConfig(profile: PriceProfile, signal?: AbortSignal)
 
 export function canCalculateJv(role: string | undefined): boolean {
   return role === 'OWNER' || role === 'ADMIN'
+}
+
+export async function getJvTrace(handle: string, position: string, query: string, offset: number, signal: AbortSignal): Promise<{steps: unknown[]; total: number; offset: number; limit: number}> {
+  const response = await api.get(`/jv/orders/results/${encodeURIComponent(handle)}/trace`, { params: { position, query, offset, limit: 100 }, signal })
+  return response.data
 }
