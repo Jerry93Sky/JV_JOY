@@ -10,12 +10,15 @@ const FAMILIES = ['LINE', 'ZIGZAG', 'SLIDER_L3', 'SLIDER_L5', 'SLIDER_X3', 'SLID
 export const JV_ORDER_RULES_VERSION = 'JV-UNIFIED-ORDER-PR13E-1'
 const MAX_DECIMAL_LENGTH = 64
 const MAX_POSITIONS = 7
+const FRONT_DOOR_ID = 'JV-FRONT-FITTINGS-I42-2-PR15A-1'
+const DOOR_FAMILIES = ['LINE','ZIGZAG','SLIDER_L3','SLIDER_L5','SLIDER_X3','SLIDER_X5','FRONT'] as const
 
 const positionShape = (family: UnifiedFamily) => z.object({
   id: z.string().trim().min(1).max(80),
   slot: z.number().int().min(1).max(7),
   family: z.literal(family),
   quantity: z.string().min(1).max(MAX_DECIMAL_LENGTH),
+  configurationId: z.string().trim().min(1).max(100).optional(),
   calculation: z.record(z.unknown()),
 }).strict()
 
@@ -59,6 +62,7 @@ export interface JvPreviewVersions {
   readonly workbook: string
   readonly workbookSha256: string
   readonly familyPriceSnapshots: Readonly<Record<string, string>>
+  readonly configurationProfiles?: readonly string[]
 }
 
 export interface JvPreviewResult {
@@ -87,7 +91,20 @@ export function getJvUiFormConfig(profile: unknown) {
     profile,
     families: Object.fromEntries(FAMILIES.map(family => [family, getUiDefaults(family, catalog.families[family].requestShape)])),
     fieldMetadata: Object.fromEntries(FAMILIES.map(family => [family, getUiMetadata(family, catalog.families[family].requestShape)])),
+    frontDoorProfile: {id:FRONT_DOOR_ID,label:'Front с дверью — проверенный заказ из 7 систем',defaults:getUiDefaults('FRONT',frontDoorTemplate(catalog)),fieldMetadata:frontDoorMetadata(catalog),slots:DOOR_FAMILIES,restriction:'Доступен только для проверенного состава заказа: 7 систем в слотах 1–7, по одной конструкции; фиксированные параметры.'},
   }
+}
+
+function frontDoorTemplate(catalog: CatalogSnapshot): Record<string, unknown> {
+  const result=structuredClone(catalog.families.FRONT.requestShape) as any
+  Object.assign(result.construction,{widthMm:'3300',heightMm:'2350',sectionDemand:'3',openingSelector:1})
+  Object.assign(result.construction.controls,{C18:1,C19:2,C20:2,C21:2,C22:8,C23:10,C24:2,D18:'1000',D19:'2150'})
+  Object.assign(result.construction.settings,{H44:1,I42:2})
+  return result
+}
+function frontDoorMetadata(catalog: CatalogSnapshot) {
+  const template=frontDoorTemplate(catalog),defaults=getUiDefaults('FRONT',template)
+  return getUiMetadata('FRONT',template).map(field=>field.path==='commercial.mainSurchargeSelector'?field:{...field,status:'LIMITED',dependsOn:'Зафиксировано для проверенного примера с дверью',...(field.options?{options:field.options.map(option=>({...option,supported:option.value===defaults[field.path]}))}:{})})
 }
 
 /** Runtime validates caller data, then attaches only server-owned price sources before the real Engine call. */
@@ -99,6 +116,21 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
   if (request.uiSchemaVersion && request.uiSchemaVersion !== JV_UI_SCHEMA_VERSION && request.uiSchemaVersion !== JV_UI_LEGACY_SCHEMA_VERSION) throw new JvRequestError(409, 'UI_SCHEMA_VERSION_MISMATCH', 'Requested JV input schema is unavailable')
   if (request.rulesVersion !== catalog.engineRuleVersion) throw new JvRequestError(409, 'RULE_VERSION_MISMATCH', 'Requested JV rule version is unavailable')
   if (request.priceSnapshotVersion && request.priceSnapshotVersion !== catalog.providerId) throw new JvRequestError(409, 'PRICE_PROFILE_MISMATCH', 'Requested price snapshot does not match the selected profile')
+
+  const doorPositions=request.positions.filter(p=>p.configurationId!==undefined)
+  if(doorPositions.some(p=>p.configurationId!==FRONT_DOOR_ID||p.family!=='FRONT')||doorPositions.length>1)throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Unknown or incompatible Front configuration')
+  if(doorPositions.length){
+    if(request.uiSchemaVersion!==JV_UI_SCHEMA_VERSION||request.positions.length!==7)throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Door profile requires seven source-backed UI positions')
+    for(let i=0;i<DOOR_FAMILIES.length;i++){
+      const p=request.positions.find(x=>x.slot===i+1),family=DOOR_FAMILIES[i]!
+      if(!p||p.family!==family||p.quantity!=='1'||(family==='FRONT'&&p.configurationId!==FRONT_DOOR_ID))throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Door profile requires the verified family and quantity in each slot')
+      const sample=family==='FRONT'?frontDoorTemplate(catalog):catalog.families[family].requestShape
+      const defaults=getUiDefaults(family,sample)
+      for(const [path,value] of Object.entries(defaults)){
+        if(['input.commercialModeIndex','position.commercial.F28','controls.mainSurchargeSelector','commercial.mainSurchargeSelector'].includes(path)){if(![1,2].includes(p.calculation[path] as number))throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Unsupported transport')}else if(p.calculation[path]!==value)throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Door profile only supports verified input values',[`slot ${i+1}: ${path}`])
+      }
+    }
+  }
 
   const ids = new Set<string>()
   const slots = new Set<number>()
@@ -113,17 +145,18 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
 
     const familyCatalog = catalog.families[position.family]
     if (!familyCatalog) throw new JvRequestError(409, 'FAMILY_SNAPSHOT_UNAVAILABLE', `No server snapshot is available for ${position.family}`)
+    const template=position.configurationId===FRONT_DOOR_ID?frontDoorTemplate(catalog):familyCatalog.requestShape
     let calculation = structuredClone(position.calculation) as Record<string, unknown>
     if (request.uiSchemaVersion) {
-      const hydrated = hydrateUiInputs(position.family, familyCatalog.requestShape, calculation)
+      const hydrated = hydrateUiInputs(position.family, template, calculation)
       if (!hydrated.calculation) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'UI inputs do not match the permitted fields', hydrated.issues.slice(0, 20))
       calculation = hydrated.calculation
     }
-    const shapeIssues = validateShape(calculation, familyCatalog.requestShape, `positions.${index}.calculation`)
+    const shapeIssues = validateShape(calculation, template, `positions.${index}.calculation`)
     validatePhysicalInputs(position.family, calculation, `positions.${index}.calculation`, shapeIssues)
     if (shapeIssues.length) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'Calculation inputs do not match the supported typed contract', shapeIssues.slice(0, 20))
     const userInputs = getUiDefaults(position.family, calculation)
-    const optionIssues = validateUiOptions(position.family, familyCatalog.requestShape, userInputs)
+    const optionIssues = position.configurationId===FRONT_DOOR_ID?[]:validateUiOptions(position.family, template, userInputs)
     if (optionIssues.length) throw new JvRequestError(422, 'UNSUPPORTED_UI_SELECTOR', 'Selected UI option is not supported', optionIssues.slice(0, 20))
     const modePaths: Record<UnifiedFamily, string> = { LINE: 'input.commercialModeIndex', ZIGZAG: 'position.commercial.F28', SLIDER_L3: 'controls.mainSurchargeSelector', SLIDER_L5: 'controls.mainSurchargeSelector', SLIDER_X3: 'controls.mainSurchargeSelector', SLIDER_X5: 'controls.mainSurchargeSelector', FRONT: 'commercial.mainSurchargeSelector' }
     transportModes.add(userInputs[modePaths[position.family]])
@@ -139,6 +172,7 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
   let calculation: UnifiedOrderResult
   try {
     calculation = calculateJVOrder({ orderId, profile: request.profile, positions, mainDiscount: catalog.mainDiscount, frontSlot7B26: catalog.frontSlot7B26 })
+    if(doorPositions.length)calculation=Object.freeze({...calculation,trace:Object.freeze([...calculation.trace,Object.freeze({id:'JV.FRONT.PROFILE.I42',kind:'configuration',label:'Front: подтверждённый профиль с дверью',ruleId:FRONT_DOOR_ID,input:{profile:request.profile,workbookSha256:catalog.workbookSha256,slot:7},result:{configurationId:FRONT_DOOR_ID,I42:2},status:'ok',source:{workbook:catalog.workbook,sheet:'Настройки',cell:'I42',formula:'2'},inputRefs:[],catalogRefs:[{id:FRONT_DOOR_ID,version:JV_ORDER_RULES_VERSION}],errorIds:[],warningIds:[]})])})
   } catch (error) {
     if (error instanceof EngineError) {
       if (error.code === 'RULE_FAILED' || error.code === 'DEPENDENCY_CYCLE' || error.code === 'DIVISION_BY_ZERO') throw error
@@ -155,7 +189,7 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
     orderId,
     profile: request.profile,
     engineVersion: 'JV-UNIFIED-ORDER-1',
-    versions: Object.freeze({ rules: catalog.engineRuleVersion, provider: catalog.providerId, workbook: catalog.workbook, workbookSha256: catalog.workbookSha256, familyPriceSnapshots: Object.freeze(familyPriceSnapshots) }),
+    versions: Object.freeze({ rules: catalog.engineRuleVersion, provider: catalog.providerId, workbook: catalog.workbook, workbookSha256: catalog.workbookSha256, familyPriceSnapshots: Object.freeze(familyPriceSnapshots), ...(doorPositions.length?{configurationProfiles:[FRONT_DOOR_ID]}:{}) }),
     status: calculation.status,
     calculation,
   })

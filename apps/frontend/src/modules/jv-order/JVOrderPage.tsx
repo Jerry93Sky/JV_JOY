@@ -12,7 +12,7 @@ const families: { value: UnifiedFamily; label: string }[] = [
   { value: 'SLIDER_X3', label: 'Slider X3' }, { value: 'SLIDER_X5', label: 'Slider X5' },
   { value: 'FRONT', label: 'JV-Front' },
 ]
-type DraftPosition = { id: string; family: UnifiedFamily; slot: number; quantity: string; inputs: Record<string, JvUiValue> }
+type DraftPosition = { id: string; family: UnifiedFamily; slot: number; quantity: string; inputs: Record<string, JvUiValue>; configurationId?: string }
 type Profile = 'COMPLETATION' | 'RETAIL'
 const selectClass = 'h-9 w-full rounded-md border border-input bg-background px-3 text-sm'
 const labels: Record<string, string> = {
@@ -57,7 +57,7 @@ export default function JVOrderPage() {
     getJvUiConfig(profile, controller.signal).then(value => {
       if (controller.signal.aborted) return
       setConfig(value)
-      setPositions(old => old.map(p => ({ ...p, inputs: Object.fromEntries(Object.entries(value.families[p.family]).map(([path, initial]) => [path, typeof p.inputs[path] === typeof initial ? p.inputs[path] : initial])) })))
+      setPositions(old => old.map(p => { const fixed=old.some(x=>x.configurationId); const defaults=p.configurationId?value.frontDoorProfile.defaults:value.families[p.family]; return {...p,inputs:Object.fromEntries(Object.entries(defaults).map(([path,initial])=>[path,(!fixed||transportField(path))&&typeof p.inputs[path]===typeof initial?p.inputs[path]:initial]))} }))
     }).catch(e => { if (!controller.signal.aborted) setError(axios.isAxiosError(e) && e.response?.status === 403 ? 'Недостаточно прав для расчёта.' : 'Не удалось загрузить параметры форм.') })
     return () => controller.abort()
   }, [profile, allowed])
@@ -73,7 +73,12 @@ export default function JVOrderPage() {
     const inputs = { ...(copy?.inputs ?? config.families.LINE) }
     const existingMode = positions.flatMap(p => Object.entries(p.inputs).filter(([path]) => transportField(path)))[0]?.[1]
     if (existingMode !== undefined) for (const path of Object.keys(inputs)) if (transportField(path)) inputs[path] = existingMode
-    setPositions(old => [...old, { id: crypto.randomUUID(), slot, family: copy?.family ?? 'LINE', quantity: copy?.quantity ?? '1', inputs }])
+    setPositions(old => [...old, { id: crypto.randomUUID(), slot, family: copy?.family ?? 'LINE', quantity: copy?.quantity ?? '1', inputs, configurationId:copy?.configurationId }])
+  }
+  function addDoorExample() {
+    if (!config || positions.length) return
+    invalidate()
+    setPositions(config.frontDoorProfile.slots.map((family,index)=>({id:crypto.randomUUID(),slot:index+1,family,quantity:'1',inputs:{...(family==='FRONT'?config.frontDoorProfile.defaults:config.families[family])},...(family==='FRONT'?{configurationId:config.frontDoorProfile.id}:{})})))
   }
   function update(id: string, change: Partial<Pick<DraftPosition, 'slot' | 'family' | 'quantity' | 'inputs'>>) {
     invalidate(); setPositions(old => old.map(p => p.id === id ? { ...p, ...change } : p))
@@ -102,7 +107,7 @@ export default function JVOrderPage() {
     }
     invalidate(); const requestGeneration = generation.current, controller = new AbortController(); activeRequest.current = controller; setLoading(true)
     try {
-      const response = await calculateJvPreview({ profile, rulesVersion: config.rulesVersion, uiSchemaVersion: config.schemaVersion, positions: positions.map(p => ({ id: p.id, family: p.family, slot: p.slot, quantity: p.quantity, calculation: p.inputs })) }, controller.signal)
+      const response = await calculateJvPreview({ profile, rulesVersion: config.rulesVersion, uiSchemaVersion: config.schemaVersion, positions: positions.map(p => ({ id: p.id, family: p.family, slot: p.slot, quantity: p.quantity, calculation: p.inputs, ...(p.configurationId?{configurationId:p.configurationId}:{}) })) }, controller.signal)
       if (generation.current === requestGeneration && !controller.signal.aborted) setResult(response)
     } catch (e) {
       if (generation.current !== requestGeneration || controller.signal.aborted) return
@@ -120,22 +125,24 @@ export default function JVOrderPage() {
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
     <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>
     <div className="flex items-center justify-between gap-3"><h2 className="text-lg font-medium">Конструкции ({positions.length}/7)</h2><Button onClick={() => add()} disabled={!config || positions.length >= 7}>Добавить конструкцию</Button></div>
+    {positions.length===0 && config && <Button variant="outline" onClick={addDoorExample}>{config.frontDoorProfile.label}</Button>}
+    {positions.some(p=>p.configurationId) && <div className="rounded border p-3 text-sm"><p>{config?.frontDoorProfile.restriction} Транспорт можно переключать.</p><Button variant="outline" onClick={()=>{invalidate();setPositions([])}}>Очистить пример</Button></div>}
     {positions.length === 7 && <p className="text-sm text-muted-foreground">Все семь слотов заняты. Для новой позиции удалите одну из существующих.</p>}
     {positions.length === 0 && <p className="rounded-lg border border-dashed p-6 text-sm text-muted-foreground">Добавьте первую конструкцию. Доступно до семи отдельных слотов.</p>}
     {positions.map((p, index) => <section key={p.id} className="space-y-4 rounded-lg border bg-card p-4">
       <h3 className="font-medium">Позиция {index + 1} · слот {p.slot}</h3>
       <div className="grid gap-3 sm:grid-cols-3">
-        <label className="space-y-1 text-sm">Семейство<select className={selectClass} value={p.family} onChange={e => { const family = e.target.value as UnifiedFamily; if (config) { const inputs = { ...config.families[family] }; const mode = Object.entries(p.inputs).find(([path]) => transportField(path))?.[1]; if (mode !== undefined) for (const path of Object.keys(inputs)) if (transportField(path)) inputs[path] = mode; update(p.id, { family, inputs }) } }}>{families.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}</select></label>
-        <label className="space-y-1 text-sm">Слот<select className={selectClass} value={p.slot} onChange={e => update(p.id, { slot: Number(e.target.value) })}>{[1, 2, 3, 4, 5, 6, 7].map(s => <option key={s} value={s} disabled={s !== p.slot && positions.some(other => other.slot === s)}>{s}</option>)}</select></label>
-        <label className="space-y-1 text-sm">Количество, шт.<Input inputMode="numeric" value={p.quantity} aria-invalid={!/^[1-9]\d{0,5}$/.test(p.quantity)} onChange={e => update(p.id, { quantity: e.target.value })}/></label>
+        <label className="space-y-1 text-sm">Семейство<select disabled={positions.some(x=>x.configurationId)} className={selectClass} value={p.family} onChange={e => { const family = e.target.value as UnifiedFamily; if (config) { const inputs = { ...config.families[family] }; const mode = Object.entries(p.inputs).find(([path]) => transportField(path))?.[1]; if (mode !== undefined) for (const path of Object.keys(inputs)) if (transportField(path)) inputs[path] = mode; update(p.id, { family, inputs }) } }}>{families.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}</select></label>
+        <label className="space-y-1 text-sm">Слот<select disabled={positions.some(x=>x.configurationId)} className={selectClass} value={p.slot} onChange={e => update(p.id, { slot: Number(e.target.value) })}>{[1, 2, 3, 4, 5, 6, 7].map(s => <option key={s} value={s} disabled={s !== p.slot && positions.some(other => other.slot === s)}>{s}</option>)}</select></label>
+        <label className="space-y-1 text-sm">Количество, шт.<Input disabled={positions.some(x=>x.configurationId)} inputMode="numeric" value={p.quantity} aria-invalid={!/^[1-9]\d{0,5}$/.test(p.quantity)} onChange={e => update(p.id, { quantity: e.target.value })}/></label>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{Object.entries(p.inputs).map(([path, value]) => {
-        const field = config?.fieldMetadata[p.family].find(entry => entry.path === path)
+        const field = (p.configurationId?config?.frontDoorProfile.fieldMetadata:config?.fieldMetadata[p.family])?.find(entry => entry.path === path)
         const options = field?.options
-        const disabled = fieldDisabled(path, p.inputs)
+        const disabled = fieldDisabled(path, p.inputs) || (positions.some(x=>x.configurationId) && !transportField(path))
         return <label key={path} className="space-y-1 text-sm"><span className="block">{field ? `${field.label}${field.unit ? `, ${field.unit}` : ''}` : fieldLabel(path)}</span>{typeof value === 'boolean' ? <input type="checkbox" checked={value} disabled={disabled} onChange={e => updateField(p.id, path, e.target.checked)}/> : options ? <select className={selectClass} value={String(value)} disabled={disabled || options.filter(option => option.supported).length <= 1} onChange={e => updateField(p.id, path, typeof value === 'number' ? Number(e.target.value) : e.target.value)}>{options.map(option => <option key={String(option.value)} value={String(option.value)} disabled={!option.supported}>{option.label}{!option.supported ? ' (не поддерживается)' : ''}</option>)}</select> : <Input value={String(value)} inputMode="decimal" disabled={disabled} onChange={e => updateField(p.id, path, e.target.value)}/>} {field?.status === 'LIMITED' && <span className="block text-xs text-muted-foreground">{field.dependsOn ?? 'Часть вариантов пока не подтверждена.'}</span>}</label>
       })}</div>
-      <div className="flex flex-wrap gap-2"><Button variant="outline" onClick={() => move(index, -1)} disabled={index === 0}>Выше</Button><Button variant="outline" onClick={() => move(index, 1)} disabled={index === positions.length - 1}>Ниже</Button><Button variant="outline" onClick={() => add(p)} disabled={positions.length >= 7}>Дублировать</Button><Button variant="outline" onClick={() => { invalidate(); setPositions(old => old.filter(item => item.id !== p.id)) }}>Удалить</Button></div>
+      <div className="flex flex-wrap gap-2"><Button variant="outline" onClick={() => move(index, -1)} disabled={index === 0}>Выше</Button><Button variant="outline" onClick={() => move(index, 1)} disabled={index === positions.length - 1}>Ниже</Button><Button variant="outline" onClick={() => add(p)} disabled={positions.length >= 7}>Дублировать</Button><Button variant="outline" disabled={positions.some(x=>x.configurationId)} onClick={() => { invalidate(); setPositions(old => old.filter(item => item.id !== p.id)) }}>Удалить</Button></div>
     </section>)}
     <Button onClick={calculate} disabled={!config || !positions.length || loading}>{loading ? 'Выполняется расчёт…' : 'Рассчитать'}</Button>
     {error && <p role="alert" className="rounded border border-destructive/40 p-3 text-sm text-destructive">{error}</p>}

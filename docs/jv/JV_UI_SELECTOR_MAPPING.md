@@ -1,5 +1,7 @@
 # PR_15A: реестр полей и селекторов JV
 
+Исключение для одного подтверждённого примера Front с дверью: [JV_FRONT_DOOR_PROFILE_MAPPING.md](./JV_FRONT_DOOR_PROFILE_MAPPING.md). Ограничения обычного профиля ниже остаются в силе.
+
 Проверены обе исходные книги XLSM только для чтения: значения листа `#1`, формулы и связи управляющих элементов в XML книг; изменения в книги не записывались. `openpyxl` сообщает о неподдерживаемых расширениях Data Validation, поэтому их полное покрытие не заявляется. Предыдущие результаты Excel 16.0: [FRONT_SELECTOR_MAPPING](./FRONT_SELECTOR_MAPPING.md), [LINE_LAB_TEST_REPORT](./LINE_LAB_TEST_REPORT.md), [VBA_STATIC_ANALYSIS](./VBA_STATIC_ANALYSIS.md). В данном запуске новый Excel-пересчёт для отдельных вариантов не выполнялся.
 
 Состав реестра полностью соответствует `JV_UI_INPUT_PATHS` в `apps/backend/src/domain/jv/jvUiInputs.ts`. Числа вариантов ниже — значения API, а не цены. `LIMITED` означает, что доступность или parity всех вариантов не установлена. `CONFIRMED` в API обозначает представление поля, а не доказательство Excel parity для всех сочетаний.

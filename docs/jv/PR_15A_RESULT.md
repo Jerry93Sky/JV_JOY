@@ -2,6 +2,8 @@
 
 База: опубликованный `feature/jv-full-ui`, коммит `b2017c9444cf722133607169fa571450c410b7d2`. Draft PR #5 остаётся открытым. Редактор выполняет реальные расчёты, но PR_15A **остаётся PARTIAL**: полный набор вариантов комплектации и parity всех селекторов не подтверждены. Настоящий browser E2E выполнен, см. [отчёт](./JV_UI_BROWSER_E2E_REPORT.md).
 
+Для одного фиксированного all-seven примера добавлен профиль Front с дверью I42=2; другие дверные варианты остаются ограничены. См. [PR_15A_FRONT_DOOR_RESULT.md](./PR_15A_FRONT_DOOR_RESULT.md).
+
 ## Функциональность
 
 - Защищённый маршрут `/jv/orders/new` и пункт меню для `OWNER`/`ADMIN`; backend независимо проверяет те же роли.
@@ -31,8 +33,8 @@
 | --- | --- |
 | `pnpm --filter backend build`, `pnpm build:frontend` | PASS |
 | `pnpm test:jv`, `pnpm typecheck:shared` | PASS: 205 тестов; typecheck без ошибок |
-| `pnpm validate:jv-fixtures`, `pnpm smoke:jv-line-lab` | PASS: 50 fixtures; SSR smoke |
-| `pnpm --filter backend test:jv-api` | PASS: 10 тестов, включая семь семейств по отдельности, оба профиля, защиту настроек и 12 исходных all-seven сценариев в обоих форматах API |
+| `pnpm validate:jv-fixtures`, `pnpm smoke:jv-line-lab` | PASS: 53 fixtures; SSR smoke |
+| `pnpm --filter backend test:jv-api` | PASS: 11 тестов, включая четыре новых дверных заказа, семь семейств, оба профиля, защиту настроек и 12 исходных all-seven сценариев |
 | `pnpm --filter frontend test:jv-order` | PASS: React → настоящий HTTP Fastify → JV Engine; все семь семейств, оба профиля, количество, копирование/удаление, COMPLETE/PARTIAL, пересчёт и поздний ответ |
 | UI-ошибки и права | Ошибки 400/401/403/409/500 и сети моделируются на клиентской границе после реального запроса; backend отдельно проверяет подлинные 400/401/403/409. SSR smoke проверяет политику роли. |
 | Браузерный E2E | PASS: настоящий headless Chrome, Vite и HTTP Fastify/JV Engine; подробности в отдельном отчёте. |
