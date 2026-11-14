@@ -11,3 +11,7 @@ Preference `bms-theme` is local to this browser: `light`, `dark` or `system`. Mi
 ## Current audit findings and limits
 
 Layout sidebar and mobile navigation now use semantic surfaces instead of their unconditional dark gradients/blur. Many existing pages still contain fixed color utility classes, translucent status badges and gradients; theme coverage is therefore partial and needs page-by-page visual review. This PR does not claim complete visual normalization.
+
+## PR_15C.2b
+
+Ручной выбор хранится в памяти страницы даже при отказе localStorage, системное событие не заменяет его. Неизвестное сохранённое значение означает system в раннем HTML и React. В Chrome проверены light/dark/system, reload, изменения ОС и отказ доступа к хранилищу. Полная визуальная проверка всех страниц, цветов статусов и FOUC не завершена.

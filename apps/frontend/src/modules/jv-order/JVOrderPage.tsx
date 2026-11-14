@@ -48,11 +48,44 @@ export default function JVOrderPage() {
   const [result, setResult] = useState<JvPreviewResponse | null>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string}
+  const past = useRef<Snapshot[]>([])
+  const future = useRef<Snapshot[]>([])
+  const lastEdit = useRef<{key:string;time:number}|null>(null)
+  const [, redrawHistory] = useState(0)
   const generation = useRef(0)
   const activeRequest = useRef<AbortController | null>(null)
   const allowed = canCalculateJv(role)
 
   function invalidate() { generation.current++; activeRequest.current?.abort(); activeRequest.current = null; setLoading(false); setResult(null); setError('') }
+  function remember(key?: string) {
+    const now=Date.now()
+    if (!key || !lastEdit.current || lastEdit.current.key!==key || now-lastEdit.current.time>1000) {
+      past.current.push({positions:structuredClone(positions),profile,activeId})
+      if(past.current.length>50) past.current.shift()
+    }
+    lastEdit.current=key?{key,time:now}:null
+    future.current=[];redrawHistory(n=>n+1)
+  }
+  function restore(direction:'undo'|'redo') {
+    const from=direction==='undo'?past.current:future.current, to=direction==='undo'?future.current:past.current
+    const snapshot=from.pop(); if(!snapshot)return
+    to.push({positions:structuredClone(positions),profile,activeId});if(to.length>50)to.shift()
+    invalidate();lastEdit.current=null
+    setPositions(snapshot.positions);setActiveId(snapshot.positions.some(p=>p.id===snapshot.activeId)?snapshot.activeId:snapshot.positions[0]?.id??'')
+    if(snapshot.profile!==profile){setConfig(null);setProfile(snapshot.profile)}
+    redrawHistory(n=>n+1)
+  }
+  useEffect(()=>{
+    if (typeof window === 'undefined') return
+    const handler=(e:KeyboardEvent)=>{
+      const target=e.target as HTMLElement|null
+      if(target?.closest('input,textarea,select,[contenteditable="true"]'))return
+      if(!(e.ctrlKey||e.metaKey)||e.altKey)return
+      const key=e.key.toLowerCase();if(key==='z'||key==='y'){e.preventDefault();restore(key==='y'||e.shiftKey?'redo':'undo')}
+    }
+    window.addEventListener('keydown',handler);return()=>window.removeEventListener('keydown',handler)
+  })
   useEffect(() => {
     if (!allowed) return
     const controller = new AbortController()
@@ -72,7 +105,7 @@ export default function JVOrderPage() {
     if (!config) return
     const used = new Set(positions.map(p => p.slot)), slot = [1, 2, 3, 4, 5, 6, 7].find(s => !used.has(s))
     if (!slot) return
-    invalidate()
+    remember(); invalidate()
     const inputs = { ...(copy?.inputs ?? config.families.LINE) }
     const existingMode = positions.flatMap(p => Object.entries(p.inputs).filter(([path]) => transportField(path)))[0]?.[1]
     if (existingMode !== undefined) for (const path of Object.keys(inputs)) if (transportField(path)) inputs[path] = existingMode
@@ -80,14 +113,14 @@ export default function JVOrderPage() {
   }
   function addDoorExample() {
     if (!config || positions.length) return
-    invalidate()
+    remember(); invalidate()
     const items = config.frontDoorProfile.slots.map((family,index)=>({id:crypto.randomUUID(),slot:index+1,family,quantity:'1',inputs:{...(family==='FRONT'?config.frontDoorProfile.defaults:config.families[family])},...(family==='FRONT'?{configurationId:config.frontDoorProfile.id}:{})})); setPositions(items); setActiveId(items[0]?.id ?? ''); setTab('form')
   }
   function update(id: string, change: Partial<Pick<DraftPosition, 'slot' | 'family' | 'quantity' | 'inputs'>>) {
-    invalidate(); setPositions(old => old.map(p => p.id === id ? { ...p, ...change } : p))
+    remember(change.quantity!==undefined?`quantity:${id}`:undefined); invalidate(); setPositions(old => old.map(p => p.id === id ? { ...p, ...change } : p))
   }
   function updateField(id: string, path: string, value: JvUiValue) {
-    invalidate()
+    remember(typeof value === 'string' ? `field:${id}:${path}` : undefined); invalidate()
     setPositions(old => old.map(p => {
       const inputs = { ...p.inputs }
       if (p.id === id) inputs[path] = value
@@ -96,7 +129,7 @@ export default function JVOrderPage() {
     }))
   }
   function move(index: number, delta: number) {
-    invalidate(); setPositions(old => { const next = [...old], target = index + delta; if (target < 0 || target >= next.length) return old; [next[index], next[target]] = [next[target], next[index]]; return next })
+    remember(); invalidate(); setPositions(old => { const next = [...old], target = index + delta; if (target < 0 || target >= next.length) return old; [next[index], next[target]] = [next[target], next[index]]; return next })
   }
   async function calculate() {
     if (!config || !positions.length) return
@@ -125,18 +158,19 @@ export default function JVOrderPage() {
 
   return <div className="mx-auto max-w-[1600px] space-y-5 pb-8">
     <nav aria-label="Разделы рабочего пространства" className="flex gap-2 md:hidden">{(['list','form','result'] as const).map((t,i)=><button key={t} onClick={()=>setTab(t)} aria-pressed={tab===t} className="rounded border px-3 py-2">{['Конструкции','Параметры','Результат'][i]}</button>)}</nav>
+    <div className="flex gap-2"><Button variant="outline" disabled={!past.current.length} onClick={()=>restore('undo')}>Отменить</Button><Button variant="outline" disabled={!future.current.length} onClick={()=>restore('redo')}>Повторить</Button></div>
     <header><h1 className="text-2xl font-semibold">Новый JV-заказ</h1><p className="mt-1 text-sm text-muted-foreground">Черновик хранится только в текущем сеансе.</p></header>
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
-    <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>
+    <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { remember(); invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>
     <div className="flex items-center justify-between gap-3"><h2 className="text-lg font-medium">Конструкции ({positions.length}/7)</h2><Button onClick={() => add()} disabled={!config || positions.length >= 7 || positions.some(p=>p.configurationId)}>Добавить конструкцию</Button></div>
     {positions.length===0 && config && <Button variant="outline" onClick={addDoorExample}>{config.frontDoorProfile.label}</Button>}
-    {positions.some(p=>p.configurationId) && <div className="rounded border p-3 text-sm"><p>{config?.frontDoorProfile.restriction} Транспорт можно переключать.</p><Button variant="outline" onClick={()=>{invalidate();setPositions([]);setActiveId('');setTab('list')}}>Очистить пример</Button></div>}
+    {positions.some(p=>p.configurationId) && <div className="rounded border p-3 text-sm"><p>{config?.frontDoorProfile.restriction} Транспорт можно переключать.</p><Button variant="outline" onClick={()=>{remember();invalidate();setPositions([]);setActiveId('');setTab('list')}}>Очистить пример</Button></div>}
     {positions.length === 7 && <p className="text-sm text-muted-foreground">Все семь слотов заняты. Для новой позиции удалите одну из существующих.</p>}
     {positions.length === 0 && <p className="rounded-lg border border-dashed p-6 text-sm text-muted-foreground">Добавьте первую конструкцию. Доступно до семи отдельных слотов.</p>}
     <div className="grid min-w-0 gap-4 md:grid-cols-[220px_minmax(0,1fr)] xl:grid-cols-[220px_minmax(0,1fr)_minmax(320px,0.8fr)]">
       <PositionList positions={positions} activeId={activeId} select={id=>{setActiveId(id);setTab('form')}} visible={tab==='list'}/>
       <div className={`min-w-0 ${tab==='form'?'':'hidden'} md:block`}>
-        {positions.map((p,index)=>p.id===activeId&&<PositionForm key={p.id} p={p} index={index} positions={positions} config={config} update={update} updateField={updateField} move={move} add={add} remove={id=>{invalidate();const next=positions.filter(x=>x.id!==id);setPositions(next);setActiveId(next[0]?.id??'');if(!next.length)setTab('list')}} />)}
+        {positions.map((p,index)=>p.id===activeId&&<PositionForm key={p.id} p={p} index={index} positions={positions} config={config} update={update} updateField={updateField} move={move} add={add} remove={id=>{remember();invalidate();const next=positions.filter(x=>x.id!==id);setPositions(next);setActiveId(next[0]?.id??'');if(!next.length)setTab('list')}} />)}
       </div>
       <div className={`min-w-0 space-y-3 ${tab==='result'?'':'hidden'} md:col-span-2 md:block xl:col-span-1`}><h2 className="font-semibold">Результат · {profile === 'RETAIL' ? 'Розница' : 'Комплектация'}</h2><p>{result ? (result.status === 'COMPLETE' ? 'Расчёт завершён' : 'Частичный расчёт') : 'Расчёт не выполнен или устарел'}</p>{result?.status==='COMPLETE' && result.calculation.status==='COMPLETE' && result.calculation.totalSalePrice && <p>Итог: {exact(result.calculation.totalSalePrice)} ₽</p>}{result && <a href="#jv-details" onClick={()=>setTab('result')} className="block text-primary underline">Открыть подробности</a>}
         <Button onClick={calculate} disabled={!config || !positions.length || loading}>{loading ? 'Выполняется расчёт…' : 'Рассчитать'}</Button>
