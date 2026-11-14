@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { randomBytes } from 'node:crypto'
 import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
+import { mkdir } from 'node:fs/promises'
 import { chromium } from 'playwright'
 import { createServer } from 'vite'
 
@@ -32,6 +33,7 @@ try {
   }
   const deniedContext = await contextFor('USER')
   const denied = await deniedContext.newPage()
+  denied.on('pageerror',error=>console.error('Denied page error:',error.message))
   await denied.goto(`${frontUrl}/jv/orders/new`)
   await denied.getByText('Раздел JV-заказов доступен владельцу и администратору.').waitFor()
   await denied.keyboard.press('Control+k')
@@ -40,6 +42,8 @@ try {
   await deniedContext.close()
 
   const context = await contextFor('ADMIN')
+  const screenshots=resolve('../../test-results/jv-ux')
+  await mkdir(screenshots,{recursive:true})
   const page = await context.newPage()
   const browserMetrics = await context.newCDPSession(page)
   await browserMetrics.send('Performance.enable')
@@ -79,6 +83,7 @@ try {
   const firstResult = await calculate()
   await page.getByRole('heading',{name:'Расчёт завершён'}).waitFor()
   await page.getByText(/^Итог:/).first().waitFor()
+  await page.screenshot({path:resolve(screenshots,'result-complete.png')})
   await page.getByText('Общая спецификация заказа',{exact:true}).click()
   await page.getByText('Количество заказа',{exact:true}).waitFor()
   assert.ok(await page.getByText('LN-010',{exact:true}).count()>0)
@@ -143,6 +148,7 @@ try {
   await active.getByLabel('Отделка', { exact: true }).uncheck()
   await calculate()
   await page.getByRole('heading',{name:'Частичный расчёт'}).waitFor()
+  await page.screenshot({path:resolve(screenshots,'result-partial.png')})
   assert.equal(await page.getByText(/^Итог:/).count(), 0)
   await active.getByLabel('Стекло', { exact: true }).check()
   await active.getByLabel('Отделка', { exact: true }).check()
@@ -204,16 +210,42 @@ try {
     assert.equal(await workspace.getByLabel('Слот').inputValue(),'3')
     await workspace.getByRole('button',{name:'Выше'}).click()
     assert.equal(await workspace.getByLabel('Слот').inputValue(),'3')
+    if(width===1440){
+      const currentWidth=await workspace.getByLabel('Ширина, мм').inputValue()
+      await workspace.getByLabel('Ширина, мм').fill('4555')
+      await workspace.getByRole('button',{name:'Отменить'}).click()
+      assert.equal(await workspace.getByLabel('Ширина, мм').inputValue(),currentWidth)
+      await workspace.getByLabel('Высота, мм').fill('2450')
+      assert.equal(await workspace.getByRole('button',{name:'Повторить'}).isDisabled(),true)
+    }
     await workspace.getByRole('button',{name:'Удалить'}).click()
     if(width===1440){
       await workspace.getByRole('button',{name:'Отменить'}).click()
       assert.equal(await workspace.getByLabel('Слот').inputValue(),'3')
       await workspace.getByRole('button',{name:'Повторить'}).click()
     }
+    if(width===1440){
+      const p=workspace.getByLabel('Ценовой профиль')
+      const before=await workspace.getByLabel('Ширина, мм').inputValue()
+      await p.selectOption('RETAIL')
+      await workspace.waitForFunction(()=>![...document.querySelectorAll('button')].find(b=>b.textContent==='Рассчитать')?.disabled)
+      await workspace.getByRole('button',{name:'Отменить'}).click()
+      assert.equal(await p.inputValue(),'COMPLETATION')
+      await workspace.waitForFunction(()=>![...document.querySelectorAll('button')].find(b=>b.textContent==='Рассчитать')?.disabled)
+      assert.equal(await workspace.getByLabel('Ширина, мм').inputValue(),before)
+      await workspace.getByRole('button',{name:'Повторить'}).click()
+      assert.equal(await p.inputValue(),'RETAIL')
+      await workspace.waitForFunction(()=>![...document.querySelectorAll('button')].find(b=>b.textContent==='Рассчитать')?.disabled)
+      assert.equal(await workspace.getByText(/^Итог:/).count(),0)
+    }
     if(width===390) await workspace.getByRole('button',{name:'Конструкции',exact:true}).click()
     assert.equal(await itemList.getByRole('button').count(),2)
     if(width===390){await workspace.getByRole('button',{name:'Результат',exact:true}).click();await workspace.getByRole('button',{name:'Рассчитать',exact:true}).waitFor()}
     assert.ok(await workspace.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),`horizontal overflow ${width}`)
+    for(const mode of ['light','dark']) {
+      await workspace.evaluate(mode=>{localStorage.setItem('bms-theme',mode);document.documentElement.classList.toggle('dark',mode==='dark')},mode)
+      await workspace.screenshot({path:resolve(screenshots,`workspace-${width}-${mode}.png`)})
+    }
     await workspace.close()
   }
   const themePage=await context.newPage()
@@ -231,7 +263,28 @@ try {
   await themePage.waitForFunction(()=>document.documentElement.classList.contains('dark'))
   await themePage.emulateMedia({colorScheme:'light'})
   await themePage.waitForFunction(()=>!document.documentElement.classList.contains('dark'))
+  await themePage.getByLabel('Тема интерфейса').focus()
+  await themePage.keyboard.press('Meta+k')
+  await themePage.getByLabel('Поиск раздела').fill('несуществующий раздел')
+  await themePage.getByText('Ничего не найдено.').waitFor()
+  await themePage.keyboard.press('Escape')
+  await themePage.getByRole('dialog').waitFor({state:'hidden'})
+  assert.equal(await themePage.getByLabel('Тема интерфейса').evaluate(el=>document.activeElement===el),true)
+  await themePage.keyboard.press('Control+k')
+  await themePage.getByLabel('Поиск раздела').fill('клиенты')
+  await themePage.keyboard.press('Enter')
+  await themePage.waitForURL('**/clients')
+  await themePage.keyboard.press('Control+k')
+  await themePage.getByRole('option',{name:'Настройки'}).click()
+  await themePage.waitForURL('**/settings')
   await themePage.close()
+  const early=await browser.newContext({colorScheme:'dark'})
+  await early.addInitScript(()=>localStorage.setItem('bms-theme','broken-value'))
+  const earlyPage=await early.newPage()
+  await earlyPage.route('**/src/main.tsx',route=>route.abort())
+  await earlyPage.goto(`${frontUrl}/login`)
+  assert.equal(await earlyPage.evaluate(()=>document.documentElement.classList.contains('dark')),true,'invalid preference follows system before React')
+  await early.close()
   const inaccessible=await browser.newContext({colorScheme:'light'})
   await inaccessible.addInitScript(({token})=>{const original=Storage.prototype.getItem;Storage.prototype.getItem=function(key){if(key==='bms-theme')throw new Error('blocked');return original.call(this,key)};const write=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(key==='bms-theme')throw new Error('blocked');return write.call(this,key,value)};localStorage.setItem('bms-auth',JSON.stringify({state:{token,user:{id:'e2e',role:'ADMIN',firstName:'Test',lastName:'User'}},version:0}))},{token:app.jwt.sign({id:'theme-test',role:'ADMIN'})})
   const unavailable=await inaccessible.newPage()
