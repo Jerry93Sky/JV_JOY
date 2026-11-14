@@ -32,6 +32,8 @@ try {
   }
   const button = text => renderer.root.findAllByType('button').find(b => b.props.children === text)
   const sections = () => renderer.root.findAllByType('section')
+  const positionButtons = () => renderer.root.findByProps({'aria-label':'Список конструкций'}).findAllByType('button')
+  const selectPosition = async i => { await act(async () => positionButtons()[i].props.onClick()) }
   const contents = () => JSON.stringify(renderer.toJSON())
   const sent = []
   const requestObserver = client.interceptors.request.use(request => { if (request.url === '/jv/orders/calculate-preview-v1') sent.push(structuredClone(request.data)); return request })
@@ -39,8 +41,8 @@ try {
   await waitFor(() => button('Добавить конструкцию') && !button('Добавить конструкцию').props.disabled)
   await act(async () => { button('Добавить конструкцию').props.onClick() })
   await act(async () => { sections()[0].findAllByType('button').find(b => b.props.children === 'Дублировать').props.onClick() })
-  assert.equal(sections().length, 2)
-  await act(async () => { sections()[1].findAllByType('button').find(b => b.props.children === 'Удалить').props.onClick() })
+  assert.equal(positionButtons().length, 2)
+  await act(async () => { sections()[0].findAllByType('button').find(b => b.props.children === 'Удалить').props.onClick() })
   assert.equal(sections().length, 1)
   await act(async () => { sections()[0].findAllByType('input')[0].props.onChange({ target: { value: '2' } }) })
   for (const family of ['ZIGZAG','SLIDER_L3','SLIDER_L5','SLIDER_X3','SLIDER_X5','FRONT']) {
@@ -49,7 +51,7 @@ try {
     const familySelect = section.findAllByType('select')[0]
     await act(async () => { familySelect.props.onChange({ target: { value: family } }) })
   }
-  assert.equal(sections().length, 7)
+  assert.equal(positionButtons().length, 7)
   assert.equal(button('Добавить конструкцию').props.disabled, true)
   await act(async () => { button('Рассчитать').props.onClick() })
   await waitFor(() => contents().includes('Расчёт завершён') || contents().includes('Частичный расчёт') || contents().includes('сервер отклонил'))
@@ -62,6 +64,7 @@ try {
   assert.ok(!JSON.stringify(sent[0]).includes('priceSnapshot'))
   assert.ok(!Object.keys(sent[0].positions[0].calculation).some(key => key.startsWith('settings.')))
 
+  await selectPosition(0)
   const first = sections()[0]
   const widthLabel = first.findAllByType('label').find(label => label.findAllByType('span').some(span => span.children.includes('Ширина, мм')))
   const widthInput = widthLabel.findByType('input')
@@ -71,7 +74,8 @@ try {
   await waitFor(() => contents().includes('Расчёт завершён') || contents().includes('Частичный расчёт') || contents().includes('сервер отклонил'))
   assert.ok(contents().includes('Расчёт завершён'), 'edited order must recalculate through the real API')
 
-  const front = sections()[6]
+  await selectPosition(6)
+  const front = sections()[0]
   const toggle = text => front.findAllByType('label').find(label => label.findAllByType('span').some(span => span.children.includes(text)) && label.findAllByType('input').some(input => input.props.type === 'checkbox')).findByType('input')
   await act(async () => { toggle('Стекло').props.onChange({ target: { checked: false } }) })
   await act(async () => { toggle('Отделка').props.onChange({ target: { checked: false } }) })
@@ -84,7 +88,7 @@ try {
   const profileSelect = renderer.root.findAllByType('select')[0]
   await act(async () => { profileSelect.props.onChange({ target: { value: 'RETAIL' } }) })
   await waitFor(() => button('Рассчитать') && !button('Рассчитать').props.disabled)
-  assert.equal(sections().length, 7, 'profile switch must retain positions')
+  assert.equal(positionButtons().length, 7, 'profile switch must retain positions')
   assert.ok(!contents().includes('Частичный расчёт'), 'profile switch must invalidate old result')
   await act(async () => { toggle('Стекло').props.onChange({ target: { checked: true } }) })
   await act(async () => { toggle('Отделка').props.onChange({ target: { checked: true } }) })
@@ -99,10 +103,12 @@ try {
     if (response.config.url === '/jv/orders/calculate-preview-v1' && !delayed) { delayed = true; await oldResponseGate }
     return response
   })
-  await act(async () => { widthInput.props.onChange({ target: { value: '4300' } }) })
+  await selectPosition(0)
+  const freshWidth = sections()[0].findAllByType('label').find(label => label.findAllByType('span').some(span => span.children.includes('Ширина, мм'))).findByType('input')
+  await act(async () => { freshWidth.props.onChange({ target: { value: '4300' } }) })
   await act(async () => { button('Рассчитать').props.onClick() })
   await waitFor(() => delayed)
-  await act(async () => { widthInput.props.onChange({ target: { value: '4500' } }) })
+  await act(async () => { freshWidth.props.onChange({ target: { value: '4500' } }) })
   await act(async () => { button('Рассчитать').props.onClick() })
   await waitFor(() => contents().includes('Расчёт завершён'))
   const newestResult = contents()

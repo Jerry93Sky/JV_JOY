@@ -7,3 +7,7 @@ The existing editor remains the owner of verified selectors, slots, quantities, 
 Current editor is a long single column that repeats complete forms for every position. This is usable on desktop but not the requested precision workspace. Split it into a slot list, active position form, and result pane while retaining unique slot constraints, verified Front door locks, option metadata and existing API lifecycle. At medium width use a collapsible result; at mobile use tabs and keep hidden panels unmounted.
 
 Keyboard navigation should follow native focus order; add explicit shortcuts only with conflict/permission checks and visible help. Undo/redo needs a bounded draft-only history which never restores a calculation response. Neither command search, reorder controls, nor undo/redo are implemented in this stage yet. Avoid pretending a draft is persisted.
+
+## PR_15C.2a
+
+Список и форма реализованы компонентами PositionList и PositionForm; исходные параметры позиций хранятся в состоянии страницы и сохраняются при переключении. Выбранная позиция выделена, слоты не зависят от визуального порядка. Для фиксированного дверного примера добавление и редактирование неподтверждённых параметров заблокированы. Справа статус и подтверждённый итог; подробности отображаются на широкой области под сеткой, trace загружается по запросу. Мобильные вкладки: «Конструкции», «Параметры», «Результат».
