@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
-import { rationalToDecimalExact, type ExactRational, type UnifiedFamily } from '@bms/shared/jv'
+import { type UnifiedFamily } from '@bms/shared/jv'
+import JVResultView from './JVResultView'
 import { calculateJvPreview, canCalculateJv, getJvUiConfig, type JvPreviewResponse, type JvUiConfig, type JvUiValue } from '@/api/jv'
 import { useAuthStore } from '@/store/authStore'
 import { Button } from '@/components/ui/button'
@@ -24,7 +25,6 @@ const labels: Record<string, string> = {
 }
 const keyOf = (path: string) => { const parts = path.split('.'); return parts[parts.length - 1] || path }
 const fieldLabel = (path: string) => labels[keyOf(path)] ?? `Выбор ${path}`
-const exact = (value?: ExactRational) => value ? rationalToDecimalExact(value) ?? `${value.numerator}/${value.denominator}` : 'не подтверждено'
 const decimal = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/
 const transportField = (path: string) => ['input.commercialModeIndex','position.commercial.F28','controls.mainSurchargeSelector','commercial.mainSurchargeSelector'].includes(path)
 function fieldDisabled(path: string, inputs: Record<string, JvUiValue>): boolean {
@@ -146,6 +146,6 @@ export default function JVOrderPage() {
     </section>)}
     <Button onClick={calculate} disabled={!config || !positions.length || loading}>{loading ? 'Выполняется расчёт…' : 'Рассчитать'}</Button>
     {error && <p role="alert" className="rounded border border-destructive/40 p-3 text-sm text-destructive">{error}</p>}
-    {result && <section className="space-y-3 rounded-lg border p-4" aria-live="polite"><h2 className="text-lg font-medium">{result.status === 'COMPLETE' ? 'Расчёт завершён' : 'Частичный расчёт'}</h2><p>Профиль: {result.profile === 'COMPLETATION' ? 'Комплектация' : 'Розница'} · позиций: {result.calculation.positions.length} · конструкций: {positions.reduce((sum, p) => sum + Number(p.quantity), 0)}</p>{result.status === 'COMPLETE' && result.calculation.status === 'COMPLETE' && result.calculation.totalSalePrice ? <p className="text-xl font-semibold">Итог: {exact(result.calculation.totalSalePrice)} ₽</p> : <p>Итоговая цена не подтверждена.</p>}{result.calculation.positions.map(p => <div key={p.id} className="rounded border p-3"><div>Слот {p.slot} · {families.find(f => f.value === p.family)?.label} · количество {exact(p.quantity)} · {p.status}</div>{p.confirmedUnitAmount && <div>Подтверждённая цена за конструкцию: {exact(p.confirmedUnitAmount)} ₽</div>}{p.diagnostics.map((d, i) => <p key={i} className="text-sm text-muted-foreground">{d}</p>)}</div>)}{result.calculation.diagnostics.map((d, i) => <p key={i} className="text-sm text-muted-foreground">{d}</p>)}</section>}
+    {result && <JVResultView result={result} inputs={positions}/>}
   </div>
 }

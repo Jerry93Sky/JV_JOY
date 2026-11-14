@@ -1,5 +1,7 @@
 # PR_15 — work in progress
 
+PR_15B добавляет детализацию результата и первичное профилирование; ограничения и измерения зафиксированы в [PR_15B_RESULT.md](./PR_15B_RESULT.md).
+
 The branch `feature/jv-full-ui` starts at `727f67ce2282e0ce658a722659e4ed7493ebc473`. PR_15 is **not complete**.
 
 PR_15A now has a real protected order editor and server calculation for seven families. A real Chrome browser E2E has passed locally; some selector choices remain restricted. See [PR_15A_RESULT.md](./PR_15A_RESULT.md) for scope and checks; PR_15 is not complete.

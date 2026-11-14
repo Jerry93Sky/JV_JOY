@@ -7,6 +7,7 @@ import { createServer } from 'vite'
 
 const backendRequire = createRequire(resolve('../backend/package.json'))
 const Fastify = backendRequire('fastify')
+const { rationalToDecimalExact } = backendRequire('@bms/shared')
 const { registerPlugins } = backendRequire('./dist/apps/backend/src/plugins/index.js')
 const { registerRoutes } = backendRequire('./dist/apps/backend/src/routes/index.js')
 process.env.JWT_SECRET = randomBytes(32).toString('hex')
@@ -37,6 +38,8 @@ try {
 
   const context = await contextFor('ADMIN')
   const page = await context.newPage()
+  const browserMetrics = await context.newCDPSession(page)
+  await browserMetrics.send('Performance.enable')
   const errors = []
   page.on('pageerror', error => errors.push(error.message))
   await page.goto(`${frontUrl}/jv/orders/new`)
@@ -57,15 +60,36 @@ try {
   assert.equal(await front.getByLabel('Вариант открывания').locator('option[value="1"]').isDisabled(), true)
   await line.getByLabel('Транспортная опция').selectOption('2')
   assert.equal(await front.getByLabel('Транспортная опция').inputValue(), '2')
+  const heapBefore = (await browserMetrics.send('Performance.getMetrics')).metrics.find(item=>item.name==='JSHeapUsedSize')?.value
   async function calculate() {
     const response = page.waitForResponse(resp => resp.url().includes('/api/jv/orders/calculate-preview') && resp.request().method() === 'POST')
     await page.getByRole('button', { name: 'Рассчитать', exact: true }).click()
     const result = await response
     assert.equal(result.status(), 200, await result.text())
+    return await result.json()
   }
-  await calculate()
+  const firstResult = await calculate()
   await page.getByText('Расчёт завершён', { exact: true }).waitFor()
   await page.getByText(/^Итог:/).waitFor()
+  await page.getByText('Общая спецификация заказа',{exact:true}).click()
+  await page.getByText('Количество заказа',{exact:true}).waitFor()
+  assert.ok(await page.getByText('LN-010',{exact:true}).count()>0)
+  const lineBom = firstResult.calculation.bom.find(item=>item.sku==='LN-010')
+  const expectedQuantity = rationalToDecimalExact(lineBom.quantity) ?? `${lineBom.quantity.numerator}/${lineBom.quantity.denominator}`
+  const row = page.getByRole('row').filter({hasText:'LN-010'}).first()
+  assert.ok((await row.innerText()).includes(expectedQuantity),'BOM quantity must be displayed as returned by Engine')
+  await page.getByText('Исходные размеры и геометрия',{exact:true}).first().click()
+  await page.getByText('I25',{exact:true}).waitFor()
+  await page.getByText('Раскрой',{exact:true}).first().click()
+  await page.getByText('А-рез (глубина парковки)',{exact:true}).waitFor()
+  await page.locator('summary').filter({hasText:'Стекло'}).first().click()
+  assert.ok(await page.getByText('Ширина, мм',{exact:true}).count()>0)
+  await page.getByText(/Шаги заказа \(/).click()
+  await page.getByText('Поиск по шагам',{exact:false}).waitFor()
+  assert.equal(await page.getByText('priceSnapshot',{exact:false}).count(),0)
+  const heapAfter = (await browserMetrics.send('Performance.getMetrics')).metrics.find(item=>item.name==='JSHeapUsedSize')?.value
+  const nodeCount = await page.locator('*').count()
+  console.log(`Browser all-seven with BOM and 100 trace steps: JSHeapUsedSize before=${heapBefore} after=${heapAfter}; DOM elements=${nodeCount}`)
   await line.getByLabel('Ширина, мм').fill('4400')
   assert.equal(await page.getByText(/^Итог:/).count(), 0)
   await calculate()
