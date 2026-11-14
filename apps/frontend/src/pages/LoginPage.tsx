@@ -28,10 +28,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center"
-      style={{
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(56,189,248,0.08) 0%, transparent 60%), hsl(222 20% 8%)',
-      }}>
+    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
       <div className="w-full max-w-sm px-4">
         {/* Логотип */}
         <div className="flex flex-col items-center mb-8">
@@ -43,12 +40,13 @@ export default function LoginPage() {
         </div>
 
         {/* Форма */}
-        <div className="glass-panel rounded-2xl p-6">
+        <div className="rounded-2xl border bg-card text-card-foreground p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="text-xs text-muted-foreground block mb-1.5">Логин</label>
+              <label htmlFor="login" className="text-xs text-muted-foreground block mb-1.5">Логин</label>
               <input
-                className="w-full bg-white/5 border border-border rounded-lg px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
+                id="login"
+                className="w-full bg-background border border-border rounded-lg px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                 value={login}
                 onChange={(e) => setLogin(e.target.value)}
                 autoComplete="username"
@@ -56,10 +54,11 @@ export default function LoginPage() {
               />
             </div>
             <div>
-              <label className="text-xs text-muted-foreground block mb-1.5">Пароль</label>
+              <label htmlFor="password" className="text-xs text-muted-foreground block mb-1.5">Пароль</label>
               <input
+                id="password"
                 type="password"
-                className="w-full bg-white/5 border border-border rounded-lg px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
+                className="w-full bg-background border border-border rounded-lg px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"

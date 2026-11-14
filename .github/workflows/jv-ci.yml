@@ -55,11 +55,16 @@ jobs:
       - name: JV order browser end-to-end
         run: pnpm --filter frontend test:jv-browser
 
+      - name: Capture isolated page error states
+        run: pnpm --filter frontend exec node scripts/audit-jv-pages.mjs
       - name: Upload UX screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: jv-ux-screenshots
-          path: test-results/jv-ux/*.png
+          path: |
+            test-results/jv-ux/*.png
+            test-results/jv-ux-audit/*.png
+            test-results/jv-ux-audit/audit.json
           if-no-files-found: ignore
           retention-days: 7
