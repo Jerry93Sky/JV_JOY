@@ -1,0 +1,41 @@
+{
+  "method": "Fastify inject, same Node process, 8 concurrent requests, no production database; warmup 1; Node event loop remains single-threaded",
+  "node": "v24.13.0",
+  "platform": "win32",
+  "arch": "x64",
+  "logicalCpus": 12,
+  "cpuModel": "AMD Ryzen 5 7500F 6-Core Processor             ",
+  "systemRamBytes": 33946218496,
+  "requests": 8,
+  "elapsedMs": 746.8951999999999,
+  "throughputPerSecond": 10.711007380955188,
+  "latencyMs": {
+    "p50": 355.9193,
+    "p95": 736.1093999999999,
+    "p99": 736.1093999999999
+  },
+  "phaseSampleMs": {
+    "engine": 35.99959999999999,
+    "serializeJvResult": 25.24459999999999,
+    "jsonStringify": 10.401700000000005
+  },
+  "errors": 0,
+  "responseBytes": 3153987,
+  "cpuMs": {
+    "user": 703,
+    "system": 110
+  },
+  "rssBytes": {
+    "before": 170385408,
+    "after": 371539968
+  },
+  "heapBytes": {
+    "before": 38960264,
+    "after": 136203968
+  },
+  "eventLoopDelayMs": {
+    "mean": 196.221952,
+    "max": 746.061823
+  },
+  "totalIdentical": true
+}

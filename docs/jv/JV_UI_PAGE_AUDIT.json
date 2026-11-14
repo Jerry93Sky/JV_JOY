@@ -1,0 +1,182 @@
+[
+  {
+    "route": "/login",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-login.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/leads",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-leads.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/deals",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-deals.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/clients",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-clients.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/warehouse",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-warehouse.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/vendors",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-vendors.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/systems",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-systems.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/finance",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-finance.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/settings",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-settings.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/jv/orders/new",
+    "theme": "light",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "light-jv-orders-new.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/login",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-login.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/leads",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-leads.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/deals",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-deals.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/clients",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-clients.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/warehouse",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-warehouse.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/vendors",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-vendors.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/systems",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-systems.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/finance",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-finance.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/settings",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-settings.png",
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "route": "/jv/orders/new",
+    "theme": "dark",
+    "viewport": "1440x900",
+    "data": "all API requests mocked 503; no DB",
+    "screenshot": "dark-jv-orders-new.png",
+    "errors": [],
+    "overflow": false
+  }
+]

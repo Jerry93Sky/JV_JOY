@@ -1,0 +1,1199 @@
+{
+  "scenario": "4000x2500 mm, five leaves, JV-Line quantity 1, glass index 9; finishes 1..4",
+  "excelVersion": "16.0",
+  "method": "CalculateFullRebuild on temporary workbook copies; macros force disabled; events disabled; originals unchanged",
+  "cases": [
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G6": {
+          "formula": "225",
+          "value2": "225"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "325",
+          "value2": "325"
+        },
+        "G10": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G9": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G7": {
+          "formula": "287,5",
+          "value2": "287.5"
+        },
+        "G39": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G8": {
+          "formula": "106,25",
+          "value2": "106.25"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "некраш.",
+      "finishIndex": 1,
+      "results": {
+        "V5": {
+          "value2": "1585.0249999999999",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "4195.425",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "0",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "50",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "148236.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "10500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "5000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "893.9250000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "148236.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "1142.2375000000002",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "524.2375000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "1",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    },
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G6": {
+          "formula": "225",
+          "value2": "225"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "325",
+          "value2": "325"
+        },
+        "G10": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G9": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G7": {
+          "formula": "287,5",
+          "value2": "287.5"
+        },
+        "G39": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G8": {
+          "formula": "106,25",
+          "value2": "106.25"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "глянец",
+      "finishIndex": 2,
+      "results": {
+        "V5": {
+          "value2": "1585.0249999999999",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "4195.425",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "10500",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "50",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "158736.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "10500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "5000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "893.9250000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "158736.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "1142.2375000000002",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "524.2375000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "2",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    },
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G6": {
+          "formula": "225",
+          "value2": "225"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "325",
+          "value2": "325"
+        },
+        "G10": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G9": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G7": {
+          "formula": "287,5",
+          "value2": "287.5"
+        },
+        "G39": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G8": {
+          "formula": "106,25",
+          "value2": "106.25"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "матовый",
+      "finishIndex": 3,
+      "results": {
+        "V5": {
+          "value2": "1585.0249999999999",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "4195.425",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "10500",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "50",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "158736.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "10500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "5000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "893.9250000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "158736.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "1142.2375000000002",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "524.2375000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "3",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    },
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G6": {
+          "formula": "225",
+          "value2": "225"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "325",
+          "value2": "325"
+        },
+        "G10": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G9": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G7": {
+          "formula": "287,5",
+          "value2": "287.5"
+        },
+        "G39": {
+          "formula": "50",
+          "value2": "50"
+        },
+        "G8": {
+          "formula": "106,25",
+          "value2": "106.25"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "муар",
+      "finishIndex": 4,
+      "results": {
+        "V5": {
+          "value2": "1585.0249999999999",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "4824.7387499999995",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "10500",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "50",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "158736.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "10500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "5000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "893.9250000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "158736.1118736636",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "1142.2375000000002",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "524.2375000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "4",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    },
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G6": {
+          "formula": "180",
+          "value2": "180"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "260",
+          "value2": "260"
+        },
+        "G10": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G9": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G7": {
+          "formula": "230",
+          "value2": "230"
+        },
+        "G39": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G8": {
+          "formula": "85",
+          "value2": "85"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "некраш.",
+      "finishIndex": 1,
+      "results": {
+        "V5": {
+          "value2": "1268.02",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "3356.34",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "0",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "40",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "85651.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "9500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "4000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "715.1400000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "106151.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "913.7900000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "419.39",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "1",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    },
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G6": {
+          "formula": "180",
+          "value2": "180"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "260",
+          "value2": "260"
+        },
+        "G10": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G9": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G7": {
+          "formula": "230",
+          "value2": "230"
+        },
+        "G39": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G8": {
+          "formula": "85",
+          "value2": "85"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "глянец",
+      "finishIndex": 2,
+      "results": {
+        "V5": {
+          "value2": "1268.02",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "3356.34",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "9500",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "40",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "95151.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "9500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "4000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "715.1400000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "115651.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "913.7900000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "419.39",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "2",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    },
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G6": {
+          "formula": "180",
+          "value2": "180"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "260",
+          "value2": "260"
+        },
+        "G10": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G9": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G7": {
+          "formula": "230",
+          "value2": "230"
+        },
+        "G39": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G8": {
+          "formula": "85",
+          "value2": "85"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "матовый",
+      "finishIndex": 3,
+      "results": {
+        "V5": {
+          "value2": "1268.02",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "3356.34",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "9500",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "40",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "95151.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "9500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "4000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "715.1400000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "115651.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "913.7900000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "419.39",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "3",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    },
+    {
+      "quantities": {
+        "O5": "4.877",
+        "O10": "0",
+        "O7": "3.973",
+        "O9": "1",
+        "O11": "4",
+        "O12": "4",
+        "O8": "4.934",
+        "O6": "3.973"
+      },
+      "paintPrices": {
+        "G40": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G6": {
+          "formula": "180",
+          "value2": "180"
+        },
+        "G12": {
+          "formula": "",
+          "value2": "0"
+        },
+        "G5": {
+          "formula": "260",
+          "value2": "260"
+        },
+        "G10": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G9": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G7": {
+          "formula": "230",
+          "value2": "230"
+        },
+        "G39": {
+          "formula": "40",
+          "value2": "40"
+        },
+        "G8": {
+          "formula": "85",
+          "value2": "85"
+        },
+        "G11": {
+          "formula": "",
+          "value2": "0"
+        }
+      },
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "settings": {
+        "L10": "5500",
+        "L9": "1",
+        "L11": "1.15"
+      },
+      "finishName": "муар",
+      "finishIndex": 4,
+      "results": {
+        "V5": {
+          "value2": "1268.02",
+          "numberFormat": "0,00",
+          "formula": "=$O$5*'Прайс-Line'!$G$5"
+        },
+        "V15": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=МАКС(V10:V14)"
+        },
+        "V10": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$10*'Прайс-Line'!$G$10"
+        },
+        "V13": {
+          "value2": "3859.7909999999997",
+          "numberFormat": "0,00",
+          "formula": "=СУММ(V5:V12)*ЕСЛИ($C$10=4;Настройки!$L$11;1)"
+        },
+        "V11": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$40*'Прайс-Line'!$G$39"
+        },
+        "Q53": {
+          "value2": "9500",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)"
+        },
+        "V14": {
+          "value2": "5500",
+          "numberFormat": "0,00",
+          "formula": "=Настройки!$L$9*Настройки!$L$10*$X$5"
+        },
+        "V9": {
+          "value2": "40",
+          "numberFormat": "0,00",
+          "formula": "=$O$9*'Прайс-Line'!$G$9"
+        },
+        "Q56": {
+          "value2": "95151.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)"
+        },
+        "V12": {
+          "value2": "0",
+          "numberFormat": "0,00",
+          "formula": "=$O$41*'Прайс-Line'!$G$40"
+        },
+        "V18": {
+          "value2": "9500",
+          "numberFormat": "# ##0,00",
+          "formula": "=$V$15+$V$17"
+        },
+        "V17": {
+          "value2": "4000",
+          "numberFormat": "0,00",
+          "formula": "='Прайс-сб+монт'!$C$24*$X$5"
+        },
+        "V6": {
+          "value2": "715.1400000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$6*'Прайс-Line'!$G$6"
+        },
+        "Q58": {
+          "value2": "115651.65220556397",
+          "numberFormat": "# ##0,00",
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")"
+        },
+        "V7": {
+          "value2": "913.7900000000001",
+          "numberFormat": "0,00",
+          "formula": "=$O$7*'Прайс-Line'!$G$7"
+        },
+        "V8": {
+          "value2": "419.39",
+          "numberFormat": "0,00",
+          "formula": "=$O$8*'Прайс-Line'!$G$8"
+        },
+        "C10": {
+          "value2": "4",
+          "numberFormat": "0",
+          "formula": "=Главная!$H$11"
+        }
+      }
+    }
+  ]
+}

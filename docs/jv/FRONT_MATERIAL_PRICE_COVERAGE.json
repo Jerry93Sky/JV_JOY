@@ -1,0 +1,405 @@
+{
+  "schemaVersion": "1.0",
+  "rows": [
+    {
+      "row": 5,
+      "quantityCell": "F1!Q5",
+      "unitPriceCell": "F1!R5",
+      "amountCell": "F1!S5",
+      "sourceFormulaCell": "F1!S5",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S5"
+    },
+    {
+      "row": 6,
+      "quantityCell": "F1!Q6",
+      "unitPriceCell": "F1!R6",
+      "amountCell": "F1!S6",
+      "sourceFormulaCell": "F1!S6",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S6"
+    },
+    {
+      "row": 7,
+      "quantityCell": "F1!Q7",
+      "unitPriceCell": "F1!R7",
+      "amountCell": "F1!S7",
+      "sourceFormulaCell": "F1!S7",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S7"
+    },
+    {
+      "row": 8,
+      "quantityCell": "F1!Q8",
+      "unitPriceCell": "F1!R8",
+      "amountCell": "F1!S8",
+      "sourceFormulaCell": "F1!S8",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S8"
+    },
+    {
+      "row": 9,
+      "quantityCell": "F1!Q9",
+      "unitPriceCell": "F1!R9",
+      "amountCell": "F1!S9",
+      "sourceFormulaCell": "F1!S9",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S9"
+    },
+    {
+      "row": 10,
+      "quantityCell": "F1!Q10",
+      "unitPriceCell": "F1!R10",
+      "amountCell": "F1!S10",
+      "sourceFormulaCell": "F1!S10",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S10"
+    },
+    {
+      "row": 11,
+      "quantityCell": "F1!Q11",
+      "unitPriceCell": "F1!R11",
+      "amountCell": "F1!S11",
+      "sourceFormulaCell": "F1!S11",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S11"
+    },
+    {
+      "row": 12,
+      "quantityCell": "F1!Q12",
+      "unitPriceCell": "F1!R12",
+      "amountCell": "F1!S12",
+      "sourceFormulaCell": "F1!S12",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S12"
+    },
+    {
+      "row": 13,
+      "quantityCell": "F1!Q13",
+      "unitPriceCell": "F1!R13",
+      "amountCell": "F1!S13",
+      "sourceFormulaCell": "F1!S13",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S13"
+    },
+    {
+      "row": 14,
+      "quantityCell": "F1!Q14",
+      "unitPriceCell": "F1!R14",
+      "amountCell": "F1!S14",
+      "sourceFormulaCell": "F1!S14",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S14"
+    },
+    {
+      "row": 15,
+      "quantityCell": "F1!Q15",
+      "unitPriceCell": "F1!R15",
+      "amountCell": "F1!S15",
+      "sourceFormulaCell": "F1!S15",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S15"
+    },
+    {
+      "row": 16,
+      "quantityCell": "F1!Q16",
+      "unitPriceCell": "F1!R16",
+      "amountCell": "F1!S16",
+      "sourceFormulaCell": "F1!S16",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S16"
+    },
+    {
+      "row": 17,
+      "quantityCell": "F1!Q17",
+      "unitPriceCell": "F1!R17",
+      "amountCell": "F1!S17",
+      "sourceFormulaCell": "F1!S17",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S17"
+    },
+    {
+      "row": 18,
+      "quantityCell": "F1!Q18",
+      "unitPriceCell": "F1!R18",
+      "amountCell": "F1!S18",
+      "sourceFormulaCell": "F1!S18",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S18"
+    },
+    {
+      "row": 19,
+      "quantityCell": "F1!Q19",
+      "unitPriceCell": "F1!R19",
+      "amountCell": "F1!S19",
+      "sourceFormulaCell": "F1!S19",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S19"
+    },
+    {
+      "row": 20,
+      "quantityCell": "F1!Q20",
+      "unitPriceCell": "F1!R20",
+      "amountCell": "F1!S20",
+      "sourceFormulaCell": "F1!S20",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S20"
+    },
+    {
+      "row": 21,
+      "quantityCell": "F1!Q21",
+      "unitPriceCell": "F1!R21",
+      "amountCell": "F1!S21",
+      "sourceFormulaCell": "F1!S21",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S21"
+    },
+    {
+      "row": 22,
+      "quantityCell": "F1!Q22",
+      "unitPriceCell": "F1!R22",
+      "amountCell": "F1!S22",
+      "sourceFormulaCell": "F1!S22",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S22"
+    },
+    {
+      "row": 23,
+      "quantityCell": "F1!Q23",
+      "unitPriceCell": "F1!R23",
+      "amountCell": "F1!S23",
+      "sourceFormulaCell": "F1!S23",
+      "status": "NOT_APPLICABLE_LITERAL_ZERO",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S23"
+    },
+    {
+      "row": 24,
+      "quantityCell": "F1!Q24",
+      "unitPriceCell": "F1!R24",
+      "amountCell": "F1!S24",
+      "sourceFormulaCell": "F1!S24",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S24"
+    },
+    {
+      "row": 25,
+      "quantityCell": "F1!Q25",
+      "unitPriceCell": "F1!R25",
+      "amountCell": "F1!S25",
+      "sourceFormulaCell": "F1!S25",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S25"
+    },
+    {
+      "row": 26,
+      "quantityCell": "F1!Q26",
+      "unitPriceCell": "F1!R26",
+      "amountCell": "F1!S26",
+      "sourceFormulaCell": "F1!S26",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S26"
+    },
+    {
+      "row": 27,
+      "quantityCell": "F1!Q27",
+      "unitPriceCell": "F1!R27",
+      "amountCell": "F1!S27",
+      "sourceFormulaCell": "F1!S27",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S27"
+    },
+    {
+      "row": 28,
+      "quantityCell": "F1!Q28",
+      "unitPriceCell": "F1!R28",
+      "amountCell": "F1!S28",
+      "sourceFormulaCell": "F1!S28",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S28"
+    },
+    {
+      "row": 29,
+      "quantityCell": "F1!Q29",
+      "unitPriceCell": "F1!R29",
+      "amountCell": "F1!S29",
+      "sourceFormulaCell": "F1!S29",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S29"
+    },
+    {
+      "row": 30,
+      "quantityCell": "F1!Q30",
+      "unitPriceCell": "F1!R30",
+      "amountCell": "F1!S30",
+      "sourceFormulaCell": "F1!S30",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S30"
+    },
+    {
+      "row": 31,
+      "quantityCell": "F1!Q31",
+      "unitPriceCell": "F1!R31",
+      "amountCell": "F1!S31",
+      "sourceFormulaCell": "F1!S31",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S31"
+    },
+    {
+      "row": 32,
+      "quantityCell": "F1!Q32",
+      "unitPriceCell": "F1!R32",
+      "amountCell": "F1!S32",
+      "sourceFormulaCell": "F1!S32",
+      "status": "IMPLEMENTED",
+      "profileCoverage": {
+        "COMPLETATION": true,
+        "RETAIL": true
+      },
+      "excelScenarioCount": 6,
+      "traceId": "JV.FRONT.PRICE.S32"
+    }
+  ],
+  "parity": {
+    "EXACT": 282,
+    "NUMERICALLY_EQUIVALENT": 0,
+    "DISPLAY_MATCH": 57,
+    "MISMATCH": 3,
+    "UNVERIFIED": 0
+  },
+  "scenarioCount": 6
+}

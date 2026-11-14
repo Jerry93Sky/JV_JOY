@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.1",
+  "stage": "PR_10G",
+  "coverage": {
+    "N5:N35": { "rules": 31, "mathematics": "COMPLETE_EXACT_RATIONAL", "serialization": "exactQuantity retains repeating fractions" },
+    "O5:O35": { "rules": 31, "profiles": ["COMPLETATION", "RETAIL"], "mathematics": "EXACT_RATIONAL_FROM_VERSIONED_PRICE_SNAPSHOTS", "settings": ["D3", "D12", "L26", "L7", "L8", "L9", "L10", "L11", "L17", "L21"], "excelParity": "PR_10G order scenarios include all item price rows" },
+    "P5:P35": { "rules": 31, "mathematics": "COMPLETE_WHEN_PROFILE_PRICE_AND_ORDER_FACTORS_AVAILABLE", "partialBehavior": "missing prices/factors are explicit; never substituted with zero" },
+    "P38": { "formula": "=SUM($P$5:$P$35)", "mathematics": "COMPLETE_ONLY_IF_ALL_31_COSTS_EXIST" },
+    "orderCalculator": { "export": "calculateZigzagOrder", "multiplePositions": "COMPLETE_FOR_ZIGZAG_ONLY_ORDERS", "multipleInstances": "quantity extends unit sale price once", "sharedFactors": ["N12", "N25", "O5", "O18", "ПРМ!AB25:AB31", "Z1!W5"], "unitSale": "Главная!Sslot=P44/Настройки!D12", "orderTotal": "sum(unit sale × slot quantity); source workbooks have no asserted aggregate cell; Excel scratch formula used on temporary copies", "mixedFamilies": "PARTIAL" },
+    "P39": { "mathematics": "IMPLEMENTED_EXACT", "excelParity": "C8=4 CONFIRMED IN BOTH PROFILES WITH MANUAL N40/N41; U10:U18 CAPTURED" },
+    "P40": { "mathematics": "IMPLEMENTED_EXACT_WITH_H23_GUARD", "excelParity": "ACTIVE_VALID_CASE CONFIRMED IN BOTH PROFILES; H23=ERROR/H29=#VALUE!/P40=#VALUE! PRESERVED AS PARTIAL; D32=OFF IS ZERO" },
+    "P41": { "mathematics": "IMPLEMENTED_BOTH_CONDITIONAL_TERMS" },
+    "P43": { "mathematics": "IMPLEMENTED_EXACT_RATIONAL" },
+    "P42:P44": { "mathematics": "GUARDED_COMPLETE_CHAIN", "multiPosition": "COMPLETE_FOR_VALID_ZIGZAG_ONLY_ORDERS", "mixedFamily": "NOT_PUBLISHED" }
+  },
+  "PR_10GParity": { "fixture": "ZIGZAG_ORDER_PR10G_PARITY.json", "scenarios": 8, "profiles": ["COMPLETATION", "RETAIL"], "positions": 16, "comparisons": 1948, "EXACT": 1034, "DISPLAY_MATCH": 902, "NUMERICALLY_EQUIVALENT": 0, "MISMATCH": 0, "UNVERIFIED": 12, "unverifiedReason": "Two intentionally active glass guard-error cases per workbook have downstream Excel errors; engine returns PARTIAL and does not provide numeric P40/P42/P44/Sslot." },
+  "PR_10FParity": { "fixture": "ZIGZAG_PRICE_PARITY.json", "comparisons": 300, "EXACT": 130, "DISPLAY_MATCH": 170, "MISMATCH": 0, "UNVERIFIED": 0 },
+  "mixedOrderNextStage": "PR_10H; must independently implement and parity-check all family consumption columns before mixed-family COMPLETE",
+  "productionIntegration": "NONE; legacy calculate, API, Prisma and UI unchanged"
+}

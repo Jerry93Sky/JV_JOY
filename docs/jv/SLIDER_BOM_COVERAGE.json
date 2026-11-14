@@ -1,0 +1,1707 @@
+{
+  "schemaVersion": "1.0",
+  "feature": "JV-Slider L3 geometry and complete 42-row quantity BOM (pricing remains partial)",
+  "method": "Excel 16 COM CalculateFullRebuild on temporary copies; original books unchanged. PR_11C captures 8 varied branch cases across both profiles.",
+  "familyCalculationSheet": "S1",
+  "bomRange": "S1!5:46 (42 material/component rows; catalog/description/unit in F:H, selector J, quantity K)",
+  "implementedGroup": {
+    "name": "3-track L-system profiles",
+    "rows": [
+      {
+        "row": 5,
+        "sku": "S-010",
+        "description": "Профиль верхний 3-дорожечный",
+        "unit": "п.м",
+        "quantityFormula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)"
+      },
+      {
+        "row": 7,
+        "sku": "SL-110",
+        "description": "Профиль L опорный плоский 3-дорож.",
+        "unit": "п.м",
+        "quantityFormula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)"
+      }
+    ],
+    "status": "QUANTITY_RULES_IMPLEMENTED; UNIT_PRICES_AND_COMMERCIAL_TOTAL_NOT_IMPLEMENTED"
+  },
+  "profiles": [
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "calculation": "CalculateFullRebuild",
+      "selectedVariant": {
+        "F11": 3,
+        "G11": 3,
+        "S1A2": 3,
+        "S1A3": 1,
+        "system": "L",
+        "trackCount": 3,
+        "combinedCode": 13
+      },
+      "sourceRange": "S1!F5:K46",
+      "items": [
+        {
+          "row": 5,
+          "sku": "S-010",
+          "skuFormula": "='Прайс-Slider'!B5",
+          "description": "Профиль верхний 3-дорожечный",
+          "descriptionFormula": "='Прайс-Slider'!C5",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D5",
+          "selectorFormula": "=IF($C$9=I5,1,0)",
+          "quantityFormula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 3.05,
+          "status": "IMPLEMENTED_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 6,
+          "sku": "S-020",
+          "skuFormula": "='Прайс-Slider'!B6",
+          "description": "Профиль верхний 5-дорожечный",
+          "descriptionFormula": "='Прайс-Slider'!C6",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D6",
+          "selectorFormula": "=IF($C$9=I6,1,0)",
+          "quantityFormula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 7,
+          "sku": "SL-110",
+          "skuFormula": "='Прайс-Slider'!B7",
+          "description": "Профиль L опорный плоский 3-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C7",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D7",
+          "selectorFormula": "=IF($C$10=I7,1,0)",
+          "quantityFormula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 3.05,
+          "status": "IMPLEMENTED_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 8,
+          "sku": "SL-120",
+          "skuFormula": "='Прайс-Slider'!B8",
+          "description": "Профиль L опорный плоский 5-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C8",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D8",
+          "selectorFormula": "=IF($C$10=I8,1,0)",
+          "quantityFormula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 9,
+          "sku": "SX-110",
+          "skuFormula": "='Прайс-Slider'!B9",
+          "description": "Профиль X опорный 3-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C9",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D9",
+          "selectorFormula": "=IF($C$10=I9,1,0)",
+          "quantityFormula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 10,
+          "sku": "SX-120",
+          "skuFormula": "='Прайс-Slider'!B10",
+          "description": "Профиль X опорный 5-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C10",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D10",
+          "selectorFormula": "=IF($C$10=I10,1,0)",
+          "quantityFormula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 11,
+          "sku": "S-030",
+          "skuFormula": "='Прайс-Slider'!B11",
+          "description": "Боковой профиль",
+          "descriptionFormula": "='Прайс-Slider'!C11",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D11",
+          "selectorFormula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)",
+          "quantityFormula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 4.34,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 12,
+          "sku": "SL-130",
+          "skuFormula": "='Прайс-Slider'!B12",
+          "description": "Профиль L створочный",
+          "descriptionFormula": "='Прайс-Slider'!C12",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D12",
+          "selectorFormula": "=IF($C$8=I12,1,0)",
+          "quantityFormula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "recalculatedQuantity": 3.0940000000000003,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 13,
+          "sku": "SX-130",
+          "skuFormula": "='Прайс-Slider'!B13",
+          "description": "Профиль X створочный",
+          "descriptionFormula": "='Прайс-Slider'!C13",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D13",
+          "selectorFormula": "=IF($C$8=I13,1,0)",
+          "quantityFormula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 14,
+          "sku": "SL-140-0",
+          "skuFormula": "='Прайс-Slider'!B14",
+          "description": "Заглушка L створочная боковая НОВАЯ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!C14, IF(Настройки!$H$21,\" НОВАЯ\",\"\"))",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D14",
+          "selectorFormula": "=IF($C$8=I14,1,0)",
+          "quantityFormula": "=$J$14*2*$D$6",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 15,
+          "sku": "SL-140-2",
+          "skuFormula": "='Прайс-Slider'!B15",
+          "description": "Заглушка L створочная 2-стор.",
+          "descriptionFormula": "='Прайс-Slider'!C15",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D15",
+          "selectorFormula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)",
+          "quantityFormula": "=$J$15*(2*$D$5-$K$14)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 16,
+          "sku": "SL-140-L",
+          "skuFormula": "='Прайс-Slider'!B16",
+          "description": "Заглушка L створочная левая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C16",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D16",
+          "selectorFormula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 17,
+          "sku": "SL-140-R",
+          "skuFormula": "='Прайс-Slider'!B17",
+          "description": "Заглушка L створочная правая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C17",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D17",
+          "selectorFormula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 18,
+          "sku": "SX-140-0",
+          "skuFormula": "='Прайс-Slider'!B18",
+          "description": "Заглушка X створочная боковая НОВАЯ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!C18, IF(Настройки!$H$21,\" НОВАЯ\",\"\"))",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D18",
+          "selectorFormula": "=IF($C$8=I18,1,0)",
+          "quantityFormula": "=$J$18*2*$D$6",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 19,
+          "sku": "SX-140-2",
+          "skuFormula": "='Прайс-Slider'!B19",
+          "description": "Заглушка X створочная 2-стор.",
+          "descriptionFormula": "='Прайс-Slider'!C19",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D19",
+          "selectorFormula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)",
+          "quantityFormula": "=$J$19*(2*$D$5-$K$18)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 20,
+          "sku": "SX-140-L",
+          "skuFormula": "='Прайс-Slider'!B20",
+          "description": "Заглушка X створочная левая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C20",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D20",
+          "selectorFormula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 21,
+          "sku": "SX-140-R",
+          "skuFormula": "='Прайс-Slider'!B21",
+          "description": "Заглушка X створочная правая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C21",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D21",
+          "selectorFormula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 22,
+          "sku": "S-080",
+          "skuFormula": "='Прайс-Slider'!B22",
+          "description": "Демпфер заглушки c кольцом",
+          "descriptionFormula": "='Прайс-Slider'!C22",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D22",
+          "selectorFormula": "",
+          "quantityFormula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 23,
+          "sku": "SL-150",
+          "skuFormula": "='Прайс-Slider'!B23",
+          "description": "Роликовая каретка L",
+          "descriptionFormula": "='Прайс-Slider'!C23",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D23",
+          "selectorFormula": "=IF($C$8=I23,1,0)",
+          "quantityFormula": "=$J$23*2*$D$5",
+          "recalculatedQuantity": 4,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 24,
+          "sku": "SX-150",
+          "skuFormula": "='Прайс-Slider'!B24",
+          "description": "Роликовая каретка X",
+          "descriptionFormula": "='Прайс-Slider'!C24",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D24",
+          "selectorFormula": "=IF($C$8=I24,1,0)",
+          "quantityFormula": "=$J$24*2*$D$5",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 25,
+          "sku": "S-040",
+          "skuFormula": "='Прайс-Slider'!B25",
+          "description": "Ручка круглая",
+          "descriptionFormula": "='Прайс-Slider'!C25",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D25",
+          "selectorFormula": "=IF(J26=1,0,1)",
+          "quantityFormula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 26,
+          "sku": "S-050",
+          "skuFormula": "='Прайс-Slider'!B26",
+          "description": "Ручка светопрозрачная",
+          "descriptionFormula": "='Прайс-Slider'!C26",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D26",
+          "selectorFormula": "=IF(Настройки!H27,1,0)",
+          "quantityFormula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 27,
+          "sku": "S-060",
+          "skuFormula": "='Прайс-Slider'!B27",
+          "description": "Замок с ответкой на стену",
+          "descriptionFormula": "='Прайс-Slider'!C27",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D27",
+          "selectorFormula": "",
+          "quantityFormula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 28,
+          "sku": "S-070",
+          "skuFormula": "='Прайс-Slider'!B28",
+          "description": "Замок с ответкой на стекло",
+          "descriptionFormula": "='Прайс-Slider'!C28",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D28",
+          "selectorFormula": "",
+          "quantityFormula": "=IF($D$26=\"ОДИН\",1,0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 29,
+          "sku": "SL-160",
+          "skuFormula": "='Прайс-Slider'!B29",
+          "description": "Задвижка нижняя L с винтом (комплект)",
+          "descriptionFormula": "='Прайс-Slider'!C29",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D29",
+          "selectorFormula": "=IF($C$8=I29,1,0)",
+          "quantityFormula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "recalculatedQuantity": 1,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 30,
+          "sku": "SL-161",
+          "skuFormula": "='Прайс-Slider'!B30",
+          "description": "Задвижка нижняя L с ручкой (комплект)",
+          "descriptionFormula": "='Прайс-Slider'!C30",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D30",
+          "selectorFormula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)",
+          "quantityFormula": "=$J$30*$D$6",
+          "recalculatedQuantity": 1,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 31,
+          "sku": "SX-081",
+          "skuFormula": "='Прайс-Slider'!B31",
+          "description": "Задвижка нижняя X (комплект 1)",
+          "descriptionFormula": "='Прайс-Slider'!C31",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D31",
+          "selectorFormula": "=IF($C$8=I31,1,0)",
+          "quantityFormula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 32,
+          "sku": "SX-082",
+          "skuFormula": "='Прайс-Slider'!B32",
+          "description": "Задвижка нижняя X (комплект 2)",
+          "descriptionFormula": "='Прайс-Slider'!C32",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D32",
+          "selectorFormula": "=IF($C$8=I32,1,0)",
+          "quantityFormula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 33,
+          "sku": "AA-030",
+          "skuFormula": "='Прайс-Slider'!B33",
+          "description": "Уплотнитель щёточный 5х4",
+          "descriptionFormula": "='Прайс-Slider'!C33",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D33",
+          "selectorFormula": "=IF($C$8=20,1,0)",
+          "quantityFormula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "recalculatedQuantity": 18,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 34,
+          "sku": "AA-040",
+          "skuFormula": "='Прайс-Slider'!B34",
+          "description": "Уплотнитель щёточный 5x9",
+          "descriptionFormula": "='Прайс-Slider'!C34",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D34",
+          "selectorFormula": "",
+          "quantityFormula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "recalculatedQuantity": 8.58,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 35,
+          "sku": "AA-041",
+          "skuFormula": "='Прайс-Slider'!B35",
+          "description": "Уплотнитель щёточный 5x12 с клеем",
+          "descriptionFormula": "='Прайс-Slider'!C35",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D35",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "recalculatedQuantity": 2.1,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 36,
+          "sku": "AA-060",
+          "skuFormula": "='Прайс-Slider'!B36",
+          "description": "Уплотнитель светопрозр. F-типа, 3 м",
+          "descriptionFormula": "='Прайс-Slider'!C36",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D36",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 37,
+          "sku": "AA-070",
+          "skuFormula": "='Прайс-Slider'!B37",
+          "description": "Уплотнитель светопрозр. D-типа, 3 м",
+          "descriptionFormula": "='Прайс-Slider'!C37",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D37",
+          "selectorFormula": "",
+          "quantityFormula": "=2*$D$6-$K$39",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 38,
+          "sku": "AA-071",
+          "skuFormula": "='Прайс-Slider'!B38",
+          "description": "Уплотнитель светопрозр. под щётку",
+          "descriptionFormula": "='Прайс-Slider'!C38",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D38",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "recalculatedQuantity": 1,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 39,
+          "sku": "AA-080",
+          "skuFormula": "='Прайс-Slider'!$B$39",
+          "description": "Уплотнитель светопрозр. магнитный прямой, 3 м",
+          "descriptionFormula": "='Прайс-Slider'!$C$39",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!$D$39",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 40,
+          "sku": "AA-110",
+          "skuFormula": "='Прайс-Slider'!B41",
+          "description": "Активатор (50 мл) - 2 шт. на весь заказ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!$C$41, \" - \", 'Клей+акт'!$N$12, \" шт. на весь заказ\")",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D41",
+          "selectorFormula": "",
+          "quantityFormula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "recalculatedQuantity": 0.167,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 41,
+          "sku": "AA-120",
+          "skuFormula": "='Прайс-Slider'!B42",
+          "description": "Клей (уп.\"колбаса\") - 2 шт. на весь заказ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!$C$42, \" - \", 'Клей+акт'!$N$25, \" шт. на весь заказ\")",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D42",
+          "selectorFormula": "",
+          "quantityFormula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "recalculatedQuantity": 0.167,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 42,
+          "sku": "AA-200",
+          "skuFormula": "='Прайс-Slider'!B43",
+          "description": "Саморез для опорного профиля",
+          "descriptionFormula": "='Прайс-Slider'!C43",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D43",
+          "selectorFormula": "",
+          "quantityFormula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "recalculatedQuantity": 12,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 43,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез 3,5х20 головка впотай, крепл. заглушек",
+          "descriptionFormula": "Саморез 3,5х20 головка впотай, крепл. заглушек",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=2*SUM($K$14:$K$21)",
+          "recalculatedQuantity": 8,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 44,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез с буром 3,9х22 крепление X-кареток",
+          "descriptionFormula": "Саморез с буром 3,9х22 крепление X-кареток",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=2*$K$24",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 45,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез с прессшайбой 4,2x25 - креп. L-задвижки",
+          "descriptionFormula": "Саморез с прессшайбой 4,2x25 - креп. L-задвижки",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=2*$K$29",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 46,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез 3х16 кругл. гол., крепление Х-задвижки",
+          "descriptionFormula": "Саморез 3х16 кругл. гол., крепление Х-задвижки",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=4*$K$31+4*$K$32",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        }
+      ]
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "calculation": "CalculateFullRebuild",
+      "selectedVariant": {
+        "F11": 3,
+        "G11": 3,
+        "S1A2": 3,
+        "S1A3": 1,
+        "system": "L",
+        "trackCount": 3,
+        "combinedCode": 13
+      },
+      "sourceRange": "S1!F5:K46",
+      "items": [
+        {
+          "row": 5,
+          "sku": "S-010",
+          "skuFormula": "='Прайс-Slider'!B5",
+          "description": "Профиль верхний 3-дорожечный",
+          "descriptionFormula": "='Прайс-Slider'!C5",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D5",
+          "selectorFormula": "=IF($C$9=I5,1,0)",
+          "quantityFormula": "=IF($J$5>0, $J$5*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 3.05,
+          "status": "IMPLEMENTED_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 6,
+          "sku": "S-020",
+          "skuFormula": "='Прайс-Slider'!B6",
+          "description": "Профиль верхний 5-дорожечный",
+          "descriptionFormula": "='Прайс-Slider'!C6",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D6",
+          "selectorFormula": "=IF($C$9=I6,1,0)",
+          "quantityFormula": "=IF($J$6>0, $J$6*$D$32/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 7,
+          "sku": "SL-110",
+          "skuFormula": "='Прайс-Slider'!B7",
+          "description": "Профиль L опорный плоский 3-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C7",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D7",
+          "selectorFormula": "=IF($C$10=I7,1,0)",
+          "quantityFormula": "=IF($J$7>0,  $J$7*$D$31/1000 + IF($C$9=3,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 3.05,
+          "status": "IMPLEMENTED_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 8,
+          "sku": "SL-120",
+          "skuFormula": "='Прайс-Slider'!B8",
+          "description": "Профиль L опорный плоский 5-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C8",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D8",
+          "selectorFormula": "=IF($C$10=I8,1,0)",
+          "quantityFormula": "=IF($J$8>0,  $J$8*$D$31/1000 + IF($C$9=5,2*$D$37/1000,0) + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 9,
+          "sku": "SX-110",
+          "skuFormula": "='Прайс-Slider'!B9",
+          "description": "Профиль X опорный 3-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C9",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D9",
+          "selectorFormula": "=IF($C$10=I9,1,0)",
+          "quantityFormula": "=IF($J$9>0, $J$9*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 10,
+          "sku": "SX-120",
+          "skuFormula": "='Прайс-Slider'!B10",
+          "description": "Профиль X опорный 5-дорож.",
+          "descriptionFormula": "='Прайс-Slider'!C10",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D10",
+          "selectorFormula": "=IF($C$10=I10,1,0)",
+          "quantityFormula": "=IF($J$10>0, $J$10*$D$31/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 11,
+          "sku": "S-030",
+          "skuFormula": "='Прайс-Slider'!B11",
+          "description": "Боковой профиль",
+          "descriptionFormula": "='Прайс-Slider'!C11",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D11",
+          "selectorFormula": "=IF( AND($C$10>0, $D$17=\"ДА\"), 1, 0)",
+          "quantityFormula": "=IF($J$11>0, $J$11*2*$D$36/1000 + Настройки!$D$8/1000, 0)",
+          "recalculatedQuantity": 4.34,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 12,
+          "sku": "SL-130",
+          "skuFormula": "='Прайс-Slider'!B12",
+          "description": "Профиль L створочный",
+          "descriptionFormula": "='Прайс-Slider'!C12",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D12",
+          "selectorFormula": "=IF($C$8=I12,1,0)",
+          "quantityFormula": "=IF($J$12>0, $J$12*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "recalculatedQuantity": 3.0940000000000003,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 13,
+          "sku": "SX-130",
+          "skuFormula": "='Прайс-Slider'!B13",
+          "description": "Профиль X створочный",
+          "descriptionFormula": "='Прайс-Slider'!C13",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D13",
+          "selectorFormula": "=IF($C$8=I13,1,0)",
+          "quantityFormula": "=IF($J$13>0, $J$13*($C$33*$D$33+$C$34*$D$34)/1000 + Настройки!$D$6/1000, 0)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 14,
+          "sku": "SL-140-0",
+          "skuFormula": "='Прайс-Slider'!B14",
+          "description": "Заглушка L створочная боковая НОВАЯ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!C14, IF(Настройки!$H$21,\" НОВАЯ\",\"\"))",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D14",
+          "selectorFormula": "=IF($C$8=I14,1,0)",
+          "quantityFormula": "=$J$14*2*$D$6",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 15,
+          "sku": "SL-140-2",
+          "skuFormula": "='Прайс-Slider'!B15",
+          "description": "Заглушка L створочная 2-стор.",
+          "descriptionFormula": "='Прайс-Slider'!C15",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D15",
+          "selectorFormula": "=IF(AND($C$8=I15,D28=\"НЕТ\"),1,0)",
+          "quantityFormula": "=$J$15*(2*$D$5-$K$14)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 16,
+          "sku": "SL-140-L",
+          "skuFormula": "='Прайс-Slider'!B16",
+          "description": "Заглушка L створочная левая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C16",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D16",
+          "selectorFormula": "=IF(AND($C$8=I16,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$16*(2*$D$5-$K$14)/$D$6",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 17,
+          "sku": "SL-140-R",
+          "skuFormula": "='Прайс-Slider'!B17",
+          "description": "Заглушка L створочная правая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C17",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D17",
+          "selectorFormula": "=IF(AND($C$8=I17,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$17*(2*$D$5-$K$14)/$D$6",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 18,
+          "sku": "SX-140-0",
+          "skuFormula": "='Прайс-Slider'!B18",
+          "description": "Заглушка X створочная боковая НОВАЯ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!C18, IF(Настройки!$H$21,\" НОВАЯ\",\"\"))",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D18",
+          "selectorFormula": "=IF($C$8=I18,1,0)",
+          "quantityFormula": "=$J$18*2*$D$6",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 19,
+          "sku": "SX-140-2",
+          "skuFormula": "='Прайс-Slider'!B19",
+          "description": "Заглушка X створочная 2-стор.",
+          "descriptionFormula": "='Прайс-Slider'!C19",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D19",
+          "selectorFormula": "=IF(AND($C$8=I19,D28=\"НЕТ\"),1,0)",
+          "quantityFormula": "=$J$19*(2*$D$5-$K$18)",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 20,
+          "sku": "SX-140-L",
+          "skuFormula": "='Прайс-Slider'!B20",
+          "description": "Заглушка X створочная левая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C20",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D20",
+          "selectorFormula": "=IF(AND($C$8=I20,Настройки!$H$21,OR($D$7=\"НАЛЕВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$20*(2*$D$5-$K$18)/$D$6",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 21,
+          "sku": "SX-140-R",
+          "skuFormula": "='Прайс-Slider'!B21",
+          "description": "Заглушка X створочная правая НОВАЯ",
+          "descriptionFormula": "='Прайс-Slider'!C21",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D21",
+          "selectorFormula": "=IF(AND($C$8=I21,Настройки!$H$21,OR($D$7=\"НАПРАВО\",$D$7=\"ДВУХСТОР.\")),1,0)",
+          "quantityFormula": "=$J$21*(2*$D$5-$K$18)/$D$6",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 22,
+          "sku": "S-080",
+          "skuFormula": "='Прайс-Slider'!B22",
+          "description": "Демпфер заглушки c кольцом",
+          "descriptionFormula": "='Прайс-Slider'!C22",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D22",
+          "selectorFormula": "",
+          "quantityFormula": "=2*($K$15+$K$19)+$K$16+$K$17+$K$20+$K$21",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 23,
+          "sku": "SL-150",
+          "skuFormula": "='Прайс-Slider'!B23",
+          "description": "Роликовая каретка L",
+          "descriptionFormula": "='Прайс-Slider'!C23",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D23",
+          "selectorFormula": "=IF($C$8=I23,1,0)",
+          "quantityFormula": "=$J$23*2*$D$5",
+          "recalculatedQuantity": 4,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 24,
+          "sku": "SX-150",
+          "skuFormula": "='Прайс-Slider'!B24",
+          "description": "Роликовая каретка X",
+          "descriptionFormula": "='Прайс-Slider'!C24",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D24",
+          "selectorFormula": "=IF($C$8=I24,1,0)",
+          "quantityFormula": "=$J$24*2*$D$5",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 25,
+          "sku": "S-040",
+          "skuFormula": "='Прайс-Slider'!B25",
+          "description": "Ручка круглая",
+          "descriptionFormula": "='Прайс-Slider'!C25",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D25",
+          "selectorFormula": "=IF(J26=1,0,1)",
+          "quantityFormula": "=$J$25*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 26,
+          "sku": "S-050",
+          "skuFormula": "='Прайс-Slider'!B26",
+          "description": "Ручка светопрозрачная",
+          "descriptionFormula": "='Прайс-Slider'!C26",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D26",
+          "selectorFormula": "=IF(Настройки!H27,1,0)",
+          "quantityFormula": "=$J$26*$D$6 * ( IF($D$20=\"1 / 2\",1,0)+IF($D$20=\"2 / 4\",2,0)+IF($D$20=\"нет\",0,0) )",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 27,
+          "sku": "S-060",
+          "skuFormula": "='Прайс-Slider'!B27",
+          "description": "Замок с ответкой на стену",
+          "descriptionFormula": "='Прайс-Slider'!C27",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D27",
+          "selectorFormula": "",
+          "quantityFormula": "=IF($D$24=\"ОДИН\",1,0)+IF($D$24=\"ДВА\",2,0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 28,
+          "sku": "S-070",
+          "skuFormula": "='Прайс-Slider'!B28",
+          "description": "Замок с ответкой на стекло",
+          "descriptionFormula": "='Прайс-Slider'!C28",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D28",
+          "selectorFormula": "",
+          "quantityFormula": "=IF($D$26=\"ОДИН\",1,0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 29,
+          "sku": "SL-160",
+          "skuFormula": "='Прайс-Slider'!B29",
+          "description": "Задвижка нижняя L с винтом (комплект)",
+          "descriptionFormula": "='Прайс-Slider'!C29",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D29",
+          "selectorFormula": "=IF($C$8=I29,1,0)",
+          "quantityFormula": "=$J$29*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",2,0))-$K$30",
+          "recalculatedQuantity": 1,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 30,
+          "sku": "SL-161",
+          "skuFormula": "='Прайс-Slider'!B30",
+          "description": "Задвижка нижняя L с ручкой (комплект)",
+          "descriptionFormula": "='Прайс-Slider'!C30",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D30",
+          "selectorFormula": "=IF(AND($C$8=I30,Настройки!$H$23),1,0)",
+          "quantityFormula": "=$J$30*$D$6",
+          "recalculatedQuantity": 1,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 31,
+          "sku": "SX-081",
+          "skuFormula": "='Прайс-Slider'!B31",
+          "description": "Задвижка нижняя X (комплект 1)",
+          "descriptionFormula": "='Прайс-Slider'!C31",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D31",
+          "selectorFormula": "=IF($C$8=I31,1,0)",
+          "quantityFormula": "=$J$31*$D$6*(IF($D$22=\"1 / 2\",1,0)+IF($D$22=\"2 / 4\",1,0))",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 32,
+          "sku": "SX-082",
+          "skuFormula": "='Прайс-Slider'!B32",
+          "description": "Задвижка нижняя X (комплект 2)",
+          "descriptionFormula": "='Прайс-Slider'!C32",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D32",
+          "selectorFormula": "=IF($C$8=I32,1,0)",
+          "quantityFormula": "=$J$32*$D$6*(IF($D$22=\"1 / 2\",0,0)+IF($D$22=\"2 / 4\",1,0))",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 33,
+          "sku": "AA-030",
+          "skuFormula": "='Прайс-Slider'!B33",
+          "description": "Уплотнитель щёточный 5х4",
+          "descriptionFormula": "='Прайс-Slider'!C33",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D33",
+          "selectorFormula": "=IF($C$8=20,1,0)",
+          "quantityFormula": "=0.001*$D$3*$C$9*2 + IF($J$33=1,$D$5*$D$33*2/1000,0)",
+          "recalculatedQuantity": 18,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 34,
+          "sku": "AA-040",
+          "skuFormula": "='Прайс-Slider'!B34",
+          "description": "Уплотнитель щёточный 5x9",
+          "descriptionFormula": "='Прайс-Slider'!C34",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D34",
+          "selectorFormula": "",
+          "quantityFormula": "=IF($D$17=\"ДА\",$D$36*4/1000,0)",
+          "recalculatedQuantity": 8.58,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 35,
+          "sku": "AA-041",
+          "skuFormula": "='Прайс-Slider'!B35",
+          "description": "Уплотнитель щёточный 5x12 с клеем",
+          "descriptionFormula": "='Прайс-Slider'!C35",
+          "unit": "п.м",
+          "unitFormula": "='Прайс-Slider'!D35",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$19=1,  $K$38*($D$4-100)/1000,  0)",
+          "recalculatedQuantity": 2.1,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 36,
+          "sku": "AA-060",
+          "skuFormula": "='Прайс-Slider'!B36",
+          "description": "Уплотнитель светопрозр. F-типа, 3 м",
+          "descriptionFormula": "='Прайс-Slider'!C36",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D36",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$19=2,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 37,
+          "sku": "AA-070",
+          "skuFormula": "='Прайс-Slider'!B37",
+          "description": "Уплотнитель светопрозр. D-типа, 3 м",
+          "descriptionFormula": "='Прайс-Slider'!C37",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D37",
+          "selectorFormula": "",
+          "quantityFormula": "=2*$D$6-$K$39",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 38,
+          "sku": "AA-071",
+          "skuFormula": "='Прайс-Slider'!B38",
+          "description": "Уплотнитель светопрозр. под щётку",
+          "descriptionFormula": "='Прайс-Slider'!C38",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D38",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$19=1,  IF($D$6=1,$D$5-1,0)+IF($D$6=2,$D$5-2,0),  0)",
+          "recalculatedQuantity": 1,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 39,
+          "sku": "AA-080",
+          "skuFormula": "='Прайс-Slider'!$B$39",
+          "description": "Уплотнитель светопрозр. магнитный прямой, 3 м",
+          "descriptionFormula": "='Прайс-Slider'!$C$39",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!$D$39",
+          "selectorFormula": "",
+          "quantityFormula": "=IF(Настройки!$H$25,  IF($D$6=2, 2, 0),  0)",
+          "recalculatedQuantity": 0,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 40,
+          "sku": "AA-110",
+          "skuFormula": "='Прайс-Slider'!B41",
+          "description": "Активатор (50 мл) - 2 шт. на весь заказ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!$C$41, \" - \", 'Клей+акт'!$N$12, \" шт. на весь заказ\")",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D41",
+          "selectorFormula": "",
+          "quantityFormula": "=ROUNDUP(0.001*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))",
+          "recalculatedQuantity": 0.167,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 41,
+          "sku": "AA-120",
+          "skuFormula": "='Прайс-Slider'!B42",
+          "description": "Клей (уп.\"колбаса\") - 2 шт. на весь заказ",
+          "descriptionFormula": "=CONCATENATE('Прайс-Slider'!$C$42, \" - \", 'Клей+акт'!$N$25, \" шт. на весь заказ\")",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D42",
+          "selectorFormula": "",
+          "quantityFormula": "=ROUNDUP(0.001*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))",
+          "recalculatedQuantity": 0.167,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 42,
+          "sku": "AA-200",
+          "skuFormula": "='Прайс-Slider'!B43",
+          "description": "Саморез для опорного профиля",
+          "descriptionFormula": "='Прайс-Slider'!C43",
+          "unit": "шт.",
+          "unitFormula": "='Прайс-Slider'!D43",
+          "selectorFormula": "",
+          "quantityFormula": "=ROUNDUP(0.001*$D$3*Настройки!$S$7,0)",
+          "recalculatedQuantity": 12,
+          "status": "IMPLEMENTED_PR11C_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 43,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез 3,5х20 головка впотай, крепл. заглушек",
+          "descriptionFormula": "Саморез 3,5х20 головка впотай, крепл. заглушек",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=2*SUM($K$14:$K$21)",
+          "recalculatedQuantity": 8,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 44,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез с буром 3,9х22 крепление X-кареток",
+          "descriptionFormula": "Саморез с буром 3,9х22 крепление X-кареток",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=2*$K$24",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        },
+        {
+          "row": 45,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез с прессшайбой 4,2x25 - креп. L-задвижки",
+          "descriptionFormula": "Саморез с прессшайбой 4,2x25 - креп. L-задвижки",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=2*$K$29",
+          "recalculatedQuantity": 2,
+          "status": "IMPLEMENTED_PR11B_AND_PARITY_CHECKED"
+        },
+        {
+          "row": 46,
+          "sku": null,
+          "skuFormula": "",
+          "description": "Саморез 3х16 кругл. гол., крепление Х-задвижки",
+          "descriptionFormula": "Саморез 3х16 кругл. гол., крепление Х-задвижки",
+          "unit": "шт.",
+          "unitFormula": "шт.",
+          "selectorFormula": "",
+          "quantityFormula": "=4*$K$31+4*$K$32",
+          "recalculatedQuantity": 0,
+          "status": "NOT_APPLICABLE_FOR_L3_SELECTOR"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Rows 5 and 7 remain the two previously implemented profile quantity rules.",
+    "PR_11B adds exact rational rules for K14:K17, K22:K23, K29:K30, K43 and K45; X-family rows are marked not applicable for L3, not treated as general confirmed zero materials.",
+    "K43 and K45 have no catalog SKU in S1!F, but are source-described fastener lines in S1!G:H and were implemented as quantity formulas; their unit costs are already included in parent material costs.",
+    "S1!D22 is resolved by the workbook formula through Настройки!I27 and #1!G24:G26; the engine contract consumes the resolved choice and does not infer it from K29.",
+    "No saved Excel cache or Excel result is passed as an engine input. All source scenarios were recalculated with Excel 16 CalculateFullRebuild on temporary workbook copies.",
+    "Material prices, shared glue/activator pricing and S1!M53 are not asserted as supported.",
+    "PR_11C confirmed five additional selector-inactive positions K6, K8:K10, K13. The requested target 33 applicable / 9 inactive is therefore not source-supported for L3: 28 positions have active quantity rules and 14 are selector-inactive.",
+    "K12 mathematical rational is 1547/500 (3.094); Excel Value2 is 3.0940000000000003 in one case. Exact binary64 differs while the cell display 3.094 matches."
+  ],
+  "capture": {
+    "fixture": "docs/jv/fixtures/slider-pr11b-bom-capture.json",
+    "excelVersion": "16.0",
+    "recalculation": "CalculateFullRebuild",
+    "temporaryCopiesOnly": true,
+    "sourceWorkbooksUnmodified": true,
+    "scenarios": [
+      {
+        "profile": "COMPLETATION",
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+        "scenarioId": "two_leaves_left",
+        "inputs": {
+          "F11": 3,
+          "C11": 3000,
+          "D11": 2200,
+          "M11": 2,
+          "J11": 1
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 2,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "2 / 4",
+          "C22Formula": "2"
+        },
+        "settings": {
+          "H21": 1,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      },
+      {
+        "profile": "COMPLETATION",
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+        "scenarioId": "four_leaves_two_sided",
+        "inputs": {
+          "F11": 3,
+          "C11": 3600,
+          "D11": 2400,
+          "M11": 4,
+          "J11": 3
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 2,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "2 / 4",
+          "C22Formula": "2"
+        },
+        "settings": {
+          "H21": 1,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      },
+      {
+        "profile": "COMPLETATION",
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+        "scenarioId": "four_leaves_right_interlock_off",
+        "inputs": {
+          "F11": 3,
+          "C11": 3600,
+          "D11": 2400,
+          "M11": 4,
+          "J11": 2
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 1,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "1 / 2",
+          "C22Formula": "1"
+        },
+        "settings": {
+          "H21": 0,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      },
+      {
+        "profile": "COMPLETATION",
+        "workbook": "JV-комплектация 08.10.2026.xlsm",
+        "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+        "scenarioId": "two_leaves_left_no_joint",
+        "inputs": {
+          "F11": 3,
+          "C11": 3000,
+          "D11": 2200,
+          "M11": 2,
+          "J11": 1
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 3,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "НЕТ",
+          "C22Formula": "3"
+        },
+        "settings": {
+          "H21": 1,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      },
+      {
+        "profile": "RETAIL",
+        "workbook": "JV-розница 08.10.2026.xlsm",
+        "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+        "scenarioId": "two_leaves_left",
+        "inputs": {
+          "F11": 3,
+          "C11": 3000,
+          "D11": 2200,
+          "M11": 2,
+          "J11": 1
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 2,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "2 / 4",
+          "C22Formula": "2"
+        },
+        "settings": {
+          "H21": 1,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      },
+      {
+        "profile": "RETAIL",
+        "workbook": "JV-розница 08.10.2026.xlsm",
+        "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+        "scenarioId": "four_leaves_two_sided",
+        "inputs": {
+          "F11": 3,
+          "C11": 3600,
+          "D11": 2400,
+          "M11": 4,
+          "J11": 3
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 2,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "2 / 4",
+          "C22Formula": "2"
+        },
+        "settings": {
+          "H21": 1,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      },
+      {
+        "profile": "RETAIL",
+        "workbook": "JV-розница 08.10.2026.xlsm",
+        "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+        "scenarioId": "four_leaves_right_interlock_off",
+        "inputs": {
+          "F11": 3,
+          "C11": 3600,
+          "D11": 2400,
+          "M11": 4,
+          "J11": 2
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 1,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "1 / 2",
+          "C22Formula": "1"
+        },
+        "settings": {
+          "H21": 0,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      },
+      {
+        "profile": "RETAIL",
+        "workbook": "JV-розница 08.10.2026.xlsm",
+        "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+        "scenarioId": "two_leaves_left_no_joint",
+        "inputs": {
+          "F11": 3,
+          "C11": 3000,
+          "D11": 2200,
+          "M11": 2,
+          "J11": 1
+        },
+        "selectors": {
+          "G11": 3,
+          "S1A2": 3,
+          "S1A3": 1,
+          "C22": 3,
+          "I27": 4,
+          "D20": "2 / 4",
+          "D22": "НЕТ",
+          "C22Formula": "3"
+        },
+        "settings": {
+          "H21": 1,
+          "H23": true
+        },
+        "macrosForceDisabled": true,
+        "worksheetEventsDisabled": true,
+        "externalWorkbookReferencesDetected": false,
+        "comparedRows": [
+          14,
+          15,
+          16,
+          17,
+          22,
+          23,
+          29,
+          30,
+          43,
+          45
+        ],
+        "comparison": "EXACT"
+      }
+    ]
+  },
+  "counts": {
+    "totalRows": 42,
+    "implementedQuantityRules": 28,
+    "implementedBeforePR11B": 2,
+    "newlyImplementedPR11B": 10,
+    "newlyImplementedPR11C": 16,
+    "notApplicableForL3": 14,
+    "formulasCapturedButUnsupported": 0
+  },
+  "newlyImplementedGroups": [
+    {
+      "name": "L-system leaf plugs, bumper and roller carriage",
+      "rows": [
+        14,
+        15,
+        16,
+        17,
+        22,
+        23
+      ],
+      "rules": 6
+    },
+    {
+      "name": "L-system bottom latches and fastening screws",
+      "rows": [
+        29,
+        30,
+        43,
+        45
+      ],
+      "rules": 4
+    },
+    {
+      "name": "Side/sash profiles, handle and lock options, seals and order consumables",
+      "rows": [
+        11,
+        12,
+        25,
+        26,
+        27,
+        28,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "rules": 16
+    }
+  ],
+  "notApplicableRows": [
+    {
+      "row": 6,
+      "reason": "S1!C9=3 for L3, while row selector I6=5; J6=0 and K6 is inactive."
+    },
+    {
+      "row": 8,
+      "reason": "S1!C10=13 for L3, while row selector I8=15; J8=0 and K8 is inactive."
+    },
+    {
+      "row": 9,
+      "reason": "S1!C10=13 for L3, while row selector I9=23; J9=0 and K9 is inactive."
+    },
+    {
+      "row": 10,
+      "reason": "S1!C10=13 for L3, while row selector I10=25; J10=0 and K10 is inactive."
+    },
+    {
+      "row": 13,
+      "reason": "S1!C8=10 for L3, while row selector I13=20; J13=0 and K13 is inactive."
+    },
+    {
+      "row": 18,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 19,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 20,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 21,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 24,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 31,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 32,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 44,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    },
+    {
+      "row": 46,
+      "reason": "X-system row has selector J=0 because the L3 system code is C8=10 (row selector code 20); formula value is inactive for L3."
+    }
+  ],
+  "materialGroups": [
+    {
+      "name": "Направляющие и профили",
+      "rows": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "name": "Заглушки, демпфер и роликовые каретки",
+      "rows": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "name": "Ручки, замки и задвижки",
+      "rows": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "name": "Уплотнители и щёточные материалы",
+      "rows": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ]
+    },
+    {
+      "name": "Клей и активатор",
+      "rows": [
+        40,
+        41
+      ]
+    },
+    {
+      "name": "Крепёж",
+      "rows": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ]
+    }
+  ]
+}

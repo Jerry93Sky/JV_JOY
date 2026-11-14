@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "sourceWorkbooks": [
+    "JV-комплектация 08.10.2026.xlsm",
+    "JV-розница 08.10.2026.xlsm"
+  ],
+  "sourceSheets": {
+    "materialIdentityAndPrice": "Прайс-Line!B:G",
+    "unitPriceFormula": "L1!P5:P44",
+    "extendedLineAmountFormula": "L1!Q5:Q44",
+    "weightOutputsCapturedOnly": "L1!S5:S44",
+    "paintingOutputsCapturedOnly": "L1!V5:V44"
+  },
+  "snapshotFile": "fixtures/line-price-snapshots.json",
+  "excelGoldenFile": "fixtures/line-price-excel-golden.json",
+  "implementedCalculation": {
+    "sourcePriceLookups": 40,
+    "supportedBomPriceRulesWhenAllRequiredInputsPresent": 26,
+    "workbookProfiles": ["COMPLETATION", "RETAIL"],
+    "formulaGroups": [
+      { "l1Rows": "5-8", "priceFormula": "Прайс-Line!E[row] / Настройки!D2", "lineAmountFormula": "P[row] * O[row]" },
+      { "l1Rows": "9-43", "priceFormula": "Прайс-Line!E[matched catalog row]", "lineAmountFormula": "P[row] * O[row]" },
+      { "l1Rows": "44", "priceFormula": "Прайс-Line!E45 / Настройки!L7", "lineAmountFormula": "P44 * O44", "quantityStatus": "UNSUPPORTED" }
+    ],
+    "currency": "RUB, from L1!P4/Q4 = руб.",
+    "amountRepresentation": "exact reduced BigInt rational; no rounding",
+    "constructionTotals": "NOT_IMPLEMENTED"
+  },
+  "excelParity": {
+    "method": "Excel 16.0 CalculateFullRebuild on temporary copies, macros disabled, Value2 plus exact binary64 bits, cell display and number format",
+    "caseRuns": 10,
+    "priceAndAmountCellComparisons": 800,
+    "EXACT": 427,
+    "NUMERICALLY_EQUIVALENT_BY_CELL_DISPLAY": 373,
+    "MISMATCH": 0,
+    "UNVERIFIED": 0,
+    "classificationPolicy": "EXACT compares rational engine value with exact Excel binary64 value. NUMERICALLY_EQUIVALENT compares formatted display only and preserves both unrounded values."
+  },
+  "notImplemented": ["L1!S weight costing", "L1!V painting", "glass", "assembly", "installation", "discounts", "markup", "retail commercial totals", "construction total"]
+  ,"additionalExcelPriceRowsOutsideBaseCatalog": [
+    { "l1Row": 45, "sku": "AA-020", "quantityFormula": "=(2*$O$5+IF($D$18=\"ДА\",2*$O$6,0)+IF($D$15=\"ДА\",$O$8,0))/Настройки!$L$8", "unitPriceFormula": "='Прайс-Line'!$E46/Настройки!$L$8", "amountFormula": "=$P45*$O45", "status": "NOT_IN_ENGINE" },
+    { "l1Row": 46, "sku": "AA-050", "quantityFormula": "=IF($D$15=\"ДА\",$D$5-1,$D$5+1)", "unitPriceFormula": "='Прайс-Line'!$E47", "amountFormula": "=$P46*$O46", "status": "NOT_IN_ENGINE" },
+    { "l1Row": 47, "sku": "AA-070", "quantityFormula": "=IF($D$15=\"ДА\",2,0)", "unitPriceFormula": "='Прайс-Line'!$E48", "amountFormula": "=$P47*$O47", "status": "NOT_IN_ENGINE" },
+    { "l1Row": 48, "sku": "AA-090", "quantityFormula": "=IF($D$9=90,$D$8,0)", "unitPriceFormula": "='Прайс-Line'!$E49", "amountFormula": "=$P48*$O48", "status": "NOT_IN_ENGINE" },
+    { "l1Row": 49, "sku": "AA-110", "quantityFormula": "=ROUNDUP(0.001*2*$D$3/Настройки!$L$4,IF(Настройки!$L$6,0,3))", "unitPriceFormula": "='Прайс-Line'!$E50", "amountFormula": "=$P49*$O49*'Клей+акт'!$O$5", "status": "NOT_IN_ENGINE" },
+    { "l1Row": 50, "sku": "AA-120", "quantityFormula": "=ROUNDUP(0.001*2*$D$3/Настройки!$L$5,IF(Настройки!$L$6,0,3))", "unitPriceFormula": "='Прайс-Line'!$E51", "amountFormula": "=$P50*$O50*'Клей+акт'!$O$18", "status": "NOT_IN_ENGINE" }
+  ],
+  "excelCostChain": {
+    "materialSubtotalFormula": "=SUM($Q$5:$Q$50)",
+    "nextStages": ["L1!Q53 painting", "L1!Q54 conditional work/input", "L1!Q55 assembly/milling", "L1!Q56 sub-total plus option", "L1!Q57 installation", "L1!Q58 validated displayed total"],
+    "engineCoverage": "NOT_IMPLEMENTED"
+  }
+}

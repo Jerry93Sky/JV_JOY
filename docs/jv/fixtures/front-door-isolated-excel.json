@@ -1,0 +1,703 @@
+{
+  "schemaVersion": "1.0",
+  "cases": [
+    {
+      "profile": "COMPLETATION",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sourceSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0",
+      "method": "CalculateFullRebuild on temporary workbook",
+      "cells": {
+        "C3": {
+          "formula": "=Главная!$C$11",
+          "value2": 3300.0,
+          "text": "3300",
+          "numberFormat": "0"
+        },
+        "C4": {
+          "formula": "=Главная!$D$11",
+          "value2": 2350.0,
+          "text": "2350",
+          "numberFormat": "0"
+        },
+        "C5": {
+          "formula": "=Главная!$M$11",
+          "value2": 3.0,
+          "text": "3",
+          "numberFormat": "0"
+        },
+        "C8": {
+          "formula": "=Главная!$K$11",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "0"
+        },
+        "C18": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "Основной"
+        },
+        "C19": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "C20": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "C21": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "C22": {
+          "formula": "8",
+          "value2": 8.0,
+          "text": "8",
+          "numberFormat": "0"
+        },
+        "C23": {
+          "formula": "10",
+          "value2": 10.0,
+          "text": "10",
+          "numberFormat": "0"
+        },
+        "C24": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "D18": {
+          "formula": "1000",
+          "value2": 1000.0,
+          "text": "1000",
+          "numberFormat": "Основной"
+        },
+        "D19": {
+          "formula": "2150",
+          "value2": 2150.0,
+          "text": "2150",
+          "numberFormat": "0"
+        },
+        "I23": {
+          "formula": "=IF(SUM($I$17:$I$22)>0,\"ОШИБКА!\",\"НЕТ\")",
+          "value2": "НЕТ",
+          "text": "НЕТ",
+          "numberFormat": "0"
+        },
+        "Y5": {
+          "formula": "=ПРМ!$AB$25",
+          "value2": 1.0,
+          "text": "1.000",
+          "numberFormat": "0.000"
+        },
+        "Q27": {
+          "formula": "=$P$27 * IF($C$21<>1,$C$17-1,0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "Q28": {
+          "formula": "=$P$28 * IF($C$22<>1,  IF($D$17=\"2-створч.\",$E$22,1),    0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "Q29": {
+          "formula": "=$P$28 * IF($C$23<>1,  IF($D$17=\"2-створч.\",$E$23,1),    0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "Q30": {
+          "formula": "=$P$28 * IF($C$24<>1,  IF($D$17=\"2-створч.\",$E$24,1),    0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "R27": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D59:D61,$C$21-1),0)",
+          "value2": 7100.0,
+          "text": "7100.00",
+          "numberFormat": "0.00"
+        },
+        "R28": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D12:D28,$C$22),0)",
+          "value2": 1772.3076923076922,
+          "text": "1772.31",
+          "numberFormat": "0.00"
+        },
+        "R29": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D29:D49,$C$23),0)",
+          "value2": 5090.0,
+          "text": "5090.00",
+          "numberFormat": "0.00"
+        },
+        "R30": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D29:D49,$C$24),0)",
+          "value2": 11450.0,
+          "text": "11450.00",
+          "numberFormat": "0.00"
+        },
+        "S27": {
+          "formula": "=Q27*R27",
+          "value2": 7100.0,
+          "text": "7 100.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S28": {
+          "formula": "=Q28*R28",
+          "value2": 1772.3076923076922,
+          "text": "1 772.31",
+          "numberFormat": "# ##0.00"
+        },
+        "S29": {
+          "formula": "=Q29*R29",
+          "value2": 5090.0,
+          "text": "5 090.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S30": {
+          "formula": "=Q30*R30",
+          "value2": 11450.0,
+          "text": "11 450.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S33": {
+          "formula": "=SUM($S$5:$S$32)",
+          "value2": 86329.8501208791,
+          "text": "86 329.85",
+          "numberFormat": "# ##0.00"
+        },
+        "S34": {
+          "formula": "=IF($C$6<>1,$W$24,0)",
+          "value2": 0.0,
+          "text": "0.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S35": {
+          "formula": "=IF(Настройки!$D$32, $D$35, 0)",
+          "value2": 0.0,
+          "text": "0.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S36": {
+          "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+          "value2": 86329.8501208791,
+          "text": "86 329.85",
+          "numberFormat": "# ##0.00"
+        },
+        "S37": {
+          "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+          "value2": 0.0,
+          "text": "0.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S38": {
+          "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+          "value2": 86329.8501208791,
+          "text": "86 329.85",
+          "numberFormat": "# ##0.00"
+        }
+      },
+      "main": {
+        "F28": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "B26": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "Основной"
+        },
+        "C11": {
+          "formula": "3300",
+          "value2": 3300.0,
+          "text": "3300",
+          "numberFormat": "0"
+        },
+        "D11": {
+          "formula": "2350",
+          "value2": 2350.0,
+          "text": "2350",
+          "numberFormat": "0"
+        },
+        "F11": {
+          "formula": "7",
+          "value2": 7.0,
+          "text": "7",
+          "numberFormat": "0"
+        },
+        "H11": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "0"
+        },
+        "I11": {
+          "formula": "9",
+          "value2": 9.0,
+          "text": "9",
+          "numberFormat": "0"
+        },
+        "J11": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "0"
+        },
+        "L11": {
+          "formula": "3",
+          "value2": 3.0,
+          "text": "3",
+          "numberFormat": "0"
+        },
+        "Z11": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "0"
+        },
+        "X11": {
+          "formula": "='F1'!$S$38/Настройки!$D$14",
+          "value2": 86329.8501208791,
+          "text": "",
+          "numberFormat": "# ##0"
+        },
+        "Y11": {
+          "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+          "value2": 86329.8501208791,
+          "text": "",
+          "numberFormat": "# ##0"
+        },
+        "AA11": {
+          "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+          "value2": 86329.8501208791,
+          "text": "86 330",
+          "numberFormat": "# ##0"
+        },
+        "AA18": {
+          "formula": "=SUM(AA11:AA17)",
+          "value2": -2146826273,
+          "text": "#ЗНАЧ!",
+          "numberFormat": "# ##0"
+        }
+      },
+      "settings": {
+        "I42": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "",
+          "numberFormat": "0"
+        },
+        "D32": {
+          "formula": "FALSE",
+          "value2": false,
+          "text": "ЛОЖЬ",
+          "numberFormat": "Основной"
+        },
+        "D33": {
+          "formula": "FALSE",
+          "value2": false,
+          "text": "ЛОЖЬ",
+          "numberFormat": "Основной"
+        },
+        "D34": {
+          "formula": "",
+          "value2": null,
+          "text": "",
+          "numberFormat": "Основной"
+        },
+        "L3": {
+          "formula": "TRUE",
+          "value2": true,
+          "text": "#######",
+          "numberFormat": "Основной"
+        },
+        "D5": {
+          "formula": "0.8",
+          "value2": 0.8,
+          "text": "0.80",
+          "numberFormat": "0.00"
+        },
+        "D14": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1.000",
+          "numberFormat": "0.000"
+        },
+        "D19": {
+          "formula": "0",
+          "value2": 0.0,
+          "text": "0",
+          "numberFormat": "Основной"
+        },
+        "D21": {
+          "formula": "0",
+          "value2": 0.0,
+          "text": "0",
+          "numberFormat": "Основной"
+        }
+      }
+    },
+    {
+      "profile": "RETAIL",
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "sourceSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0",
+      "method": "CalculateFullRebuild on temporary workbook",
+      "cells": {
+        "C3": {
+          "formula": "=Главная!$C$11",
+          "value2": 3300.0,
+          "text": "3300",
+          "numberFormat": "0"
+        },
+        "C4": {
+          "formula": "=Главная!$D$11",
+          "value2": 2350.0,
+          "text": "2350",
+          "numberFormat": "0"
+        },
+        "C5": {
+          "formula": "=Главная!$M$11",
+          "value2": 3.0,
+          "text": "3",
+          "numberFormat": "0"
+        },
+        "C8": {
+          "formula": "=Главная!$K$11",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "0"
+        },
+        "C18": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "Основной"
+        },
+        "C19": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "C20": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "C21": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "C22": {
+          "formula": "8",
+          "value2": 8.0,
+          "text": "8",
+          "numberFormat": "0"
+        },
+        "C23": {
+          "formula": "10",
+          "value2": 10.0,
+          "text": "10",
+          "numberFormat": "0"
+        },
+        "C24": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "D18": {
+          "formula": "1000",
+          "value2": 1000.0,
+          "text": "1000",
+          "numberFormat": "Основной"
+        },
+        "D19": {
+          "formula": "2150",
+          "value2": 2150.0,
+          "text": "2150",
+          "numberFormat": "0"
+        },
+        "I23": {
+          "formula": "=IF(SUM($I$17:$I$22)>0,\"ОШИБКА!\",\"НЕТ\")",
+          "value2": "НЕТ",
+          "text": "НЕТ",
+          "numberFormat": "0"
+        },
+        "Y5": {
+          "formula": "=ПРМ!$AB$25",
+          "value2": 1.0,
+          "text": "1.000",
+          "numberFormat": "0.000"
+        },
+        "Q27": {
+          "formula": "=$P$27 * IF($C$21<>1,$C$17-1,0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "Q28": {
+          "formula": "=$P$28 * IF($C$22<>1,  IF($D$17=\"2-створч.\",$E$22,1),    0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "Q29": {
+          "formula": "=$P$28 * IF($C$23<>1,  IF($D$17=\"2-створч.\",$E$23,1),    0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "Q30": {
+          "formula": "=$P$28 * IF($C$24<>1,  IF($D$17=\"2-створч.\",$E$24,1),    0)",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "R27": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D59:D61,$C$21-1),0)",
+          "value2": 4615.0,
+          "text": "4615.00",
+          "numberFormat": "0.00"
+        },
+        "R28": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D12:D28,$C$22),0)",
+          "value2": 1152.0,
+          "text": "1152.00",
+          "numberFormat": "0.00"
+        },
+        "R29": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D29:D49,$C$23),0)",
+          "value2": 3308.5,
+          "text": "3308.50",
+          "numberFormat": "0.00"
+        },
+        "R30": {
+          "formula": "=IFERROR(INDEX('Прайс-Аксессуары'!D29:D49,$C$24),0)",
+          "value2": 7442.5,
+          "text": "7442.50",
+          "numberFormat": "0.00"
+        },
+        "S27": {
+          "formula": "=Q27*R27",
+          "value2": 4615.0,
+          "text": "4 615.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S28": {
+          "formula": "=Q28*R28",
+          "value2": 1152.0,
+          "text": "1 152.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S29": {
+          "formula": "=Q29*R29",
+          "value2": 3308.5,
+          "text": "3 308.50",
+          "numberFormat": "# ##0.00"
+        },
+        "S30": {
+          "formula": "=Q30*R30",
+          "value2": 7442.5,
+          "text": "7 442.50",
+          "numberFormat": "# ##0.00"
+        },
+        "S33": {
+          "formula": "=SUM($S$5:$S$32)",
+          "value2": 44357.23694999999,
+          "text": "44 357.24",
+          "numberFormat": "# ##0.00"
+        },
+        "S34": {
+          "formula": "=IF($C$6<>1,$W$24,0)",
+          "value2": 9500.0,
+          "text": "9 500.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S35": {
+          "formula": "=IF(Настройки!$D$32, $D$35, 0)",
+          "value2": 35641.98715458666,
+          "text": "35 641.99",
+          "numberFormat": "# ##0.00"
+        },
+        "S36": {
+          "formula": "=SUM($S$33:$S$35)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+          "value2": 89499.22410458665,
+          "text": "89 499.22",
+          "numberFormat": "# ##0.00"
+        },
+        "S37": {
+          "formula": "=IF(Настройки!$D$34,  $D$3*'Прайс-сб+монт'!$C$16/1000  +  'Прайс-сб+монт'!$C$17*($C$17-1)  +  'Прайс-сб+монт'!$C$18*IF($C$21>2,$Q$27,0),  0)",
+          "value2": 11030.0,
+          "text": "11 030.00",
+          "numberFormat": "# ##0.00"
+        },
+        "S38": {
+          "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+          "value2": 100529.22410458665,
+          "text": "100 529.22",
+          "numberFormat": "# ##0.00"
+        }
+      },
+      "main": {
+        "F28": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "# ##0"
+        },
+        "B26": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "Основной"
+        },
+        "C11": {
+          "formula": "3300",
+          "value2": 3300.0,
+          "text": "3300",
+          "numberFormat": "0"
+        },
+        "D11": {
+          "formula": "2350",
+          "value2": 2350.0,
+          "text": "2350",
+          "numberFormat": "0"
+        },
+        "F11": {
+          "formula": "7",
+          "value2": 7.0,
+          "text": "7",
+          "numberFormat": "0"
+        },
+        "H11": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "2",
+          "numberFormat": "0"
+        },
+        "I11": {
+          "formula": "9",
+          "value2": 9.0,
+          "text": "9",
+          "numberFormat": "0"
+        },
+        "J11": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "0"
+        },
+        "L11": {
+          "formula": "3",
+          "value2": 3.0,
+          "text": "3",
+          "numberFormat": "0"
+        },
+        "Z11": {
+          "formula": "1",
+          "value2": 1.0,
+          "text": "1",
+          "numberFormat": "0"
+        },
+        "X11": {
+          "formula": "='F1'!$S$38/Настройки!$D$14",
+          "value2": 201058.4482091733,
+          "text": "",
+          "numberFormat": "# ##0"
+        },
+        "Y11": {
+          "formula": "=INDEX(R11:X11,G11)*(100+Настройки!$D21)/100",
+          "value2": 201058.4482091733,
+          "text": "",
+          "numberFormat": "# ##0"
+        },
+        "AA11": {
+          "formula": "=Y11*Z11*(100+Настройки!$D$19)/100",
+          "value2": 201058.4482091733,
+          "text": "201 058",
+          "numberFormat": "# ##0"
+        },
+        "AA18": {
+          "formula": "=SUM(AA11:AA17)",
+          "value2": -2146826273,
+          "text": "#ЗНАЧ!",
+          "numberFormat": "# ##0"
+        }
+      },
+      "settings": {
+        "I42": {
+          "formula": "2",
+          "value2": 2.0,
+          "text": "",
+          "numberFormat": "0"
+        },
+        "D32": {
+          "formula": "TRUE",
+          "value2": true,
+          "text": "#######",
+          "numberFormat": "Основной"
+        },
+        "D33": {
+          "formula": "TRUE",
+          "value2": true,
+          "text": "#######",
+          "numberFormat": "Основной"
+        },
+        "D34": {
+          "formula": "TRUE",
+          "value2": true,
+          "text": "#######",
+          "numberFormat": "Основной"
+        },
+        "L3": {
+          "formula": "TRUE",
+          "value2": true,
+          "text": "#######",
+          "numberFormat": "Основной"
+        },
+        "D5": {
+          "formula": "0.8",
+          "value2": 0.8,
+          "text": "0.80",
+          "numberFormat": "0.00"
+        },
+        "D14": {
+          "formula": "0.5",
+          "value2": 0.5,
+          "text": "0.500",
+          "numberFormat": "0.000"
+        },
+        "D19": {
+          "formula": "0",
+          "value2": 0.0,
+          "text": "0",
+          "numberFormat": "Основной"
+        },
+        "D21": {
+          "formula": "0",
+          "value2": 0.0,
+          "text": "0",
+          "numberFormat": "Основной"
+        }
+      }
+    }
+  ]
+}

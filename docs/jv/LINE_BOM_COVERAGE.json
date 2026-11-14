@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-11-03T22:46:23.8892066+03:00",
+  "method": "Fresh Microsoft Excel CalculateFullRebuild on temporary copies; compare exact decimal engine output without rounding/tolerance.",
+  "scope": "All 40 base BOM positions are compared for every case, including parking positions O12:O20 and O26:O27 backed by four extracted PD matrices.",
+  "exactMatchCases": 20,
+  "binaryRepresentationDifferenceCases": 0,
+  "books": [
+    {
+      "name": "JV-комплектация 08.10.2026.xlsm",
+      "sha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "excelVersion": "16.0",
+      "macrosForceDisabled": true,
+      "cases": [
+        {
+          "id": "line_single_no_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.877",
+          "ln010EngineQuantity": "4.877",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_single_with_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.895",
+          "ln010EngineQuantity": "4.895",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_double_with_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "5.538",
+          "ln010EngineQuantity": "5.538",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_fractional_dimensions_and_settings",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.8965",
+          "ln010EngineQuantity": "4.8965",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_special_sash_width",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "6.405",
+          "ln010EngineQuantity": "6.405",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_services_enabled",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.877",
+          "ln010EngineQuantity": "4.877",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_three_leaves_small",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.014",
+          "ln010EngineQuantity": "4.014",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_six_leaves_double",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "7.918",
+          "ln010EngineQuantity": "7.918",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_alternate_opening_with_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "5.873",
+          "ln010EngineQuantity": "5.873",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_special_sash_and_services",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "8.07",
+          "ln010EngineQuantity": "8.07",
+          "result": "EXACT_MATCH"
+        }
+      ]
+    },
+    {
+      "name": "JV-розница 08.10.2026.xlsm",
+      "sha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "excelVersion": "16.0",
+      "macrosForceDisabled": true,
+      "cases": [
+        {
+          "id": "line_single_no_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.877",
+          "ln010EngineQuantity": "4.877",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_single_with_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.895",
+          "ln010EngineQuantity": "4.895",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_double_with_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "5.538",
+          "ln010EngineQuantity": "5.538",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_fractional_dimensions_and_settings",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.8965",
+          "ln010EngineQuantity": "4.8965",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_special_sash_width",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "6.405",
+          "ln010EngineQuantity": "6.405",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_services_enabled",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.877",
+          "ln010EngineQuantity": "4.877",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_three_leaves_small",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "4.014",
+          "ln010EngineQuantity": "4.014",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_six_leaves_double",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "7.918",
+          "ln010EngineQuantity": "7.918",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_alternate_opening_with_park",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "5.873",
+          "ln010EngineQuantity": "5.873",
+          "result": "EXACT_MATCH"
+        },
+        {
+          "id": "line_special_sash_and_services",
+          "materialRows": 40,
+          "supportedLines": 40,
+          "unsupportedLines": 0,
+          "ln010ExcelQuantity": "8.07",
+          "ln010EngineQuantity": "8.07",
+          "result": "EXACT_MATCH"
+        }
+      ]
+    }
+  ],
+  "conclusion": "All 40 catalog identities, units, and quantities match 20 recalculated cases across both workbooks. This finite scenario set does not prove every possible input configuration."
+}

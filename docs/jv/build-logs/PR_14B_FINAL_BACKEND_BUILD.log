@@ -1,0 +1,11 @@
+$ pnpm --filter @bms/shared build && tsc
+$ tsc -p tsconfig.build.json
+src/routes/deals.ts(397,9): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"CALCULATION"' have no overlap.
+src/routes/deals.ts(397,41): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"PROPOSAL"' have no overlap.
+src/routes/deals.ts(400,87): error TS2339: Property 'PROPOSAL' does not exist on type '{ APPLICATION: "APPLICATION"; IN_PROGRESS: "IN_PROGRESS"; INVOICE_SENT: "INVOICE_SENT"; PAID: "PAID"; ASSEMBLY: "ASSEMBLY"; PAINTING: "PAINTING"; INSTALL_FIRST: "INSTALL_FIRST"; INSTALL_SECOND: "INSTALL_SECOND"; SHIPMENT: "SHIPMENT"; DOCS: "DOCS"; COMPLETED: "COMPLETED"; FAILED: "FAILED"; }'.
+src/routes/deals.ts(412,11): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"PROPOSAL"' have no overlap.
+src/routes/deals.ts(412,40): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"AWAITING_PAYMENT"' have no overlap.
+src/routes/deals.ts(425,89): error TS2339: Property 'AWAITING_PAYMENT' does not exist on type '{ APPLICATION: "APPLICATION"; IN_PROGRESS: "IN_PROGRESS"; INVOICE_SENT: "INVOICE_SENT"; PAID: "PAID"; ASSEMBLY: "ASSEMBLY"; PAINTING: "PAINTING"; INSTALL_FIRST: "INSTALL_FIRST"; INSTALL_SECOND: "INSTALL_SECOND"; SHIPMENT: "SHIPMENT"; DOCS: "DOCS"; COMPLETED: "COMPLETED"; FAILED: "FAILED"; }'.
+C:\Users\jerry\Desktop\JV\JV_JOY\apps\backend:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] backend@1.0.0 build: `pnpm --filter @bms/shared build && tsc`
+Exit status 2

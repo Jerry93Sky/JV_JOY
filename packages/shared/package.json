@@ -1,0 +1,26 @@
+{
+  "name": "@bms/shared",
+  "version": "1.0.0",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./jv": {
+      "types": "./dist/jv/index.d.ts",
+      "require": "./dist/jv/index.js",
+      "default": "./dist/jv/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test:jv": "node --experimental-strip-types --test src/jv/**/*.test.ts src/jv/*.test.ts"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "typescript": "5.7.3"
+  }
+}

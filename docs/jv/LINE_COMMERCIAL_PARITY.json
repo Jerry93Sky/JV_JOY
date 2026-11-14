@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "method": "Excel 16.0 CalculateFullRebuild on temporary copies. The engine uses exact decimal/rational arithmetic. DISPLAY_MATCH denotes equal rendered text only and is not numeric equality.",
+  "scenarioCountPerWorkbook": 10,
+  "commercialCellComparisons": {
+    "cellsPerScenario": ["Q52", "Q55", "Q57"],
+    "total": 60,
+    "EXACT": 40,
+    "DISPLAY_MATCH": 20,
+    "MISMATCH": 0,
+    "UNVERIFIED": 0
+  },
+  "byCell": {
+    "Q52": {
+      "classification": "DISPLAY_MATCH",
+      "scenarioCount": 20,
+      "engineResult": "supported subtotal, not full material total",
+      "limitation": "Golden comparator currently supplies workbook-captured adhesive factors O5/O18; the engine input mapping does not independently calculate them. Q52 is therefore not a complete independently reproduced subtotal."
+    },
+    "Q55": { "classification": "EXACT", "scenarioCount": 20, "implemented": true },
+    "Q57": { "classification": "EXACT", "scenarioCount": 20, "implemented": true },
+    "Q53": { "classification": "UNVERIFIED", "scenarioCount": 0, "implemented": false, "formula": "=IF($C$10<>1,$V$18,0)" },
+    "Q54": { "classification": "UNVERIFIED", "scenarioCount": 0, "implemented": false, "formula": "=IF(Настройки!$D$32,$D$54,0)" },
+    "Q56": { "classification": "UNVERIFIED", "scenarioCount": 0, "implemented": false, "formula": "=SUM(Q52:Q55)+IF(Главная!$F$28=2,'Прайс-сб+монт'!$C$25*$X$5,0)" },
+    "Q58": { "classification": "UNVERIFIED", "scenarioCount": 0, "implemented": false, "formula": "=IF(AND($D$6<=2,D7<>\"ОШИБКА !\"),SUM($Q$56:$Q$57),\"ОШИБКА !\")" }
+  },
+  "dataProvenance": {
+    "Q52": "LINE_BOM_PRICE_PARITY.json",
+    "Q55_Q57": "LINE_FINAL_PRICE_PARITY.json",
+    "geometry_full_bom": "fixtures/line-cutting-excel-golden.json"
+  },
+  "finalPriceParity": false,
+  "reason": "The engine does not yet compute the complete glass/fill chain, paint, all Q52 inputs independently, Q56, or the Q58 acceptance guard. No full final-price equivalence is claimed."
+}

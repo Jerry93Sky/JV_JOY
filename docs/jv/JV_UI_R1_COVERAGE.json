@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "commercialStatusIsScenarioSpecific": true,
+  "cases": [
+    {"family":"ALL_SEVEN","selector":"Главная!F28","value":1,"status":"CONFIRMED","scope":"12 previously captured PR13E all-seven scenarios; both profiles","evidence":"UNIFIED_ORDER_ALL_SEVEN_PARITY.json"},
+    {"family":"ALL_SEVEN","selector":"Главная!F28","value":2,"status":"LIMITED","scope":"12 all-seven scenarios verified for server scenario B26=1; other combinations require their own parity","evidence":"JV_UI_F28_PARITY.json","previousMismatches":"JV_UI_F28_BEFORE_GUARD.json"},
+    {"family":"ALL_SEVEN","selector":"Главная!F28","value":3,"status":"UNSUPPORTED","scope":"Mixed order","evidence":"packages/shared/src/jv/mixed-order.ts"},
+    {"family":"FRONT","selector":"Настройки!I42","value":1,"status":"LIMITED","scope":"Current server profile, no-door scenarios","evidence":"JV_UI_SELECTOR_MAPPING.md"},
+    {"family":"FRONT","selector":"Настройки!I42","value":2,"status":"LIMITED","scope":"F7 fittings within one fixed seven-family configuration, F28=1/2, both profiles; other UI combinations disabled","evidence":"JV_FRONT_DOOR_PARITY.json"},
+    {"family":"FRONT","selector":"F7!C21,C22,C23,C24","value":[2,8,10,2],"status":"LIMITED","scope":"One fixed F7 fittings configuration with I42=2 in both profiles, available as a guarded example","evidence":"JV_FRONT_DOOR_PARITY.json"},
+    {"family":"FRONT","selector":"F1!C21","value":[3,4],"status":"EXCEL_PARITY_UNVERIFIED","scope":"Index mapping tested, commercial scenarios not independently compared","evidence":"packages/shared/src/jv/front/material-pricing.test.ts"},
+    {"family":"FRONT","selector":"F1!C22,C23,C24","value":"other","status":"EXCEL_PARITY_UNVERIFIED","scope":"Individual alternative selections and combinations remain locked","evidence":"JV_FRONT_HARDWARE_PARITY.md"},
+    {"family":"LINE","selector":"profileCount,parkedDoorPosition,direction,connectorAngle","value":"other combinations","status":"EXCEL_PARITY_UNVERIFIED","scope":"No new independent commercial parity","evidence":"JV_UI_SELECTOR_MAPPING.md"},
+    {"family":"ZIGZAG","selector":"position.commercial.c8,N40,N41","value":"other combinations","status":"EXCEL_PARITY_UNVERIFIED","scope":"No new independent commercial parity","evidence":"JV_UI_SELECTOR_MAPPING.md"},
+    {"family":"SLIDER_L3,SLIDER_L5,SLIDER_X3,SLIDER_X5","selector":"openingSelector,mainSurchargeSelector","value":"other combinations","status":"EXCEL_PARITY_UNVERIFIED","scope":"No new independent commercial parity","evidence":"JV_UI_SELECTOR_MAPPING.md"},
+    {"family":"ALL","selector":"glass and finish","value":"other combinations","status":"EXCEL_PARITY_UNVERIFIED","scope":"No new cross-product parity claimed","evidence":"JV_UI_SELECTOR_MAPPING.md"}
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0",
+  "description": "Recalculable JV-Line geometry and carrier-profile cut cases; inputs are written only to temporary workbook copies.",
+  "cases": [
+    {
+      "id": "line_single_no_park",
+      "main": { "width": 4000, "height": 2500, "openingSelector": 1, "leaves": 5 },
+      "controls": { "parkedDoorSelected": false, "parkedDoorPosition": 2, "specialSashEnabled": false, "specialSashWidth": 900, "rollerAxisToEdge": 50 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_single_with_park",
+      "main": { "width": 4000, "height": 2500, "openingSelector": 1, "leaves": 5 },
+      "controls": { "parkedDoorSelected": true, "parkedDoorPosition": 2, "specialSashEnabled": false, "specialSashWidth": 900, "rollerAxisToEdge": 50 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_double_with_park",
+      "main": { "width": 4000, "height": 2500, "openingSelector": 3, "leaves": 5 },
+      "controls": { "parkedDoorSelected": true, "parkedDoorPosition": 2, "specialSashEnabled": false, "specialSashWidth": 900, "rollerAxisToEdge": 50 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_fractional_dimensions_and_settings",
+      "main": { "width": 4000.75, "height": 2500, "openingSelector": 1, "leaves": 4.5 },
+      "controls": { "parkedDoorSelected": true, "parkedDoorPosition": 2, "specialSashEnabled": false, "specialSashWidth": 900, "rollerAxisToEdge": 50 },
+      "settings": { "P2": 44.5, "P4": 14, "P5": 34, "P6": 217.5, "P7": 109.25, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_special_sash_width",
+      "main": { "width": 5000, "height": 2500, "openingSelector": 1, "leaves": 4 },
+      "controls": { "parkedDoorSelected": false, "parkedDoorPosition": 2, "specialSashEnabled": true, "specialSashWidth": 900, "rollerAxisToEdge": 50 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_services_enabled",
+      "main": { "width": 4000, "height": 2500, "openingSelector": 1, "leaves": 5 },
+      "controls": { "parkedDoorSelected": false, "parkedDoorPosition": 2, "specialSashEnabled": false, "specialSashWidth": 900, "rollerAxisToEdge": 50 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100, "assemblyEnabled": true, "millingEnabled": true, "installationEnabled": true }
+    },
+    {
+      "id": "line_three_leaves_small",
+      "main": { "width": 3000, "height": 2100, "openingSelector": 1, "leaves": 3 },
+      "controls": { "parkedDoorSelected": false, "parkedDoorPosition": 2, "specialSashEnabled": false, "specialSashWidth": 800, "rollerAxisToEdge": 40 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_six_leaves_double",
+      "main": { "width": 6000, "height": 2800, "openingSelector": 3, "leaves": 6 },
+      "controls": { "parkedDoorSelected": false, "parkedDoorPosition": 2, "specialSashEnabled": false, "specialSashWidth": 1000, "rollerAxisToEdge": 60 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_alternate_opening_with_park",
+      "main": { "width": 4800, "height": 2400, "openingSelector": 2, "leaves": 5 },
+      "controls": { "parkedDoorSelected": true, "parkedDoorPosition": 3, "specialSashEnabled": false, "specialSashWidth": 900, "rollerAxisToEdge": 50 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100 }
+    },
+    {
+      "id": "line_special_sash_and_services",
+      "main": { "width": 5200, "height": 2600, "openingSelector": 3, "leaves": 4 },
+      "controls": { "parkedDoorSelected": true, "parkedDoorPosition": 2, "specialSashEnabled": true, "specialSashWidth": 1100, "rollerAxisToEdge": 55 },
+      "settings": { "P2": 44, "P4": 14, "P5": 34, "P6": 218, "P7": 109, "P8": 52, "P9": 9, "P10": 70, "P14": 1, "P15": 5, "carrierProfileAllowance": 100, "assemblyEnabled": true, "millingEnabled": false, "installationEnabled": true }
+    }
+  ]
+}

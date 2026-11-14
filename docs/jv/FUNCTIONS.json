@@ -1,0 +1,18 @@
+{
+  "IF": 6399,
+  "INDEX": 1364,
+  "AND": 670,
+  "SUM": 624,
+  "IFERROR": 482,
+  "CONCATENATE": 424,
+  "OR": 266,
+  "ROUNDUP": 248,
+  "ROUNDDOWN": 84,
+  "ROUND": 70,
+  "MAX": 56,
+  "ISEVEN": 28,
+  "CEILING": 14,
+  "MATCH": 14,
+  "FRONT": 4,
+  "TODAY": 2
+}

@@ -1,0 +1,285 @@
+$ tsc
+src/prisma/add-glass-params.ts(72,11): error TS2322: Type 'string | null' is not assignable to type 'InputJsonValue | NullableJsonNullValueInput | undefined'.
+  Type 'null' is not assignable to type 'InputJsonValue | NullableJsonNullValueInput | undefined'.
+src/routes/deals.ts(117,63): error TS2322: Type '{ assigneeId?: string | undefined; comment?: string | undefined; stage?: DealStage | undefined; contactId?: string | undefined; companyId?: string | undefined; address?: string | undefined; ... 9 more ...; deliveryType?: string | undefined; }' is not assignable to type '(Without<DealUpdateInput, DealUncheckedUpdateInput> & DealUncheckedUpdateInput) | (Without<...> & DealUpdateInput)'.
+  Type '{ assigneeId?: string | undefined; comment?: string | undefined; stage?: DealStage | undefined; contactId?: string | undefined; companyId?: string | undefined; address?: string | undefined; ... 9 more ...; deliveryType?: string | undefined; }' is not assignable to type 'Without<DealUncheckedUpdateInput, DealUpdateInput> & DealUpdateInput'.
+    Type '{ assigneeId?: string | undefined; comment?: string | undefined; stage?: DealStage | undefined; contactId?: string | undefined; companyId?: string | undefined; address?: string | undefined; ... 9 more ...; deliveryType?: string | undefined; }' is not assignable to type 'Without<DealUncheckedUpdateInput, DealUpdateInput>'.
+      Types of property 'assigneeId' are incompatible.
+        Type 'string | undefined' is not assignable to type 'undefined'.
+          Type 'string' is not assignable to type 'undefined'.
+src/routes/deals.ts(396,9): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"CALCULATION"' have no overlap.
+src/routes/deals.ts(396,41): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"PROPOSAL"' have no overlap.
+src/routes/deals.ts(399,87): error TS2339: Property 'PROPOSAL' does not exist on type '{ APPLICATION: "APPLICATION"; IN_PROGRESS: "IN_PROGRESS"; INVOICE_SENT: "INVOICE_SENT"; PAID: "PAID"; ASSEMBLY: "ASSEMBLY"; PAINTING: "PAINTING"; INSTALL_FIRST: "INSTALL_FIRST"; INSTALL_SECOND: "INSTALL_SECOND"; SHIPMENT: "SHIPMENT"; DOCS: "DOCS"; COMPLETED: "COMPLETED"; FAILED: "FAILED"; }'.
+src/routes/deals.ts(411,11): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"PROPOSAL"' have no overlap.
+src/routes/deals.ts(411,40): error TS2367: This comparison appears to be unintentional because the types 'DealStage' and '"AWAITING_PAYMENT"' have no overlap.
+src/routes/deals.ts(424,89): error TS2339: Property 'AWAITING_PAYMENT' does not exist on type '{ APPLICATION: "APPLICATION"; IN_PROGRESS: "IN_PROGRESS"; INVOICE_SENT: "INVOICE_SENT"; PAID: "PAID"; ASSEMBLY: "ASSEMBLY"; PAINTING: "PAINTING"; INSTALL_FIRST: "INSTALL_FIRST"; INSTALL_SECOND: "INSTALL_SECOND"; SHIPMENT: "SHIPMENT"; DOCS: "DOCS"; COMPLETED: "COMPLETED"; FAILED: "FAILED"; }'.
+src/routes/finance.ts(19,45): error TS2322: Type '"CALCULATION"' is not assignable to type 'DealStage'.
+src/routes/finance.ts(19,60): error TS2322: Type '"PROPOSAL"' is not assignable to type 'DealStage'.
+src/routes/finance.ts(19,72): error TS2322: Type '"AWAITING_PAYMENT"' is not assignable to type 'DealStage'.
+src/routes/finance.ts(31,37): error TS2339: Property 'items' does not exist on type '{ number: string; id: string; createdAt: Date; direction: Direction; stage: DealStage; creatorId: string; assigneeId: string; contactId: string | null; companyId: string | null; ... 47 more ...; updatedAt: Date; }'.
+src/routes/finance.ts(31,51): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/finance.ts(31,54): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/routes/finance.ts(32,40): error TS2339: Property 'services' does not exist on type '{ number: string; id: string; createdAt: Date; direction: Direction; stage: DealStage; creatorId: string; assigneeId: string; contactId: string | null; companyId: string | null; ... 47 more ...; updatedAt: Date; }'.
+src/routes/finance.ts(32,57): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/routes/finance.ts(32,60): error TS7006: Parameter 'sv' implicitly has an 'any' type.
+src/routes/finance.ts(55,35): error TS2339: Property 'items' does not exist on type '{ number: string; id: string; createdAt: Date; direction: Direction; stage: DealStage; creatorId: string; assigneeId: string; contactId: string | null; companyId: string | null; ... 47 more ...; updatedAt: Date; }'.
+src/routes/finance.ts(69,95): error TS2339: Property 'items' does not exist on type '{ number: string; id: string; createdAt: Date; direction: Direction; stage: DealStage; creatorId: string; assigneeId: string; contactId: string | null; companyId: string | null; ... 47 more ...; updatedAt: Date; }'.
+src/routes/finance.ts(69,109): error TS7006: Parameter 'si' implicitly has an 'any' type.
+src/routes/finance.ts(69,113): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/routes/finance.ts(69,173): error TS2339: Property 'services' does not exist on type '{ number: string; id: string; createdAt: Date; direction: Direction; stage: DealStage; creatorId: string; assigneeId: string; contactId: string | null; companyId: string | null; ... 47 more ...; updatedAt: Date; }'.
+src/routes/finance.ts(69,190): error TS7006: Parameter 'ss' implicitly has an 'any' type.
+src/routes/finance.ts(69,194): error TS7006: Parameter 'sv' implicitly has an 'any' type.
+src/routes/finance.ts(186,43): error TS2322: Type '"CALCULATION"' is not assignable to type 'DealStage'.
+src/routes/finance.ts(186,58): error TS2322: Type '"PROPOSAL"' is not assignable to type 'DealStage'.
+src/routes/finance.ts(186,70): error TS2322: Type '"AWAITING_PAYMENT"' is not assignable to type 'DealStage'.
+src/routes/finance.ts(206,33): error TS2339: Property 'items' does not exist on type '{ number: string; id: string; createdAt: Date; direction: Direction; stage: DealStage; creatorId: string; assigneeId: string; contactId: string | null; companyId: string | null; ... 47 more ...; updatedAt: Date; }'.
+src/routes/finance.ts(214,33): error TS2339: Property 'items' does not exist on type '{ number: string; id: string; createdAt: Date; direction: Direction; stage: DealStage; creatorId: string; assigneeId: string; contactId: string | null; companyId: string | null; ... 47 more ...; updatedAt: Date; }'.
+src/routes/glass.ts(18,36): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+src/routes/glass.ts(45,39): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+src/routes/glass.ts(53,39): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+src/routes/systems.ts(167,22): error TS2698: Spread types may only be created from object types.
+src/routes/systems.ts(378,22): error TS2698: Spread types may only be created from object types.
+src/routes/vendors.ts(15,46): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+src/routes/vendors.ts(22,53): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+src/routes/vendors.ts(50,36): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+src/routes/vendors.ts(70,39): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+src/routes/vendors.ts(85,39): error TS2345: Argument of type '"OWNER"' is not assignable to parameter of type 'Role'.
+../../packages/shared/src/index.ts(5,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/additional-line.ts(2,77): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/additional-line.ts(3,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/additional-line.ts(4,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/additional-line.ts(5,100): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/adhesive-line.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/adhesive-line.ts(2,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/adhesive-line.ts(3,91): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/bom-line.ts(2,113): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/bom-line.ts(3,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/bom-line.ts(4,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/bom-line.ts(6,101): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/bom-line.ts(9,98): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/commercial-line.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/commercial-line.ts(2,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/commercial-line.ts(3,88): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/calculator.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/calculator.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/calculator.ts(3,153): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/calculator.ts(5,32): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/calculator.ts(6,31): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial-components.ts(1,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial-components.ts(2,46): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial-context.ts(1,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial-context.ts(2,98): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(2,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(9,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(10,49): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(11,90): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(12,72): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(13,62): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(14,43): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/commercial.ts(15,62): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/consumables-pricing.ts(1,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/consumables-pricing.ts(2,54): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/glass-pricing.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/glass-pricing.ts(2,98): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/material-pricing.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/material-pricing.ts(2,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/material-pricing.ts(5,38): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/works-pricing.ts(1,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/front/works-pricing.ts(2,98): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/cutting.ts(2,97): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/cutting.ts(3,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/cutting.ts(4,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/cutting.ts(6,74): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/line.ts(2,65): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/line.ts(3,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/line.ts(4,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/line.ts(17,96): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/line.ts(18,82): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/parking-components.ts(1,76): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/parking-components.ts(2,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/parking-components.ts(3,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/parking-components.ts(4,97): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/sash-cutting.ts(2,145): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/sash-cutting.ts(3,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/geometry/sash-cutting.ts(4,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/glass-line.ts(2,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/glass-line.ts(3,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/glass-line.ts(4,128): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/graph.ts(2,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/graph.ts(3,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(1,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(2,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(3,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(4,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(5,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(6,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(7,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(8,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(9,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(10,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(11,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(12,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(13,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(14,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(15,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(16,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(17,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(18,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(19,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(20,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(21,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(22,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(23,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(24,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(25,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(26,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(27,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(28,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(29,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(30,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(31,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(32,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(33,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(34,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(35,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(36,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(37,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(38,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(39,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(40,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(41,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(42,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(43,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(44,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(45,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(46,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(47,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/index.ts(48,15): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(2,91): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(3,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(4,38): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(5,40): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(6,46): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(7,49): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(8,48): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(9,138): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(10,40): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(11,46): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(12,57): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(13,65): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(14,65): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-calculator.ts(15,41): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-work-cost.ts(2,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-work-cost.ts(3,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/line-work-cost.ts(4,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(2,114): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(6,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(7,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(9,67): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(10,55): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(11,90): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(12,101): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/mixed-order.ts(13,99): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/order-line.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/order-line.ts(2,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/order-line.ts(3,46): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/order-line.ts(4,88): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/order-line.ts(5,137): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/paint-line.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/paint-line.ts(2,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/paint-line.ts(3,88): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/pricing-line.ts(2,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/pricing-line.ts(3,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/pricing-line.ts(5,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/bom.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/bom.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/bom.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/bom.ts(5,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/geometry.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/geometry.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/geometry.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/geometry.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-bom.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-bom.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-bom.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-bom.ts(5,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-geometry.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-geometry.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-geometry.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-geometry.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(6,71): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(7,129): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(8,71): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(9,129): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(10,71): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/l5-pricing.ts(11,129): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/pricing.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/pricing.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/pricing.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/pricing.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/pricing.ts(6,71): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/pricing.ts(7,129): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-bom.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-bom.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-bom.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-bom.ts(5,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-geometry.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-geometry.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-geometry.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x3-geometry.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-bom.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-bom.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-bom.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-bom.ts(5,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-geometry.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-geometry.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-geometry.ts(3,131): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/slider/x5-geometry.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/system-selector.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(2,128): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(3,31): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(5,137): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(9,101): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(11,106): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(12,286): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(13,70): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(16,101): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(17,58): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(18,119): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/unified-order.ts(19,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/commercial-cost.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/commercial-cost.ts(2,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/commercial-cost.ts(3,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/geometry.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/geometry.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/geometry.ts(3,128): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/material-quantities.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/material-quantities.ts(2,155): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/material-quantities.ts(3,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-allocation.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-allocation.ts(2,30): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-allocation.ts(3,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-allocation.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(2,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(5,94): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(6,55): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(7,119): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(8,159): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/order-calculation.ts(9,128): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/pricing.ts(1,29): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/pricing.ts(2,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/pricing.ts(3,104): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/pricing.ts(4,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+../../packages/shared/src/jv/zigzag/pricing.ts(6,34): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+C:\Users\jerry\Desktop\JV\JV_JOY\apps\backend:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] backend@1.0.0 build: `tsc`
+Exit status 2

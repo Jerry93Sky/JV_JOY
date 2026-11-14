@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Excel ↔ BMS case",
+  "type": "object",
+  "required": [
+    "id",
+    "workbook",
+    "status",
+    "input",
+    "expected",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "workbook": {
+      "enum": [
+        "JV-комплектация 08.10.2026.xlsm",
+        "JV-розница 08.10.2026.xlsm"
+      ]
+    },
+    "status": {
+      "enum": [
+        "cached_unverified",
+        "pending_excel_oracle",
+        "verified_excel_oracle"
+      ]
+    },
+    "input": {
+      "type": "object"
+    },
+    "expected": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "sourceSheet",
+        "recalculatedInExcel"
+      ],
+      "properties": {
+        "sourceSheet": {
+          "type": "string"
+        },
+        "recalculatedInExcel": {
+          "type": "boolean"
+        },
+        "excelVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "workbookSha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

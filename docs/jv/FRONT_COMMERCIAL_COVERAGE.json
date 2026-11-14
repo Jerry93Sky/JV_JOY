@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "sourceRecords": 488,
+  "uniqueScenarioAddresses": 464,
+  "duplicateRecords": 24,
+  "scenarioCount": 8,
+  "directlyComparedOutputsPerScenario": ["F1!S33", "F1!S36", "F1!S37", "F1!S38", "Главная!X11", "Главная!Y11", "Главная!AA11"],
+  "engineComparisons": 56,
+  "unmappedUniqueCells": 408,
+  "unmappedReason": "Snapshot includes geometry, glass, paint, service and diagnostic cells not exposed as individual outputs by calculateFrontCommercial. They are not counted as passed."
+}

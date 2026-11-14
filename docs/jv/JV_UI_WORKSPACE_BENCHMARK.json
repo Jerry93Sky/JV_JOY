@@ -1,0 +1,212 @@
+{
+  "method": "Separate production builds, identical Fastify and test JWT, Chrome headless 1440x900, loopback HTTP; 1 warmup and 3 fresh contexts per branch; automation time included, no production DB, not SLO",
+  "node": "v24.13.0",
+  "chrome": "157.0.8103.78",
+  "cpu": "AMD Ryzen 5 7500F 6-Core Processor             ",
+  "platform": "win32",
+  "branches": {
+    "baseline": {
+      "samples": [
+        {
+          "openReadyMs": 80.17610000000013,
+          "addSevenMs": 223.87570000000005,
+          "calculateMs": 84.79759999999987,
+          "openBomMs": 82.0972999999999,
+          "openTraceMs": 379.19140000000016,
+          "searchTraceMs": 277.43719999999985,
+          "profileChangeMs": 37.07159999999976,
+          "editWidthMs": 6.3276999999998225,
+          "browser": {
+            "fcpMs": 72,
+            "heapBytes": 13301006,
+            "domNodes": 857,
+            "longTasks": []
+          },
+          "requests": 8,
+          "errors": []
+        },
+        {
+          "openReadyMs": 81.53070000000025,
+          "addSevenMs": 207.05170000000044,
+          "calculateMs": 105.45179999999982,
+          "openBomMs": 59.712500000000546,
+          "openTraceMs": 363.46709999999985,
+          "searchTraceMs": 274.4385999999995,
+          "profileChangeMs": 34.091599999999744,
+          "editWidthMs": 6.943699999999808,
+          "browser": {
+            "fcpMs": 72,
+            "heapBytes": 13317530,
+            "domNodes": 857,
+            "longTasks": []
+          },
+          "requests": 8,
+          "errors": []
+        },
+        {
+          "openReadyMs": 84.20229999999992,
+          "addSevenMs": 191.85140000000047,
+          "calculateMs": 70.89949999999953,
+          "openBomMs": 67.82639999999992,
+          "openTraceMs": 360.39840000000004,
+          "searchTraceMs": 276.14700000000084,
+          "profileChangeMs": 36.58899999999994,
+          "editWidthMs": 5.508499999999913,
+          "browser": {
+            "fcpMs": 72,
+            "heapBytes": 13294320,
+            "domNodes": 857,
+            "longTasks": []
+          },
+          "requests": 8,
+          "errors": []
+        }
+      ],
+      "summary": {
+        "openReadyMs": {
+          "median": 81.53070000000025,
+          "min": 80.17610000000013,
+          "max": 84.20229999999992
+        },
+        "addSevenMs": {
+          "median": 207.05170000000044,
+          "min": 191.85140000000047,
+          "max": 223.87570000000005
+        },
+        "calculateMs": {
+          "median": 84.79759999999987,
+          "min": 70.89949999999953,
+          "max": 105.45179999999982
+        },
+        "openBomMs": {
+          "median": 67.82639999999992,
+          "min": 59.712500000000546,
+          "max": 82.0972999999999
+        },
+        "openTraceMs": {
+          "median": 363.46709999999985,
+          "min": 360.39840000000004,
+          "max": 379.19140000000016
+        },
+        "searchTraceMs": {
+          "median": 276.14700000000084,
+          "min": 274.4385999999995,
+          "max": 277.43719999999985
+        },
+        "profileChangeMs": {
+          "median": 36.58899999999994,
+          "min": 34.091599999999744,
+          "max": 37.07159999999976
+        },
+        "editWidthMs": {
+          "median": 6.3276999999998225,
+          "min": 5.508499999999913,
+          "max": 6.943699999999808
+        }
+      }
+    },
+    "current": {
+      "samples": [
+        {
+          "openReadyMs": 85.81880000000001,
+          "addSevenMs": 162.8144999999995,
+          "calculateMs": 69.80320000000029,
+          "openBomMs": 61.54980000000069,
+          "openTraceMs": 358.0487000000003,
+          "searchTraceMs": 275.34330000000045,
+          "profileChangeMs": 24.208300000000236,
+          "switchPositionMs": 18.097599999999147,
+          "editWidthMs": 5.227500000000873,
+          "browser": {
+            "fcpMs": 80,
+            "heapBytes": 11686200,
+            "domNodes": 341,
+            "longTasks": []
+          },
+          "requests": 8,
+          "errors": []
+        },
+        {
+          "openReadyMs": 89.82979999999952,
+          "addSevenMs": 233.45319999999992,
+          "calculateMs": 70.94679999999971,
+          "openBomMs": 54.44030000000021,
+          "openTraceMs": 350.2060999999994,
+          "searchTraceMs": 277.1967000000004,
+          "profileChangeMs": 30.740999999999985,
+          "switchPositionMs": 21.261099999999715,
+          "editWidthMs": 5.246000000001004,
+          "browser": {
+            "fcpMs": 80,
+            "heapBytes": 9908515,
+            "domNodes": 341,
+            "longTasks": []
+          },
+          "requests": 8,
+          "errors": []
+        },
+        {
+          "openReadyMs": 81.56339999999909,
+          "addSevenMs": 168.3804,
+          "calculateMs": 69.70599999999831,
+          "openBomMs": 54.7479000000003,
+          "openTraceMs": 357.0126,
+          "searchTraceMs": 274.954099999999,
+          "profileChangeMs": 25.191100000000006,
+          "switchPositionMs": 18.304399999999077,
+          "editWidthMs": 6.046700000000783,
+          "browser": {
+            "fcpMs": 68,
+            "heapBytes": 9911579,
+            "domNodes": 341,
+            "longTasks": []
+          },
+          "requests": 8,
+          "errors": []
+        }
+      ],
+      "summary": {
+        "openReadyMs": {
+          "median": 85.81880000000001,
+          "min": 81.56339999999909,
+          "max": 89.82979999999952
+        },
+        "addSevenMs": {
+          "median": 168.3804,
+          "min": 162.8144999999995,
+          "max": 233.45319999999992
+        },
+        "calculateMs": {
+          "median": 69.80320000000029,
+          "min": 69.70599999999831,
+          "max": 70.94679999999971
+        },
+        "openBomMs": {
+          "median": 54.7479000000003,
+          "min": 54.44030000000021,
+          "max": 61.54980000000069
+        },
+        "openTraceMs": {
+          "median": 357.0126,
+          "min": 350.2060999999994,
+          "max": 358.0487000000003
+        },
+        "searchTraceMs": {
+          "median": 275.34330000000045,
+          "min": 274.954099999999,
+          "max": 277.1967000000004
+        },
+        "profileChangeMs": {
+          "median": 25.191100000000006,
+          "min": 24.208300000000236,
+          "max": 30.740999999999985
+        },
+        "editWidthMs": {
+          "median": 5.246000000001004,
+          "min": 5.227500000000873,
+          "max": 6.046700000000783
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "sourceBooks": [
+    "JV-комплектация 08.10.2026.xlsm",
+    "JV-розница 08.10.2026.xlsm"
+  ],
+  "cacheStatus": "cached_unverified",
+  "rules": [
+    {
+      "id": "JV.LINE.PARKING_AXIS_WIDTH",
+      "family": "LINE",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sheet": "L1",
+      "cell": "I27",
+      "formula": "=$I$25-2*$D$22",
+      "purpose": "Ширина парковки по осям (label H27)",
+      "inputs": [
+        "L1!I25",
+        "L1!D22"
+      ],
+      "dependencies": [
+        "JV.LINE.LEAF_WIDTH",
+        "input:rollerAxisToEdge"
+      ],
+      "unit": "same caller-supplied unit; workbook cell does not declare unit",
+      "conditions": [],
+      "constants": [],
+      "status": "VERIFIED_SOURCE",
+      "implementation": "packages/shared/src/jv/geometry/line.ts",
+      "parity": "EXCEL_PARITY_UNVERIFIED"
+    },
+    {
+      "id": "JV.LINE.LEAF_WIDTH",
+      "family": "LINE",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sheet": "L1",
+      "cell": "I25",
+      "formula": "=ROUNDDOWN(($D$3-IF($C$21,$D$6*$D$21,0)-2*Настройки!$P$15-($D$5-1)*Настройки!$P$14-IF($D$15=\"ДА\",2*Настройки!$P$4,0))/($D$5-IF($C$21,$D$6,0)),0)",
+      "purpose": "Расчётная ширина створки по заглушкам",
+      "inputs": [
+        "D3",
+        "C21",
+        "D6",
+        "D21",
+        "D5",
+        "Настройки!P15",
+        "Настройки!P14",
+        "D15",
+        "Настройки!P4"
+      ],
+      "dependencies": [
+        "Main inputs and settings mapping pending"
+      ],
+      "unit": "not explicit in workbook",
+      "conditions": [
+        "C21 special width",
+        "D15 side profile"
+      ],
+      "constants": [
+        "Настройки!P4",
+        "P14",
+        "P15"
+      ],
+      "status": "PARTIALLY_VERIFIED",
+      "implementation": null,
+      "parity": "unverified"
+    },
+    {
+      "id": "JV.LINE.PARKING_DEPTH",
+      "family": "LINE",
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "sheet": "L1",
+      "cell": "I26",
+      "formula": "=Настройки!$P$8+IF($D$6=2,$D$5/2,$D$5)*Настройки!$P$5+$O$15*Настройки!$P$9+$D$22+Настройки!$P$10",
+      "purpose": "Глубина парковки по осям (label H26)",
+      "inputs": [
+        "D6",
+        "D5",
+        "O15",
+        "D22",
+        "Настройки!P5",
+        "P8",
+        "P9",
+        "P10"
+      ],
+      "dependencies": [
+        "O15 origin unresolved"
+      ],
+      "unit": "not explicit",
+      "conditions": [
+        "D6=2 changes panel factor"
+      ],
+      "constants": [
+        "Настройки!P5",
+        "P8",
+        "P9",
+        "P10"
+      ],
+      "status": "BLOCKED",
+      "implementation": null,
+      "parity": "unverified"
+    }
+  ]
+}

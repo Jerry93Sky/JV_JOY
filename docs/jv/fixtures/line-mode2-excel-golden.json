@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "1.0",
+  "method": "Excel 16 CalculateFullRebuild on temporary copies; macros force-disabled; events disabled; isolated JV-Line slot only.",
+  "scope": "Ten varied construction scenarios per workbook; H11/I11 cycle through finish and glass selection indices; Z11=1 and Z12:Z17=0.",
+  "cases": [
+    {
+      "workbook": "JV-комплектация 08.10.2026.xlsm",
+      "workbookSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+      "profile": "COMPLETATION",
+      "scenarioId": "line_single_no_park",
+      "excelVersion": "16.0",
+      "macrosForceDisabled": true,
+      "scenarioInputs": {
+        "id": "line_single_no_park",
+        "main": {
+          "width": 4000,
+          "height": 2500,
+          "openingSelector": 1,
+          "leaves": 5
+        },
+        "controls": {
+          "parkedDoorSelected": false,
+          "parkedDoorPosition": 2,
+          "specialSashEnabled": false,
+          "specialSashWidth": 900,
+          "rollerAxisToEdge": 50
+        },
+        "settings": {
+          "P2": 44,
+          "P4": 14,
+          "P5": 34,
+          "P6": 218,
+          "P7": 109,
+          "P8": 52,
+          "P9": 9,
+          "P10": 70,
+          "P14": 1,
+          "P15": 5,
+          "carrierProfileAllowance": 100
+        }
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 9,
+        "commercialModeIndex": 2
+      },
+      "input": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 9,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 2,
+        "assemblyEnabled": false,
+        "millingEnabled": true,
+        "installationEnabled": false
+      },
+      "inputProvenance": {
+        "mainInputs": {
+          "widthMm": "C11",
+          "heightMm": "D11",
+          "directionSelector": "J11",
+          "leaves": "L11",
+          "quantity": "Z11"
+        },
+        "normalizedChoices": {
+          "frameState": "L1!D15 selection from Настройки/#1 list",
+          "knobState": "L1!D16 selection from Настройки/#1 list",
+          "latchState": "L1!D17 selection from Настройки/#1 list",
+          "weatherSealState": "L1!D18 selection from Настройки/#1 list",
+          "floorLockState": "L1!D19 selection from Настройки/#1 list",
+          "bottomPivotState": "L1!D20 selection from Настройки/#1 list"
+        },
+        "formulaOutputsExcluded": [
+          "I25",
+          "I26",
+          "I27",
+          "O15",
+          "O49",
+          "O50",
+          "Q52",
+          "Q53",
+          "Q54",
+          "Q55",
+          "Q56",
+          "Q57",
+          "Q58"
+        ]
+      },
+      "settings": {
+        "P2": "44",
+        "P3": "58",
+        "P4": "14",
+        "P5": "34",
+        "P6": "218",
+        "P7": "109",
+        "P8": "52",
+        "P9": "9",
+        "P10": "70",
+        "P12": "17",
+        "P13": "6",
+        "P14": "1",
+        "P15": "5",
+        "P16": "2",
+        "P17": "0.5",
+        "L23": "0",
+        "D6": "100",
+        "D7": "100",
+        "D8": "50",
+        "L4": "18",
+        "L5": "18",
+        "L6": "false",
+        "L7": "0.95",
+        "L8": "0.95",
+        "P21": "1600"
+      },
+      "expected": {
+        "Q52": {
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "value": "147636.111873664",
+          "value2Type": "System.Double",
+          "binary64": "410205A0E51E04F4",
+          "displayedText": "147 636,11",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "value": "10500",
+          "value2Type": "System.Double",
+          "binary64": "40C4820000000000",
+          "displayedText": "10 500,00",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "value": "0",
+          "value2Type": "System.Double",
+          "binary64": "0000000000000000",
+          "displayedText": "0,00",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "value": "600",
+          "value2Type": "System.Double",
+          "binary64": "4082C00000000000",
+          "displayedText": "600,00",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "value": "168736.111873664",
+          "value2Type": "System.Double",
+          "binary64": "41049900E51E04F4",
+          "displayedText": "168 736,11",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "value": "0",
+          "value2Type": "System.Double",
+          "binary64": "0000000000000000",
+          "displayedText": "0,00",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "value": "168736.111873664",
+          "value2Type": "System.Double",
+          "binary64": "41049900E51E04F4",
+          "displayedText": "168 736,11",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    },
+    {
+      "workbook": "JV-розница 08.10.2026.xlsm",
+      "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+      "profile": "RETAIL",
+      "scenarioId": "line_single_no_park",
+      "excelVersion": "16.0",
+      "macrosForceDisabled": true,
+      "scenarioInputs": {
+        "id": "line_single_no_park",
+        "main": {
+          "width": 4000,
+          "height": 2500,
+          "openingSelector": 1,
+          "leaves": 5
+        },
+        "controls": {
+          "parkedDoorSelected": false,
+          "parkedDoorPosition": 2,
+          "specialSashEnabled": false,
+          "specialSashWidth": 900,
+          "rollerAxisToEdge": 50
+        },
+        "settings": {
+          "P2": 44,
+          "P4": 14,
+          "P5": 34,
+          "P6": 218,
+          "P7": 109,
+          "P8": 52,
+          "P9": 9,
+          "P10": 70,
+          "P14": 1,
+          "P15": 5,
+          "carrierProfileAllowance": 100
+        }
+      },
+      "selectors": {
+        "finishIndex": 2,
+        "glassIndex": 9,
+        "commercialModeIndex": 2
+      },
+      "input": {
+        "constructionQuantity": "1",
+        "widthMm": "4000",
+        "heightMm": "2500",
+        "leaves": "5",
+        "mainLeavesSelector": "5",
+        "sideCount": "1",
+        "direction": "НАЛЕВО",
+        "profileCount": "0",
+        "connectorAngle": "90",
+        "frameState": "ДА",
+        "knobState": "ДА",
+        "latchState": "ДА",
+        "weatherSealState": "НЕТ",
+        "floorLockState": "НЕТ",
+        "bottomPivotState": "НЕТ",
+        "specialSashEnabled": false,
+        "specialSashWidthMm": "900",
+        "rollerAxisToEdgeMm": "50",
+        "parkedDoorSelected": false,
+        "parkedDoorPosition": "2",
+        "parkedDoorReuseOpening": false,
+        "parkedDoorWidthMm": "900",
+        "glassSelectionIndex": 9,
+        "finishSelectionIndex": 2,
+        "commercialModeIndex": 2,
+        "assemblyEnabled": true,
+        "millingEnabled": true,
+        "installationEnabled": true
+      },
+      "inputProvenance": {
+        "mainInputs": {
+          "widthMm": "C11",
+          "heightMm": "D11",
+          "directionSelector": "J11",
+          "leaves": "L11",
+          "quantity": "Z11"
+        },
+        "normalizedChoices": {
+          "frameState": "L1!D15 selection from Настройки/#1 list",
+          "knobState": "L1!D16 selection from Настройки/#1 list",
+          "latchState": "L1!D17 selection from Настройки/#1 list",
+          "weatherSealState": "L1!D18 selection from Настройки/#1 list",
+          "floorLockState": "L1!D19 selection from Настройки/#1 list",
+          "bottomPivotState": "L1!D20 selection from Настройки/#1 list"
+        },
+        "formulaOutputsExcluded": [
+          "I25",
+          "I26",
+          "I27",
+          "O15",
+          "O49",
+          "O50",
+          "Q52",
+          "Q53",
+          "Q54",
+          "Q55",
+          "Q56",
+          "Q57",
+          "Q58"
+        ]
+      },
+      "settings": {
+        "P2": "44",
+        "P3": "58",
+        "P4": "14",
+        "P5": "34",
+        "P6": "218",
+        "P7": "109",
+        "P8": "52",
+        "P9": "9",
+        "P10": "70",
+        "P12": "17",
+        "P13": "6",
+        "P14": "1",
+        "P15": "5",
+        "P16": "2",
+        "P17": "0.5",
+        "L23": "0",
+        "D6": "100",
+        "D7": "100",
+        "D8": "50",
+        "L4": "18",
+        "L5": "18",
+        "L6": "false",
+        "L7": "0.95",
+        "L8": "0.95",
+        "P21": "1600"
+      },
+      "expected": {
+        "Q52": {
+          "formula": "=СУММ($Q$5:$Q$50)",
+          "value": "36696.839342844",
+          "value2Type": "System.Double",
+          "binary64": "40E1EB1ADBE5861E",
+          "displayedText": "36 696,84",
+          "numberFormat": "# ##0,00"
+        },
+        "Q53": {
+          "formula": "=ЕСЛИ($C$10<>1;$V$18;0)",
+          "value": "9500",
+          "value2Type": "System.Double",
+          "binary64": "40C28E0000000000",
+          "displayedText": "9 500,00",
+          "numberFormat": "# ##0,00"
+        },
+        "Q54": {
+          "formula": "=ЕСЛИ(Настройки!$D$32;  $D$54;  0)",
+          "value": "42354.81286272",
+          "value2Type": "System.Double",
+          "binary64": "40E4AE5A02F8ADD1",
+          "displayedText": "42 354,81",
+          "numberFormat": "# ##0,00"
+        },
+        "Q55": {
+          "formula": "=ЕСЛИ(Настройки!$D$33;  $D$3*'Прайс-сб+монт'!$C$5/1000;  0)  +  ЕСЛИ(Настройки!$L$3;$O$15*'Прайс-сб+монт'!$C$19;0)",
+          "value": "6600",
+          "value2Type": "System.Double",
+          "binary64": "40B9C80000000000",
+          "displayedText": "6 600,00",
+          "numberFormat": "# ##0,00"
+        },
+        "Q56": {
+          "formula": "=СУММ(Q52:Q55)+ЕСЛИ(Главная!$F$28=2;'Прайс-сб+монт'!$C$25*$X$5;0)",
+          "value": "103151.652205564",
+          "value2Type": "System.Double",
+          "binary64": "40F92EFA6F6F19F8",
+          "displayedText": "103 151,65",
+          "numberFormat": "# ##0,00"
+        },
+        "Q57": {
+          "formula": "=ЕСЛИ(Настройки!$D$34;  $D$3*'Прайс-сб+монт'!$C$8/1000+$D$5*$D$4*'Прайс-сб+монт'!$C$9/1000+ЕСЛИ($D$6=2;'Прайс-сб+монт'!$C$10)+$D$8*'Прайс-сб+монт'!$C$11+ЕСЛИ($C$23;'Прайс-сб+монт'!$C$12;0);  0)",
+          "value": "20500",
+          "value2Type": "System.Double",
+          "binary64": "40D4050000000000",
+          "displayedText": "20 500,00",
+          "numberFormat": "# ##0,00"
+        },
+        "Q58": {
+          "formula": "=ЕСЛИ(  И($D$6<=2; D7<>\"ОШИБКА !\"); СУММ($Q$56:$Q$57);  \"ОШИБКА !\")",
+          "value": "123651.652205564",
+          "value2Type": "System.Double",
+          "binary64": "40FE303A6F6F19F8",
+          "displayedText": "123 651,65",
+          "numberFormat": "# ##0,00"
+        }
+      }
+    }
+  ]
+}

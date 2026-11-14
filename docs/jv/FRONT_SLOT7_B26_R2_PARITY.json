@@ -1,0 +1,654 @@
+{
+  "capture": "fixtures/front-slot7-b26-r2-excel.json",
+  "scenarioCount": 8,
+  "comparisonCount": 40,
+  "counts": {
+    "EXACT": 0,
+    "NUMERICALLY_EQUIVALENT": 14,
+    "DISPLAY_MATCH": 26,
+    "MISMATCH": 0,
+    "UNVERIFIED": 0
+  },
+  "comparisons": [
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 103134.522145974,
+      "excelText": "103 134.52",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11280338359715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 103134.522145974,
+      "excelText": "103 134.52",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11280338359715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 103134.522145974,
+      "excelText": "103 135",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "11280338359715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1045608.6177337772,
+      "excelText": "1 045 609",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "132112648850662782973520356749",
+        "denominator": "126350000000000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 103134.522145974,
+      "excelText": "103 134.52",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11280338359715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 103134.522145974,
+      "excelText": "103 134.52",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11280338359715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 103134.522145974,
+      "excelText": "103 135",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "11280338359715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1054430.046305206,
+      "excelText": "1 054 430",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "133227236350662782973520356749",
+        "denominator": "126350000000000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 104313.09357454543,
+      "excelText": "104 313.09",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11409244609715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 104313.09357454543,
+      "excelText": "104 313.09",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11409244609715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 104313.09357454543,
+      "excelText": "104 313",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "11409244609715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1046787.1891623486,
+      "excelText": "1 046 787",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "132261561350662782973520356749",
+        "denominator": "126350000000000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 104313.09357454543,
+      "excelText": "104 313.09",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11409244609715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 104313.09357454543,
+      "excelText": "104 313.09",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "11409244609715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 104313.09357454543,
+      "excelText": "104 313",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "11409244609715907667063",
+        "denominator": "109375000000000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "COMPLETATION",
+      "scenario": "pr13e-completation-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1055608.6177337773,
+      "excelText": "1 055 609",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "133376148850662782973520356749",
+        "denominator": "126350000000000000000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 52854.48093028572,
+      "excelText": "52 854.48",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23123835407",
+        "denominator": "437500"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 52854.48093028572,
+      "excelText": "52 854.48",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23123835407",
+        "denominator": "437500"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 105708.96186057143,
+      "excelText": "105 709",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "23123835407",
+        "denominator": "218750"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 1,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1267718.5356541513,
+      "excelText": "1 267 719",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "432475839845735479",
+        "denominator": "341145000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 52854.48093028572,
+      "excelText": "52 854.48",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23123835407",
+        "denominator": "437500"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 52854.48093028572,
+      "excelText": "52 854.48",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23123835407",
+        "denominator": "437500"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 105708.96186057143,
+      "excelText": "105 709",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "23123835407",
+        "denominator": "218750"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 1,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1291242.3451779608,
+      "excelText": "1 291 242",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "440500869845735479",
+        "denominator": "341145000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 53797.33807314286,
+      "excelText": "53 797.34",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23536335407",
+        "denominator": "437500"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 53797.33807314286,
+      "excelText": "53 797.34",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23536335407",
+        "denominator": "437500"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 107594.67614628572,
+      "excelText": "107 595",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "23536335407",
+        "denominator": "218750"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 1,
+      "B26": 2,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1269604.2499398654,
+      "excelText": "1 269 604",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "433119141845735479",
+        "denominator": "341145000000"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "F7!Y5",
+      "formula": "=ПРМ!$AB$31",
+      "excelValue2": 0.11785714285714284,
+      "excelText": "0.118",
+      "numberFormat": "0.000",
+      "engineRational": {
+        "numerator": "33",
+        "denominator": "280"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "F7!S36",
+      "formula": "=SUM($S$33:$S$35)+IF(Главная!$B$26=2,'Прайс-сб+монт'!$C$25*$Y$5,0)",
+      "excelValue2": 53797.33807314286,
+      "excelText": "53 797.34",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23536335407",
+        "denominator": "437500"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "F7!S38",
+      "formula": "=IF($I$23=\"ОШИБКА!\",$I$23,SUM($S$36:$S$37))",
+      "excelValue2": 53797.33807314286,
+      "excelText": "53 797.34",
+      "numberFormat": "# ##0.00",
+      "engineRational": {
+        "numerator": "23536335407",
+        "denominator": "437500"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "Главная!AA17",
+      "formula": "=Y17*Z17*(100+Настройки!$D$19)/100",
+      "excelValue2": 107594.67614628572,
+      "excelText": "107 595",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "23536335407",
+        "denominator": "218750"
+      },
+      "status": "DISPLAY_MATCH"
+    },
+    {
+      "profile": "RETAIL",
+      "scenario": "pr13e-retail-base",
+      "F28": 2,
+      "B26": 2,
+      "address": "Главная!AA18",
+      "formula": "=SUM(AA11:AA17)",
+      "excelValue2": 1293128.0594636751,
+      "excelText": "1 293 128",
+      "numberFormat": "# ##0",
+      "engineRational": {
+        "numerator": "441144171845735479",
+        "denominator": "341145000000"
+      },
+      "status": "NUMERICALLY_EQUIVALENT"
+    }
+  ]
+}
