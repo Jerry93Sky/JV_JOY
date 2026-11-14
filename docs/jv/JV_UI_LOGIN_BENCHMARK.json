@@ -1,0 +1,303 @@
+{
+  "method": "production dist, loopback HTTP, Chrome headless 1440x900, no throttling, fresh browser context per run, one warmup and five measured login navigations per branch; no backend/database; timings are not SLO",
+  "node": "v24.13.0",
+  "chrome": "157.0.8103.78",
+  "cpu": "AMD Ryzen 5 7500F 6-Core Processor             ",
+  "platform": "win32",
+  "runs": {
+    "baseline": {
+      "root": "baseline",
+      "samples": [
+        {
+          "fcpMs": 56,
+          "domContentLoadedMs": 32.5,
+          "heapBytes": 4232589,
+          "domNodes": 28,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-VAfOnGQY.js",
+              "durationMs": 4.5,
+              "transferBytes": 857499
+            },
+            {
+              "name": "index-D_hsX6HU.css",
+              "durationMs": 4.600000001490116,
+              "transferBytes": 32219
+            }
+          ],
+          "readyWallMs": 552,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 56,
+          "domContentLoadedMs": 30.700000002980232,
+          "heapBytes": 4217054,
+          "domNodes": 28,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-VAfOnGQY.js",
+              "durationMs": 5.399999998509884,
+              "transferBytes": 857499
+            },
+            {
+              "name": "index-D_hsX6HU.css",
+              "durationMs": 4.899999998509884,
+              "transferBytes": 32219
+            }
+          ],
+          "readyWallMs": 552,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 64,
+          "domContentLoadedMs": 34.80000000447035,
+          "heapBytes": 4210499,
+          "domNodes": 28,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-VAfOnGQY.js",
+              "durationMs": 5.5,
+              "transferBytes": 857499
+            },
+            {
+              "name": "index-D_hsX6HU.css",
+              "durationMs": 5.200000002980232,
+              "transferBytes": 32219
+            }
+          ],
+          "readyWallMs": 546,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 60,
+          "domContentLoadedMs": 32.69999999552965,
+          "heapBytes": 4206714,
+          "domNodes": 28,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-VAfOnGQY.js",
+              "durationMs": 5,
+              "transferBytes": 857499
+            },
+            {
+              "name": "index-D_hsX6HU.css",
+              "durationMs": 4.5999999940395355,
+              "transferBytes": 32219
+            }
+          ],
+          "readyWallMs": 542,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 52,
+          "domContentLoadedMs": 31.099999994039536,
+          "heapBytes": 4221306,
+          "domNodes": 28,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-D_hsX6HU.css",
+              "durationMs": 5.100000001490116,
+              "transferBytes": 32219
+            },
+            {
+              "name": "index-VAfOnGQY.js",
+              "durationMs": 4.800000004470348,
+              "transferBytes": 857499
+            }
+          ],
+          "readyWallMs": 543,
+          "requests": 3,
+          "errors": []
+        }
+      ],
+      "summary": {
+        "fcpMs": {
+          "median": 56,
+          "min": 52,
+          "max": 64
+        },
+        "domContentLoadedMs": {
+          "median": 32.5,
+          "min": 30.700000002980232,
+          "max": 34.80000000447035
+        },
+        "readyWallMs": {
+          "median": 546,
+          "min": 542,
+          "max": 552
+        },
+        "heapBytes": {
+          "median": 4217054,
+          "min": 4206714,
+          "max": 4232589
+        },
+        "domNodes": {
+          "median": 28,
+          "min": 28,
+          "max": 28
+        },
+        "requests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        }
+      }
+    },
+    "current": {
+      "root": "current",
+      "samples": [
+        {
+          "fcpMs": 56,
+          "domContentLoadedMs": 32.80000000447035,
+          "heapBytes": 4246420,
+          "domNodes": 29,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-mxzY_MRF.js",
+              "durationMs": 6.100000001490116,
+              "transferBytes": 864824
+            },
+            {
+              "name": "index-BD7l8piF.css",
+              "durationMs": 6.299999997019768,
+              "transferBytes": 32601
+            }
+          ],
+          "readyWallMs": 546,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 56,
+          "domContentLoadedMs": 29.5,
+          "heapBytes": 4246691,
+          "domNodes": 29,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-mxzY_MRF.js",
+              "durationMs": 5.100000001490116,
+              "transferBytes": 864824
+            },
+            {
+              "name": "index-BD7l8piF.css",
+              "durationMs": 5.199999995529652,
+              "transferBytes": 32601
+            }
+          ],
+          "readyWallMs": 547,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 56,
+          "domContentLoadedMs": 29.80000000447035,
+          "heapBytes": 4236576,
+          "domNodes": 29,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-mxzY_MRF.js",
+              "durationMs": 4.4000000059604645,
+              "transferBytes": 864824
+            },
+            {
+              "name": "index-BD7l8piF.css",
+              "durationMs": 4.5,
+              "transferBytes": 32601
+            }
+          ],
+          "readyWallMs": 548,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 52,
+          "domContentLoadedMs": 32,
+          "heapBytes": 4246483,
+          "domNodes": 29,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-mxzY_MRF.js",
+              "durationMs": 4.899999998509884,
+              "transferBytes": 864824
+            },
+            {
+              "name": "index-BD7l8piF.css",
+              "durationMs": 5.100000001490116,
+              "transferBytes": 32601
+            }
+          ],
+          "readyWallMs": 544,
+          "requests": 3,
+          "errors": []
+        },
+        {
+          "fcpMs": 52,
+          "domContentLoadedMs": 31.399999998509884,
+          "heapBytes": 4214407,
+          "domNodes": 29,
+          "longTasks": [],
+          "resources": [
+            {
+              "name": "index-BD7l8piF.css",
+              "durationMs": 6,
+              "transferBytes": 32601
+            },
+            {
+              "name": "index-mxzY_MRF.js",
+              "durationMs": 5.699999995529652,
+              "transferBytes": 864824
+            }
+          ],
+          "readyWallMs": 548,
+          "requests": 3,
+          "errors": []
+        }
+      ],
+      "summary": {
+        "fcpMs": {
+          "median": 56,
+          "min": 52,
+          "max": 56
+        },
+        "domContentLoadedMs": {
+          "median": 31.399999998509884,
+          "min": 29.5,
+          "max": 32.80000000447035
+        },
+        "readyWallMs": {
+          "median": 547,
+          "min": 544,
+          "max": 548
+        },
+        "heapBytes": {
+          "median": 4246420,
+          "min": 4214407,
+          "max": 4246691
+        },
+        "domNodes": {
+          "median": 29,
+          "min": 29,
+          "max": 29
+        },
+        "requests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        }
+      }
+    }
+  }
+}

@@ -97,15 +97,15 @@ function SummaryTab({ from, to, compareFrom, compareTo }: { from: string; to: st
   function diff(a: number, b: number) {
     if (!b) return null
     const pct = Math.round(((a - b) / b) * 100)
-    return <span className={`text-xs ml-1 ${pct >= 0 ? 'text-green-400' : 'text-red-400'}`}>{pct >= 0 ? '+' : ''}{pct}%</span>
+    return <span className={`text-xs ml-1 ${pct >= 0 ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}`}>{pct >= 0 ? '+' : ''}{pct}%</span>
   }
 
   const cards = [
-    { label: 'Валовой доход', key: 'grossRevenue' as const, color: 'text-green-400' },
-    { label: 'Себестоимость', key: 'costOfGoods' as const, color: 'text-red-400' },
-    { label: 'Валовая прибыль', key: 'grossProfit' as const, color: main.grossProfit >= 0 ? 'text-green-400' : 'text-red-400' },
-    { label: 'Расходы', key: 'totalExpenses' as const, color: 'text-amber-400' },
-    { label: 'Чистая прибыль', key: 'netProfit' as const, color: main.netProfit >= 0 ? 'text-green-400' : 'text-red-400' },
+    { label: 'Валовой доход', key: 'grossRevenue' as const, color: 'text-green-700 dark:text-green-400' },
+    { label: 'Себестоимость', key: 'costOfGoods' as const, color: 'text-red-700 dark:text-red-400' },
+    { label: 'Валовая прибыль', key: 'grossProfit' as const, color: main.grossProfit >= 0 ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400' },
+    { label: 'Расходы', key: 'totalExpenses' as const, color: 'text-amber-700 dark:text-amber-400' },
+    { label: 'Чистая прибыль', key: 'netProfit' as const, color: main.netProfit >= 0 ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400' },
     { label: 'Маржинальность', key: 'margin' as const, color: 'text-blue-600', suffix: '%' },
     { label: 'Налоговая нагрузка (УСН 6%)', key: 'taxLoad' as const, color: 'text-purple-600' },
     { label: 'Сделок за период', key: 'dealsCount' as const, color: '', noRub: true },
@@ -338,7 +338,7 @@ function ServicesComparisonTab({ from, to }: { from: string; to: string }) {
                 <td className="px-4 py-2">{row.name}</td>
                 <td className="px-4 py-2 text-right">{fmt(row.estimated)}</td>
                 <td className="px-4 py-2 text-right">{fmt(row.actual)}</td>
-                <td className={`px-4 py-2 text-right font-medium ${row.diff > 0 ? 'text-red-400' : row.diff < 0 ? 'text-green-400' : ''}`}>
+                <td className={`px-4 py-2 text-right font-medium ${row.diff > 0 ? 'text-red-700 dark:text-red-400' : row.diff < 0 ? 'text-green-700 dark:text-green-400' : ''}`}>
                   {row.diff > 0 ? '+' : ''}{fmt(row.diff)}
                 </td>
               </tr>

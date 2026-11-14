@@ -26,25 +26,25 @@ export default function DealCard({ deal, stageLabel, stageColor, onClick }: Prop
             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${stageColor}`}>{stageLabel}</span>
             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
               isDealer
-                ? 'bg-sky-500/20 text-sky-300 border border-sky-500/30'
-                : 'bg-orange-500/20 text-orange-300 border border-orange-500/30'
+                ? 'bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/30'
+                : 'bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30'
             }`}>
               {isDealer ? 'Дилер' : 'Частный'}
             </span>
             {deal.paymentStatus === PaymentStatus.FULL && (
-              <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Оплачен</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-700 dark:text-green-400 border border-green-500/30">Оплачен</span>
             )}
             {deal.paymentStatus === PaymentStatus.PARTIAL && (
-              <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">Частичная оплата</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30">Частичная оплата</span>
             )}
             {deal.paintingOverdue && (
-              <span className="flex items-center gap-1 text-xs text-red-400 font-medium">
+              <span className="flex items-center gap-1 text-xs text-red-700 dark:text-red-400 font-medium">
                 <AlertTriangle size={12} />Покраска просрочена
               </span>
             )}
           </div>
           <div className="mt-1.5 font-medium truncate">
-            {deal.contact ? `${deal.contact.lastName} ${deal.contact.firstName}` : <span className="text-amber-400 italic text-sm">Контакт не указан</span>}
+            {deal.contact ? `${deal.contact.lastName} ${deal.contact.firstName}` : <span className="text-amber-700 dark:text-amber-400 italic text-sm">Контакт не указан</span>}
             {deal.company && <span className="text-muted-foreground font-normal"> · {deal.company.name}</span>}
           </div>
           <div className="text-sm text-muted-foreground">{deal.contact?.phone}</div>
