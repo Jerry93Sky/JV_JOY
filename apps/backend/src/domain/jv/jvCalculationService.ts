@@ -3,18 +3,22 @@ import { z } from 'zod'
 import { calculateJVOrder, EngineError, type PriceProfile, type UnifiedFamily, type UnifiedOrderResult, type UnifiedPositionInput } from '@bms/shared'
 import completionJson from './catalogs/completation-pr13e.json'
 import retailJson from './catalogs/retail-pr13e.json'
+import { getUiDefaults, getUiMetadata, hydrateUiInputs, JV_UI_LEGACY_SCHEMA_VERSION, JV_UI_SCHEMA_VERSION, validateUiOptions } from './jvUiInputs'
 
 const DECIMAL = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/
 const FAMILIES = ['LINE', 'ZIGZAG', 'SLIDER_L3', 'SLIDER_L5', 'SLIDER_X3', 'SLIDER_X5', 'FRONT'] as const
 export const JV_ORDER_RULES_VERSION = 'JV-UNIFIED-ORDER-PR13E-1'
 const MAX_DECIMAL_LENGTH = 64
 const MAX_POSITIONS = 7
+const FRONT_DOOR_ID = 'JV-FRONT-FITTINGS-I42-2-PR15A-1'
+const DOOR_FAMILIES = ['LINE','ZIGZAG','SLIDER_L3','SLIDER_L5','SLIDER_X3','SLIDER_X5','FRONT'] as const
 
 const positionShape = (family: UnifiedFamily) => z.object({
   id: z.string().trim().min(1).max(80),
   slot: z.number().int().min(1).max(7),
   family: z.literal(family),
   quantity: z.string().min(1).max(MAX_DECIMAL_LENGTH),
+  configurationId: z.string().trim().min(1).max(100).optional(),
   calculation: z.record(z.unknown()),
 }).strict()
 
@@ -23,6 +27,7 @@ const previewSchema = z.object({
   profile: z.enum(['COMPLETATION', 'RETAIL']),
   rulesVersion: z.string().trim().min(1).max(120),
   priceSnapshotVersion: z.string().trim().min(1).max(120).optional(),
+  uiSchemaVersion: z.string().trim().min(1).max(120).optional(),
   positions: z.array(z.discriminatedUnion('family', [
     positionShape('LINE'), positionShape('ZIGZAG'), positionShape('SLIDER_L3'), positionShape('SLIDER_L5'), positionShape('SLIDER_X3'), positionShape('SLIDER_X5'), positionShape('FRONT'),
   ])).min(1).max(MAX_POSITIONS),
@@ -42,6 +47,7 @@ interface CatalogSnapshot {
   readonly sourceScenarioId: string
   readonly engineRuleVersion: string
   readonly mainDiscount: NonNullable<Parameters<typeof calculateJVOrder>[0]['mainDiscount']>
+  readonly frontSlot7B26: NonNullable<Parameters<typeof calculateJVOrder>[0]['frontSlot7B26']>
   readonly families: Readonly<Record<UnifiedFamily, CatalogFamily>>
 }
 
@@ -56,6 +62,7 @@ export interface JvPreviewVersions {
   readonly workbook: string
   readonly workbookSha256: string
   readonly familyPriceSnapshots: Readonly<Record<string, string>>
+  readonly configurationProfiles?: readonly string[]
 }
 
 export interface JvPreviewResult {
@@ -75,17 +82,59 @@ export class JvRequestError extends Error {
   }
 }
 
+export function getJvUiFormConfig(profile: unknown) {
+  if (profile !== 'COMPLETATION' && profile !== 'RETAIL') throw new JvRequestError(400, 'INVALID_PROFILE', 'Unknown JV price profile')
+  const catalog = catalogs[profile]
+  return {
+    schemaVersion: JV_UI_SCHEMA_VERSION,
+    rulesVersion: catalog.engineRuleVersion,
+    profile,
+    families: Object.fromEntries(FAMILIES.map(family => [family, getUiDefaults(family, catalog.families[family].requestShape)])),
+    fieldMetadata: Object.fromEntries(FAMILIES.map(family => [family, getUiMetadata(family, catalog.families[family].requestShape)])),
+    frontDoorProfile: {id:FRONT_DOOR_ID,label:'Front с дверью — проверенный заказ из 7 систем',defaults:getUiDefaults('FRONT',frontDoorTemplate(catalog)),fieldMetadata:frontDoorMetadata(catalog),slots:DOOR_FAMILIES,restriction:'Доступен только для проверенного состава заказа: 7 систем в слотах 1–7, по одной конструкции; фиксированные параметры.'},
+  }
+}
+
+function frontDoorTemplate(catalog: CatalogSnapshot): Record<string, unknown> {
+  const result=structuredClone(catalog.families.FRONT.requestShape) as any
+  Object.assign(result.construction,{widthMm:'3300',heightMm:'2350',sectionDemand:'3',openingSelector:1})
+  Object.assign(result.construction.controls,{C18:1,C19:2,C20:2,C21:2,C22:8,C23:10,C24:2,D18:'1000',D19:'2150'})
+  Object.assign(result.construction.settings,{H44:1,I42:2})
+  return result
+}
+function frontDoorMetadata(catalog: CatalogSnapshot) {
+  const template=frontDoorTemplate(catalog),defaults=getUiDefaults('FRONT',template)
+  return getUiMetadata('FRONT',template).map(field=>field.path==='commercial.mainSurchargeSelector'?field:{...field,status:'LIMITED',dependsOn:'Зафиксировано для проверенного примера с дверью',...(field.options?{options:field.options.map(option=>({...option,supported:option.value===defaults[field.path]}))}:{})})
+}
+
 /** Runtime validates caller data, then attaches only server-owned price sources before the real Engine call. */
 export function calculateJvPreview(input: unknown): JvPreviewResult {
   const parsed = previewSchema.safeParse(input)
   if (!parsed.success) throw new JvRequestError(400, 'INVALID_REQUEST', 'JV calculation request is invalid', parsed.error.issues.map((issue) => `${issue.path.join('.') || 'request'}: ${issue.message}`).slice(0, 20))
   const request = parsed.data as PreviewRequest
   const catalog = catalogs[request.profile]
+  if (request.uiSchemaVersion && request.uiSchemaVersion !== JV_UI_SCHEMA_VERSION && request.uiSchemaVersion !== JV_UI_LEGACY_SCHEMA_VERSION) throw new JvRequestError(409, 'UI_SCHEMA_VERSION_MISMATCH', 'Requested JV input schema is unavailable')
   if (request.rulesVersion !== catalog.engineRuleVersion) throw new JvRequestError(409, 'RULE_VERSION_MISMATCH', 'Requested JV rule version is unavailable')
   if (request.priceSnapshotVersion && request.priceSnapshotVersion !== catalog.providerId) throw new JvRequestError(409, 'PRICE_PROFILE_MISMATCH', 'Requested price snapshot does not match the selected profile')
 
+  const doorPositions=request.positions.filter(p=>p.configurationId!==undefined)
+  if(doorPositions.some(p=>p.configurationId!==FRONT_DOOR_ID||p.family!=='FRONT')||doorPositions.length>1)throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Unknown or incompatible Front configuration')
+  if(doorPositions.length){
+    if(request.uiSchemaVersion!==JV_UI_SCHEMA_VERSION||request.positions.length!==7)throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Door profile requires seven source-backed UI positions')
+    for(let i=0;i<DOOR_FAMILIES.length;i++){
+      const p=request.positions.find(x=>x.slot===i+1),family=DOOR_FAMILIES[i]!
+      if(!p||p.family!==family||p.quantity!=='1'||(family==='FRONT'&&p.configurationId!==FRONT_DOOR_ID))throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Door profile requires the verified family and quantity in each slot')
+      const sample=family==='FRONT'?frontDoorTemplate(catalog):catalog.families[family].requestShape
+      const defaults=getUiDefaults(family,sample)
+      for(const [path,value] of Object.entries(defaults)){
+        if(['input.commercialModeIndex','position.commercial.F28','controls.mainSurchargeSelector','commercial.mainSurchargeSelector'].includes(path)){if(![1,2].includes(p.calculation[path] as number))throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Unsupported transport')}else if(p.calculation[path]!==value)throw new JvRequestError(422,'UNSUPPORTED_FRONT_PROFILE','Door profile only supports verified input values',[`slot ${i+1}: ${path}`])
+      }
+    }
+  }
+
   const ids = new Set<string>()
   const slots = new Set<number>()
+  const transportModes = new Set<unknown>()
   const positions: UnifiedPositionInput[] = request.positions.map((position, index) => {
     if (ids.has(position.id)) throw new JvRequestError(400, 'DUPLICATE_POSITION_ID', 'Position ids must be unique', [`positions.${index}.id`])
     if (slots.has(position.slot)) throw new JvRequestError(400, 'DUPLICATE_SLOT', 'Each Excel slot may be used once', [`positions.${index}.slot`])
@@ -96,21 +145,34 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
 
     const familyCatalog = catalog.families[position.family]
     if (!familyCatalog) throw new JvRequestError(409, 'FAMILY_SNAPSHOT_UNAVAILABLE', `No server snapshot is available for ${position.family}`)
-    const shapeIssues = validateShape(position.calculation, familyCatalog.requestShape, `positions.${index}.calculation`)
-    validatePhysicalInputs(position.family, position.calculation, `positions.${index}.calculation`, shapeIssues)
+    const template=position.configurationId===FRONT_DOOR_ID?frontDoorTemplate(catalog):familyCatalog.requestShape
+    let calculation = structuredClone(position.calculation) as Record<string, unknown>
+    if (request.uiSchemaVersion) {
+      const hydrated = hydrateUiInputs(position.family, template, calculation)
+      if (!hydrated.calculation) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'UI inputs do not match the permitted fields', hydrated.issues.slice(0, 20))
+      calculation = hydrated.calculation
+    }
+    const shapeIssues = validateShape(calculation, template, `positions.${index}.calculation`)
+    validatePhysicalInputs(position.family, calculation, `positions.${index}.calculation`, shapeIssues)
     if (shapeIssues.length) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'Calculation inputs do not match the supported typed contract', shapeIssues.slice(0, 20))
-    const calculation = structuredClone(position.calculation) as Record<string, unknown>
+    const userInputs = getUiDefaults(position.family, calculation)
+    const optionIssues = position.configurationId===FRONT_DOOR_ID?[]:validateUiOptions(position.family, template, userInputs)
+    if (optionIssues.length) throw new JvRequestError(422, 'UNSUPPORTED_UI_SELECTOR', 'Selected UI option is not supported', optionIssues.slice(0, 20))
+    const modePaths: Record<UnifiedFamily, string> = { LINE: 'input.commercialModeIndex', ZIGZAG: 'position.commercial.F28', SLIDER_L3: 'controls.mainSurchargeSelector', SLIDER_L5: 'controls.mainSurchargeSelector', SLIDER_X3: 'controls.mainSurchargeSelector', SLIDER_X5: 'controls.mainSurchargeSelector', FRONT: 'commercial.mainSurchargeSelector' }
+    transportModes.add(userInputs[modePaths[position.family]])
     attachSources(position.family, calculation, familyCatalog.sources)
     bindServerContext(position.family, calculation, position.id, position.quantity, catalog)
     return { id: position.id, slot: position.slot, family: position.family, quantity: position.quantity, calculation } as UnifiedPositionInput
   })
+  if (transportModes.size > 1) throw new JvRequestError(400, 'INCONSISTENT_ORDER_TRANSPORT', 'Transport option must be the same for all positions', ['Главная!F28 is an order-level setting'])
   bindOrderContext(positions, catalog)
 
   const correlationId = randomUUID()
   const orderId = request.orderId ?? correlationId
   let calculation: UnifiedOrderResult
   try {
-    calculation = calculateJVOrder({ orderId, profile: request.profile, positions, mainDiscount: catalog.mainDiscount })
+    calculation = calculateJVOrder({ orderId, profile: request.profile, positions, mainDiscount: catalog.mainDiscount, frontSlot7B26: catalog.frontSlot7B26 })
+    if(doorPositions.length)calculation=Object.freeze({...calculation,trace:Object.freeze([...calculation.trace,Object.freeze({id:'JV.FRONT.PROFILE.I42',kind:'configuration',label:'Front: подтверждённый профиль с дверью',ruleId:FRONT_DOOR_ID,input:{profile:request.profile,workbookSha256:catalog.workbookSha256,slot:7},result:{configurationId:FRONT_DOOR_ID,I42:2},status:'ok',source:{workbook:catalog.workbook,sheet:'Настройки',cell:'I42',formula:'2'},inputRefs:[],catalogRefs:[{id:FRONT_DOOR_ID,version:JV_ORDER_RULES_VERSION}],errorIds:[],warningIds:[]})])})
   } catch (error) {
     if (error instanceof EngineError) {
       if (error.code === 'RULE_FAILED' || error.code === 'DEPENDENCY_CYCLE' || error.code === 'DIVISION_BY_ZERO') throw error
@@ -127,7 +189,7 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
     orderId,
     profile: request.profile,
     engineVersion: 'JV-UNIFIED-ORDER-1',
-    versions: Object.freeze({ rules: catalog.engineRuleVersion, provider: catalog.providerId, workbook: catalog.workbook, workbookSha256: catalog.workbookSha256, familyPriceSnapshots: Object.freeze(familyPriceSnapshots) }),
+    versions: Object.freeze({ rules: catalog.engineRuleVersion, provider: catalog.providerId, workbook: catalog.workbook, workbookSha256: catalog.workbookSha256, familyPriceSnapshots: Object.freeze(familyPriceSnapshots), ...(doorPositions.length?{configurationProfiles:[FRONT_DOOR_ID]}:{}) }),
     status: calculation.status,
     calculation,
   })
@@ -143,6 +205,7 @@ function validateCatalog(catalog: CatalogSnapshot, profile: PriceProfile): Catal
     }
   }
   if (catalog.mainDiscount.profile !== profile || catalog.mainDiscount.workbookSha256 !== catalog.workbookSha256) throw new Error(`Main settings provenance mismatch for ${profile}`)
+  if (catalog.frontSlot7B26?.sourceCell !== 'Главная!B26' || catalog.frontSlot7B26.workbook !== catalog.workbook || catalog.frontSlot7B26.workbookSha256 !== catalog.workbookSha256 || catalog.frontSlot7B26.value !== 1 || catalog.frontSlot7B26.sourceScenarioId !== catalog.sourceScenarioId || catalog.frontSlot7B26.version !== 'JV-PR13E-B26-SCENARIO-1') throw new Error(`Front B26 scenario provenance mismatch for ${profile}`)
   if (!catalog.mainDiscount.positionMarkups?.some((entry) => entry.slot === 7) || !catalog.mainDiscount.positionDivisors?.some((entry) => entry.family === 'FRONT')) throw new Error(`Front Main price settings are missing for ${profile}`)
   return Object.freeze(catalog)
 }
@@ -236,27 +299,27 @@ function bindServerContext(family: UnifiedFamily, calculation: Record<string, un
 }
 
 function bindOrderContext(positions: readonly UnifiedPositionInput[], catalog: CatalogSnapshot): void {
-  const front = positions.find((position) => position.family === 'FRONT')
-  if (!front) return
-  const calculation = front.calculation as unknown as { construction: Record<string, unknown>; commercial: Record<string, unknown> }
-  const markup = catalog.mainDiscount.positionMarkups?.find((entry) => entry.slot === front.slot)
-  const divisor = catalog.mainDiscount.positionDivisors?.find((entry) => entry.family === 'FRONT')
-  if (!markup || !divisor) throw new JvRequestError(409, 'MAIN_SETTINGS_UNAVAILABLE', 'Server Main price settings for Front are unavailable')
-  const snapshot = calculation.commercial.snapshot as { settings?: Record<string, { value?: string }> } | undefined
-  const frontDivisor = snapshot?.settings?.D5?.value
-  if (!frontDivisor) throw new JvRequestError(409, 'FRONT_SETTINGS_UNAVAILABLE', 'Server Front divisor setting is unavailable')
-  calculation.commercial.mainQuantity = front.quantity
-  calculation.commercial.markupPercent = markup.value
-  calculation.commercial.discountPercent = catalog.mainDiscount.value
-  calculation.commercial.retailDivisor = frontDivisor
-  calculation.commercial.order = {
-    workbook: catalog.workbook,
-    sourceSha256: catalog.workbookSha256,
-    positionMainRow: 10 + front.slot,
-    positions: positions.map((position) => {
-      const dimensions = positionDimensions(position)
-      return { mainRow: 10 + position.slot, widthMm: dimensions.widthMm, heightMm: dimensions.heightMm, quantity: position.quantity }
-    }),
+  for (const front of positions.filter((position) => position.family === 'FRONT')) {
+    const calculation = front.calculation as unknown as { construction: Record<string, unknown>; commercial: Record<string, unknown> }
+    const markup = catalog.mainDiscount.positionMarkups?.find((entry) => entry.slot === front.slot)
+    const divisor = catalog.mainDiscount.positionDivisors?.find((entry) => entry.family === 'FRONT')
+    if (!markup || !divisor) throw new JvRequestError(409, 'MAIN_SETTINGS_UNAVAILABLE', 'Server Main price settings for Front are unavailable')
+    const snapshot = calculation.commercial.snapshot as { settings?: Record<string, { value?: string }> } | undefined
+    const frontDivisor = snapshot?.settings?.D5?.value
+    if (!frontDivisor) throw new JvRequestError(409, 'FRONT_SETTINGS_UNAVAILABLE', 'Server Front divisor setting is unavailable')
+    calculation.commercial.mainQuantity = front.quantity
+    calculation.commercial.markupPercent = markup.value
+    calculation.commercial.discountPercent = catalog.mainDiscount.value
+    calculation.commercial.retailDivisor = frontDivisor
+    calculation.commercial.order = {
+      workbook: catalog.workbook,
+      sourceSha256: catalog.workbookSha256,
+      positionMainRow: 10 + front.slot,
+      positions: positions.map((position) => {
+        const dimensions = positionDimensions(position)
+        return { mainRow: 10 + position.slot, widthMm: dimensions.widthMm, heightMm: dimensions.heightMm, quantity: position.quantity }
+      }),
+    }
   }
 }
 

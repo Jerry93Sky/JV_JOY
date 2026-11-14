@@ -8,6 +8,7 @@ import { calculateJVOrder, multiplyRational, type ExactRational, type UnifiedPos
 import { registerPlugins } from '../../src/plugins'
 import { registerRoutes } from '../../src/routes'
 import { getJvPriceProviderVersion, JV_ORDER_RULES_VERSION, serializeJvResult } from '../../src/domain/jv/jvCalculationService'
+import { getUiDefaults, JV_UI_SCHEMA_VERSION } from '../../src/domain/jv/jvUiInputs'
 import { toPrismaJsonInput } from '../../src/lib/prismaJson'
 import { FINANCE_EXCLUDED_STAGES } from '../../src/routes/finance'
 
@@ -81,6 +82,133 @@ test('real registered JV route is present and uses the authenticated BMS role po
   assert.equal(legacy.statusCode, 401)
 })
 
+test('Front door profile reproduces the four Excel-backed seven-family scenarios and rejects tampering', async () => {
+  const doorManifest=JSON.parse(readFileSync(resolve(process.cwd(),'../../docs/jv/fixtures/front-door-all-seven-inputs.json'),'utf8'))
+  const doorParity=JSON.parse(readFileSync(resolve(process.cwd(),'../../docs/jv/JV_FRONT_DOOR_PARITY.json'),'utf8'))
+  assert.equal(doorManifest.scenarios.length,4)
+  for(const scenario of doorManifest.scenarios){
+    const config=(await app.inject({method:'GET',url:`/api/jv/orders/form-config?profile=${scenario.profile}`,headers:{authorization:`Bearer ${adminToken}`}})).json()
+    const positions=scenario.engineInput.positions.map((position: UnifiedPositionInput)=>({id:position.id,slot:position.slot,family:position.family,quantity:position.quantity,...(position.family==='FRONT'?{configurationId:config.frontDoorProfile.id}:{}),calculation:getUiDefaults(position.family,position.calculation)}))
+    const payload={orderId:scenario.scenarioId,profile:scenario.profile,rulesVersion:config.rulesVersion,uiSchemaVersion:config.schemaVersion,positions}
+    const response=await post(payload)
+    assert.equal(response.statusCode,200,`${scenario.scenarioId}: ${response.body}`)
+    const actual=response.json<ApiResponse>(),expected=doorParity.cases.find((x:any)=>x.scenarioId===scenario.scenarioId)
+    assert.equal(actual.status,'COMPLETE');assert.equal(expected.inputCompatibility.status,'MATCH')
+    assert.ok((actual.versions as any).configurationProfiles.includes(config.frontDoorProfile.id))
+    assert.ok(actual.calculation.trace.some((x:any)=>x.id==='JV.FRONT.PROFILE.I42'&&x.source.cell==='I42'))
+    assert.deepEqual(actual.calculation.totalSalePrice,expected.excel.AA18.engineRational)
+    assert.ok([...expected.excel.AA11toAA17,expected.excel.AA18].every((x:any)=>!['MISMATCH','UNVERIFIED'].includes(x.status)))
+    for(const row of expected.excel.AA11toAA17){const position=actual.calculation.positions.find(x=>x.slot===row.slot);assert.ok(position?.confirmedUnitAmount);assert.deepEqual(multiplyRational(position.confirmedUnitAmount,position.quantity),row.engineRational)}
+    const altered=structuredClone(payload);altered.positions[6].calculation['construction.controls.C21']=3
+    assert.equal((await post(altered)).statusCode,422)
+    const spoof=structuredClone(payload);spoof.positions[6].calculation['construction.settings.I42']=2
+    assert.equal((await post(spoof)).statusCode,400)
+    const priceSpoof=structuredClone(payload);priceSpoof.positions[6].calculation['commercial.snapshot']=1
+    assert.equal((await post(priceSpoof)).statusCode,400)
+    const unknown=structuredClone(payload);unknown.positions[6].configurationId='unknown'
+    assert.equal((await post(unknown)).statusCode,422)
+    assert.equal((await post({...payload,uiSchemaVersion:'JV-UI-INPUTS-1'})).statusCode,422)
+    assert.equal((await post({...payload,uiSchemaVersion:undefined})).statusCode,422)
+    assert.equal((await post(payload,userToken)).statusCode,403)
+    assert.equal((await post({...payload,rulesVersion:'unknown'})).statusCode,409)
+    const dimension=structuredClone(payload);dimension.positions[6].calculation['construction.widthMm']='3400'
+    assert.equal((await post(dimension)).statusCode,422)
+    const short={...payload,positions:payload.positions.slice(6)}
+    assert.equal((await post(short)).statusCode,422)
+  }
+})
+
+test('versioned UI input contract supplies non-price fields and hydrates all seven families on the server', async () => {
+  type Config = { schemaVersion: string; rulesVersion: string; profile: string; families: Record<string, Record<string, unknown>> }
+  const families = ['LINE', 'ZIGZAG', 'SLIDER_L3', 'SLIDER_L5', 'SLIDER_X3', 'SLIDER_X5', 'FRONT']
+  const configRequest = (profile: string, token?: string) => app.inject({ method: 'GET', url: `/api/jv/orders/form-config?profile=${profile}`, headers: token ? { authorization: `Bearer ${token}` } : {} })
+  assert.equal((await configRequest('COMPLETATION')).statusCode, 401)
+  assert.equal((await configRequest('COMPLETATION', userToken)).statusCode, 403)
+  for (const profile of ['COMPLETATION', 'RETAIL']) {
+    const response = await configRequest(profile, adminToken)
+    assert.equal(response.statusCode, 200, response.body)
+    const config = response.json<Config>()
+    assert.equal(config.profile, profile)
+    assert.equal(config.schemaVersion, 'JV-UI-INPUTS-2')
+    assert.deepEqual(Object.keys(config.families).sort(), [...families].sort())
+    const serialized = JSON.stringify(config)
+    assert.doesNotMatch(serialized, /priceSnapshot|glassSnapshot|paintSnapshot|bomSettings|sourceSha256|unitPrice/)
+    const positions = families.map((family, index) => ({ id: `ui-${index}`, slot: index + 1, family, quantity: index === 1 ? '2' : '1', calculation: config.families[family] }))
+    const payload = { orderId: 'ui-contract-comparison', profile, rulesVersion: config.rulesVersion, uiSchemaVersion: config.schemaVersion, positions }
+    const result = await post(payload)
+    assert.equal(result.statusCode, 200, `${profile}: ${result.body}`)
+    assert.equal(result.json<ApiResponse>().calculation.positions.length, 7)
+    const catalogFile = profile === 'COMPLETATION' ? 'completation-pr13e.json' : 'retail-pr13e.json'
+    const catalog = JSON.parse(readFileSync(resolve(process.cwd(), 'src/domain/jv/catalogs', catalogFile), 'utf8')) as { families: Record<string, { requestShape: Record<string, unknown> }> }
+    const legacyPositions = positions.map(position => ({ ...position, calculation: catalog.families[position.family]!.requestShape }))
+    const legacy = await post({ orderId: payload.orderId, profile, rulesVersion: config.rulesVersion, positions: legacyPositions })
+    assert.equal(legacy.statusCode, 200, legacy.body)
+    assert.deepEqual(result.json<ApiResponse>().calculation, legacy.json<ApiResponse>().calculation)
+    for (const position of positions) {
+      const single = await post({ ...payload, positions: [position] })
+      assert.equal(single.statusCode, 200, `${profile}/${position.family}: ${single.body}`)
+      assert.equal(single.json<ApiResponse>().calculation.positions[0]?.family, position.family)
+    }
+    const tampered = structuredClone(payload)
+    ;(tampered.positions[0]!.calculation as Record<string, unknown>)['settings.P2'] = '0'
+    assert.equal((await post(tampered)).statusCode, 400)
+    const selectorTampering = structuredClone(payload)
+    ;(selectorTampering.positions[2]!.calculation as Record<string, unknown>)['bomOptions.selectorControls.I25'] = 3
+    assert.equal((await post(selectorTampering)).statusCode, 400)
+    const unsupported = structuredClone(payload)
+    ;(unsupported.positions[0]!.calculation as Record<string, unknown>)['input.commercialModeIndex'] = 3
+    assert.equal((await post(unsupported)).statusCode, 422)
+    const unsupportedFront = structuredClone(payload)
+    ;(unsupportedFront.positions[6]!.calculation as Record<string, unknown>)['construction.openingSelector'] = 1
+    assert.equal((await post(unsupportedFront)).statusCode, 422)
+    assert.equal((await post({ ...unsupportedFront, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
+    const unavailableDoorControl = structuredClone(payload)
+    ;(unavailableDoorControl.positions[6]!.calculation as Record<string, unknown>)['construction.controls.C18'] = 2
+    assert.equal((await post(unavailableDoorControl)).statusCode, 422)
+    assert.equal((await post({ ...unavailableDoorControl, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
+    const unavailableHardware = structuredClone(payload)
+    ;(unavailableHardware.positions[6]!.calculation as Record<string, unknown>)['construction.controls.C22'] = 2
+    assert.equal((await post({ ...unavailableHardware, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 422)
+    const inconsistent = structuredClone(payload)
+    ;(inconsistent.positions[0]!.calculation as Record<string, unknown>)['input.commercialModeIndex'] = 2
+    assert.equal((await post(inconsistent)).statusCode, 400)
+    assert.equal((await post({ ...inconsistent, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 400)
+    const legacyUnsupported = structuredClone(legacyPositions)
+    ;((legacyUnsupported[6]!.calculation as Record<string, unknown>).construction as Record<string, unknown>).openingSelector = 1
+    assert.equal((await post({ ...payload, uiSchemaVersion: undefined, positions: legacyUnsupported })).statusCode, 422)
+    const legacyHardware = structuredClone(legacyPositions)
+    ;((((legacyHardware[6]!.calculation as Record<string, unknown>).construction as Record<string, unknown>).controls) as Record<string, unknown>).C22 = 2
+    assert.equal((await post({ ...payload, uiSchemaVersion: undefined, positions: legacyHardware })).statusCode, 422)
+    const legacyInconsistent = structuredClone(legacyPositions)
+    ;((legacyInconsistent[0]!.calculation as Record<string, unknown>).input as Record<string, unknown>).commercialModeIndex = 2
+    assert.equal((await post({ ...payload, uiSchemaVersion: undefined, positions: legacyInconsistent })).statusCode, 400)
+    const mode2 = structuredClone(payload)
+    for (const position of mode2.positions) {
+      const path = position.family === 'LINE' ? 'input.commercialModeIndex' : position.family === 'ZIGZAG' ? 'position.commercial.F28' : position.family === 'FRONT' ? 'commercial.mainSurchargeSelector' : 'controls.mainSurchargeSelector'
+      ;(position.calculation as Record<string, unknown>)[path] = 2
+    }
+    const mode2Response = await post(mode2)
+    assert.equal(mode2Response.statusCode, 200, `${profile}/F28=2 with Front slot 7: ${mode2Response.body}`)
+    assert.equal(mode2Response.json<ApiResponse>().status, 'COMPLETE')
+    assert.equal((await post({ ...mode2, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 200)
+    assert.equal((await post({ ...mode2, frontSlot7B26: {value: 2} })).statusCode, 400)
+    const injectedB26 = structuredClone(mode2)
+    ;(injectedB26.positions[6]!.calculation as Record<string, unknown>)['commercial.order.frontSlot7B26'] = 2
+    assert.equal((await post(injectedB26)).statusCode, 400)
+    const legacyMode2 = structuredClone(legacyPositions)
+    for (const position of legacyMode2) {
+      const c = position.calculation as Record<string, any>
+      if (position.family === 'LINE') c.input.commercialModeIndex = 2
+      else if (position.family === 'ZIGZAG') c.position.commercial.F28 = 2
+      else if (position.family === 'FRONT') c.commercial.mainSurchargeSelector = 2
+      else c.controls.mainSurchargeSelector = 2
+    }
+    assert.equal((await post({ ...mode2, uiSchemaVersion: undefined, positions: legacyMode2 })).statusCode, 200)
+    assert.equal((await post({ ...payload, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 200)
+    assert.equal((await post({ ...payload, uiSchemaVersion: 'future' })).statusCode, 409)
+  }
+})
+
 test('all 12 PR_13E Excel cases run through the HTTP endpoint and preserve engine and golden values', async () => {
   assert.equal(scenarios.length, 12)
   assert.equal(parity.cases.length, 12)
@@ -95,7 +223,9 @@ test('all 12 PR_13E Excel cases run through the HTTP endpoint and preserve engin
     const response = await post(requestFor(scenario))
     assert.equal(response.statusCode, 200, `${scenario.scenarioId}: ${response.body}`)
     const actual = response.json<ApiResponse>()
-    const expected = calculateJVOrder(scenario.engineInput)
+    const sourceFile = scenario.profile === 'COMPLETATION' ? 'completation-pr13e.json' : 'retail-pr13e.json'
+    const catalog = JSON.parse(readFileSync(resolve(process.cwd(), 'src/domain/jv/catalogs', sourceFile), 'utf8'))
+    const expected = calculateJVOrder({...scenario.engineInput, frontSlot7B26:catalog.frontSlot7B26})
     assert.equal(actual.profile, scenario.profile)
     assert.equal(actual.status, expected.status)
     assert.equal(actual.calculation.status, expected.status)
@@ -115,6 +245,17 @@ test('all 12 PR_13E Excel cases run through the HTTP endpoint and preserve engin
     assert.ok(actual.calculation.bom.length > 0)
     assert.ok(actual.calculation.trace.length > 0)
     assert.deepEqual(actual.calculation.totalSalePrice, golden.excel.AA18.engineRational)
+  }
+})
+
+test('UI input contract reproduces the 12 source-backed all-seven API scenarios', async () => {
+  for (const scenario of scenarios) {
+    const legacy = requestFor(scenario)
+    const compact = { ...legacy, uiSchemaVersion: JV_UI_SCHEMA_VERSION, positions: legacy.positions.map(position => ({ ...position, calculation: getUiDefaults(position.family, position.calculation) })) }
+    const [fullResponse, uiResponse] = await Promise.all([post(legacy), post(compact)])
+    assert.equal(fullResponse.statusCode, 200, `${scenario.scenarioId}: ${fullResponse.body}`)
+    assert.equal(uiResponse.statusCode, 200, `${scenario.scenarioId}: ${uiResponse.body}`)
+    assert.deepEqual(uiResponse.json<ApiResponse>().calculation, fullResponse.json<ApiResponse>().calculation, scenario.scenarioId)
   }
 })
 

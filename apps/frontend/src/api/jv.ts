@@ -29,6 +29,33 @@ export interface JvPreviewRequest {
   positions: readonly JvPreviewPosition[]
 }
 
+export type JvUiValue = string | number | boolean
+export interface JvUiField {
+  path: string
+  label: string
+  type: 'decimal' | 'boolean' | 'select'
+  unit?: string
+  options?: { value: string | number; label: string; supported: boolean }[]
+  status: 'CONFIRMED' | 'LIMITED'
+  source?: string
+  dependsOn?: string
+}
+export interface JvUiConfig {
+  schemaVersion: string
+  rulesVersion: string
+  profile: PriceProfile
+  families: Record<UnifiedFamily, Record<string, JvUiValue>>
+  fieldMetadata: Record<UnifiedFamily, JvUiField[]>
+  frontDoorProfile: { id: string; label: string; defaults: Record<string, JvUiValue>; fieldMetadata: JvUiField[]; slots: UnifiedFamily[]; restriction: string }
+}
+export interface JvUiPreviewRequest {
+  orderId?: string
+  profile: PriceProfile
+  rulesVersion: string
+  uiSchemaVersion: string
+  positions: readonly { id: string; slot: number; family: UnifiedFamily; quantity: string; calculation: Record<string, JvUiValue>; configurationId?: string }[]
+}
+
 export interface JvPreviewResponse {
   correlationId: string
   orderId: string
@@ -41,8 +68,13 @@ export interface JvPreviewResponse {
 
 export const JV_RULES_VERSION = 'JV-UNIFIED-ORDER-PR13E-1'
 
-export async function calculateJvPreview(request: JvPreviewRequest, signal?: AbortSignal): Promise<JvPreviewResponse> {
+export async function calculateJvPreview(request: JvPreviewRequest | JvUiPreviewRequest, signal?: AbortSignal): Promise<JvPreviewResponse> {
   const response = await api.post<JvPreviewResponse>('/jv/orders/calculate-preview', request, { signal })
+  return response.data
+}
+
+export async function getJvUiConfig(profile: PriceProfile, signal?: AbortSignal): Promise<JvUiConfig> {
+  const response = await api.get<JvUiConfig>('/jv/orders/form-config', { params: { profile }, signal })
   return response.data
 }
 

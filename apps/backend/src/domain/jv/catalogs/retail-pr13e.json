@@ -88,6 +88,15 @@
       }
     ]
   },
+  "frontSlot7B26": {
+    "schemaVersion": "1.0",
+    "sourceCell": "Главная!B26",
+    "workbook": "JV-розница 08.10.2026.xlsm",
+    "workbookSha256": "025d7e2911176ca0b0cdb445574565cd8e3f44d814905cd4c474999630c7ab41",
+    "value": 1,
+    "version": "JV-PR13E-B26-SCENARIO-1",
+    "sourceScenarioId": "pr13e-retail-base"
+  },
   "families": {
     "LINE": {
       "requestShape": {

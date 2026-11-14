@@ -32,6 +32,7 @@ for (const profile of ['COMPLETATION', 'RETAIL']) {
     sourceScenarioId: scenario.scenarioId,
     engineRuleVersion: 'JV-UNIFIED-ORDER-PR13E-1',
     mainDiscount: scenario.engineInput.mainDiscount,
+    frontSlot7B26: { schemaVersion: '1.0', sourceCell: 'Главная!B26', workbook: scenario.workbook, workbookSha256: scenario.sourceSha256, value: scenario.orderSettings.frontMainSurchargeSelector, version: 'JV-PR13E-B26-SCENARIO-1', sourceScenarioId: scenario.scenarioId },
     families,
   }
   const outputPath = resolve(targetDir, `${profile.toLowerCase()}-pr13e.json`)

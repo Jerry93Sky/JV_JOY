@@ -38,7 +38,7 @@ export function calculateFrontMaterialCosts(input:{readonly bom:FrontResult;read
   let cells:string[]=[]
   if(row>=5&&row<=18||row===31||row===32)cells=[`Прайс-Front!E${row<=18?row:row-12}`]
   else if(row>=19&&row<=26)cells=[`Прайс-Аксессуары!D${row+32}`,'Настройки!D15']
-  else if(row===27&&controls.C21>1)cells=[`Прайс-Аксессуары!D${58+controls.C21}`]
+  else if(row===27&&controls.C21>1)cells=[`Прайс-Аксессуары!D${57+controls.C21}`]
   else if(row===28)cells=[`Прайс-Аксессуары!D${11+controls.C22}`]
   else if(row===29||row===30)cells=[`Прайс-Аксессуары!D${28+selector}`]
   try{
