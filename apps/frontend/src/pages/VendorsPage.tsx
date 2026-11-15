@@ -148,9 +148,9 @@ export default function VendorsPage() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-[220px_1fr] gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-4">
         {/* Левая колонка — категории */}
-        <div className="space-y-2">
+        <div className="min-w-0 space-y-2">
           <div className="flex items-center justify-between mb-1">
             <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Категории</span>
             <button onClick={() => setAddingCat(true)} className="text-xs text-primary hover:underline">+ добавить</button>
@@ -191,7 +191,7 @@ export default function VendorsPage() {
         </div>
 
         {/* Правая колонка — список поставщиков */}
-        <div className="space-y-2">
+        <div className="min-w-0 space-y-2">
           {filteredVendors.length === 0 ? (
             <div className="text-center py-12 text-muted-foreground border rounded-lg text-sm">
               {categories.length === 0
@@ -199,8 +199,8 @@ export default function VendorsPage() {
                 : 'Поставщиков нет. Нажмите «Добавить поставщика».'}
             </div>
           ) : (
-            <div className="border rounded-lg overflow-hidden">
-              <table className="w-full text-sm">
+            <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица поставщиков, горизонтальная прокрутка" tabIndex={0}>
+              <table className="w-full min-w-max text-sm">
                 <thead>
                   <tr className="border-b text-xs text-muted-foreground bg-muted">
                     <th className="text-left p-3">Название</th>
