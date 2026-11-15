@@ -111,8 +111,7 @@ export default function AddSystemDialog({ dealId, direction, onClose, editingSys
       await updateDealSystem.mutateAsync({
         dsId: editingSystem.id,
         inputParams: inputs as Record<string, unknown>,
-        calcParams: calcParamsForSave,
-        items: includedItems,
+        ...(result ? { calcParams: calcParamsForSave, items: includedItems } : {}),
       })
     } else {
       // Режим добавления — создаём новую

@@ -1,7 +1,9 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
-import { Plus, Pencil, Trash2, X } from 'lucide-react'
+import { Plus, Pencil, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { useSystemGlasses, useCreateGlass, useUpdateGlass, useDeleteGlass, type SystemGlass } from '@/api/systems'
 import { useGlassTypes } from '@/api/glass'
 
@@ -26,27 +28,25 @@ function GlassDialog({ systemId, initial, onClose }: GlassDialogProps) {
     complexity: initial?.complexity ?? 'PLAIN' as 'PLAIN' | 'CUTS' | 'HOLES',
     glassTypeId: initial?.glassTypeId ?? null as string | null,
   })
+  const [saveError, setSaveError] = useState('')
 
   const set = (k: string, v: unknown) => setForm(f => ({ ...f, [k]: v }))
   const busy = create.isPending || update.isPending
 
   const handleSave = async () => {
     if (!form.name || !form.widthFormula || !form.heightFormula) return
-    if (initial) {
-      await update.mutateAsync({ id: initial.id, ...form })
-    } else {
-      await create.mutateAsync(form)
-    }
-    onClose()
+    setSaveError('')
+    try {
+      if (initial) await update.mutateAsync({ id: initial.id, ...form })
+      else await create.mutateAsync(form)
+      onClose()
+    } catch { setSaveError('Не удалось сохранить стекло. Проверьте данные и повторите попытку.') }
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-background rounded-lg p-6 w-full max-w-lg shadow-xl space-y-4" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center justify-between">
-          <h3 className="font-semibold">{initial ? 'Редактировать стекло' : 'Добавить стекло'}</h3>
-          <button onClick={onClose}><X size={16} /></button>
-        </div>
+    <Dialog open onOpenChange={open => { if (!open) onClose() }}>
+      <DialogContent className="w-[calc(100%-1.5rem)] max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogHeader><DialogTitle>{initial ? 'Редактировать стекло' : 'Добавить стекло'}</DialogTitle></DialogHeader>
 
         <div className="space-y-1">
           <label className="text-xs text-muted-foreground">Название (например: Стекло основное)</label>
@@ -93,20 +93,22 @@ function GlassDialog({ systemId, initial, onClose }: GlassDialogProps) {
           В формулах можно использовать переменные параметров системы (например: <code className="font-mono">width</code>, <code className="font-mono">height</code>).
         </p>
 
+        {saveError && <p role="alert" className="text-sm text-destructive">{saveError}</p>}
         <div className="flex justify-end gap-2 pt-2">
           <Button variant="outline" onClick={onClose}>Отмена</Button>
           <Button onClick={handleSave} disabled={busy || !form.name || !form.widthFormula || !form.heightFormula}>
             {busy ? 'Сохранение...' : 'Сохранить'}
           </Button>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   )
 }
 
 interface Props { systemId: string }
 
 export default function GlassPanel({ systemId }: Props) {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: glasses = [] } = useSystemGlasses(systemId)
   const deleteGlass = useDeleteGlass(systemId)
   const [editing, setEditing] = useState<SystemGlass | null | 'new'>(null)
@@ -142,7 +144,7 @@ export default function GlassPanel({ systemId }: Props) {
             </thead>
             <tbody>
               {glasses.map(g => (
-                <tr key={g.id} className="border-t hover:bg-muted/30">
+                <tr key={g.id} {...rowEdit(() => { if (canAdminEdit) setEditing(g) })} className="border-t hover:bg-muted/30">
                   <td className="p-3 font-medium">{g.name}</td>
                   <td className="p-3 font-mono text-xs text-muted-foreground">{g.widthFormula}</td>
                   <td className="p-3 font-mono text-xs text-muted-foreground">{g.heightFormula}</td>
@@ -155,7 +157,7 @@ export default function GlassPanel({ systemId }: Props) {
                   </td>
                   <td className="p-3">
                     <div className="flex gap-1 justify-end">
-                      <button onClick={() => setEditing(g)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
+                      <button disabled={!canAdminEdit} onClick={() => setEditing(g)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
                       <button onClick={() => deleteGlass.mutate(g.id)} className="p-1 hover:text-destructive"><Trash2 size={13} /></button>
                     </div>
                   </td>

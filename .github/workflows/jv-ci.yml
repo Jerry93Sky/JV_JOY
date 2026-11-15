@@ -50,10 +50,16 @@ jobs:
         run: pnpm --filter backend exec prisma generate
       - name: JV backend API integration tests
         run: pnpm --filter backend test:jv-api
+      - name: User role escalation protection
+        run: pnpm --filter backend exec tsx --test test/jv/userRoleSecurity.test.ts
+      - name: Deal system data preservation
+        run: pnpm --filter backend exec tsx --test test/jv/dealSystemSafety.test.ts
       - name: JV order UI and HTTP integration
         run: pnpm --filter frontend test:jv-order
       - name: JV order browser end-to-end
         run: pnpm --filter frontend test:jv-browser
+      - name: R3 row editing browser checks (isolated fixtures)
+        run: pnpm --filter frontend exec node scripts/r3-row-edit-check.mjs
 
       - name: Capture isolated page error states
         run: pnpm --filter frontend exec node scripts/audit-jv-pages.mjs

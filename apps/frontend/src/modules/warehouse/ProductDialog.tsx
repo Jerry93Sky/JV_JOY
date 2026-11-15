@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
@@ -17,6 +17,7 @@ export default function ProductDialog({ product, onClose }: Props) {
   const create = useCreateProduct()
   const update = useUpdateProduct()
   const { data: types = [] } = useProductTypes()
+  const [saveError, setSaveError] = useState('')
 
   useEffect(() => {
     reset(product ? {
@@ -28,9 +29,12 @@ export default function ProductDialog({ product, onClose }: Props) {
   }, [product, types, reset])
 
   async function onSubmit(data: FormData) {
-    if (product) await update.mutateAsync({ id: product.id, ...data })
-    else await create.mutateAsync(data)
-    onClose()
+    setSaveError('')
+    try {
+      if (product) await update.mutateAsync({ id: product.id, ...data })
+      else await create.mutateAsync(data)
+      onClose()
+    } catch { setSaveError('Не удалось сохранить товар. Проверьте данные и повторите попытку.') }
   }
 
   return (
@@ -87,7 +91,9 @@ export default function ProductDialog({ product, onClose }: Props) {
               Закупочная цена изменяется только через документ прихода.
               На складе: {Number(product.quantity).toFixed(2)} {product.unit} | Резерв: {Number(product.reservedQty).toFixed(2)}
             </p>
-          )}          <div className="flex justify-end gap-2 pt-2">
+          )}
+          {saveError && <p role="alert" className="text-sm text-destructive">{saveError}</p>}
+          <div className="flex justify-end gap-2 pt-2">
             <Button type="button" variant="outline" onClick={onClose}>Отмена</Button>
             <Button type="submit" disabled={create.isPending || update.isPending}>Сохранить</Button>
           </div>

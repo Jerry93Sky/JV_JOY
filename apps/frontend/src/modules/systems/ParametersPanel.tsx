@@ -1,3 +1,4 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Trash2, FolderPlus, ArrowUp, ArrowDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -27,6 +28,7 @@ const TYPE_LABELS: Record<string, string> = { NUMBER: 'Число', SELECT: 'С�
 interface Props { system: GlazingSystem }
 
 export default function ParametersPanel({ system }: Props) {
+  const canAdminEdit = useCanAdminRowEdit()
   const [editing, setEditing] = useState<SystemParameter | null>(null)
   const [creating, setCreating] = useState(false)
   const [newCatName, setNewCatName] = useState('')
@@ -100,7 +102,7 @@ export default function ParametersPanel({ system }: Props) {
                 </td>
               </tr>
               {grouped[kind].map((p, idx) => (
-                <tr key={p.id} className={`border-t hover:brightness-110 ${KIND_ROW_BG[p.paramKind] ?? ''}`}>
+                <tr key={p.id} {...rowEdit(() => { if (canAdminEdit) setEditing(p) })} className={`border-t hover:brightness-110 ${KIND_ROW_BG[p.paramKind] ?? ''}`}>
                   <td className="px-4 py-2 font-medium">
                     {p.name}
                     {p.isAdvanced && <span className="ml-1.5 text-xs text-muted-foreground">(доп.)</span>}
@@ -137,7 +139,7 @@ export default function ParametersPanel({ system }: Props) {
                   </td>
                   <td className="px-4 py-2">
                     <div className="flex gap-1 justify-end">
-                      <Button variant="ghost" size="icon" onClick={() => setEditing(p)}><Pencil size={14} /></Button>
+                      <Button variant="ghost" size="icon" disabled={!canAdminEdit} onClick={() => setEditing(p)}><Pencil size={14} /></Button>
                       <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive"
                         onClick={() => { if (confirm('Удалить параметр?')) deleteParam.mutate(p.id) }}>
                         <Trash2 size={14} />

@@ -1,3 +1,4 @@
+import { rowEdit } from '@/lib/row-edit'
 import { useState, useEffect } from 'react'
 import { Plus, Pencil, Trash2, Phone, Mail, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -28,8 +29,9 @@ export default function ContactsTab({ search, openContactId }: { search: string;
         </Button>
       </div>
 
-      <div className="border rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <p className="text-xs text-muted-foreground md:hidden">Прокрутите таблицу вправо, чтобы увидеть все действия.</p>
+      <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица контактов, горизонтальная прокрутка" tabIndex={0}>
+        <table className="w-full min-w-max text-sm">
           <thead className="bg-muted text-muted-foreground">
             <tr>
               <th className="text-left px-4 py-2 font-medium">ФИО</th>
@@ -45,7 +47,7 @@ export default function ContactsTab({ search, openContactId }: { search: string;
               <tr><td colSpan={6} className="text-center py-8 text-muted-foreground">Контакты не найдены</td></tr>
             )}
             {contacts.map(c => (
-              <tr key={c.id} className="border-t hover:bg-muted/50">
+              <tr key={c.id} {...rowEdit(() => setEditing(c))} className="border-t hover:bg-muted/50">
                 <td className="px-4 py-2 font-medium">{c.lastName} {c.firstName} {c.middleName}</td>
                 <td className="px-4 py-2">
                   <a href={`tel:${c.phone}`} className="flex items-center gap-1 text-primary hover:underline">

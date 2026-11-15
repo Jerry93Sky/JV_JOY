@@ -1,3 +1,4 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Power, HelpCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -22,19 +23,23 @@ const FORMULA_HINTS = [
 ]
 
 export default function ServicesTab() {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: services = [] } = useServices()
   const create = useCreateService()
   const update = useUpdateService()
   const [modal, setModal] = useState(false)
   const [showHints, setShowHints] = useState(false)
+  const [saveError, setSaveError] = useState('')
   const [form, setForm] = useState<ServiceForm>({ name: '', priceType: 'fixed', price: '', priceFormula: '', unit: 'шт' })
 
   function openCreate() {
+    setSaveError('')
     setForm({ name: '', priceType: 'fixed', price: '', priceFormula: '', unit: 'шт' })
     setModal(true)
   }
 
   function openEdit(s: { id: string; name: string; price?: number | null; priceFormula?: string | null; unit?: string }) {
+    setSaveError('')
     setForm({
       id: s.id,
       name: s.name,
@@ -53,9 +58,12 @@ export default function ServicesTab() {
       price: form.priceType === 'fixed' && form.price ? parseFloat(form.price) : undefined,
       priceFormula: form.priceType === 'formula' ? form.priceFormula : undefined,
     }
-    if (form.id) await update.mutateAsync({ id: form.id, ...data })
-    else await create.mutateAsync(data)
-    setModal(false)
+    setSaveError('')
+    try {
+      if (form.id) await update.mutateAsync({ id: form.id, ...data })
+      else await create.mutateAsync(data)
+      setModal(false)
+    } catch { setSaveError('Не удалось сохранить услугу. Проверьте данные и повторите попытку.') }
   }
 
   return (
@@ -77,7 +85,7 @@ export default function ServicesTab() {
           </thead>
           <tbody>
             {services.map(s => (
-              <tr key={s.id} className="border-t hover:bg-muted/30">
+              <tr key={s.id} {...rowEdit(() => { if (canAdminEdit) openEdit(s) })} className="border-t hover:bg-muted/30">
                 <td className="px-4 py-2 font-medium">{s.name}</td>
                 <td className="px-4 py-2">
                   {s.priceFormula ? (
@@ -94,7 +102,7 @@ export default function ServicesTab() {
                 </td>
                 <td className="px-4 py-2">
                   <div className="flex gap-1 justify-end">
-                    <Button variant="ghost" size="icon" onClick={() => openEdit(s)}><Pencil size={14} /></Button>
+                    <Button variant="ghost" size="icon" disabled={!canAdminEdit} onClick={() => openEdit(s)}><Pencil size={14} /></Button>
                     <Button variant="ghost" size="icon" onClick={() => update.mutate({ id: s.id, isActive: !s.isActive })}>
                       <Power size={14} className={s.isActive ? 'text-green-500' : 'text-muted-foreground'} />
                     </Button>
@@ -172,6 +180,7 @@ export default function ServicesTab() {
                 </div>
               )}
 
+              {saveError && <p role="alert" className="text-sm text-destructive">{saveError}</p>}
               <div className="flex justify-end gap-2 pt-2">
                 <Button variant="outline" onClick={() => setModal(false)}>Отмена</Button>
                 <Button onClick={handleSave} disabled={create.isPending || update.isPending}>Сохранить</Button>

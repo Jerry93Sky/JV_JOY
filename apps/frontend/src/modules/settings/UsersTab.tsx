@@ -1,3 +1,4 @@
+import { rowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Trash2, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -58,7 +59,8 @@ export default function UsersTab() {
         <Button size="sm" onClick={openCreate}><Plus size={15} className="mr-1" />Добавить пользователя</Button>
       </div>
 
-      <div className="border rounded-lg overflow-x-auto">
+      <p className="text-xs text-muted-foreground md:hidden">Прокрутите таблицу вправо, чтобы увидеть все действия.</p>
+      <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица пользователей, горизонтальная прокрутка" tabIndex={0}>
         <table className="w-full min-w-[560px] text-sm">
           <thead className="bg-muted text-muted-foreground">
             <tr>
@@ -71,7 +73,7 @@ export default function UsersTab() {
           </thead>
           <tbody>
             {users.map(u => (
-              <tr key={u.id} className="border-t hover:bg-muted/30">
+              <tr key={u.id} {...rowEdit(() => { if ((currentUser?.role === Role.OWNER || currentUser?.role === Role.ADMIN) && (u.role !== Role.OWNER || u.id === currentUser.id)) openEdit(u) })} className="border-t hover:bg-muted/30">
                 <td className="px-4 py-2 font-medium">{u.lastName} {u.firstName} {u.middleName}</td>
                 <td className="px-4 py-2 font-mono text-xs text-muted-foreground">{u.login}</td>
                 <td className="px-4 py-2">
@@ -84,9 +86,9 @@ export default function UsersTab() {
                 </td>
                 <td className="px-4 py-2">
                   <div className="flex gap-1 justify-end">
-                    <Button variant="ghost" size="icon" onClick={() => openEdit(u)}><Pencil size={14} /></Button>
+                    <Button variant="ghost" size="icon" disabled={(currentUser?.role !== Role.OWNER && currentUser?.role !== Role.ADMIN) || (u.role === Role.OWNER && u.id !== currentUser?.id)} onClick={() => openEdit(u)}><Pencil size={14} /></Button>
                     {u.id !== currentUser?.id && u.role !== Role.OWNER && (
-                      <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive"
+                      <Button variant="ghost" size="icon" disabled={currentUser?.role !== Role.OWNER} className="text-destructive hover:text-destructive"
                         onClick={() => { if (confirm('Удалить пользователя?')) deleteUser.mutate(u.id) }}>
                         <Trash2 size={14} />
                       </Button>
@@ -128,9 +130,9 @@ export default function UsersTab() {
               </div>
               <div>
                 <label className="text-xs text-muted-foreground">Роль</label>
-                <select value={form.role} onChange={e => setForm(f => ({ ...f, role: e.target.value as Role }))}
+                <select value={form.role} disabled={editing?.role === Role.OWNER} onChange={e => setForm(f => ({ ...f, role: e.target.value as Role }))}
                   className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
-                  {Object.values(Role).filter(r => r !== Role.OWNER).map(r => (
+                  {Object.values(Role).filter(r => r !== Role.OWNER || editing?.role === Role.OWNER).map(r => (
                     <option key={r} value={r}>{ROLE_LABELS[r]}</option>
                   ))}
                 </select>

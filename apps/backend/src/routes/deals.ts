@@ -188,9 +188,16 @@ export async function dealRoutes(app: FastifyInstance) {
     '/:id/systems/:dsId', { preHandler: requireAuth }, async (req, reply) => {
       const caller = req.user as { id: string }
       const { inputParams, calcParams, items } = req.body
+      const deal = await prisma.deal.findUnique({ where: { id: req.params.id } })
+      if (!deal) return reply.status(404).send({ error: 'Не найдена' })
+      const system = await prisma.dealSystem.findUnique({ where: { id: req.params.dsId } })
+      if (!system || system.dealId !== deal.id) return reply.status(404).send({ error: 'Система в сделке не найдена' })
+      if (new Set<DealStage>([DealStage.ASSEMBLY, DealStage.PAINTING, DealStage.INSTALL_FIRST, DealStage.INSTALL_SECOND, DealStage.SHIPMENT, DealStage.DOCS, DealStage.COMPLETED, DealStage.FAILED]).has(deal.stage)) {
+        return reply.status(403).send({ error: 'Редактирование системы на этом этапе недоступно' })
+      }
 
       await prisma.$transaction(async (tx) => {
-        await tx.dealSystem.update({ where: { id: req.params.dsId }, data: { inputParams: inputParams as never, calcParams: (calcParams ?? {}) as never } })
+        await tx.dealSystem.update({ where: { id: req.params.dsId }, data: { inputParams: inputParams as never, ...(calcParams !== undefined ? { calcParams: calcParams as never } : {}) } })
         // Удаляем старые позиции этой системы и добавляем новые
         if (items !== undefined) {
           await tx.dealItem.deleteMany({ where: { dealId: req.params.id, systemId: req.params.dsId } })

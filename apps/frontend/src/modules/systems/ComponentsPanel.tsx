@@ -1,3 +1,4 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Trash2, Save, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -8,6 +9,7 @@ import { useProducts } from '@/api/warehouse'
 interface Props { system: GlazingSystem }
 
 export default function ComponentsPanel({ system }: Props) {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: products = [] } = useProducts()
   const createComp = useCreateComponent(system.id)
   const updateComp = useUpdateComponent(system.id)
@@ -60,7 +62,7 @@ export default function ComponentsPanel({ system }: Props) {
               <tr><td colSpan={5} className="text-center py-8 text-muted-foreground">Комплектующих нет</td></tr>
             )}
             {system.components.map(c => (
-              <tr key={c.id} className="border-t hover:bg-muted/30">
+              <tr key={c.id} {...rowEdit(() => { if (canAdminEdit) { setEditingId(c.id); setEditFormula(c.formula) } })} className="border-t hover:bg-muted/30">
                 <td className="px-4 py-2 font-medium">{c.product.name}</td>
                 <td className="px-4 py-2 font-mono text-xs text-muted-foreground">{c.product.sku}</td>
                 <td className="px-4 py-2 text-muted-foreground">{c.product.unit}</td>
@@ -82,7 +84,7 @@ export default function ComponentsPanel({ system }: Props) {
                       </>
                     ) : (
                       <>
-                        <Button variant="ghost" size="icon" onClick={() => { setEditingId(c.id); setEditFormula(c.formula) }}><Pencil size={14} /></Button>
+                        <Button variant="ghost" size="icon" disabled={!canAdminEdit} onClick={() => { setEditingId(c.id); setEditFormula(c.formula) }}><Pencil size={14} /></Button>
                         <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive"
                           onClick={() => { if (confirm('Удалить?')) deleteComp.mutate(c.id) }}>
                           <Trash2 size={14} />

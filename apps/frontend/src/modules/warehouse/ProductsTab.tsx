@@ -1,3 +1,4 @@
+import { rowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Search, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -30,8 +31,9 @@ export default function ProductsTab() {
         <Button size="sm" onClick={() => setCreating(true)}><Plus size={15} className="mr-1" />Добавить товар</Button>
       </div>
 
-      <div className="border rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <p className="text-xs text-muted-foreground md:hidden">Прокрутите таблицу вправо, чтобы увидеть все действия.</p>
+      <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица товаров, горизонтальная прокрутка" tabIndex={0}>
+        <table className="w-full min-w-max text-sm">
           <thead className="bg-muted text-muted-foreground">
             <tr>
               <th className="text-left px-4 py-2 font-medium">Артикул</th>
@@ -52,7 +54,7 @@ export default function ProductsTab() {
             {products.map(p => {
               const free = freeQty(p)
               return (
-                <tr key={p.id} className="border-t hover:bg-muted/50">
+                <tr key={p.id} {...rowEdit(() => setEditing(p))} className="border-t hover:bg-muted/50">
                   <td className="px-4 py-2 text-muted-foreground font-mono text-xs">{p.sku}</td>
                   <td className="px-4 py-2 font-medium">
                     <div className="flex items-center gap-1">

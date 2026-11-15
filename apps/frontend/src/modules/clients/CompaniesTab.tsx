@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { rowEdit } from '@/lib/row-edit'
 import { Plus, Pencil, Trash2, Percent } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useCompanies, useDeleteCompany, type Company } from '@/api/companies'
@@ -15,6 +16,8 @@ export default function CompaniesTab({ search, openCompanyId }: { search: string
   const [editing, setEditing] = useState<Company | null>(null)
   const [creating, setCreating] = useState(false)
   const [viewingId, setViewingId] = useState<string | null>(null)
+  const clickTimer = useRef<ReturnType<typeof setTimeout>>()
+  useEffect(() => () => clearTimeout(clickTimer.current), [])
 
   // Открываем компанию по id из URL
   useEffect(() => {
@@ -35,8 +38,9 @@ export default function CompaniesTab({ search, openCompanyId }: { search: string
         </Button>
       </div>
 
-      <div className="border rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <p className="text-xs text-muted-foreground md:hidden">Прокрутите таблицу вправо, чтобы увидеть все действия.</p>
+      <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица компаний, горизонтальная прокрутка" tabIndex={0}>
+        <table className="w-full min-w-max text-sm">
           <thead className="bg-muted text-muted-foreground">
             <tr>
               <th className="text-left px-4 py-2 font-medium">Название</th>
@@ -52,7 +56,11 @@ export default function CompaniesTab({ search, openCompanyId }: { search: string
               <tr><td colSpan={6} className="text-center py-8 text-muted-foreground">Компании не найдены</td></tr>
             )}
             {companies.map(c => (
-              <tr key={c.id} className="border-t hover:bg-muted/50 cursor-pointer" onClick={() => setViewingId(c.id)}>
+              <tr key={c.id} {...rowEdit(() => { clearTimeout(clickTimer.current); setEditing(c) })} className="border-t hover:bg-muted/50 cursor-pointer" onClick={e => {
+                clearTimeout(clickTimer.current)
+                // Give a double click time to arrive before opening the single-click view.
+                if (e.detail === 1) clickTimer.current = setTimeout(() => setViewingId(c.id), 500)
+              }}>
                 <td className="px-4 py-2 font-medium">{c.name}</td>
                 <td className="px-4 py-2">
                   <span className="bg-secondary text-secondary-foreground text-xs px-2 py-0.5 rounded-full">

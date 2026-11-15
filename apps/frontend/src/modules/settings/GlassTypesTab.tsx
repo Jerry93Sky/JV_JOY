@@ -1,7 +1,9 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
-import { Plus, Pencil, Trash2, FileText, X } from 'lucide-react'
+import { Plus, Pencil, Trash2, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import {
   useGlassTypes, useCreateGlassType, useUpdateGlassType, useDeleteGlassType,
   type GlassType,
@@ -36,6 +38,7 @@ function GlassTypeDialog({ initial, onClose }: GlassTypeDialogProps) {
   })
   const [cutsMode, setCutsMode] = useState<'pct' | 'fixed'>(initCutsMode)
   const [holesMode, setHolesMode] = useState<'pct' | 'fixed'>(initHolesMode)
+  const [saveError, setSaveError] = useState('')
 
   const set = (k: string, v: unknown) => setForm(f => ({ ...f, [k]: v }))
   const busy = create.isPending || update.isPending
@@ -51,21 +54,18 @@ function GlassTypeDialog({ initial, onClose }: GlassTypeDialogProps) {
       costPriceWithHoles: holesMode === 'fixed' ? form.costPriceWithHoles : null,
       sellingPriceWithHoles: holesMode === 'fixed' ? form.sellingPriceWithHoles : null,
     }
-    if (initial) {
-      await update.mutateAsync({ id: initial.id, ...data })
-    } else {
-      await create.mutateAsync(data as never)
-    }
-    onClose()
+    setSaveError('')
+    try {
+      if (initial) await update.mutateAsync({ id: initial.id, ...data })
+      else await create.mutateAsync(data as never)
+      onClose()
+    } catch { setSaveError('Не удалось сохранить тип стекла. Проверьте данные и повторите попытку.') }
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-background rounded-lg p-6 w-full max-w-lg shadow-xl space-y-4 max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center justify-between">
-          <h3 className="font-semibold">{initial ? 'Редактировать тип стекла' : 'Новый тип стекла'}</h3>
-          <button onClick={onClose}><X size={16} /></button>
-        </div>
+    <Dialog open onOpenChange={open => { if (!open) onClose() }}>
+      <DialogContent className="w-[calc(100%-1.5rem)] max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogHeader><DialogTitle>{initial ? 'Редактировать тип стекла' : 'Новый тип стекла'}</DialogTitle></DialogHeader>
 
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1">
@@ -158,16 +158,18 @@ function GlassTypeDialog({ initial, onClose }: GlassTypeDialogProps) {
           <label htmlFor="isActive" className="text-sm">Активен</label>
         </div>
 
+        {saveError && <p role="alert" className="text-sm text-destructive">{saveError}</p>}
         <div className="flex justify-end gap-2 pt-2">
           <Button variant="outline" onClick={onClose}>Отмена</Button>
           <Button onClick={handleSave} disabled={busy || !form.coating}>{busy ? 'Сохранение...' : 'Сохранить'}</Button>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   )
 }
 
 export default function GlassTypesTab() {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: types = [] } = useGlassTypes()
   const deleteType = useDeleteGlassType()
   const [editing, setEditing] = useState<GlassType | null | 'new'>(null)
@@ -212,7 +214,7 @@ export default function GlassTypesTab() {
                 </thead>
                 <tbody>
                   {items.sort((a, b) => a.thickness - b.thickness).map(t => (
-                    <tr key={t.id} className="border-t hover:bg-muted/30">
+                    <tr key={t.id} {...rowEdit(() => { if (canAdminEdit) setEditing(t) })} className="border-t hover:bg-muted/30">
                       <td className="p-3 font-medium">{t.thickness} мм</td>
                       <td className="p-3 text-right font-mono">{Number(t.costPricePerSqm).toLocaleString('ru')} ₽</td>
                       <td className="p-3 text-right font-mono">{Number(t.sellingPricePerSqm).toLocaleString('ru')} ₽</td>
@@ -231,7 +233,7 @@ export default function GlassTypesTab() {
                       </td>
                       <td className="p-3">
                         <div className="flex gap-1 justify-end">
-                          <button onClick={() => setEditing(t)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
+                          <button disabled={!canAdminEdit} onClick={() => setEditing(t)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
                           <button onClick={() => deleteType.mutate(t.id)} className="p-1 hover:text-destructive"><Trash2 size={13} /></button>
                         </div>
                       </td>
