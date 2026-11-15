@@ -10,12 +10,14 @@ const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const context = await browser.newContext({ viewport: { width: 1440, height: 900 } })
 const page = await context.newPage()
 const unique = `R3.1-CODEX-${Date.now()}`, updated = `${unique}-EDIT`
+let createdId, token
 try {
   await page.goto(`${base}/login`)
   await page.getByLabel('Логин', { exact: true }).fill('admin')
   await page.getByLabel('Пароль', { exact: true }).fill(env.JV_REVIEW_ADMIN_PASSWORD)
   await page.getByRole('button', { name: 'Войти', exact: true }).click()
   await page.waitForURL(u => !u.pathname.includes('login'))
+  token = await page.evaluate(() => JSON.parse(localStorage.getItem('bms-auth')).state.token)
   await page.goto(`${base}/vendors`)
   const add = page.getByRole('button', { name: 'Добавить поставщика' })
   await add.waitFor(); assert.equal(await add.isEnabled(), true, 'demo needs an existing vendor category')
@@ -24,7 +26,9 @@ try {
   await dialog.getByLabel('Название *').fill(unique)
   let response = page.waitForResponse(r => r.url().endsWith('/api/vendors') && r.request().method() === 'POST')
   await dialog.getByRole('button', { name: 'Сохранить' }).click()
-  assert.equal((await response).ok(), true)
+  const created = await response
+  assert.equal(created.ok(), true)
+  createdId = (await created.json()).id
   await dialog.waitFor({ state: 'hidden' })
   let row = page.getByRole('row').filter({ hasText: unique })
   await row.waitFor()
@@ -55,4 +59,13 @@ try {
   assert.equal((await response).ok(), true)
   await row.waitFor({ state: 'hidden' })
   console.log('PASS real backend vendor create, double-click edit, reload, Escape/cancel, controlled test-record cleanup')
-} finally { await context.close(); await browser.close(); await vite.close() }
+} finally {
+  if (createdId && token) {
+    const headers = { authorization: `Bearer ${token}` }
+    let all = await (await fetch('http://127.0.0.1:3002/api/vendors', { headers })).json()
+    if (all.some(v => v.id === createdId)) { const del = await fetch(`http://127.0.0.1:3002/api/vendors/${createdId}`, { headers, method: 'DELETE' }); if (!del.ok) throw Error(`vendor cleanup failed ${del.status}`) }
+    all = await (await fetch('http://127.0.0.1:3002/api/vendors', { headers })).json()
+    assert.equal(all.some(v => v.id === createdId), false, 'vendor cleanup verification')
+  }
+  await context.close(); await browser.close(); await vite.close()
+}

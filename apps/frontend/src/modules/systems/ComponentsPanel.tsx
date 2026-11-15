@@ -84,7 +84,7 @@ export default function ComponentsPanel({ system }: Props) {
                       </>
                     ) : (
                       <>
-                        <Button variant="ghost" size="icon" onClick={() => { setEditingId(c.id); setEditFormula(c.formula) }}><Pencil size={14} /></Button>
+                        <Button variant="ghost" size="icon" disabled={!canAdminEdit} onClick={() => { setEditingId(c.id); setEditFormula(c.formula) }}><Pencil size={14} /></Button>
                         <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive"
                           onClick={() => { if (confirm('Удалить?')) deleteComp.mutate(c.id) }}>
                           <Trash2 size={14} />

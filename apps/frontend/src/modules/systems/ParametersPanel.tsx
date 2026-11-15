@@ -139,7 +139,7 @@ export default function ParametersPanel({ system }: Props) {
                   </td>
                   <td className="px-4 py-2">
                     <div className="flex gap-1 justify-end">
-                      <Button variant="ghost" size="icon" onClick={() => setEditing(p)}><Pencil size={14} /></Button>
+                      <Button variant="ghost" size="icon" disabled={!canAdminEdit} onClick={() => setEditing(p)}><Pencil size={14} /></Button>
                       <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive"
                         onClick={() => { if (confirm('Удалить параметр?')) deleteParam.mutate(p.id) }}>
                         <Trash2 size={14} />

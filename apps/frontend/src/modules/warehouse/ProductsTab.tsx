@@ -31,8 +31,9 @@ export default function ProductsTab() {
         <Button size="sm" onClick={() => setCreating(true)}><Plus size={15} className="mr-1" />Добавить товар</Button>
       </div>
 
-      <div className="border rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <p className="text-xs text-muted-foreground md:hidden">Прокрутите таблицу вправо, чтобы увидеть все действия.</p>
+      <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица товаров, горизонтальная прокрутка" tabIndex={0}>
+        <table className="w-full min-w-max text-sm">
           <thead className="bg-muted text-muted-foreground">
             <tr>
               <th className="text-left px-4 py-2 font-medium">Артикул</th>

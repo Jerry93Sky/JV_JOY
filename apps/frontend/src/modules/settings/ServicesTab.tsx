@@ -96,7 +96,7 @@ export default function ServicesTab() {
                 </td>
                 <td className="px-4 py-2">
                   <div className="flex gap-1 justify-end">
-                    <Button variant="ghost" size="icon" onClick={() => openEdit(s)}><Pencil size={14} /></Button>
+                    <Button variant="ghost" size="icon" disabled={!canAdminEdit} onClick={() => openEdit(s)}><Pencil size={14} /></Button>
                     <Button variant="ghost" size="icon" onClick={() => update.mutate({ id: s.id, isActive: !s.isActive })}>
                       <Power size={14} className={s.isActive ? 'text-green-500' : 'text-muted-foreground'} />
                     </Button>

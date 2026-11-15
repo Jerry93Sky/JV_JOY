@@ -203,7 +203,9 @@ export default function VendorsPage() {
                 : 'Поставщиков нет. Нажмите «Добавить поставщика».'}
             </div>
           ) : (
-            <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица поставщиков, горизонтальная прокрутка" tabIndex={0}>
+            <>
+              <p className="text-xs text-muted-foreground md:hidden">Прокрутите таблицу вправо, чтобы увидеть все действия.</p>
+              <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица поставщиков, горизонтальная прокрутка" tabIndex={0}>
               <table className="w-full min-w-max text-sm">
                 <thead>
                   <tr className="border-b text-xs text-muted-foreground bg-muted">
@@ -239,7 +241,7 @@ export default function VendorsPage() {
                       </td>
                       <td className="p-3">
                         <div className="flex gap-1 justify-end">
-                          <button aria-label="Редактировать поставщика" onClick={() => setEditing(v)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
+                          <button aria-label="Редактировать поставщика" disabled={!canAdminEdit} onClick={() => setEditing(v)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
                           <button aria-label="Удалить поставщика" disabled={deleteVendor.isPending} onClick={() => { if (confirm('Удалить поставщика?')) deleteVendor.mutate(v.id) }} className="p-1 hover:text-destructive"><Trash2 size={13} /></button>
                         </div>
                       </td>
@@ -247,7 +249,8 @@ export default function VendorsPage() {
                   ))}
                 </tbody>
               </table>
-            </div>
+              </div>
+            </>
           )}
         </div>
       </div>

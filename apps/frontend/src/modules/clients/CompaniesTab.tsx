@@ -38,8 +38,9 @@ export default function CompaniesTab({ search, openCompanyId }: { search: string
         </Button>
       </div>
 
-      <div className="border rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <p className="text-xs text-muted-foreground md:hidden">Прокрутите таблицу вправо, чтобы увидеть все действия.</p>
+      <div className="border rounded-lg overflow-x-auto" role="region" aria-label="Таблица компаний, горизонтальная прокрутка" tabIndex={0}>
+        <table className="w-full min-w-max text-sm">
           <thead className="bg-muted text-muted-foreground">
             <tr>
               <th className="text-left px-4 py-2 font-medium">Название</th>
@@ -57,7 +58,8 @@ export default function CompaniesTab({ search, openCompanyId }: { search: string
             {companies.map(c => (
               <tr key={c.id} {...rowEdit(() => { clearTimeout(clickTimer.current); setEditing(c) })} className="border-t hover:bg-muted/50 cursor-pointer" onClick={e => {
                 clearTimeout(clickTimer.current)
-                if (e.detail === 1) clickTimer.current = setTimeout(() => setViewingId(c.id), 500)
+                // Preserve the row while the platform can still recognise a slow double click.
+                if (e.detail === 1) clickTimer.current = setTimeout(() => setViewingId(c.id), 1000)
               }}>
                 <td className="px-4 py-2 font-medium">{c.name}</td>
                 <td className="px-4 py-2">

@@ -8,7 +8,7 @@ const base = `http://127.0.0.1:${vite.httpServer.address().port}`
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const category = { id: 'cat1', name: 'Категория R3', _count: { vendors: 1 } }
 const data = {
-  '/vendors/categories': [category], '/vendors': [{ id: 'v1', name: 'Поставщик R3', categoryId: 'cat1', category, isPainting: false, isDefault: false, isActive: true }],
+  '/vendors/categories': [category], '/vendors': [{ id: 'v1', name: 'Поставщик R3', categoryId: 'cat1', category, isPainting: false, isDefault: false, isActive: true }, { id: 'v2', name: 'Другой поставщик', categoryId: 'cat1', category, isPainting: false, isDefault: false, isActive: true }],
   '/contacts': [{ id: 'c1', firstName: 'Контакт', lastName: 'Тестовый', phone: '+70000000000', companies: [] }],
   '/companies': [{ id: 'c2', name: 'Компания R3', type: 'OOO', contacts: [] }],
   '/products/types': [{ id: 't1', name: 'Профиль' }], '/products': [{ id: 'p1', sku: 'R3-PRODUCT', name: 'Товар R3', typeId: 't1', type: { id: 't1', name: 'Профиль' }, unit: 'шт', priceRetail: 10, priceWholesale: 10, quantity: 2, reservedQty: 0, isActive: true }],
@@ -62,7 +62,14 @@ try {
   await companyDialog.waitFor()
   await companyDialog.getByRole('button', { name: 'Отмена' }).click()
   await companyDialog.waitFor({ state: 'hidden' })
-  console.log('PASS company double-click preserves row until edit opens')
+  await page.waitForTimeout(1100)
+  assert.equal(await company.isVisible(), true, 'company card must not open after editing')
+  await company.locator('td').first().dblclick({ delay: 200 })
+  await companyDialog.waitFor()
+  await page.keyboard.press('Escape'); await companyDialog.waitFor({ state: 'hidden' })
+  await page.waitForTimeout(1100)
+  assert.equal(await company.isVisible(), true, 'double click must not leave pending navigation')
+  console.log('PASS company double-click with 200ms input delay and cancelled navigation')
   await page.goto(base + '/vendors')
   const vendor = page.getByRole('row').filter({ hasText: 'Поставщик R3' })
   await vendor.getByRole('button', { name: 'Удалить поставщика' }).dispatchEvent('dblclick', { button: 0, bubbles: true })
@@ -70,6 +77,12 @@ try {
   await vendor.locator('td').first().dispatchEvent('pointerdown', { pointerType: 'touch', bubbles: true })
   await vendor.locator('td').first().dispatchEvent('dblclick', { button: 0, bubbles: true })
   assert.equal(await page.getByRole('dialog').count(), 0, 'touch must not trigger double-click edit')
+  const otherVendor = page.getByRole('row').filter({ hasText: 'Другой поставщик' })
+  await otherVendor.locator('td').first().dispatchEvent('dblclick', { button: 0, bubbles: true })
+  const otherDialog = page.getByRole('dialog', { name: 'Редактировать поставщика' })
+  await otherDialog.waitFor()
+  assert.equal(await otherDialog.getByLabel('Название *').inputValue(), 'Другой поставщик')
+  await page.keyboard.press('Escape'); await otherDialog.waitFor({ state: 'hidden' })
   await vendor.locator('td').first().dblclick()
   const dialog = page.getByRole('dialog', { name: 'Редактировать поставщика' })
   await dialog.getByLabel('Название *').fill('Изменено R3')

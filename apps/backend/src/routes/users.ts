@@ -20,6 +20,7 @@ export async function userRoutes(app: FastifyInstance) {
     async (req, reply) => {
       const { login, password, firstName, lastName, middleName, role } = req.body
       if (!login || !password || !firstName || !lastName) return reply.status(400).send({ error: 'Заполните обязательные поля' })
+      if (role === Role.OWNER) return reply.status(403).send({ error: 'Создание владельца через этот интерфейс недоступно' })
 
       const exists = await prisma.user.findUnique({ where: { login } })
       if (exists) return reply.status(409).send({ error: 'Логин уже занят' })
@@ -47,6 +48,7 @@ export async function userRoutes(app: FastifyInstance) {
       const caller = req.user as { id: string; role: Role }
       const target = await prisma.user.findUnique({ where: { id } })
       if (!target) return reply.status(404).send({ error: 'Пользователь не найден' })
+      if (rest.role === Role.OWNER && target.role !== Role.OWNER) return reply.status(403).send({ error: 'Назначение роли владельца через этот интерфейс недоступно' })
       if (target.role === Role.OWNER && caller.id !== id) return reply.status(403).send({ error: 'Нельзя изменить владельца системы' })
 
       const updated = await prisma.user.update({
