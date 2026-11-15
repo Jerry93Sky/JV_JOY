@@ -20,5 +20,11 @@ test('administrators cannot create or promote an OWNER through user endpoints', 
     prisma.user.findUnique = (async () => ({ id: 'other', role: 'USER' })) as typeof prisma.user.findUnique
     const promote = await app.inject({ method: 'PATCH', url: '/api/users/other', headers, payload: { role: 'OWNER' } })
     assert.equal(promote.statusCode, 403)
+    prisma.user.findUnique = (async () => ({ id: 'owner-id', role: 'OWNER' })) as typeof prisma.user.findUnique
+    const changeOwner = await app.inject({ method: 'PATCH', url: '/api/users/owner-id', headers, payload: { firstName: 'other' } })
+    assert.equal(changeOwner.statusCode, 403)
+    const ownerToken = app.jwt.sign({ id: 'owner-id', role: 'OWNER' })
+    const selfDemotion = await app.inject({ method: 'PATCH', url: '/api/users/owner-id', headers: { authorization: `Bearer ${ownerToken}` }, payload: { role: 'USER' } })
+    assert.equal(selfDemotion.statusCode, 403)
   } finally { prisma.user.findUnique = original; await app.close() }
 })

@@ -130,9 +130,9 @@ export default function UsersTab() {
               </div>
               <div>
                 <label className="text-xs text-muted-foreground">Роль</label>
-                <select value={form.role} onChange={e => setForm(f => ({ ...f, role: e.target.value as Role }))}
+                <select value={form.role} disabled={editing?.role === Role.OWNER} onChange={e => setForm(f => ({ ...f, role: e.target.value as Role }))}
                   className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
-                  {Object.values(Role).filter(r => r !== Role.OWNER).map(r => (
+                  {Object.values(Role).filter(r => r !== Role.OWNER || editing?.role === Role.OWNER).map(r => (
                     <option key={r} value={r}>{ROLE_LABELS[r]}</option>
                   ))}
                 </select>

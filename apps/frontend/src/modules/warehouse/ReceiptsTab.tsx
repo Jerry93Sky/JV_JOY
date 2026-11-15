@@ -1,4 +1,4 @@
-import { rowEdit } from '@/lib/row-edit'
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, ChevronDown, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -8,6 +8,7 @@ import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
 
 export default function ReceiptsTab() {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: receipts = [], isLoading } = useReceipts()
   const [creating, setCreating] = useState(false)
   const [editing, setEditing] = useState<Receipt | null>(null)
@@ -36,7 +37,7 @@ export default function ReceiptsTab() {
             {receipts.map(r => {
               const total = r.items.reduce((s, i) => s + i.quantity * i.costPrice, 0)
               const isOpen = expanded === r.id
-              const canEdit = new Date() <= new Date(r.editableUntil)
+              const canEdit = canAdminEdit && new Date() <= new Date(r.editableUntil)
               return (
                 <>
                   <tr key={r.id} {...rowEdit(() => { if (canEdit) setEditing(r) })} className="border-t hover:bg-muted/50 cursor-pointer" onClick={() => setExpanded(isOpen ? null : r.id)}>

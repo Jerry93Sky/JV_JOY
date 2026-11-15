@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Plus, Trash2, AlertTriangle, Layers, Pencil, ChevronDown, ChevronRight, Info } from 'lucide-react'
 import { rowEdit } from '@/lib/row-edit'
 import { Button } from '@/components/ui/button'
@@ -54,6 +54,8 @@ function EditableCell({ value, calcValue, overridden, onSave, suffix = '₽', ty
 interface Props { deal: Deal }
 
 export default function DealItemsPanel({ deal }: Props) {
+  const systemClickTimer = useRef<ReturnType<typeof setTimeout>>()
+  useEffect(() => () => clearTimeout(systemClickTimer.current), [])
   const { data: products = [] } = useProducts()
   const { data: services = [] } = useQuery({ queryKey: ['services'], queryFn: () => api.get('/settings/services').then(r => r.data) })
   const addItem = useAddDealItem(deal.id)
@@ -202,7 +204,7 @@ export default function DealItemsPanel({ deal }: Props) {
             return (
               <div key={ds.id} className="border-t">
                 {/* Заголовок системы — всегда виден */}
-                <div {...rowEdit(() => { if (canEdit) setEditingSystem(ds) })} className="px-4 py-2.5 bg-muted/30 flex items-center gap-2">
+                <div {...rowEdit(() => { clearTimeout(systemClickTimer.current); if (canEdit) setEditingSystem(ds) })} className="px-4 py-2.5 bg-muted/30 flex items-center gap-2">
                   {/* Стрелка сворачивания */}
                   <button type="button" onClick={() => toggleSystem(ds.id)}
                     className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
@@ -212,7 +214,7 @@ export default function DealItemsPanel({ deal }: Props) {
                   </button>
 
                   {/* Название и параметры */}
-                  <div className="flex-1 min-w-0 cursor-pointer" onClick={() => toggleSystem(ds.id)}>
+                  <div className="flex-1 min-w-0 cursor-pointer" onClick={e => { clearTimeout(systemClickTimer.current); if (e.detail === 1) systemClickTimer.current = setTimeout(() => toggleSystem(ds.id), 500) }}>
                     <span className="text-sm font-medium">{ds.systemName}</span>
                     <span className="text-xs text-muted-foreground ml-2">
                       {Object.entries(params)

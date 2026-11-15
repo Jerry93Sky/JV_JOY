@@ -17,6 +17,7 @@ export default function ReceiptDialog({ receipt, onClose }: Props) {
   const [items, setItems] = useState<LineItem[]>(receipt?.items.map(i => ({ productId: i.productId, quantity: Number(i.quantity), costPrice: Number(i.costPrice) })) || [{ productId: '', quantity: 1, costPrice: 0 }])
   const [newSupplier, setNewSupplier] = useState('')
   const [showNewSupplier, setShowNewSupplier] = useState(false)
+  const [saveError, setSaveError] = useState('')
   const [savedReceiptId, setSavedReceiptId] = useState<string | null>(receipt?.id || null)
   const qc = useQueryClient()
 
@@ -44,14 +45,15 @@ export default function ReceiptDialog({ receipt, onClose }: Props) {
     e.preventDefault()
     const validItems = items.filter(i => i.productId && i.quantity > 0 && i.costPrice >= 0)
     if (!supplierId || !validItems.length) return
-    if (receipt) await updateReceipt.mutateAsync({ id: receipt.id, date, items: validItems })
-    else {
-      const created = await createReceipt.mutateAsync({ supplierId, date, items: validItems })
-      setSavedReceiptId(created.id)
+    setSaveError('')
+    try {
+      if (receipt) await updateReceipt.mutateAsync({ id: receipt.id, date, items: validItems })
+      else {
+        const created = await createReceipt.mutateAsync({ supplierId, date, items: validItems })
+        setSavedReceiptId(created.id)
+      }
       onClose()
-      return
-    }
-    onClose()
+    } catch { setSaveError('Не удалось сохранить приход. Проверьте права, срок и введённые данные.') }
   }
 
   const total = items.reduce((s, i) => s + (i.quantity || 0) * (i.costPrice || 0), 0)
@@ -127,6 +129,7 @@ export default function ReceiptDialog({ receipt, onClose }: Props) {
             <p className="text-xs text-muted-foreground">Фото накладной можно загрузить после сохранения прихода</p>
           )}
 
+          {saveError && <p role="alert" className="text-sm text-destructive">{saveError}</p>}
           <div className="flex justify-end gap-2">
             <Button type="button" variant="outline" onClick={onClose}>Отмена</Button>
             <Button type="submit" disabled={createReceipt.isPending || updateReceipt.isPending}>Сохранить</Button>

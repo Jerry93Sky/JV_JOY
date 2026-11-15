@@ -29,14 +29,17 @@ export default function ServicesTab() {
   const update = useUpdateService()
   const [modal, setModal] = useState(false)
   const [showHints, setShowHints] = useState(false)
+  const [saveError, setSaveError] = useState('')
   const [form, setForm] = useState<ServiceForm>({ name: '', priceType: 'fixed', price: '', priceFormula: '', unit: 'шт' })
 
   function openCreate() {
+    setSaveError('')
     setForm({ name: '', priceType: 'fixed', price: '', priceFormula: '', unit: 'шт' })
     setModal(true)
   }
 
   function openEdit(s: { id: string; name: string; price?: number | null; priceFormula?: string | null; unit?: string }) {
+    setSaveError('')
     setForm({
       id: s.id,
       name: s.name,
@@ -55,9 +58,12 @@ export default function ServicesTab() {
       price: form.priceType === 'fixed' && form.price ? parseFloat(form.price) : undefined,
       priceFormula: form.priceType === 'formula' ? form.priceFormula : undefined,
     }
-    if (form.id) await update.mutateAsync({ id: form.id, ...data })
-    else await create.mutateAsync(data)
-    setModal(false)
+    setSaveError('')
+    try {
+      if (form.id) await update.mutateAsync({ id: form.id, ...data })
+      else await create.mutateAsync(data)
+      setModal(false)
+    } catch { setSaveError('Не удалось сохранить услугу. Проверьте данные и повторите попытку.') }
   }
 
   return (
@@ -174,6 +180,7 @@ export default function ServicesTab() {
                 </div>
               )}
 
+              {saveError && <p role="alert" className="text-sm text-destructive">{saveError}</p>}
               <div className="flex justify-end gap-2 pt-2">
                 <Button variant="outline" onClick={() => setModal(false)}>Отмена</Button>
                 <Button onClick={handleSave} disabled={create.isPending || update.isPending}>Сохранить</Button>

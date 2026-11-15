@@ -50,6 +50,7 @@ export async function userRoutes(app: FastifyInstance) {
       if (!target) return reply.status(404).send({ error: 'Пользователь не найден' })
       if (rest.role === Role.OWNER && target.role !== Role.OWNER) return reply.status(403).send({ error: 'Назначение роли владельца через этот интерфейс недоступно' })
       if (target.role === Role.OWNER && caller.id !== id) return reply.status(403).send({ error: 'Нельзя изменить владельца системы' })
+      if (target.role === Role.OWNER && rest.role !== undefined && rest.role !== Role.OWNER) return reply.status(403).send({ error: 'Нельзя изменить роль владельца системы' })
 
       const updated = await prisma.user.update({
         where: { id },

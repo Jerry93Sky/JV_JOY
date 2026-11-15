@@ -58,8 +58,8 @@ export default function CompaniesTab({ search, openCompanyId }: { search: string
             {companies.map(c => (
               <tr key={c.id} {...rowEdit(() => { clearTimeout(clickTimer.current); setEditing(c) })} className="border-t hover:bg-muted/50 cursor-pointer" onClick={e => {
                 clearTimeout(clickTimer.current)
-                // Preserve the row while the platform can still recognise a slow double click.
-                if (e.detail === 1) clickTimer.current = setTimeout(() => setViewingId(c.id), 1000)
+                // Give a double click time to arrive before opening the single-click view.
+                if (e.detail === 1) clickTimer.current = setTimeout(() => setViewingId(c.id), 500)
               }}>
                 <td className="px-4 py-2 font-medium">{c.name}</td>
                 <td className="px-4 py-2">
