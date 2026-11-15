@@ -302,6 +302,13 @@ try {
   for(let i=0;i<50;i++) {assert.equal(await history.getByRole('button',{name:'Повторить'}).isDisabled(),false);await history.getByRole('button',{name:'Повторить'}).click()}
   assert.equal(await history.getByRole('button',{name:'Повторить'}).isDisabled(),true)
   assert.equal(await history.getByLabel('Слот').inputValue(),'2')
+  await history.evaluate(()=>document.activeElement?.blur())
+  for(const [undo,redo] of [['Control+z','Control+y'],['Control+z','Control+Shift+z'],['Meta+z','Meta+Shift+z']]){
+    await history.keyboard.press(undo);assert.equal(await history.getByLabel('Слот').inputValue(),'1')
+    await history.keyboard.press(redo);assert.equal(await history.getByLabel('Слот').inputValue(),'2')
+  }
+  const editableHandled=await history.evaluate(()=>{const input=document.createElement('input'),textarea=document.createElement('textarea');document.body.append(input,textarea);const results=[input,textarea].map(el=>{el.focus();const e=new KeyboardEvent('keydown',{key:'z',ctrlKey:true,bubbles:true,cancelable:true});el.dispatchEvent(e);return e.defaultPrevented});input.remove();textarea.remove();return results})
+  assert.deepEqual(editableHandled,[false,false],'native editable undo is not intercepted')
   await history.close()
   const themePage=await context.newPage()
   await themePage.emulateMedia({colorScheme:'light'})
@@ -340,6 +347,10 @@ try {
     await earlyPage.route('**/src/main.tsx',route=>route.abort())
     await earlyPage.goto(`${frontUrl}/login`)
     assert.equal(await earlyPage.evaluate(()=>document.documentElement.classList.contains('dark')),expected,`theme ${pref}/${scheme} before React`)
+    const actual=await earlyPage.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor)
+    const wanted=await earlyPage.evaluate(dark=>{const sample=document.createElement('div');sample.style.backgroundColor=dark?'hsl(222 22% 10%)':'hsl(210 20% 98%)';document.body.append(sample);const color=getComputedStyle(sample).backgroundColor;sample.remove();return color},expected)
+    assert.equal(actual,wanted,`background ${pref}/${scheme} before React`)
+    await earlyPage.screenshot({path:resolve(screenshots,`early-${pref??'missing'}-${scheme}.png`)})
     await early.close()
   }
   const inaccessible=await browser.newContext({colorScheme:'light'})
