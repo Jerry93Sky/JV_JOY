@@ -16,6 +16,7 @@ import { fileRoutes } from './files'
 import { glassRoutes } from './glass'
 import { vendorRoutes } from './vendors'
 import { jvRoutes } from './jv'
+import { jvOrderPersistenceRoutes } from './jvOrders'
 
 export async function registerRoutes(app: FastifyInstance) {
   app.register(authRoutes, { prefix: '/api/auth' })
@@ -35,4 +36,5 @@ export async function registerRoutes(app: FastifyInstance) {
   app.register(glassRoutes, { prefix: '/api/glass-types' })
   app.register(vendorRoutes, { prefix: '/api/vendors' })
   app.register(jvRoutes, { prefix: '/api/jv' })
+  app.register(jvOrderPersistenceRoutes, { prefix: '/api/jv' })
 }
