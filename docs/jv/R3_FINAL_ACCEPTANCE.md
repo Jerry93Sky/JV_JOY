@@ -62,3 +62,5 @@ CI workflow: https://github.com/Jerry93Sky/JV_JOY/actions/workflows/jv-ci.yml �
 ## R3.3 final verification
 
 Docker app и PostgreSQL healthy, живой JV smoke прошёл; код приложения совпадает с опубликованным HEAD кроме локальной Docker-конфигурации. CI success на `228d31f0b60ade24589ead9530d1a0822cc772de` подтверждён владельцем. Фактический zoom 200% после исправления остаётся NOT_RUN и блокирует подтверждение устранения P1. Подробности в R3_1_INTERACTIVE_ACCEPTANCE.md.
+
+Настоящий Chrome 200% повторно проверен частично: светлая тема, форма контакта, вертикальная прокрутка и отмена прошли. Прочие запрошенные сочетания темы и формы остаются NOT_RUN; подробности в R3_1_INTERACTIVE_ACCEPTANCE.md.
