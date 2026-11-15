@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict'
+import { test } from 'node:test'
+import Fastify from 'fastify'
+import { registerPlugins } from '../../src/plugins'
+import { jvOrderPersistenceRoutes } from '../../src/routes/jvOrders'
+import { getJvUiFormConfig } from '../../src/domain/jv/jvCalculationService'
+import { prisma } from '../../src/lib/prisma'
+
+test('PostgreSQL persists seven slots and revisions and rejects conflicts and unauthorized requests',async()=>{
+ process.env.JWT_SECRET='r41-isolated-only';const app=Fastify();await registerPlugins(app);await app.register(jvOrderPersistenceRoutes,{prefix:'/api/jv'});await app.ready();const auth={authorization:`Bearer ${app.jwt.sign({id:'r41-owner',role:'OWNER'})}`},user={authorization:`Bearer ${app.jwt.sign({id:'r41-user',role:'USER'})}`};const cfg=getJvUiFormConfig('RETAIL');const families=['LINE','ZIGZAG','SLIDER_L3','SLIDER_L5','SLIDER_X3','SLIDER_X5','FRONT'] as const;const draft={profile:'RETAIL',uiSchemaVersion:cfg.schemaVersion,rulesVersion:cfg.rulesVersion,positions:families.map((family,i)=>({id:`p${i}`,slot:i+1,family,quantity:'1',inputs:cfg.families[family],...(family==='FRONT'?{configurationId:cfg.frontDoorProfile.id}:{})}))};let id=''
+ try{assert.equal((await app.inject({method:'POST',url:'/api/jv/orders',payload:draft})).statusCode,401);assert.equal((await app.inject({method:'POST',url:'/api/jv/orders',headers:user,payload:draft})).statusCode,403);const create=await app.inject({method:'POST',url:'/api/jv/orders',headers:auth,payload:draft});assert.equal(create.statusCode,201,create.body);id=create.json().id;const read=await app.inject({method:'GET',url:`/api/jv/orders/${id}`,headers:auth});assert.deepEqual(read.json().draft,draft);const changed={...draft,profile:'COMPLETATION'};const [first,second]=await Promise.all([app.inject({method:'PUT',url:`/api/jv/orders/${id}`,headers:auth,payload:{version:1,draft:changed}}),app.inject({method:'PUT',url:`/api/jv/orders/${id}`,headers:auth,payload:{version:1,draft:changed}})]);assert.deepEqual([first.statusCode,second.statusCode].sort(),[200,409]);const history=await app.inject({method:'GET',url:`/api/jv/orders/${id}/revisions`,headers:auth});assert.equal(history.json().length,2);assert.equal(history.json()[1].snapshot.profile,'RETAIL');assert.equal((await app.inject({method:'POST',url:'/api/jv/orders',headers:auth,payload:{...draft,positions:[draft.positions[0],draft.positions[0]]}})).statusCode,400)}finally{if(id)await prisma.jvOrder.delete({where:{id}});await app.close();await prisma.$disconnect()}
+})

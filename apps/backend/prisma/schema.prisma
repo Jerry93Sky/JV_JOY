@@ -664,3 +664,32 @@ model Vendor {
   createdAt    DateTime       @default(now())
   category     VendorCategory @relation(fields: [categoryId], references: [id])
 }
+
+model JvOrder {
+  id String @id @default(cuid())
+  number Int @unique @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authorId String
+  version Int @default(1)
+  status String @default("DRAFT")
+  profile String
+  uiSchemaVersion String
+  rulesVersion String
+  contactId String?
+  dealId String?
+  draft Json
+  revisions JvOrderRevision[]
+}
+
+model JvOrderRevision {
+  id String @id @default(cuid())
+  orderId String
+  version Int
+  authorId String
+  createdAt DateTime @default(now())
+  snapshot Json
+  order JvOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  @@unique([orderId, version])
+  @@index([orderId, createdAt])
+}

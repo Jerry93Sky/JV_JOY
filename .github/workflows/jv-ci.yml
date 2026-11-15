@@ -78,3 +78,37 @@ jobs:
             test-results/jv-filled-audit/filled-audit.json
           if-no-files-found: ignore
           retention-days: 7
+
+  persistence:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: jvtest
+          POSTGRES_PASSWORD: jvtest-only
+          POSTGRES_DB: jvtest
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U jvtest -d jvtest"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://jvtest:jvtest-only@127.0.0.1:5432/jvtest?schema=public
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter backend exec prisma generate
+      - run: pnpm --filter backend exec prisma migrate deploy
+      - run: pnpm --filter @bms/shared build
+      - run: pnpm --filter backend exec tsx --test test/jv/jvOrdersPostgres.test.ts

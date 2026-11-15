@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
+import api from '@/api/client'
 import { type UnifiedFamily } from '@bms/shared/jv'
 import JVResultView from './JVResultView'
 import { exact } from './jvResultAdapter'
@@ -48,6 +49,23 @@ export default function JVOrderPage() {
   const [result, setResult] = useState<JvPreviewResponse | null>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [savedId, setSavedId] = useState<string | null>(null)
+  const [savedVersion, setSavedVersion] = useState(0)
+  const [orderLinks, setOrderLinks] = useState<{contactId?:string;dealId?:string}>({})
+  const [savedKey, setSavedKey] = useState('')
+  const [orders, setOrders] = useState<Array<{id:string;number:number;version:number;profile:string}>>([])
+  const [revisions, setRevisions] = useState<Array<{version:number;authorId:string;createdAt:string;snapshot:unknown}>>([])
+  const [saveMessage, setSaveMessage] = useState('')
+  const [saving, setSaving] = useState(false)
+  const skipDefaults = useRef(false)
+  const currentKey = JSON.stringify({positions,profile})
+  const dirty = savedKey !== currentKey
+  useEffect(() => {
+    const warn = (event: BeforeUnloadEvent) => { if (dirty && positions.length) { event.preventDefault(); event.returnValue = '' } }
+    window.addEventListener('beforeunload', warn)
+    return () => window.removeEventListener('beforeunload', warn)
+  }, [dirty, positions.length])
+
   type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string}
   const past = useRef<Snapshot[]>([])
   const future = useRef<Snapshot[]>([])
@@ -93,6 +111,7 @@ export default function JVOrderPage() {
     getJvUiConfig(profile, controller.signal).then(value => {
       if (controller.signal.aborted) return
       setConfig(value)
+      if (skipDefaults.current) { skipDefaults.current=false; return }
       setPositions(old => old.map(p => { const fixed=old.some(x=>x.configurationId); const defaults=p.configurationId?value.frontDoorProfile.defaults:value.families[p.family]; return {...p,inputs:Object.fromEntries(Object.entries(defaults).map(([path,initial])=>[path,(!fixed||transportField(path))&&typeof p.inputs[path]===typeof initial?p.inputs[path]:initial]))} }))
     }).catch(e => { if (!controller.signal.aborted) setError(axios.isAxiosError(e) && e.response?.status === 403 ? 'Недостаточно прав для расчёта.' : 'Не удалось загрузить параметры форм.') })
     return () => controller.abort()
@@ -100,6 +119,34 @@ export default function JVOrderPage() {
   useEffect(() => () => { generation.current++; activeRequest.current?.abort() }, [])
 
   if (!allowed) return <div role="alert" className="rounded-lg border p-5">Раздел JV-заказов доступен владельцу и администратору.</div>
+
+  async function refreshOrders() { try { setOrders((await api.get('/jv/orders')).data) } catch { setError('Не удалось загрузить список заказов.') } }
+  async function openOrder(id:string) {
+    if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Открыть другой заказ?')) return
+    try {
+      const {data}=await api.get(`/jv/orders/${id}`)
+      const draft=data.draft as {positions:DraftPosition[];profile:Profile;contactId?:string;dealId?:string}
+      setOrderLinks({...(draft.contactId?{contactId:draft.contactId}:{}),...(draft.dealId?{dealId:draft.dealId}:{})})
+      invalidate(); past.current=[];future.current=[];lastEdit.current=null
+      skipDefaults.current=draft.profile!==profile
+      setPositions(draft.positions);setProfile(draft.profile);setActiveId(draft.positions[0]?.id??'');setTab('list')
+      setSavedId(data.id);setSavedVersion(data.version);setSavedKey(JSON.stringify({positions:draft.positions,profile:draft.profile}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
+      setRevisions((await api.get(`/jv/orders/${id}/revisions`)).data);redrawHistory(n=>n+1)
+    } catch { setError('Не удалось открыть заказ.') }
+  }
+  async function saveOrder() {
+    if (!config || saving) return
+    setSaving(true);setSaveMessage('');setError('')
+    const snapshot={profile,uiSchemaVersion:config.schemaVersion,rulesVersion:config.rulesVersion,positions:structuredClone(positions),...orderLinks}
+    const key=JSON.stringify({positions:snapshot.positions,profile:snapshot.profile})
+    try {
+      const {data}=savedId?await api.put(`/jv/orders/${savedId}`,{version:savedVersion,draft:snapshot}):await api.post('/jv/orders',snapshot)
+      setSavedId(data.id);setSavedVersion(data.version);setSavedKey(key);setSaveMessage(`Заказ №${data.number} сохранён, версия ${data.version}.`);await refreshOrders()
+      setRevisions((await api.get(`/jv/orders/${data.id}/revisions`)).data)
+    } catch(e) { setError(axios.isAxiosError(e)&&e.response?.status===409?'Конфликт версий: заказ изменён в другой вкладке. Введённые данные сохранены на экране.':'Не удалось сохранить заказ. Повторите попытку; введённые данные сохранены на экране.') }
+    finally {setSaving(false)}
+  }
+  function newOrder() { if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);setOrderLinks({});setSavedKey('');setRevisions([]);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
 
   function add(copy?: DraftPosition) {
     if (!config) return
@@ -159,7 +206,11 @@ export default function JVOrderPage() {
   return <div className="mx-auto max-w-[1600px] space-y-5 pb-8">
     <nav aria-label="Разделы рабочего пространства" className="flex gap-2 md:hidden">{(['list','form','result'] as const).map((t,i)=><button key={t} onClick={()=>setTab(t)} aria-pressed={tab===t} className="rounded border px-3 py-2">{['Конструкции','Параметры','Результат'][i]}</button>)}</nav>
     <div className="flex gap-2"><Button variant="outline" disabled={!past.current.length} onClick={()=>restore('undo')}>Отменить</Button><Button variant="outline" disabled={!future.current.length} onClick={()=>restore('redo')}>Повторить</Button></div>
-    <header><h1 className="text-2xl font-semibold">Новый JV-заказ</h1><p className="mt-1 text-sm text-muted-foreground">Черновик хранится только в текущем сеансе.</p></header>
+    <header><h1 className="text-2xl font-semibold">Новый JV-заказ</h1><p className="mt-1 text-sm text-muted-foreground">{dirty ? 'Есть несохранённые изменения' : 'Изменения сохранены'}</p></header>
+    <div className="flex flex-wrap gap-2"><Button onClick={saveOrder} disabled={!config || saving}>{saving?'Сохранение…':'Сохранить заказ'}</Button><Button variant="outline" onClick={newOrder}>Новый заказ</Button><Button variant="outline" onClick={refreshOrders}>Список заказов</Button></div>
+    {saveMessage && <p role="status">{saveMessage}</p>}
+    {orders.length>0 && <section className="rounded border p-3"><h2 className="font-semibold">Сохранённые заказы</h2>{orders.map(o=><button key={o.id} className="block text-primary underline" onClick={()=>openOrder(o.id)}>Заказ №{o.number} · версия {o.version} · {o.profile}</button>)}</section>}
+    {revisions.length>0 && <details className="rounded border p-3"><summary>История версий</summary>{revisions.map(r=><details key={r.version}><summary>Версия {r.version} · {new Date(r.createdAt).toLocaleString()} · {r.authorId}</summary><pre className="overflow-auto text-xs">{JSON.stringify(r.snapshot,null,2)}</pre></details>)}</details>}
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
     <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { remember(); invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>
     <div className="flex items-center justify-between gap-3"><h2 className="text-lg font-medium">Конструкции ({positions.length}/7)</h2><Button onClick={() => add()} disabled={!config || positions.length >= 7 || positions.some(p=>p.configurationId)}>Добавить конструкцию</Button></div>
