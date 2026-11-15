@@ -54,6 +54,8 @@ jobs:
         run: pnpm --filter frontend test:jv-order
       - name: JV order browser end-to-end
         run: pnpm --filter frontend test:jv-browser
+      - name: R3 row editing browser checks (isolated fixtures)
+        run: pnpm --filter frontend exec node scripts/r3-row-edit-check.mjs
 
       - name: Capture isolated page error states
         run: pnpm --filter frontend exec node scripts/audit-jv-pages.mjs

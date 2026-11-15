@@ -1,3 +1,4 @@
+import { rowEdit } from '@/lib/row-edit'
 import { useState, useEffect } from 'react'
 import { Plus, Pencil, Trash2, Phone, Mail, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -45,7 +46,7 @@ export default function ContactsTab({ search, openContactId }: { search: string;
               <tr><td colSpan={6} className="text-center py-8 text-muted-foreground">Контакты не найдены</td></tr>
             )}
             {contacts.map(c => (
-              <tr key={c.id} className="border-t hover:bg-muted/50">
+              <tr key={c.id} {...rowEdit(() => setEditing(c))} className="border-t hover:bg-muted/50">
                 <td className="px-4 py-2 font-medium">{c.lastName} {c.firstName} {c.middleName}</td>
                 <td className="px-4 py-2">
                   <a href={`tel:${c.phone}`} className="flex items-center gap-1 text-primary hover:underline">

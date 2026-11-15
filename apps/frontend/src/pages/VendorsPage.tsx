@@ -1,7 +1,9 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
-import { Plus, Pencil, Trash2, X, Star, Paintbrush } from 'lucide-react'
+import { Plus, Pencil, Trash2, Star, Paintbrush } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import {
   useVendorCategories, useVendors, useCreateVendorCategory, useDeleteVendorCategory,
   useCreateVendor, useUpdateVendor, useDeleteVendor,
@@ -33,28 +35,28 @@ function VendorDialog({ initial, categories, defaultCategoryId, onClose }: Vendo
   })
   const set = (k: string, v: unknown) => setForm(f => ({ ...f, [k]: v }))
   const busy = create.isPending || update.isPending
+  const [saveError, setSaveError] = useState('')
 
   const handleSave = async () => {
     if (!form.name.trim() || !form.categoryId) return
-    if (initial) {
-      await update.mutateAsync({ id: initial.id, ...form })
-    } else {
-      await create.mutateAsync(form as never)
+    setSaveError('')
+    try {
+      if (initial) await update.mutateAsync({ id: initial.id, ...form })
+      else await create.mutateAsync(form as never)
+      onClose()
+    } catch {
+      setSaveError('Не удалось сохранить поставщика. Проверьте данные и повторите попытку.')
     }
-    onClose()
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-background rounded-lg p-6 w-full max-w-md shadow-xl space-y-4 max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center justify-between">
-          <h3 className="font-semibold">{initial ? 'Редактировать поставщика' : 'Новый поставщик'}</h3>
-          <button onClick={onClose}><X size={16} /></button>
-        </div>
+    <Dialog open onOpenChange={open => { if (!open) onClose() }}>
+      <DialogContent className="w-[calc(100%-1.5rem)] max-w-md max-h-[90vh] overflow-y-auto">
+        <DialogHeader><DialogTitle>{initial ? 'Редактировать поставщика' : 'Новый поставщик'}</DialogTitle></DialogHeader>
 
         <div className="space-y-1">
-          <label className="text-xs text-muted-foreground">Название *</label>
-          <Input value={form.name} onChange={e => set('name', e.target.value)} placeholder="Название компании" />
+          <label htmlFor="vendor-name" className="text-xs text-muted-foreground">Название *</label>
+          <Input id="vendor-name" value={form.name} onChange={e => set('name', e.target.value)} placeholder="Название компании" />
         </div>
 
         <div className="space-y-1">
@@ -103,20 +105,22 @@ function VendorDialog({ initial, categories, defaultCategoryId, onClose }: Vendo
           </label>
         </div>
 
+        {saveError && <p role="alert" className="text-sm text-destructive">{saveError}</p>}
         <div className="flex justify-end gap-2 pt-2">
           <Button variant="outline" onClick={onClose}>Отмена</Button>
           <Button onClick={handleSave} disabled={busy || !form.name.trim()}>
             {busy ? 'Сохранение...' : 'Сохранить'}
           </Button>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   )
 }
 
 // ── Основная страница ─────────────────────────────────────────────────────────
 
 export default function VendorsPage() {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: categories = [] } = useVendorCategories()
   const { data: vendors = [] } = useVendors()
   const createCategory = useCreateVendorCategory()
@@ -214,7 +218,7 @@ export default function VendorsPage() {
                 </thead>
                 <tbody>
                   {filteredVendors.map(v => (
-                    <tr key={v.id} className="border-t hover:bg-muted/30">
+                    <tr key={v.id} {...rowEdit(() => { if (canAdminEdit) setEditing(v) })} className="border-t hover:bg-muted/30">
                       <td className="p-3 font-medium">
                         {v.name}
                         {v.comment && <div className="text-xs text-muted-foreground font-normal truncate max-w-[200px]">{v.comment}</div>}
@@ -235,8 +239,8 @@ export default function VendorsPage() {
                       </td>
                       <td className="p-3">
                         <div className="flex gap-1 justify-end">
-                          <button onClick={() => setEditing(v)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
-                          <button onClick={() => deleteVendor.mutate(v.id)} className="p-1 hover:text-destructive"><Trash2 size={13} /></button>
+                          <button aria-label="Редактировать поставщика" onClick={() => setEditing(v)} className="p-1 hover:text-primary"><Pencil size={13} /></button>
+                          <button aria-label="Удалить поставщика" disabled={deleteVendor.isPending} onClick={() => { if (confirm('Удалить поставщика?')) deleteVendor.mutate(v.id) }} className="p-1 hover:text-destructive"><Trash2 size={13} /></button>
                         </div>
                       </td>
                     </tr>

@@ -1,3 +1,4 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Trash2, FileText, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -168,6 +169,7 @@ function GlassTypeDialog({ initial, onClose }: GlassTypeDialogProps) {
 }
 
 export default function GlassTypesTab() {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: types = [] } = useGlassTypes()
   const deleteType = useDeleteGlassType()
   const [editing, setEditing] = useState<GlassType | null | 'new'>(null)
@@ -212,7 +214,7 @@ export default function GlassTypesTab() {
                 </thead>
                 <tbody>
                   {items.sort((a, b) => a.thickness - b.thickness).map(t => (
-                    <tr key={t.id} className="border-t hover:bg-muted/30">
+                    <tr key={t.id} {...rowEdit(() => { if (canAdminEdit) setEditing(t) })} className="border-t hover:bg-muted/30">
                       <td className="p-3 font-medium">{t.thickness} мм</td>
                       <td className="p-3 text-right font-mono">{Number(t.costPricePerSqm).toLocaleString('ru')} ₽</td>
                       <td className="p-3 text-right font-mono">{Number(t.sellingPricePerSqm).toLocaleString('ru')} ₽</td>

@@ -12,7 +12,8 @@
     "screenshot": "light-1440-leads.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/deals",
@@ -27,7 +28,8 @@
     "screenshot": "light-1440-deals.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/warehouse",
@@ -42,7 +44,8 @@
     "screenshot": "light-1440-warehouse.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/systems",
@@ -57,7 +60,8 @@
     "screenshot": "light-1440-systems.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/settings",
@@ -72,7 +76,8 @@
     "screenshot": "light-1440-settings.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/clients",
@@ -87,7 +92,8 @@
     "screenshot": "light-1440-clients.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/vendors",
@@ -102,7 +108,8 @@
     "screenshot": "light-1440-vendors.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/finance",
@@ -117,7 +124,8 @@
     "screenshot": "light-1440-finance.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/leads",
@@ -132,7 +140,8 @@
     "screenshot": "light-1024-leads.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/deals",
@@ -147,7 +156,8 @@
     "screenshot": "light-1024-deals.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/warehouse",
@@ -162,7 +172,8 @@
     "screenshot": "light-1024-warehouse.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/systems",
@@ -177,7 +188,8 @@
     "screenshot": "light-1024-systems.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/settings",
@@ -192,7 +204,8 @@
     "screenshot": "light-1024-settings.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/clients",
@@ -207,7 +220,8 @@
     "screenshot": "light-1024-clients.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/vendors",
@@ -222,7 +236,8 @@
     "screenshot": "light-1024-vendors.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/finance",
@@ -237,7 +252,8 @@
     "screenshot": "light-1024-finance.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/leads",
@@ -252,7 +268,8 @@
     "screenshot": "light-390-leads.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/deals",
@@ -267,7 +284,8 @@
     "screenshot": "light-390-deals.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/warehouse",
@@ -282,7 +300,8 @@
     "screenshot": "light-390-warehouse.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/systems",
@@ -297,7 +316,8 @@
     "screenshot": "light-390-systems.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/settings",
@@ -312,7 +332,8 @@
     "screenshot": "light-390-settings.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/clients",
@@ -327,7 +348,8 @@
     "screenshot": "light-390-clients.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/vendors",
@@ -342,7 +364,8 @@
     "screenshot": "light-390-vendors.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Previous fixed category column and hidden overflow clipped the supplier table.",
-    "resolution": "FIXED_AND_REVIEWED; keyboard horizontal scrolling checked separately."
+    "resolution": "FIXED_AND_REVIEWED; keyboard horizontal scrolling checked separately.",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/finance",
@@ -357,7 +380,8 @@
     "screenshot": "light-390-finance.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/leads",
@@ -372,7 +396,8 @@
     "screenshot": "dark-1440-leads.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/deals",
@@ -387,7 +412,8 @@
     "screenshot": "dark-1440-deals.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/warehouse",
@@ -402,7 +428,8 @@
     "screenshot": "dark-1440-warehouse.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/systems",
@@ -417,7 +444,8 @@
     "screenshot": "dark-1440-systems.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/settings",
@@ -432,7 +460,8 @@
     "screenshot": "dark-1440-settings.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/clients",
@@ -447,7 +476,8 @@
     "screenshot": "dark-1440-clients.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/vendors",
@@ -462,7 +492,8 @@
     "screenshot": "dark-1440-vendors.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/finance",
@@ -477,7 +508,8 @@
     "screenshot": "dark-1440-finance.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/leads",
@@ -492,7 +524,8 @@
     "screenshot": "dark-1024-leads.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/deals",
@@ -507,7 +540,8 @@
     "screenshot": "dark-1024-deals.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/warehouse",
@@ -522,7 +556,8 @@
     "screenshot": "dark-1024-warehouse.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/systems",
@@ -537,7 +572,8 @@
     "screenshot": "dark-1024-systems.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/settings",
@@ -552,7 +588,8 @@
     "screenshot": "dark-1024-settings.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/clients",
@@ -567,7 +604,8 @@
     "screenshot": "dark-1024-clients.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/vendors",
@@ -582,7 +620,8 @@
     "screenshot": "dark-1024-vendors.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/finance",
@@ -597,7 +636,8 @@
     "screenshot": "dark-1024-finance.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/leads",
@@ -612,7 +652,8 @@
     "screenshot": "dark-390-leads.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/deals",
@@ -627,7 +668,8 @@
     "screenshot": "dark-390-deals.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/warehouse",
@@ -642,7 +684,8 @@
     "screenshot": "dark-390-warehouse.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/systems",
@@ -657,7 +700,8 @@
     "screenshot": "dark-390-systems.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/settings",
@@ -672,7 +716,8 @@
     "screenshot": "dark-390-settings.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "NOT_RUN"
   },
   {
     "route": "/clients",
@@ -687,7 +732,8 @@
     "screenshot": "dark-390-clients.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Some columns or tabs lie beyond the visible portion; scroll discoverability and complete keyboard interaction require additional testing.",
-    "resolution": "OPEN_VERIFICATION"
+    "resolution": "OPEN_VERIFICATION",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/vendors",
@@ -702,7 +748,8 @@
     "screenshot": "dark-390-vendors.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": "Previous fixed category column and hidden overflow clipped the supplier table.",
-    "resolution": "FIXED_AND_REVIEWED; keyboard horizontal scrolling checked separately."
+    "resolution": "FIXED_AND_REVIEWED; keyboard horizontal scrolling checked separately.",
+    "r31InteractiveReview": "PARTIAL"
   },
   {
     "route": "/finance",
@@ -717,6 +764,7 @@
     "screenshot": "dark-390-finance.png",
     "visualReviewScope": "Original PNG opened; static layout and visible text only; no measured contrast or interaction proof.",
     "finding": null,
-    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED"
+    "resolution": "NO_STATIC_BLOCKER_IDENTIFIED",
+    "r31InteractiveReview": "NOT_RUN"
   }
 ]

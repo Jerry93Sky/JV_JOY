@@ -1,3 +1,4 @@
+import { rowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, ChevronDown, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -38,7 +39,7 @@ export default function ReceiptsTab() {
               const canEdit = new Date() <= new Date(r.editableUntil)
               return (
                 <>
-                  <tr key={r.id} className="border-t hover:bg-muted/50 cursor-pointer" onClick={() => setExpanded(isOpen ? null : r.id)}>
+                  <tr key={r.id} {...rowEdit(() => { if (canEdit) setEditing(r) })} className="border-t hover:bg-muted/50 cursor-pointer" onClick={() => setExpanded(isOpen ? null : r.id)}>
                     <td className="px-2 py-2 text-muted-foreground">{isOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}</td>
                     <td className="px-4 py-2">{format(new Date(r.date), 'dd.MM.yyyy', { locale: ru })}</td>
                     <td className="px-4 py-2 font-medium">{r.supplier.name}</td>

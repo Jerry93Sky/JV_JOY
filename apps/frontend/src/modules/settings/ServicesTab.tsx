@@ -1,3 +1,4 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Power, HelpCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -22,6 +23,7 @@ const FORMULA_HINTS = [
 ]
 
 export default function ServicesTab() {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: services = [] } = useServices()
   const create = useCreateService()
   const update = useUpdateService()
@@ -77,7 +79,7 @@ export default function ServicesTab() {
           </thead>
           <tbody>
             {services.map(s => (
-              <tr key={s.id} className="border-t hover:bg-muted/30">
+              <tr key={s.id} {...rowEdit(() => { if (canAdminEdit) openEdit(s) })} className="border-t hover:bg-muted/30">
                 <td className="px-4 py-2 font-medium">{s.name}</td>
                 <td className="px-4 py-2">
                   {s.priceFormula ? (

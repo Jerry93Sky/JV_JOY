@@ -1,3 +1,4 @@
+import { rowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Search, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -52,7 +53,7 @@ export default function ProductsTab() {
             {products.map(p => {
               const free = freeQty(p)
               return (
-                <tr key={p.id} className="border-t hover:bg-muted/50">
+                <tr key={p.id} {...rowEdit(() => setEditing(p))} className="border-t hover:bg-muted/50">
                   <td className="px-4 py-2 text-muted-foreground font-mono text-xs">{p.sku}</td>
                   <td className="px-4 py-2 font-medium">
                     <div className="flex items-center gap-1">

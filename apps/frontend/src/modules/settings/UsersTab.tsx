@@ -1,3 +1,4 @@
+import { rowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Trash2, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -71,7 +72,7 @@ export default function UsersTab() {
           </thead>
           <tbody>
             {users.map(u => (
-              <tr key={u.id} className="border-t hover:bg-muted/30">
+              <tr key={u.id} {...rowEdit(() => { if (currentUser?.role === Role.OWNER || currentUser?.role === Role.ADMIN) openEdit(u) })} className="border-t hover:bg-muted/30">
                 <td className="px-4 py-2 font-medium">{u.lastName} {u.firstName} {u.middleName}</td>
                 <td className="px-4 py-2 font-mono text-xs text-muted-foreground">{u.login}</td>
                 <td className="px-4 py-2">

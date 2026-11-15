@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Plus, Trash2, AlertTriangle, Layers, Pencil, ChevronDown, ChevronRight, Info } from 'lucide-react'
+import { rowEdit } from '@/lib/row-edit'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { type Deal, DealStage, useAddDealItem, useRemoveDealItem, useAddDealService, useRemoveDealService, useDeleteDealSystem, useUpdateItemPaint, useUpdateDealItem, type DealSystemEntry, type DealItem } from '@/api/deals'
@@ -201,7 +202,7 @@ export default function DealItemsPanel({ deal }: Props) {
             return (
               <div key={ds.id} className="border-t">
                 {/* Заголовок системы — всегда виден */}
-                <div className="px-4 py-2.5 bg-muted/30 flex items-center gap-2">
+                <div {...rowEdit(() => { if (canEdit) setEditingSystem(ds) })} className="px-4 py-2.5 bg-muted/30 flex items-center gap-2">
                   {/* Стрелка сворачивания */}
                   <button type="button" onClick={() => toggleSystem(ds.id)}
                     className="text-muted-foreground hover:text-foreground transition-colors shrink-0">

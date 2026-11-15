@@ -1,3 +1,4 @@
+import { rowEdit, useCanAdminRowEdit } from '@/lib/row-edit'
 import { useState } from 'react'
 import { Plus, Pencil, Trash2, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -107,6 +108,7 @@ function GlassDialog({ systemId, initial, onClose }: GlassDialogProps) {
 interface Props { systemId: string }
 
 export default function GlassPanel({ systemId }: Props) {
+  const canAdminEdit = useCanAdminRowEdit()
   const { data: glasses = [] } = useSystemGlasses(systemId)
   const deleteGlass = useDeleteGlass(systemId)
   const [editing, setEditing] = useState<SystemGlass | null | 'new'>(null)
@@ -142,7 +144,7 @@ export default function GlassPanel({ systemId }: Props) {
             </thead>
             <tbody>
               {glasses.map(g => (
-                <tr key={g.id} className="border-t hover:bg-muted/30">
+                <tr key={g.id} {...rowEdit(() => { if (canAdminEdit) setEditing(g) })} className="border-t hover:bg-muted/30">
                   <td className="p-3 font-medium">{g.name}</td>
                   <td className="p-3 font-mono text-xs text-muted-foreground">{g.widthFormula}</td>
                   <td className="p-3 font-mono text-xs text-muted-foreground">{g.heightFormula}</td>
