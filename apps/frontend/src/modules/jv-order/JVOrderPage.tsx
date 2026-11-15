@@ -52,15 +52,17 @@ export default function JVOrderPage() {
   const [savedId, setSavedId] = useState<string | null>(null)
   const [savedVersion, setSavedVersion] = useState(0)
   const [orderLinks, setOrderLinks] = useState<{contactId?:string;dealId?:string}>({})
+  const [draftVersions, setDraftVersions] = useState<{uiSchemaVersion:string;rulesVersion:string}|null>(null)
   const [savedKey, setSavedKey] = useState('')
   const [orders, setOrders] = useState<Array<{id:string;number:number;version:number;profile:string}>>([])
   const [revisions, setRevisions] = useState<Array<{version:number;authorId:string;createdAt:string;snapshot:unknown}>>([])
   const [saveMessage, setSaveMessage] = useState('')
   const [saving, setSaving] = useState(false)
   const skipDefaults = useRef(false)
-  const currentKey = JSON.stringify({positions,profile})
+  const currentKey = JSON.stringify({positions,profile,versions:draftVersions})
   const dirty = savedKey !== currentKey
   useEffect(() => {
+    if (typeof window === 'undefined') return
     const warn = (event: BeforeUnloadEvent) => { if (dirty && positions.length) { event.preventDefault(); event.returnValue = '' } }
     window.addEventListener('beforeunload', warn)
     return () => window.removeEventListener('beforeunload', warn)
@@ -125,28 +127,30 @@ export default function JVOrderPage() {
     if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Открыть другой заказ?')) return
     try {
       const {data}=await api.get(`/jv/orders/${id}`)
-      const draft=data.draft as {positions:DraftPosition[];profile:Profile;contactId?:string;dealId?:string}
+      const draft=data.draft as {positions:DraftPosition[];profile:Profile;uiSchemaVersion:string;rulesVersion:string;contactId?:string;dealId?:string}
+      setDraftVersions({uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion})
       setOrderLinks({...(draft.contactId?{contactId:draft.contactId}:{}),...(draft.dealId?{dealId:draft.dealId}:{})})
       invalidate(); past.current=[];future.current=[];lastEdit.current=null
       skipDefaults.current=draft.profile!==profile
       setPositions(draft.positions);setProfile(draft.profile);setActiveId(draft.positions[0]?.id??'');setTab('list')
-      setSavedId(data.id);setSavedVersion(data.version);setSavedKey(JSON.stringify({positions:draft.positions,profile:draft.profile}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
+      setSavedId(data.id);setSavedVersion(data.version);setSavedKey(JSON.stringify({positions:draft.positions,profile:draft.profile,versions:{uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion}}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
       setRevisions((await api.get(`/jv/orders/${id}/revisions`)).data);redrawHistory(n=>n+1)
     } catch { setError('Не удалось открыть заказ.') }
   }
   async function saveOrder() {
     if (!config || saving) return
     setSaving(true);setSaveMessage('');setError('')
-    const snapshot={profile,uiSchemaVersion:config.schemaVersion,rulesVersion:config.rulesVersion,positions:structuredClone(positions),...orderLinks}
-    const key=JSON.stringify({positions:snapshot.positions,profile:snapshot.profile})
+    const snapshot={profile,uiSchemaVersion:draftVersions?.uiSchemaVersion??config.schemaVersion,rulesVersion:draftVersions?.rulesVersion??config.rulesVersion,positions:structuredClone(positions),...orderLinks}
+    const versions={uiSchemaVersion:snapshot.uiSchemaVersion,rulesVersion:snapshot.rulesVersion}
+    const key=JSON.stringify({positions:snapshot.positions,profile:snapshot.profile,versions})
     try {
       const {data}=savedId?await api.put(`/jv/orders/${savedId}`,{version:savedVersion,draft:snapshot}):await api.post('/jv/orders',snapshot)
-      setSavedId(data.id);setSavedVersion(data.version);setSavedKey(key);setSaveMessage(`Заказ №${data.number} сохранён, версия ${data.version}.`);await refreshOrders()
+      setSavedId(data.id);setSavedVersion(data.version);setDraftVersions(versions);setSavedKey(key);setSaveMessage(`Заказ №${data.number} сохранён, версия ${data.version}.`);await refreshOrders()
       setRevisions((await api.get(`/jv/orders/${data.id}/revisions`)).data)
     } catch(e) { setError(axios.isAxiosError(e)&&e.response?.status===409?'Конфликт версий: заказ изменён в другой вкладке. Введённые данные сохранены на экране.':'Не удалось сохранить заказ. Повторите попытку; введённые данные сохранены на экране.') }
     finally {setSaving(false)}
   }
-  function newOrder() { if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);setOrderLinks({});setSavedKey('');setRevisions([]);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
+  function newOrder() { if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);setDraftVersions(null);setOrderLinks({});setSavedKey('');setRevisions([]);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
 
   function add(copy?: DraftPosition) {
     if (!config) return
@@ -191,7 +195,7 @@ export default function JVOrderPage() {
     invalidate(); const requestGeneration = generation.current, controller = new AbortController(); activeRequest.current = controller; setLoading(true)
     try {
       const response = await calculateJvPreview({ profile, rulesVersion: config.rulesVersion, uiSchemaVersion: config.schemaVersion, positions: positions.map(p => ({ id: p.id, family: p.family, slot: p.slot, quantity: p.quantity, calculation: p.inputs, ...(p.configurationId?{configurationId:p.configurationId}:{}) })) }, controller.signal)
-      if (generation.current === requestGeneration && !controller.signal.aborted) setResult(response)
+      if (generation.current === requestGeneration && !controller.signal.aborted) { setResult(response); setDraftVersions({uiSchemaVersion:config.schemaVersion,rulesVersion:config.rulesVersion}) }
     } catch (e) {
       if (generation.current !== requestGeneration || controller.signal.aborted) return
       if (axios.isAxiosError(e)) {
