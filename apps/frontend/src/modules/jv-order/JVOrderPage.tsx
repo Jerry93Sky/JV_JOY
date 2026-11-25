@@ -62,6 +62,9 @@ export default function JVOrderPage() {
   const [orders, setOrders] = useState<Array<{id:string;number:number;version:number;profile:string}>>([])
   const [revisions, setRevisions] = useState<Array<{version:number;authorId:string;createdAt:string;snapshot:unknown}>>([])
   const [saveMessage, setSaveMessage] = useState('')
+  const [captures,setCaptures]=useState<Array<{id:string;orderVersion:number;createdAt:string;contentSha256:string}>>([])
+  const [captureDetail,setCaptureDetail]=useState<unknown>(null)
+  const [capturing,setCapturing]=useState(false)
   const [saving, setSaving] = useState(false)
   const [restoring, setRestoring] = useState(false)
   const [recoveryReady, setRecoveryReady] = useState(false)
@@ -186,7 +189,7 @@ export default function JVOrderPage() {
       const draft=data.draft as {positions:DraftPosition[];profile:Profile;uiSchemaVersion:string;rulesVersion:string;contactId?:string;dealId?:string}
       setDraftVersions({uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion})
       setOrderLinks({...(draft.contactId?{contactId:draft.contactId}:{}),...(draft.dealId?{dealId:draft.dealId}:{})})
-      invalidate(); past.current=[];future.current=[];lastEdit.current=null
+      invalidate();setCaptures([]);setCaptureDetail(null); past.current=[];future.current=[];lastEdit.current=null
       skipDefaults.current=draft.profile!==profile
       setPositions(draft.positions);setProfile(draft.profile);setActiveId(draft.positions[0]?.id??'');setTab('list')
       setSaveFailure(null);setSavedId(data.id);setSavedVersion(data.version);setSavedKey(stableJson({positions:draft.positions,profile:draft.profile,versions:{uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion}}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
@@ -209,8 +212,16 @@ export default function JVOrderPage() {
     } catch(e) { const conflict=axios.isAxiosError(e)&&e.response?.status===409;setSaveFailure(conflict?'conflict':'network');setError(conflict?'Заказ изменён в другой вкладке. Локальные изменения остаются на экране.':'Ошибка сохранения. Введённые данные остаются на экране.') }
     finally {saveLock.current=false;setSaving(false)}
   }
-  function newOrder() { if(saveLock.current){setError('Дождитесь завершения сохранения.');return} if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null);setDraftVersions(null);setOrderLinks({});setSavedKey('');setRevisions([]);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
+  function newOrder() { if(saveLock.current){setError('Дождитесь завершения сохранения.');return} if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null);setDraftVersions(null);setOrderLinks({});setSavedKey('');setRevisions([]);setCaptures([]);setCaptureDetail(null);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
 
+  async function loadCaptures() { if(!savedId)return;try{setCaptures((await api.get(`/jv/orders/${savedId}/calculation-snapshots`)).data)}catch{setError('Не удалось загрузить снимки расчётов.')} }
+  async function captureCalculation() {
+    if(!savedId||dirty||saving||capturing)return
+    setCapturing(true)
+    try{await api.post(`/jv/orders/${savedId}/calculation-snapshots`,{version:savedVersion});setSaveMessage('Расчёт сохранён для просмотра. Это ещё не коммерческий документ.');await loadCaptures()}
+    catch(e){const code=axios.isAxiosError(e)?e.response?.data?.error?.code:undefined;setError(code==='PARTIAL_CALCULATION'?'Неполный расчёт нельзя сохранить как подтверждённый снимок.':code==='VERSION_CONFLICT'?'Заказ изменился. Обновите заказ перед фиксацией расчёта.':'Не удалось сохранить снимок расчёта.')}
+    finally{setCapturing(false)}
+  }
   async function refreshTemplates() { try { setTemplates((await api.get('/jv/templates')).data) } catch { setError('Не удалось загрузить шаблоны.') } }
   async function createTemplate() {
     if (!config || !activeId) return
@@ -300,6 +311,7 @@ export default function JVOrderPage() {
     <div className="flex flex-wrap gap-2"><Button variant="outline" onClick={()=>void refreshTemplates()}>Шаблоны</Button><Button variant="outline" disabled={!activeId} onClick={()=>void createTemplate()}>Сохранить конструкцию как шаблон</Button></div>
     {templates.map(t=><div key={t.id} className="flex flex-wrap gap-2"><span>{t.name}</span><Button variant="outline" onClick={()=>applyTemplate(t)}>Применить</Button><Button variant="outline" onClick={async()=>{const name=window.prompt('Новое название',t.name);if(name?.trim()){await api.patch(`/jv/templates/${t.id}`,{name:name.trim()});await refreshTemplates()}}}>Переименовать</Button><Button variant="outline" onClick={async()=>{if(window.confirm('Удалить шаблон?')){await api.delete(`/jv/templates/${t.id}`);await refreshTemplates()}}}>Удалить шаблон</Button></div>)}
     {orders.length>0 && <section className="rounded border p-3"><h2 className="font-semibold">Сохранённые заказы</h2>{orders.map(o=><button key={o.id} className="block text-primary underline" onClick={()=>openOrder(o.id)}>Заказ №{o.number} · версия {o.version} · {o.profile}</button>)}</section>}
+    {savedId && <section className="rounded border p-3"><h2 className="font-semibold">Снимки расчёта</h2><p className="text-sm">Сервер рассчитывает сохранённую версию заново. Снимок не является выпущенным коммерческим документом.</p><div className="flex gap-2"><Button variant="outline" disabled={dirty||saving||capturing} onClick={()=>void captureCalculation()}>{capturing?'Сохранение…':'Зафиксировать расчёт'}</Button><Button variant="outline" onClick={()=>void loadCaptures()}>Обновить список</Button></div>{captures.map(x=><button className="block text-left text-primary underline" key={x.id} onClick={async()=>{try{setCaptureDetail((await api.get(`/jv/orders/${savedId}/calculation-snapshots/${x.id}`)).data)}catch{setError('Не удалось открыть снимок.')}}}>Версия заказа {x.orderVersion} · {new Date(x.createdAt).toLocaleString()} · {x.contentSha256.slice(0,12)}</button>)}{captureDetail!==null && <details><summary>Данные выбранного снимка</summary><pre className="max-h-96 overflow-auto text-xs">{JSON.stringify(captureDetail,null,2)}</pre></details>}</section>}
     {revisions.length>0 && <details className="rounded border p-3"><summary>История версий</summary>{revisions.map(r=><details key={r.version}><summary>Версия {r.version} · {new Date(r.createdAt).toLocaleString()} · {r.authorId}</summary><pre className="overflow-auto text-xs">{JSON.stringify(r.snapshot,null,2)}</pre><Button variant="outline" disabled={saving} onClick={()=>void restoreRevision(r.version)}>Восстановить эту версию</Button></details>)}</details>}
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
     <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { remember(); invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>

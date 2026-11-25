@@ -1,4 +1,6 @@
 import { FastifyInstance } from 'fastify'
+import { createHash } from 'node:crypto'
+import { calculateJvPreview, JvRequestError, serializeJvResult } from '../domain/jv/jvCalculationService'
 import { Prisma } from '@prisma/client'
 import { Role } from '@bms/shared'
 import { prisma } from '../lib/prisma'
@@ -23,7 +25,7 @@ function validate(body: unknown): Draft | null {
   return { profile:d.profile as Draft['profile'],uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion,positions:(d.positions as Draft['positions']).map(p=>({id:p.id,family:p.family,slot:p.slot,quantity:p.quantity,inputs:p.inputs,...(p.configurationId?{configurationId:p.configurationId}:{})})),...(d.contactId?{contactId:d.contactId as string}:{}),...(d.dealId?{dealId:d.dealId as string}:{}) }
 }
 function stableJson(value: unknown): string {
- const normalize=(v:unknown):unknown=>Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,x])=>[k,normalize(x)])):v
+ const normalize=(v:unknown):unknown=>Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a<b?-1:a>b?1:0).map(([k,x])=>[k,normalize(x)])):v
  return JSON.stringify(normalize(value))
 }
 export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
@@ -51,6 +53,43 @@ export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
   if(restored.kind==='invalid')return reply.status(422).send({error:{code:'INVALID_REVISION'}})
   if(restored.kind==='conflict')return reply.status(409).send({error:{code:'VERSION_CONFLICT'}})
   return restored.order
+ })
+ // A capture is generated exclusively from a saved order; callers cannot supply prices or results.
+ app.post<{Params:{id:string};Body:{version?:unknown}}>('/orders/:id/calculation-snapshots',{preHandler:guard},async(req,reply)=>{
+  const version=req.body?.version
+  if(!req.body||typeof req.body!=='object'||Array.isArray(req.body)||Object.keys(req.body).some(k=>k!=='version'))return reply.status(400).send({error:{code:'INVALID_REQUEST'}})
+  if(!Number.isSafeInteger(version)||Number(version)<1)return reply.status(400).send({error:{code:'INVALID_VERSION'}})
+  const order=await prisma.jvOrder.findUnique({where:{id:req.params.id}})
+  if(!order)return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  if(order.version!==version)return reply.status(409).send({error:{code:'VERSION_CONFLICT'}})
+  const draft=validate(order.draft);if(!draft)return reply.status(422).send({error:{code:'INVALID_DRAFT'}})
+  let result:ReturnType<typeof calculateJvPreview>
+  try {result=calculateJvPreview({orderId:order.id,profile:draft.profile,uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion,positions:draft.positions.map(p=>({id:p.id,slot:p.slot,family:p.family,quantity:p.quantity,calculation:p.inputs,...(p.configurationId?{configurationId:p.configurationId}:{})}))})}
+  catch(e){if(e instanceof JvRequestError)return reply.status(e.statusCode).send({error:{code:e.code,message:e.message,issues:e.issues}});throw e}
+  if(result.status!=='COMPLETE'||result.calculation.status!=='COMPLETE'||!result.calculation.totalSalePrice)return reply.status(422).send({error:{code:'PARTIAL_CALCULATION',message:'Неполный расчёт нельзя зафиксировать'}})
+  const input=JSON.parse(JSON.stringify(draft)) as Prisma.InputJsonValue
+  const output=JSON.parse(JSON.stringify(serializeJvResult(result))) as Prisma.InputJsonValue
+  const formatVersion='JV-CALCULATION-SNAPSHOT-1'
+  const contentSha256=createHash('sha256').update(stableJson({formatVersion,orderId:order.id,orderVersion:version,input,result:output})).digest('hex')
+  const saved=await prisma.$transaction(async tx=>{
+   await tx.$queryRaw`SELECT id FROM "JvOrder" WHERE id = ${order.id} FOR UPDATE`
+   const current=await tx.jvOrder.findUnique({where:{id:order.id},select:{version:true}})
+   if(current?.version!==version)return null
+   return tx.jvCalculationSnapshot.create({data:{orderId:order.id,orderVersion:Number(version),authorId:(req.user as {id:string}).id,formatVersion,input,result:output,contentSha256}})
+  })
+  if(!saved)return reply.status(409).send({error:{code:'VERSION_CONFLICT'}})
+  return reply.status(201).send(saved)
+ })
+ app.get<{Params:{id:string}}>('/orders/:id/calculation-snapshots',{preHandler:guard},async(req,reply)=>{
+  if(!await prisma.jvOrder.findUnique({where:{id:req.params.id},select:{id:true}}))return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  return prisma.jvCalculationSnapshot.findMany({where:{orderId:req.params.id},orderBy:{createdAt:'desc'},take:100,select:{id:true,orderId:true,orderVersion:true,authorId:true,createdAt:true,formatVersion:true,contentSha256:true}})
+ })
+ app.get<{Params:{id:string;snapshotId:string}}>('/orders/:id/calculation-snapshots/:snapshotId',{preHandler:guard},async(req,reply)=>{
+  const snapshot=await prisma.jvCalculationSnapshot.findFirst({where:{id:req.params.snapshotId,orderId:req.params.id}})
+  if(!snapshot)return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  const digest=createHash('sha256').update(stableJson({formatVersion:snapshot.formatVersion,orderId:snapshot.orderId,orderVersion:snapshot.orderVersion,input:snapshot.input,result:snapshot.result})).digest('hex')
+  if(digest!==snapshot.contentSha256)return reply.status(409).send({error:{code:'SNAPSHOT_INTEGRITY_FAILED',message:'Содержимое снимка повреждено'}})
+  reply.header('Cache-Control','no-store');return snapshot
  })
  app.get('/templates',{preHandler:guard},()=>prisma.jvTemplate.findMany({orderBy:{updatedAt:'desc'},take:200}))
  app.post<{Body:{name?:unknown;draft?:unknown}}>('/templates',{preHandler:guard,bodyLimit:262144},async(req,reply)=>{

@@ -1,0 +1,3 @@
+CREATE TABLE "JvCalculationSnapshot" ("id" TEXT NOT NULL, "orderId" TEXT NOT NULL, "orderVersion" INTEGER NOT NULL, "authorId" TEXT NOT NULL, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, "formatVersion" TEXT NOT NULL, "input" JSONB NOT NULL, "result" JSONB NOT NULL, "contentSha256" TEXT NOT NULL, CONSTRAINT "JvCalculationSnapshot_pkey" PRIMARY KEY ("id"));
+CREATE INDEX "JvCalculationSnapshot_orderId_createdAt_idx" ON "JvCalculationSnapshot"("orderId", "createdAt");
+ALTER TABLE "JvCalculationSnapshot" ADD CONSTRAINT "JvCalculationSnapshot_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "JvOrder"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

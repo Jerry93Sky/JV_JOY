@@ -681,6 +681,7 @@ model JvOrder {
   dealId String?
   draft Json
   revisions JvOrderRevision[]
+  calculationSnapshots JvCalculationSnapshot[]
   @@unique([authorId, creationKey])
 }
 
@@ -703,4 +704,18 @@ model JvTemplate {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   draft Json
+}
+
+model JvCalculationSnapshot {
+  id String @id @default(cuid())
+  orderId String
+  orderVersion Int
+  authorId String
+  createdAt DateTime @default(now())
+  formatVersion String
+  input Json
+  result Json
+  contentSha256 String
+  order JvOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  @@index([orderId, createdAt])
 }

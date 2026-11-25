@@ -111,4 +111,4 @@ jobs:
       - run: pnpm --filter backend exec prisma generate
       - run: pnpm --filter backend exec prisma migrate deploy
       - run: pnpm --filter @bms/shared build
-      - run: pnpm --filter backend exec tsx --test test/jv/jvOrdersPostgres.test.ts test/jv/jvOrdersR42Postgres.test.ts
+      - run: pnpm --filter backend exec tsx --test test/jv/jvOrdersPostgres.test.ts test/jv/jvOrdersR42Postgres.test.ts test/jv/jvCalculationSnapshotPostgres.test.ts
