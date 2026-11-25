@@ -682,6 +682,7 @@ model JvOrder {
   draft Json
   revisions JvOrderRevision[]
   calculationSnapshots JvCalculationSnapshot[]
+  proposalDrafts JvProposalDraft[]
   @@unique([authorId, creationKey])
 }
 
@@ -716,6 +717,22 @@ model JvCalculationSnapshot {
   input Json
   result Json
   contentSha256 String
+  proposals JvProposalDraft[]
   order JvOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  @@index([orderId, createdAt])
+}
+
+model JvProposalDraft {
+  id String @id @default(cuid())
+  number Int @unique @default(autoincrement())
+  orderId String
+  snapshotId String
+  authorId String
+  createdAt DateTime @default(now())
+  formatVersion String
+  payload Json
+  contentSha256 String
+  order JvOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  snapshot JvCalculationSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Restrict)
   @@index([orderId, createdAt])
 }
