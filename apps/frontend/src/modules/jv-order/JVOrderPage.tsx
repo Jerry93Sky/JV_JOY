@@ -17,6 +17,10 @@ const families: { value: UnifiedFamily; label: string }[] = [
 ]
 type DraftPosition = { id: string; family: UnifiedFamily; slot: number; quantity: string; inputs: Record<string, JvUiValue>; configurationId?: string }
 type Profile = 'COMPLETATION' | 'RETAIL'
+function stableJson(value: unknown): string {
+  const normalize = (v: unknown): unknown => Array.isArray(v) ? v.map(normalize) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,x])=>[k,normalize(x)])) : v
+  return JSON.stringify(normalize(value))
+}
 const selectClass = 'h-9 w-full rounded-md border border-input bg-background px-3 text-sm'
 const labels: Record<string, string> = {
   widthMm: 'Ширина, мм', heightMm: 'Высота, мм', leaves: 'Количество створок', leafCount: 'Количество створок', leafSelector: 'Количество створок', sectionDemand: 'Количество секций',
@@ -41,6 +45,7 @@ function fieldDisabled(path: string, inputs: Record<string, JvUiValue>): boolean
 
 export default function JVOrderPage() {
   const role = useAuthStore(s => s.user?.role)
+  const userId = useAuthStore(s => s.user?.id)
   const [positions, setPositions] = useState<DraftPosition[]>([])
   const [activeId, setActiveId] = useState('')
   const [tab, setTab] = useState<'list'|'form'|'result'>('list')
@@ -58,8 +63,14 @@ export default function JVOrderPage() {
   const [revisions, setRevisions] = useState<Array<{version:number;authorId:string;createdAt:string;snapshot:unknown}>>([])
   const [saveMessage, setSaveMessage] = useState('')
   const [saving, setSaving] = useState(false)
+  const [restoring, setRestoring] = useState(false)
+  const [recoveryReady, setRecoveryReady] = useState(false)
+  const [saveFailure, setSaveFailure] = useState<'network'|'conflict'|null>(null)
+  const [templates, setTemplates] = useState<Array<{id:string;name:string;draft:{positions:DraftPosition[];profile:Profile;uiSchemaVersion:string;rulesVersion:string}}>>([])
+  const saveLock = useRef(false)
+  const creationKey = useRef<string>(crypto.randomUUID())
   const skipDefaults = useRef(false)
-  const currentKey = JSON.stringify({positions,profile,versions:draftVersions})
+  const currentKey = stableJson({positions,profile,versions:draftVersions})
   const dirty = savedKey !== currentKey
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -67,6 +78,19 @@ export default function JVOrderPage() {
     window.addEventListener('beforeunload', warn)
     return () => window.removeEventListener('beforeunload', warn)
   }, [dirty, positions.length])
+
+  useEffect(() => {
+    if (typeof document === 'undefined' || !dirty || !positions.length) return
+    const guard = (event: MouseEvent) => {
+      const anchor = (event.target as Element | null)?.closest('a[href]') as HTMLAnchorElement | null
+      if (!anchor || anchor.target === '_blank' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      const target = new URL(anchor.href, window.location.href)
+      if (target.origin === window.location.origin && target.pathname === window.location.pathname && target.search === window.location.search) return
+      if (!window.confirm('Есть несохранённые изменения. Покинуть редактор?')) { event.preventDefault(); event.stopPropagation() }
+    }
+    document.addEventListener('click', guard, true)
+    return () => document.removeEventListener('click', guard, true)
+  }, [dirty,positions.length])
 
   type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string}
   const past = useRef<Snapshot[]>([])
@@ -99,6 +123,7 @@ export default function JVOrderPage() {
   useEffect(()=>{
     if (typeof window === 'undefined') return
     const handler=(e:KeyboardEvent)=>{
+      if (restoring) return
       const target=e.target as HTMLElement|null
       if(target?.closest('input,textarea,select,[contenteditable="true"]'))return
       if(!(e.ctrlKey||e.metaKey)||e.altKey)return
@@ -120,10 +145,41 @@ export default function JVOrderPage() {
   }, [profile, allowed])
   useEffect(() => () => { generation.current++; activeRequest.current?.abort() }, [])
 
+  // Per-tab recovery protects edits that have not yet been acknowledged by the server.
+  useEffect(() => {
+    if (!allowed || !userId) return
+    const key=`jv-draft-recovery:${userId}`
+    try {
+      const stored=sessionStorage.getItem(key)
+      if (stored) {
+        const x=JSON.parse(stored) as {positions:DraftPosition[];profile:Profile;activeId:string;savedId:string|null;savedVersion:number;savedKey:string;versions:{uiSchemaVersion:string;rulesVersion:string}|null;creationKey:string;links:{contactId?:string;dealId?:string}}
+        if (Array.isArray(x.positions) && x.positions.length && window.confirm('Найдены неподтверждённые изменения этой вкладки. Восстановить их?')) {
+          skipDefaults.current=true;setPositions(x.positions);setProfile(x.profile);setActiveId(x.activeId);setSavedId(x.savedId);setSavedVersion(x.savedVersion);setSavedKey(x.savedKey);setDraftVersions(x.versions);setOrderLinks(x.links??{});creationKey.current=x.creationKey;setTab('form')
+        } else sessionStorage.removeItem(key)
+      }
+    } catch { setError('Не удалось восстановить локальную копию черновика.') }
+    setRecoveryReady(true)
+  }, [allowed,userId])
+  useEffect(() => {
+    if (!recoveryReady || !userId) return
+    const key=`jv-draft-recovery:${userId}`
+    try {
+      if (positions.length && (dirty || saving)) sessionStorage.setItem(key,JSON.stringify({positions,profile,activeId,savedId,savedVersion,savedKey,versions:draftVersions,creationKey:creationKey.current,links:orderLinks}))
+      else sessionStorage.removeItem(key)
+    } catch { setError('Локальная копия недоступна. Не закрывайте страницу до сохранения на сервере.') }
+  }, [recoveryReady,userId,currentKey,savedId,savedVersion,savedKey,saving,activeId,orderLinks])
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !recoveryReady || !allowed || !config || !positions.length || !dirty || saving || saveFailure) return
+    const timer = window.setTimeout(() => { void saveOrder() }, 1500)
+    return () => window.clearTimeout(timer)
+  }, [recoveryReady, allowed, config, currentKey, savedKey, saving, saveFailure])
+
   if (!allowed) return <div role="alert" className="rounded-lg border p-5">Раздел JV-заказов доступен владельцу и администратору.</div>
 
   async function refreshOrders() { try { setOrders((await api.get('/jv/orders')).data) } catch { setError('Не удалось загрузить список заказов.') } }
   async function openOrder(id:string) {
+    if(saveLock.current) { setError('Дождитесь завершения сохранения.'); return }
     if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Открыть другой заказ?')) return
     try {
       const {data}=await api.get(`/jv/orders/${id}`)
@@ -133,24 +189,50 @@ export default function JVOrderPage() {
       invalidate(); past.current=[];future.current=[];lastEdit.current=null
       skipDefaults.current=draft.profile!==profile
       setPositions(draft.positions);setProfile(draft.profile);setActiveId(draft.positions[0]?.id??'');setTab('list')
-      setSavedId(data.id);setSavedVersion(data.version);setSavedKey(JSON.stringify({positions:draft.positions,profile:draft.profile,versions:{uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion}}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
+      setSaveFailure(null);setSavedId(data.id);setSavedVersion(data.version);setSavedKey(stableJson({positions:draft.positions,profile:draft.profile,versions:{uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion}}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
       setRevisions((await api.get(`/jv/orders/${id}/revisions`)).data);redrawHistory(n=>n+1)
     } catch { setError('Не удалось открыть заказ.') }
   }
   async function saveOrder() {
-    if (!config || saving) return
-    setSaving(true);setSaveMessage('');setError('')
+    if (!config || saveLock.current || !positions.length || (!dirty && savedId)) return
+    saveLock.current=true;setSaving(true);setSaveMessage('');setError('')
     const snapshot={profile,uiSchemaVersion:draftVersions?.uiSchemaVersion??config.schemaVersion,rulesVersion:draftVersions?.rulesVersion??config.rulesVersion,positions:structuredClone(positions),...orderLinks}
     const versions={uiSchemaVersion:snapshot.uiSchemaVersion,rulesVersion:snapshot.rulesVersion}
-    const key=JSON.stringify({positions:snapshot.positions,profile:snapshot.profile,versions})
+    const key=stableJson({positions:snapshot.positions,profile:snapshot.profile,versions})
     try {
-      const {data}=savedId?await api.put(`/jv/orders/${savedId}`,{version:savedVersion,draft:snapshot}):await api.post('/jv/orders',snapshot)
-      setSavedId(data.id);setSavedVersion(data.version);setDraftVersions(versions);setSavedKey(key);setSaveMessage(`Заказ №${data.number} сохранён, версия ${data.version}.`);await refreshOrders()
+      const {data}=savedId?await api.put(`/jv/orders/${savedId}`,{version:savedVersion,draft:snapshot}):await api.post('/jv/orders',snapshot,{headers:{'Idempotency-Key':creationKey.current}})
+      const persisted=data.draft as typeof snapshot
+      const persistedVersions={uiSchemaVersion:persisted.uiSchemaVersion,rulesVersion:persisted.rulesVersion}
+      const persistedKey=stableJson({positions:persisted.positions,profile:persisted.profile,versions:persistedVersions})
+      setSaveFailure(null);setSavedId(data.id);setSavedVersion(data.version);setDraftVersions(versions);setSavedKey(persistedKey || key);setSaveMessage(`Заказ №${data.number} сохранён, версия ${data.version}.`);await refreshOrders()
       setRevisions((await api.get(`/jv/orders/${data.id}/revisions`)).data)
-    } catch(e) { setError(axios.isAxiosError(e)&&e.response?.status===409?'Конфликт версий: заказ изменён в другой вкладке. Введённые данные сохранены на экране.':'Не удалось сохранить заказ. Повторите попытку; введённые данные сохранены на экране.') }
-    finally {setSaving(false)}
+    } catch(e) { const conflict=axios.isAxiosError(e)&&e.response?.status===409;setSaveFailure(conflict?'conflict':'network');setError(conflict?'Заказ изменён в другой вкладке. Локальные изменения остаются на экране.':'Ошибка сохранения. Введённые данные остаются на экране.') }
+    finally {saveLock.current=false;setSaving(false)}
   }
-  function newOrder() { if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);setDraftVersions(null);setOrderLinks({});setSavedKey('');setRevisions([]);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
+  function newOrder() { if(saveLock.current){setError('Дождитесь завершения сохранения.');return} if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null);setDraftVersions(null);setOrderLinks({});setSavedKey('');setRevisions([]);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
+
+  async function refreshTemplates() { try { setTemplates((await api.get('/jv/templates')).data) } catch { setError('Не удалось загрузить шаблоны.') } }
+  async function createTemplate() {
+    if (!config || !activeId) return
+    const name=window.prompt('Название шаблона'); if (!name?.trim()) return
+    const chosen=positions.some(p=>p.configurationId)?positions:positions.filter(p=>p.id===activeId)
+    try { await api.post('/jv/templates',{name:name.trim(),draft:{profile,uiSchemaVersion:draftVersions?.uiSchemaVersion??config.schemaVersion,rulesVersion:draftVersions?.rulesVersion??config.rulesVersion,positions:chosen}});await refreshTemplates() } catch { setError('Не удалось сохранить шаблон.') }
+  }
+  function applyTemplate(t:typeof templates[number]) {
+    if (t.draft.positions.length===1 && (t.draft.profile!==profile || t.draft.uiSchemaVersion!==(draftVersions?.uiSchemaVersion??config?.schemaVersion) || t.draft.rulesVersion!==(draftVersions?.rulesVersion??config?.rulesVersion))) { setError('Профиль или версии шаблона отличаются от текущего заказа.'); return }
+    if (t.draft.positions.length>1) {
+      if (positions.length) { setError('Шаблон Front с дверью можно применить только к пустому заказу.'); return }
+      remember();invalidate();const items=t.draft.positions.map(p=>({...structuredClone(p),id:crypto.randomUUID()}));setPositions(items);setActiveId(items[0]?.id??'');setDraftVersions({uiSchemaVersion:t.draft.uiSchemaVersion,rulesVersion:t.draft.rulesVersion});skipDefaults.current=t.draft.profile!==profile;setProfile(t.draft.profile);setTab('form')
+    } else { if(positions.length>=7 || positions.some(p=>p.configurationId)){setError('Нет свободного слота для шаблона.');return} add(t.draft.positions[0]) }
+  }
+  async function restoreRevision(version:number) {
+    if(!savedId||saveLock.current)return
+    if(!window.confirm(`Восстановить версию ${version}? Текущие несохранённые изменения будут потеряны, а восстановление создаст новую версию.`))return
+    saveLock.current=true;setSaving(true);setRestoring(true)
+    try { const {data}=await api.post(`/jv/orders/${savedId}/revisions/${version}/restore`,{version:savedVersion});const d=data.draft;invalidate();past.current=[];future.current=[];lastEdit.current=null;skipDefaults.current=d.profile!==profile;setOrderLinks({...(d.contactId?{contactId:d.contactId}:{}),...(d.dealId?{dealId:d.dealId}:{})});setPositions(d.positions);setProfile(d.profile);setActiveId(d.positions[0]?.id??'');setDraftVersions({uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion});setSavedVersion(data.version);setSavedKey(stableJson({positions:d.positions,profile:d.profile,versions:{uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion}}));setSaveFailure(null);setSaveMessage('Версия восстановлена. Выполните расчёт заново.');setRevisions((await api.get(`/jv/orders/${savedId}/revisions`)).data) }
+    catch(e){setSaveFailure(axios.isAxiosError(e)&&e.response?.status===409?'conflict':'network');setError('Не удалось восстановить версию; проверьте конфликт изменений.')}
+    finally{saveLock.current=false;setSaving(false);setRestoring(false)}
+  }
 
   function add(copy?: DraftPosition) {
     if (!config) return
@@ -207,14 +289,18 @@ export default function JVOrderPage() {
     } finally { if (generation.current === requestGeneration) { activeRequest.current = null; setLoading(false) } }
   }
 
-  return <div className="mx-auto max-w-[1600px] space-y-5 pb-8">
+  return <fieldset disabled={restoring}><div className="mx-auto max-w-[1600px] space-y-5 pb-8">
     <nav aria-label="Разделы рабочего пространства" className="flex gap-2 md:hidden">{(['list','form','result'] as const).map((t,i)=><button key={t} onClick={()=>setTab(t)} aria-pressed={tab===t} className="rounded border px-3 py-2">{['Конструкции','Параметры','Результат'][i]}</button>)}</nav>
     <div className="flex gap-2"><Button variant="outline" disabled={!past.current.length} onClick={()=>restore('undo')}>Отменить</Button><Button variant="outline" disabled={!future.current.length} onClick={()=>restore('redo')}>Повторить</Button></div>
-    <header><h1 className="text-2xl font-semibold">Новый JV-заказ</h1><p className="mt-1 text-sm text-muted-foreground">{dirty ? 'Есть несохранённые изменения' : 'Изменения сохранены'}</p></header>
+    <header><h1 className="text-2xl font-semibold">Новый JV-заказ</h1><p className="mt-1 text-sm text-muted-foreground">{saving ? 'Сохранение…' : saveFailure ? 'Ошибка сохранения' : dirty && positions.length ? 'Есть изменения' : 'Сохранено'}</p></header>
     <div className="flex flex-wrap gap-2"><Button onClick={saveOrder} disabled={!config || saving}>{saving?'Сохранение…':'Сохранить заказ'}</Button><Button variant="outline" onClick={newOrder}>Новый заказ</Button><Button variant="outline" onClick={refreshOrders}>Список заказов</Button></div>
     {saveMessage && <p role="status">{saveMessage}</p>}
+    {saveFailure && <div className="rounded border p-3"><p>Локальные изменения сохраняются на экране. При открытии серверной версии они будут потеряны.</p>{saveFailure==='conflict' && savedId && <><Button variant="outline" onClick={()=>void openOrder(savedId)}>Открыть серверную версию</Button><Button variant="outline" onClick={()=>{if(!window.confirm('Сохранить изменения как отдельный новый заказ?'))return;setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null)}}>Сохранить отдельно</Button></>}{saveFailure==='network' && <Button variant="outline" onClick={()=>setSaveFailure(null)}>Повторить сохранение</Button>}</div>}
+    {draftVersions && <p>Версии заказа: UI {draftVersions.uiSchemaVersion}, правила {draftVersions.rulesVersion}.{config && (draftVersions.uiSchemaVersion!==config.schemaVersion || draftVersions.rulesVersion!==config.rulesVersion) && ' Возможна несовместимость с текущими правилами; проверьте входные данные.'}</p>}
+    <div className="flex flex-wrap gap-2"><Button variant="outline" onClick={()=>void refreshTemplates()}>Шаблоны</Button><Button variant="outline" disabled={!activeId} onClick={()=>void createTemplate()}>Сохранить конструкцию как шаблон</Button></div>
+    {templates.map(t=><div key={t.id} className="flex flex-wrap gap-2"><span>{t.name}</span><Button variant="outline" onClick={()=>applyTemplate(t)}>Применить</Button><Button variant="outline" onClick={async()=>{const name=window.prompt('Новое название',t.name);if(name?.trim()){await api.patch(`/jv/templates/${t.id}`,{name:name.trim()});await refreshTemplates()}}}>Переименовать</Button><Button variant="outline" onClick={async()=>{if(window.confirm('Удалить шаблон?')){await api.delete(`/jv/templates/${t.id}`);await refreshTemplates()}}}>Удалить шаблон</Button></div>)}
     {orders.length>0 && <section className="rounded border p-3"><h2 className="font-semibold">Сохранённые заказы</h2>{orders.map(o=><button key={o.id} className="block text-primary underline" onClick={()=>openOrder(o.id)}>Заказ №{o.number} · версия {o.version} · {o.profile}</button>)}</section>}
-    {revisions.length>0 && <details className="rounded border p-3"><summary>История версий</summary>{revisions.map(r=><details key={r.version}><summary>Версия {r.version} · {new Date(r.createdAt).toLocaleString()} · {r.authorId}</summary><pre className="overflow-auto text-xs">{JSON.stringify(r.snapshot,null,2)}</pre></details>)}</details>}
+    {revisions.length>0 && <details className="rounded border p-3"><summary>История версий</summary>{revisions.map(r=><details key={r.version}><summary>Версия {r.version} · {new Date(r.createdAt).toLocaleString()} · {r.authorId}</summary><pre className="overflow-auto text-xs">{JSON.stringify(r.snapshot,null,2)}</pre><Button variant="outline" disabled={saving} onClick={()=>void restoreRevision(r.version)}>Восстановить эту версию</Button></details>)}</details>}
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
     <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { remember(); invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>
     <div className="flex items-center justify-between gap-3"><h2 className="text-lg font-medium">Конструкции ({positions.length}/7)</h2><Button onClick={() => add()} disabled={!config || positions.length >= 7 || positions.some(p=>p.configurationId)}>Добавить конструкцию</Button></div>
@@ -233,7 +319,7 @@ export default function JVOrderPage() {
     </div>
     {result && <div id="jv-details" className={`min-w-0 ${tab==='result'?'':'hidden'} md:block`}><JVResultView result={result} inputs={positions}/></div>}
     {error && <p role="alert" className="rounded border border-destructive/40 p-3 text-sm text-destructive">{error}</p>}
-  </div>
+  </div></fieldset>
 }
 
 function PositionForm({p,index,positions,config,update,updateField,move,add,remove}: {p:DraftPosition;index:number;positions:DraftPosition[];config:JvUiConfig|null;update:(id:string,change:Partial<Pick<DraftPosition,'slot'|'family'|'quantity'|'inputs'>>)=>void;updateField:(id:string,path:string,value:JvUiValue)=>void;move:(index:number,delta:number)=>void;add:(p?:DraftPosition)=>void;remove:(id:string)=>void}) {

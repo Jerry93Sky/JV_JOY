@@ -671,6 +671,7 @@ model JvOrder {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   authorId String
+  creationKey String?
   version Int @default(1)
   status String @default("DRAFT")
   profile String
@@ -680,6 +681,7 @@ model JvOrder {
   dealId String?
   draft Json
   revisions JvOrderRevision[]
+  @@unique([authorId, creationKey])
 }
 
 model JvOrderRevision {
@@ -692,4 +694,13 @@ model JvOrderRevision {
   order JvOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
   @@unique([orderId, version])
   @@index([orderId, createdAt])
+}
+
+model JvTemplate {
+  id String @id @default(cuid())
+  name String
+  authorId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  draft Json
 }
