@@ -117,6 +117,25 @@ export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
   if(digest!==proposal.contentSha256)return reply.status(409).send({error:{code:'PROPOSAL_INTEGRITY_FAILED'}})
   reply.header('Cache-Control','no-store');return proposal
  })
+ // Terms create a new immutable draft; prices always come from its verified predecessor.
+ app.post<{Params:{id:string;proposalId:string};Body:unknown}>('/orders/:id/proposal-drafts/:proposalId/revise',{preHandler:guard,bodyLimit:16384},async(req,reply)=>{
+  if(!req.body||typeof req.body!=='object'||Array.isArray(req.body)||Object.keys(req.body).some(k=>k!=='terms'))return reply.status(400).send({error:{code:'INVALID_REQUEST'}})
+  const terms=(req.body as {terms?:unknown}).terms
+  if(!terms||typeof terms!=='object'||Array.isArray(terms))return reply.status(400).send({error:{code:'INVALID_TERMS'}})
+  const raw=terms as Record<string,unknown>,keys=['recipient','requisites','payment','timeframe','delivery']
+  if(Object.keys(raw).some(k=>!keys.includes(k))||keys.some(k=>typeof raw[k]!=='string'||!(raw[k] as string).trim()||(raw[k] as string).length>2000))return reply.status(400).send({error:{code:'INVALID_TERMS',message:'Заполните все поля условий'}})
+  const clean=Object.fromEntries(keys.map(k=>[k,(raw[k] as string).trim()]))
+  const original=await prisma.jvProposalDraft.findFirst({where:{id:req.params.proposalId,orderId:req.params.id},include:{snapshot:true}})
+  if(!original)return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  const digest=createHash('sha256').update(stableJson({formatVersion:original.formatVersion,orderId:original.orderId,snapshotId:original.snapshotId,payload:original.payload})).digest('hex')
+  if(digest!==original.contentSha256)return reply.status(409).send({error:{code:'PROPOSAL_INTEGRITY_FAILED'}})
+  const snap=original.snapshot,snapshotDigest=createHash('sha256').update(stableJson({formatVersion:snap.formatVersion,orderId:snap.orderId,orderVersion:snap.orderVersion,input:snap.input,result:snap.result})).digest('hex')
+  if(snapshotDigest!==snap.contentSha256)return reply.status(409).send({error:{code:'SNAPSHOT_INTEGRITY_FAILED'}})
+  if(!original.payload||typeof original.payload!=='object'||Array.isArray(original.payload))return reply.status(422).send({error:{code:'INVALID_PROPOSAL'}})
+  const payload={...original.payload,terms:clean,previousDraftId:original.id},formatVersion='JV-PROPOSAL-DRAFT-1'
+  const contentSha256=createHash('sha256').update(stableJson({formatVersion,orderId:original.orderId,snapshotId:original.snapshotId,payload})).digest('hex')
+  return reply.status(201).send(await prisma.jvProposalDraft.create({data:{orderId:original.orderId,snapshotId:original.snapshotId,authorId:(req.user as {id:string}).id,formatVersion,payload:payload as Prisma.InputJsonValue,contentSha256}}))
+ })
  app.get('/templates',{preHandler:guard},()=>prisma.jvTemplate.findMany({orderBy:{updatedAt:'desc'},take:200}))
  app.post<{Body:{name?:unknown;draft?:unknown}}>('/templates',{preHandler:guard,bodyLimit:262144},async(req,reply)=>{
   const name=typeof req.body?.name==='string'?req.body.name.trim():'';const d=validate(req.body?.draft)

@@ -4,6 +4,7 @@ import api from '@/api/client'
 import { type UnifiedFamily } from '@bms/shared/jv'
 import JVResultView from './JVResultView'
 import { exact } from './jvResultAdapter'
+import { displayProposalMoney } from './proposalMoney'
 import { calculateJvPreview, canCalculateJv, getJvUiConfig, type JvPreviewResponse, type JvUiConfig, type JvUiValue } from '@/api/jv'
 import { useAuthStore } from '@/store/authStore'
 import { Button } from '@/components/ui/button'
@@ -17,6 +18,9 @@ const families: { value: UnifiedFamily; label: string }[] = [
 ]
 type DraftPosition = { id: string; family: UnifiedFamily; slot: number; quantity: string; inputs: Record<string, JvUiValue>; configurationId?: string }
 type Profile = 'COMPLETATION' | 'RETAIL'
+type ProposalTerms = {recipient:string;requisites:string;payment:string;timeframe:string;delivery:string}
+const emptyTerms:ProposalTerms={recipient:'',requisites:'',payment:'',timeframe:'',delivery:''}
+type ProposalDetail = {id:string;number:number;payload:{orderNumber:number;orderVersion:number;profile:string;totalSalePrice:unknown;terms?:ProposalTerms;positions:Array<{id:string;family:string;slot:number;quantity:unknown;confirmedUnitAmount?:unknown}>}}
 function stableJson(value: unknown): string {
   const normalize = (v: unknown): unknown => Array.isArray(v) ? v.map(normalize) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,x])=>[k,normalize(x)])) : v
   return JSON.stringify(normalize(value))
@@ -66,7 +70,9 @@ export default function JVOrderPage() {
   const [captureDetail,setCaptureDetail]=useState<unknown>(null)
   const [capturing,setCapturing]=useState(false)
   const [proposals,setProposals]=useState<Array<{id:string;number:number;createdAt:string}>>([])
-  const [proposalDetail,setProposalDetail]=useState<{number:number;payload:{orderNumber:number;orderVersion:number;profile:string;totalSalePrice:unknown;positions:Array<{id:string;family:string;slot:number;quantity:unknown;confirmedUnitAmount?:unknown}>}}|null>(null)
+  const [proposalDetail,setProposalDetail]=useState<ProposalDetail|null>(null)
+  const [proposalTerms,setProposalTerms]=useState<ProposalTerms>(emptyTerms)
+  const [savingTerms,setSavingTerms]=useState(false)
   const [saving, setSaving] = useState(false)
   const [restoring, setRestoring] = useState(false)
   const [recoveryReady, setRecoveryReady] = useState(false)
@@ -77,15 +83,16 @@ export default function JVOrderPage() {
   const skipDefaults = useRef(false)
   const currentKey = stableJson({positions,profile,versions:draftVersions})
   const dirty = savedKey !== currentKey
+  const termsDirty=!!proposalDetail && stableJson(proposalTerms)!==stableJson(proposalDetail.payload.terms??emptyTerms)
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const warn = (event: BeforeUnloadEvent) => { if (dirty && positions.length) { event.preventDefault(); event.returnValue = '' } }
+    const warn = (event: BeforeUnloadEvent) => { if ((dirty && positions.length) || termsDirty) { event.preventDefault(); event.returnValue = '' } }
     window.addEventListener('beforeunload', warn)
     return () => window.removeEventListener('beforeunload', warn)
-  }, [dirty, positions.length])
+  }, [dirty, positions.length, termsDirty])
 
   useEffect(() => {
-    if (typeof document === 'undefined' || !dirty || !positions.length) return
+    if (typeof document === 'undefined' || (!(dirty && positions.length) && !termsDirty)) return
     const guard = (event: MouseEvent) => {
       const anchor = (event.target as Element | null)?.closest('a[href]') as HTMLAnchorElement | null
       if (!anchor || anchor.target === '_blank' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
@@ -95,7 +102,7 @@ export default function JVOrderPage() {
     }
     document.addEventListener('click', guard, true)
     return () => document.removeEventListener('click', guard, true)
-  }, [dirty,positions.length])
+  }, [dirty,positions.length,termsDirty])
 
   type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string}
   const past = useRef<Snapshot[]>([])
@@ -184,8 +191,8 @@ export default function JVOrderPage() {
 
   async function refreshOrders() { try { setOrders((await api.get('/jv/orders')).data) } catch { setError('Не удалось загрузить список заказов.') } }
   async function openOrder(id:string) {
-    if(saveLock.current) { setError('Дождитесь завершения сохранения.'); return }
-    if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Открыть другой заказ?')) return
+    if(saveLock.current || savingTerms) { setError('Дождитесь завершения сохранения.'); return }
+    if(((dirty && positions.length)||termsDirty) && !window.confirm('Есть несохранённые изменения. Открыть другой заказ?')) return
     try {
       const {data}=await api.get(`/jv/orders/${id}`)
       const draft=data.draft as {positions:DraftPosition[];profile:Profile;uiSchemaVersion:string;rulesVersion:string;contactId?:string;dealId?:string}
@@ -214,7 +221,7 @@ export default function JVOrderPage() {
     } catch(e) { const conflict=axios.isAxiosError(e)&&e.response?.status===409;setSaveFailure(conflict?'conflict':'network');setError(conflict?'Заказ изменён в другой вкладке. Локальные изменения остаются на экране.':'Ошибка сохранения. Введённые данные остаются на экране.') }
     finally {saveLock.current=false;setSaving(false)}
   }
-  function newOrder() { if(saveLock.current){setError('Дождитесь завершения сохранения.');return} if(dirty && positions.length && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null);setDraftVersions(null);setOrderLinks({});setSavedKey('');setRevisions([]);setCaptures([]);setCaptureDetail(null);setProposals([]);setProposalDetail(null);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
+  function newOrder() { if(saveLock.current||savingTerms){setError('Дождитесь завершения сохранения.');return} if(((dirty && positions.length)||termsDirty) && !window.confirm('Есть несохранённые изменения. Создать новый заказ?')) return; invalidate();past.current=[];future.current=[];lastEdit.current=null;setPositions([]);setActiveId('');setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null);setDraftVersions(null);setOrderLinks({});setSavedKey('');setRevisions([]);setCaptures([]);setCaptureDetail(null);setProposals([]);setProposalDetail(null);setSaveMessage('');setTab('list');redrawHistory(n=>n+1) }
 
   async function loadCaptures() { if(!savedId)return;try{setCaptures((await api.get(`/jv/orders/${savedId}/calculation-snapshots`)).data)}catch{setError('Не удалось загрузить снимки расчётов.')} }
   async function captureCalculation() {
@@ -225,7 +232,9 @@ export default function JVOrderPage() {
     finally{setCapturing(false)}
   }
   async function loadProposals() {if(!savedId)return;try{setProposals((await api.get(`/jv/orders/${savedId}/proposal-drafts`)).data)}catch{setError('Не удалось загрузить черновики КП.')}}
-  async function createProposal(snapshotId:string) {if(!savedId)return;try{const {data}=await api.post(`/jv/orders/${savedId}/proposal-drafts`,{snapshotId});setProposalDetail(data);await loadProposals()}catch{setError('Не удалось создать черновик КП из снимка.')}}
+  function selectProposal(data:ProposalDetail) {setProposalDetail(data);setProposalTerms(data.payload.terms??emptyTerms)}
+  async function createProposal(snapshotId:string) {if(!savedId||savingTerms)return;if(termsDirty&&!window.confirm('Несохранённые условия КП будут потеряны. Продолжить?'))return;try{const {data}=await api.post(`/jv/orders/${savedId}/proposal-drafts`,{snapshotId});selectProposal(data);await loadProposals()}catch{setError('Не удалось создать черновик КП из снимка.')}}
+  async function reviseProposal() {if(!savedId||!proposalDetail||savingTerms)return;setSavingTerms(true);try{const {data}=await api.post(`/jv/orders/${savedId}/proposal-drafts/${proposalDetail.id}/revise`,{terms:proposalTerms});selectProposal(data);await loadProposals();setSaveMessage('Создан новый черновик КП. Предыдущий сохранён.')}catch(e){const code=axios.isAxiosError(e)?e.response?.data?.error?.code:undefined;setError(code==='INVALID_TERMS'?'Заполните все пять полей условий КП.':'Не удалось сохранить условия КП; введённый текст сохранён на экране.')}finally{setSavingTerms(false)}}
   async function refreshTemplates() { try { setTemplates((await api.get('/jv/templates')).data) } catch { setError('Не удалось загрузить шаблоны.') } }
   async function createTemplate() {
     if (!config || !activeId) return
@@ -316,7 +325,7 @@ export default function JVOrderPage() {
     {templates.map(t=><div key={t.id} className="flex flex-wrap gap-2"><span>{t.name}</span><Button variant="outline" onClick={()=>applyTemplate(t)}>Применить</Button><Button variant="outline" onClick={async()=>{const name=window.prompt('Новое название',t.name);if(name?.trim()){await api.patch(`/jv/templates/${t.id}`,{name:name.trim()});await refreshTemplates()}}}>Переименовать</Button><Button variant="outline" onClick={async()=>{if(window.confirm('Удалить шаблон?')){await api.delete(`/jv/templates/${t.id}`);await refreshTemplates()}}}>Удалить шаблон</Button></div>)}
     {orders.length>0 && <section className="rounded border p-3"><h2 className="font-semibold">Сохранённые заказы</h2>{orders.map(o=><button key={o.id} className="block text-primary underline" onClick={()=>openOrder(o.id)}>Заказ №{o.number} · версия {o.version} · {o.profile}</button>)}</section>}
     {savedId && <section className="rounded border p-3"><h2 className="font-semibold">Снимки расчёта</h2><p className="text-sm">Сервер рассчитывает сохранённую версию заново. Снимок не является выпущенным коммерческим документом.</p><div className="flex gap-2"><Button variant="outline" disabled={dirty||saving||capturing} onClick={()=>void captureCalculation()}>{capturing?'Сохранение…':'Зафиксировать расчёт'}</Button><Button variant="outline" onClick={()=>void loadCaptures()}>Обновить список</Button></div>{captures.map(x=><div key={x.id} className="flex flex-wrap gap-2"><button className="text-left text-primary underline" onClick={async()=>{try{setCaptureDetail((await api.get(`/jv/orders/${savedId}/calculation-snapshots/${x.id}`)).data)}catch{setError('Не удалось открыть снимок.')}}}>Версия заказа {x.orderVersion} · {new Date(x.createdAt).toLocaleString()} · {x.contentSha256.slice(0,12)}</button><Button variant="outline" onClick={()=>void createProposal(x.id)}>Создать черновик КП</Button></div>)}{captureDetail!==null && <details><summary>Данные выбранного снимка</summary><pre className="max-h-96 overflow-auto text-xs">{JSON.stringify(captureDetail,null,2)}</pre></details>}</section>}
-    {savedId && <section className="space-y-2 rounded border p-3"><h2 className="font-semibold">Коммерческие предложения</h2><p className="text-sm">Черновики: реквизиты, налоги, сроки, согласование и выпуск пока не настроены.</p><Button variant="outline" onClick={()=>void loadProposals()}>Список черновиков КП</Button>{proposals.map(p=><button key={p.id} className="block text-primary underline" onClick={async()=>{try{setProposalDetail((await api.get(`/jv/orders/${savedId}/proposal-drafts/${p.id}`)).data)}catch{setError('Не удалось открыть черновик КП.')}}}>Черновик КП №{p.number} · {new Date(p.createdAt).toLocaleString()}</button>)}{proposalDetail && <article className="space-y-2 rounded border bg-background p-4"><h3 className="font-semibold">Черновик коммерческого предложения №{proposalDetail.number}</h3><p>Заказ №{proposalDetail.payload.orderNumber} · версия {proposalDetail.payload.orderVersion} · {proposalDetail.payload.profile==='RETAIL'?'Розница':'Комплектация'}</p><ul>{proposalDetail.payload.positions.map(p=><li key={p.id}>{p.family} · слот {p.slot} · количество {exact(p.quantity)} · стоимость за единицу {exact(p.confirmedUnitAmount)} ₽</li>)}</ul><p className="font-semibold">Итого: {exact(proposalDetail.payload.totalSalePrice)} ₽</p><p className="text-sm text-muted-foreground">Черновик не утверждён и не является выпущенным документом.</p></article>}</section>}
+    {savedId && <section className="space-y-2 rounded border p-3"><h2 className="font-semibold">Коммерческие предложения</h2><p className="text-sm">Условия вводятся вручную; налоги, согласование и выпуск пока не настроены.</p><Button variant="outline" onClick={()=>void loadProposals()}>Список черновиков КП</Button>{proposals.map(p=><button disabled={savingTerms} key={p.id} className="block text-primary underline" onClick={async()=>{try{(termsDirty&&!window.confirm('Несохранённые условия КП будут потеряны. Продолжить?'))?undefined:selectProposal((await api.get(`/jv/orders/${savedId}/proposal-drafts/${p.id}`)).data)}catch{setError('Не удалось открыть черновик КП.')}}}>Черновик КП №{p.number} · {new Date(p.createdAt).toLocaleString()}</button>)}{proposalDetail && <article className="space-y-2 rounded border bg-background p-4"><h3 className="font-semibold">Черновик коммерческого предложения №{proposalDetail.number}</h3><p>Заказ №{proposalDetail.payload.orderNumber} · версия {proposalDetail.payload.orderVersion} · {proposalDetail.payload.profile==='RETAIL'?'Розница':'Комплектация'}</p><ul>{proposalDetail.payload.positions.map(p=><li key={p.id}>{p.family} · слот {p.slot} · количество {exact(p.quantity)} · стоимость за единицу {displayProposalMoney(p.confirmedUnitAmount)?.text ?? 'нет данных'} ₽{displayProposalMoney(p.confirmedUnitAmount)?.rounded && ' (округлено)'}</li>)}</ul><p className="font-semibold">Итого: {displayProposalMoney(proposalDetail.payload.totalSalePrice)?.text ?? 'нет данных'} ₽{displayProposalMoney(proposalDetail.payload.totalSalePrice)?.rounded && ' (округлено)'}</p><details><summary>Точное значение итога</summary><p>{exact(proposalDetail.payload.totalSalePrice)} ₽</p></details><div className="grid gap-3 md:grid-cols-2">{([['recipient','Получатель'],['requisites','Реквизиты'],['payment','Условия оплаты'],['timeframe','Сроки'],['delivery','Условия доставки']] as const).map(([key,label])=><label className="block text-sm" key={key}><span className="block">{label}</span><textarea aria-label={label} disabled={savingTerms} className="min-h-20 w-full rounded border bg-background p-2" maxLength={2000} value={proposalTerms[key]} onChange={e=>setProposalTerms(old=>({...old,[key]:e.target.value}))}/></label>)}</div><Button variant="outline" disabled={savingTerms||!termsDirty} onClick={()=>void reviseProposal()}>{savingTerms?'Сохранение…':'Сохранить условия новой версией'}</Button><p className="text-sm text-muted-foreground">Предыдущий черновик останется доступен. Все пять полей обязательны для сохранения условий.</p><p className="text-sm text-muted-foreground">Черновик не утверждён и не является выпущенным документом.</p></article>}</section>}
     {revisions.length>0 && <details className="rounded border p-3"><summary>История версий</summary>{revisions.map(r=><details key={r.version}><summary>Версия {r.version} · {new Date(r.createdAt).toLocaleString()} · {r.authorId}</summary><pre className="overflow-auto text-xs">{JSON.stringify(r.snapshot,null,2)}</pre><Button variant="outline" disabled={saving} onClick={()=>void restoreRevision(r.version)}>Восстановить эту версию</Button></details>)}</details>}
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
     <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { remember(); invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>
