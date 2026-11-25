@@ -1,7 +1,8 @@
 import type { UnifiedFamily } from '@bms/shared'
 
 /** Only construction choices, dimensions and work switches are accepted from the UI. */
-export const JV_UI_SCHEMA_VERSION = 'JV-UI-INPUTS-2'
+export const JV_UI_SCHEMA_VERSION = 'JV-UI-INPUTS-3'
+export const JV_UI_PREVIOUS_SCHEMA_VERSION = 'JV-UI-INPUTS-2'
 export const JV_UI_LEGACY_SCHEMA_VERSION = 'JV-UI-INPUTS-1'
 const line = ['commercialModeIndex','glassSelectionIndex','finishSelectionIndex','widthMm','heightMm','leaves','sideCount','direction','profileCount','connectorAngle','frameState','knobState','latchState','weatherSealState','floorLockState','bottomPivotState','specialSashEnabled','specialSashWidthMm','rollerAxisToEdgeMm','parkedDoorSelected','parkedDoorPosition','parkedDoorReuseOpening','parkedDoorWidthMm'].map(x => `input.${x}`)
 const zigzag = ['widthMm','heightMm','leafSelector','openingSelector'].map(x => `position.geometry.${x}`).concat(['c8','F28','glassTypeSelector','N40','N41'].map(x => `position.commercial.${x}`))

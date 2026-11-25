@@ -99,6 +99,9 @@ export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
   if(!snapshot)return reply.status(404).send({error:{code:'NOT_FOUND'}})
   const digest=createHash('sha256').update(stableJson({formatVersion:snapshot.formatVersion,orderId:snapshot.orderId,orderVersion:snapshot.orderVersion,input:snapshot.input,result:snapshot.result})).digest('hex')
   if(digest!==snapshot.contentSha256)return reply.status(409).send({error:{code:'SNAPSHOT_INTEGRITY_FAILED'}})
+  const sourceDraft=validate(snapshot.input)
+  if(!sourceDraft)return reply.status(422).send({error:{code:'INVALID_DRAFT'}})
+  if(sourceDraft.profile==='COMPLETATION' && sourceDraft.uiSchemaVersion!=='JV-UI-INPUTS-3')return reply.status(409).send({error:{code:'HISTORICAL_GLASS_POLICY',message:'Снимок использует прежние настройки включения стекла'}})
   const dto=createResultDto(snapshot.result) as unknown as {status:string;profile:string;versions:unknown;calculation:{status:string;totalSalePrice?:unknown;positions:Array<{id:string;slot:number;family:string;quantity:unknown;confirmedUnitAmount?:unknown}>}}
   if(dto.status!=='COMPLETE'||dto.calculation.status!=='COMPLETE'||!dto.calculation.totalSalePrice)return reply.status(422).send({error:{code:'PARTIAL_CALCULATION'}})
   const payload={kind:'JV_PROPOSAL_DRAFT',orderNumber:snapshot.order.number,orderVersion:snapshot.orderVersion,profile:dto.profile,versions:dto.versions,positions:dto.calculation.positions.map(p=>({id:p.id,slot:p.slot,family:p.family,quantity:p.quantity,confirmedUnitAmount:p.confirmedUnitAmount})),totalSalePrice:dto.calculation.totalSalePrice,snapshotSha256:snapshot.contentSha256}
@@ -131,6 +134,9 @@ export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
   if(digest!==original.contentSha256)return reply.status(409).send({error:{code:'PROPOSAL_INTEGRITY_FAILED'}})
   const snap=original.snapshot,snapshotDigest=createHash('sha256').update(stableJson({formatVersion:snap.formatVersion,orderId:snap.orderId,orderVersion:snap.orderVersion,input:snap.input,result:snap.result})).digest('hex')
   if(snapshotDigest!==snap.contentSha256)return reply.status(409).send({error:{code:'SNAPSHOT_INTEGRITY_FAILED'}})
+  const sourceDraft=validate(snap.input)
+  if(!sourceDraft)return reply.status(422).send({error:{code:'INVALID_DRAFT'}})
+  if(sourceDraft.profile==='COMPLETATION' && sourceDraft.uiSchemaVersion!=='JV-UI-INPUTS-3')return reply.status(409).send({error:{code:'HISTORICAL_GLASS_POLICY',message:'Снимок использует прежние настройки включения стекла'}})
   if(!original.payload||typeof original.payload!=='object'||Array.isArray(original.payload))return reply.status(422).send({error:{code:'INVALID_PROPOSAL'}})
   const payload={...original.payload,terms:clean,previousDraftId:original.id},formatVersion='JV-PROPOSAL-DRAFT-1'
   const contentSha256=createHash('sha256').update(stableJson({formatVersion,orderId:original.orderId,snapshotId:original.snapshotId,payload})).digest('hex')
