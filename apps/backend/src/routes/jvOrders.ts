@@ -1,6 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import { createHash } from 'node:crypto'
 import { calculateJvPreview, JvRequestError, serializeJvResult } from '../domain/jv/jvCalculationService'
+import { createResultDto } from '../domain/jv/jvResultDto'
 import { Prisma } from '@prisma/client'
 import { Role } from '@bms/shared'
 import { prisma } from '../lib/prisma'
@@ -90,6 +91,31 @@ export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
   const digest=createHash('sha256').update(stableJson({formatVersion:snapshot.formatVersion,orderId:snapshot.orderId,orderVersion:snapshot.orderVersion,input:snapshot.input,result:snapshot.result})).digest('hex')
   if(digest!==snapshot.contentSha256)return reply.status(409).send({error:{code:'SNAPSHOT_INTEGRITY_FAILED',message:'Содержимое снимка повреждено'}})
   reply.header('Cache-Control','no-store');return snapshot
+ })
+ // Proposal drafts contain server-derived, frozen values and are not issued documents.
+ app.post<{Params:{id:string};Body:{snapshotId?:unknown}}>('/orders/:id/proposal-drafts',{preHandler:guard},async(req,reply)=>{
+  if(!req.body||typeof req.body!=='object'||Array.isArray(req.body)||Object.keys(req.body).some(k=>k!=='snapshotId')||typeof req.body.snapshotId!=='string'||!req.body.snapshotId||req.body.snapshotId.length>100)return reply.status(400).send({error:{code:'INVALID_REQUEST'}})
+  const snapshot=await prisma.jvCalculationSnapshot.findFirst({where:{id:req.body.snapshotId,orderId:req.params.id},include:{order:{select:{number:true}}}})
+  if(!snapshot)return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  const digest=createHash('sha256').update(stableJson({formatVersion:snapshot.formatVersion,orderId:snapshot.orderId,orderVersion:snapshot.orderVersion,input:snapshot.input,result:snapshot.result})).digest('hex')
+  if(digest!==snapshot.contentSha256)return reply.status(409).send({error:{code:'SNAPSHOT_INTEGRITY_FAILED'}})
+  const dto=createResultDto(snapshot.result) as unknown as {status:string;profile:string;versions:unknown;calculation:{status:string;totalSalePrice?:unknown;positions:Array<{id:string;slot:number;family:string;quantity:unknown;confirmedUnitAmount?:unknown}>}}
+  if(dto.status!=='COMPLETE'||dto.calculation.status!=='COMPLETE'||!dto.calculation.totalSalePrice)return reply.status(422).send({error:{code:'PARTIAL_CALCULATION'}})
+  const payload={kind:'JV_PROPOSAL_DRAFT',orderNumber:snapshot.order.number,orderVersion:snapshot.orderVersion,profile:dto.profile,versions:dto.versions,positions:dto.calculation.positions.map(p=>({id:p.id,slot:p.slot,family:p.family,quantity:p.quantity,confirmedUnitAmount:p.confirmedUnitAmount})),totalSalePrice:dto.calculation.totalSalePrice,snapshotSha256:snapshot.contentSha256}
+  const formatVersion='JV-PROPOSAL-DRAFT-1';const contentSha256=createHash('sha256').update(stableJson({formatVersion,orderId:snapshot.orderId,snapshotId:snapshot.id,payload})).digest('hex')
+  const proposal=await prisma.jvProposalDraft.create({data:{orderId:snapshot.orderId,snapshotId:snapshot.id,authorId:(req.user as {id:string}).id,formatVersion,payload:payload as unknown as Prisma.InputJsonValue,contentSha256}})
+  return reply.status(201).send(proposal)
+ })
+ app.get<{Params:{id:string}}>('/orders/:id/proposal-drafts',{preHandler:guard},async(req,reply)=>{
+  if(!await prisma.jvOrder.findUnique({where:{id:req.params.id},select:{id:true}}))return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  return prisma.jvProposalDraft.findMany({where:{orderId:req.params.id},orderBy:{createdAt:'desc'},take:100,select:{id:true,number:true,orderId:true,snapshotId:true,authorId:true,createdAt:true,formatVersion:true,contentSha256:true}})
+ })
+ app.get<{Params:{id:string;proposalId:string}}>('/orders/:id/proposal-drafts/:proposalId',{preHandler:guard},async(req,reply)=>{
+  const proposal=await prisma.jvProposalDraft.findFirst({where:{id:req.params.proposalId,orderId:req.params.id}})
+  if(!proposal)return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  const digest=createHash('sha256').update(stableJson({formatVersion:proposal.formatVersion,orderId:proposal.orderId,snapshotId:proposal.snapshotId,payload:proposal.payload})).digest('hex')
+  if(digest!==proposal.contentSha256)return reply.status(409).send({error:{code:'PROPOSAL_INTEGRITY_FAILED'}})
+  reply.header('Cache-Control','no-store');return proposal
  })
  app.get('/templates',{preHandler:guard},()=>prisma.jvTemplate.findMany({orderBy:{updatedAt:'desc'},take:200}))
  app.post<{Body:{name?:unknown;draft?:unknown}}>('/templates',{preHandler:guard,bodyLimit:262144},async(req,reply)=>{
