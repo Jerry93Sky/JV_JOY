@@ -40,6 +40,8 @@ jobs:
         run: node --experimental-strip-types tools/jv/compare-front-door-all-seven.mjs
       - name: Shared TypeScript typecheck
         run: pnpm typecheck:shared
+      - name: Proposal money display test
+        run: node --experimental-strip-types --test apps/frontend/scripts/proposalMoney.test.mjs
       - name: Frontend production build
         run: pnpm build:frontend
       - name: JV-Line Lab component smoke test

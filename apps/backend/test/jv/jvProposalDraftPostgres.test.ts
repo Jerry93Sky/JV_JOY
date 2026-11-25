@@ -15,6 +15,12 @@ test('proposal drafts derive frozen amounts from a verified complete snapshot',a
   assert.equal((await app.inject({method:'POST',url:proposals,headers:owner,payload:{snapshotId:snapshot.id,totalSalePrice:'1'}})).statusCode,400)
   assert.equal((await app.inject({method:'POST',url:'/api/jv/orders/other/proposal-drafts',headers:owner,payload:{snapshotId:snapshot.id}})).statusCode,404)
   const response=await app.inject({method:'POST',url:proposals,headers:owner,payload:{snapshotId:snapshot.id}});assert.equal(response.statusCode,201,response.body);const proposal=response.json();assert.deepEqual(proposal.payload.totalSalePrice,snapshot.result.calculation.totalSalePrice);assert.equal(proposal.payload.orderVersion,1);assert.equal(proposal.payload.profile,'RETAIL')
+  const terms={recipient:'Получатель',requisites:'Реквизиты',payment:'Условия оплаты',timeframe:'Сроки',delivery:'Доставка'};const revisionRoute=`${proposals}/${proposal.id}/revise`
+  assert.equal((await app.inject({method:'POST',url:revisionRoute,headers:user,payload:{terms}})).statusCode,403)
+  assert.equal((await app.inject({method:'POST',url:revisionRoute,headers:owner,payload:{terms:{...terms,delivery:''}}})).statusCode,400)
+  assert.equal((await app.inject({method:'POST',url:revisionRoute,headers:owner,payload:{terms,totalSalePrice:'0'}})).statusCode,400)
+  const revised=await app.inject({method:'POST',url:revisionRoute,headers:owner,payload:{terms}});assert.equal(revised.statusCode,201,revised.body);const rev=revised.json();assert.equal(rev.payload.previousDraftId,proposal.id);assert.deepEqual(rev.payload.terms,terms);assert.deepEqual(rev.payload.totalSalePrice,proposal.payload.totalSalePrice);assert.equal(rev.snapshotId,snapshot.id)
+  const revisionRead=await app.inject({method:'GET',url:`${proposals}/${rev.id}`,headers:owner});assert.equal(revisionRead.statusCode,200);assert.deepEqual(revisionRead.json().payload.terms,terms)
   const updated={...draft,positions:[{...draft.positions[0],quantity:'2'}]};assert.equal((await app.inject({method:'PUT',url:`/api/jv/orders/${id}`,headers:owner,payload:{version:1,draft:updated}})).statusCode,200)
   const read=await app.inject({method:'GET',url:`${proposals}/${proposal.id}`,headers:owner});assert.equal(read.statusCode,200);assert.deepEqual(read.json().payload,proposal.payload)
   await prisma.jvProposalDraft.update({where:{id:proposal.id},data:{contentSha256:'0'.repeat(64)}});assert.equal((await app.inject({method:'GET',url:`${proposals}/${proposal.id}`,headers:owner})).statusCode,409)
