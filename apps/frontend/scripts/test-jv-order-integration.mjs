@@ -55,8 +55,8 @@ try {
   assert.equal(button('Добавить конструкцию').props.disabled, true)
   await act(async () => { button('Рассчитать').props.onClick() })
   await waitFor(() => contents().includes('Расчёт завершён') || contents().includes('Частичный расчёт') || contents().includes('сервер отклонил'))
-  assert.ok(contents().includes('Расчёт завершён'), contents().slice(-2000))
-  assert.ok(contents().includes('Итог:'), 'COMPLETE must show a confirmed total')
+  assert.ok(contents().includes('Частичный расчёт'), 'glass-off families without Excel parity must be PARTIAL')
+  assert.ok(!contents().includes('Итог:'), 'unverified order must not show a total')
   assert.equal(sent[0].positions.length, 7)
   assert.equal(new Set(sent[0].positions.map(position => position.slot)).size, 7)
   assert.equal(sent[0].positions[0].quantity, '2')
@@ -72,7 +72,7 @@ try {
   assert.ok(!contents().includes('Итог:'), 'editing must invalidate the prior total')
   await act(async () => { button('Рассчитать').props.onClick() })
   await waitFor(() => contents().includes('Расчёт завершён') || contents().includes('Частичный расчёт') || contents().includes('сервер отклонил'))
-  assert.ok(contents().includes('Расчёт завершён'), 'edited order must recalculate through the real API')
+  assert.ok(contents().includes('Частичный расчёт'), 'edited order without glass must remain PARTIAL until parity')
 
   await selectPosition(6)
   const front = sections()[0]

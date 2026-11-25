@@ -89,7 +89,7 @@ test('Front door profile reproduces the four Excel-backed seven-family scenarios
   for(const scenario of doorManifest.scenarios){
     const config=(await app.inject({method:'GET',url:`/api/jv/orders/form-config?profile=${scenario.profile}`,headers:{authorization:`Bearer ${adminToken}`}})).json()
     const positions=scenario.engineInput.positions.map((position: UnifiedPositionInput)=>({id:position.id,slot:position.slot,family:position.family,quantity:position.quantity,...(position.family==='FRONT'?{configurationId:config.frontDoorProfile.id}:{}),calculation:getUiDefaults(position.family,position.calculation)}))
-    const payload={orderId:scenario.scenarioId,profile:scenario.profile,rulesVersion:config.rulesVersion,uiSchemaVersion:config.schemaVersion,positions}
+    const payload={orderId:scenario.scenarioId,profile:scenario.profile,rulesVersion:config.rulesVersion,uiSchemaVersion:'JV-UI-INPUTS-2',positions}
     const response=await post(payload)
     assert.equal(response.statusCode,200,`${scenario.scenarioId}: ${response.body}`)
     const actual=response.json<ApiResponse>(),expected=doorParity.cases.find((x:any)=>x.scenarioId===scenario.scenarioId)
@@ -129,12 +129,12 @@ test('versioned UI input contract supplies non-price fields and hydrates all sev
     assert.equal(response.statusCode, 200, response.body)
     const config = response.json<Config>()
     assert.equal(config.profile, profile)
-    assert.equal(config.schemaVersion, 'JV-UI-INPUTS-2')
+    assert.equal(config.schemaVersion, 'JV-UI-INPUTS-3')
     assert.deepEqual(Object.keys(config.families).sort(), [...families].sort())
     const serialized = JSON.stringify(config)
     assert.doesNotMatch(serialized, /priceSnapshot|glassSnapshot|paintSnapshot|bomSettings|sourceSha256|unitPrice/)
-    const positions = families.map((family, index) => ({ id: `ui-${index}`, slot: index + 1, family, quantity: index === 1 ? '2' : '1', calculation: config.families[family] }))
-    const payload = { orderId: 'ui-contract-comparison', profile, rulesVersion: config.rulesVersion, uiSchemaVersion: config.schemaVersion, positions }
+    const positions = families.map((family, index) => ({ id: `ui-${index}`, slot: index + 1, family, quantity: index === 1 ? '2' : '1', calculation: family==='FRONT' && profile==='COMPLETATION' ? {...config.families[family], 'commercial.glassEnabled':true} : config.families[family] }))
+    const payload = { orderId: 'ui-contract-comparison', profile, rulesVersion: config.rulesVersion, uiSchemaVersion: 'JV-UI-INPUTS-2', positions }
     const result = await post(payload)
     assert.equal(result.statusCode, 200, `${profile}: ${result.body}`)
     assert.equal(result.json<ApiResponse>().calculation.positions.length, 7)
@@ -251,7 +251,7 @@ test('all 12 PR_13E Excel cases run through the HTTP endpoint and preserve engin
 test('UI input contract reproduces the 12 source-backed all-seven API scenarios', async () => {
   for (const scenario of scenarios) {
     const legacy = requestFor(scenario)
-    const compact = { ...legacy, uiSchemaVersion: JV_UI_SCHEMA_VERSION, positions: legacy.positions.map(position => ({ ...position, calculation: getUiDefaults(position.family, position.calculation) })) }
+    const compact = { ...legacy, uiSchemaVersion: 'JV-UI-INPUTS-2', positions: legacy.positions.map(position => ({ ...position, calculation: getUiDefaults(position.family, position.calculation) })) }
     const [fullResponse, uiResponse] = await Promise.all([post(legacy), post(compact)])
     assert.equal(fullResponse.statusCode, 200, `${scenario.scenarioId}: ${fullResponse.body}`)
     assert.equal(uiResponse.statusCode, 200, `${scenario.scenarioId}: ${uiResponse.body}`)
@@ -416,4 +416,19 @@ test('compact partial response never publishes order total', async () => {
   front.glassEnabled=false;front.finishingEnabled=false
   const response=await app.inject({method:'POST',url:'/api/jv/orders/calculate-preview-v1',headers:{authorization:`Bearer ${adminToken}`},payload:body})
   assert.equal(response.statusCode,200);assert.equal(response.json().status,'PARTIAL');assert.equal('totalSalePrice' in response.json().calculation,false);assert.ok(response.json().calculation.bom.length)
+})
+
+test('UI v3 applies workbook glass-off default without changing historical UI v2',async()=>{
+ const config=(await app.inject({method:'GET',url:'/api/jv/orders/form-config?profile=COMPLETATION',headers:{authorization:`Bearer ${adminToken}`}})).json()
+ assert.equal(config.schemaVersion,'JV-UI-INPUTS-3')
+ const body={orderId:'glass-default',profile:'COMPLETATION',rulesVersion:config.rulesVersion,uiSchemaVersion:config.schemaVersion,positions:[{id:'line',slot:1,family:'LINE',quantity:'1',calculation:config.families.LINE}]}
+ const current=await post(body);assert.equal(current.statusCode,200,current.body);const actual=current.json() as any
+ assert.equal(actual.status,'COMPLETE');assert.deepEqual(actual.calculation.positions[0].calculation.glass.surcharge,{numerator:'0',denominator:'1'})
+ assert.deepEqual(actual.calculation.totalSalePrice,{numerator:'4343534459297239043677',denominator:'27075000000000000'})
+ const old=await post({...body,uiSchemaVersion:'JV-UI-INPUTS-2'});assert.equal(old.statusCode,200,old.body);assert.deepEqual((old.json() as any).calculation.totalSalePrice,{numerator:'101620683641016173256743137',denominator:'423046875000000000000'})
+ const retail=(await app.inject({method:'GET',url:'/api/jv/orders/form-config?profile=RETAIL',headers:{authorization:`Bearer ${adminToken}`}})).json()
+ const retailBody={...body,profile:'RETAIL',rulesVersion:retail.rulesVersion,positions:[{...body.positions[0],calculation:retail.families.LINE}]}
+ const retailNew=await post(retailBody),retailOld=await post({...retailBody,uiSchemaVersion:'JV-UI-INPUTS-2'});assert.equal(retailNew.statusCode,200);assert.equal(retailOld.statusCode,200);assert.deepEqual((retailNew.json() as any).calculation.totalSalePrice,(retailOld.json() as any).calculation.totalSalePrice)
+ const front=await post({...body,positions:[{id:'front',slot:1,family:'FRONT',quantity:'1',calculation:config.families.FRONT}]});assert.equal(front.statusCode,200,front.body);assert.equal((front.json() as any).status,'PARTIAL');assert.equal((front.json() as any).calculation.totalSalePrice,undefined)
+ for(const family of ['ZIGZAG','SLIDER_L3','SLIDER_L5','SLIDER_X3','SLIDER_X5','FRONT']){const response=await post({...body,positions:[{id:family,slot:1,family,quantity:'1',calculation:config.families[family]}]});assert.equal(response.statusCode,200,`${family}: ${response.body}`);const result=response.json() as any;assert.equal(result.status,'PARTIAL',family);assert.equal(result.calculation.totalSalePrice,undefined);assert.equal(result.calculation.positions[0].confirmedUnitAmount,undefined)}
 })
