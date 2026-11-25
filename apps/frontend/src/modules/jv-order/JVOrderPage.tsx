@@ -79,6 +79,19 @@ export default function JVOrderPage() {
     return () => window.removeEventListener('beforeunload', warn)
   }, [dirty, positions.length])
 
+  useEffect(() => {
+    if (typeof document === 'undefined' || !dirty || !positions.length) return
+    const guard = (event: MouseEvent) => {
+      const anchor = (event.target as Element | null)?.closest('a[href]') as HTMLAnchorElement | null
+      if (!anchor || anchor.target === '_blank' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      const target = new URL(anchor.href, window.location.href)
+      if (target.origin === window.location.origin && target.pathname === window.location.pathname && target.search === window.location.search) return
+      if (!window.confirm('Есть несохранённые изменения. Покинуть редактор?')) { event.preventDefault(); event.stopPropagation() }
+    }
+    document.addEventListener('click', guard, true)
+    return () => document.removeEventListener('click', guard, true)
+  }, [dirty,positions.length])
+
   type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string}
   const past = useRef<Snapshot[]>([])
   const future = useRef<Snapshot[]>([])
