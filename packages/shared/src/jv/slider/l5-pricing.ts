@@ -36,8 +36,8 @@ export interface SliderL5OrderContext {
 export interface SliderL5CommercialControls {
   /** S1!C11 = Главная!H11, retained as source numeric selector. */
   readonly priceMode:1|2|3|4
-  /** Главная!F28; 2 enables the M51 surcharge. */
-  readonly mainSurchargeSelector:1|2
+  /** Главная!F28; only selector 2 enables the M51 surcharge. */
+  readonly mainSurchargeSelector:1|2|3
   /** S1!C12 = Главная!I11, INDEX selector into Прайс-Стекло!D5:D16. */
   readonly glassSelector:number
   readonly additionalWorkEnabled:boolean
@@ -150,7 +150,7 @@ function calculateSliderCommercialCore(input:SliderL5CommercialInput|SliderX3Com
   const {snapshot,controls}=input
   const ownMainRow=input.orderContext?.positionMainRow??11
   if(snapshot.workbook!==input.geometry.workbook)throw new EngineError('INVALID_CONFIGURATION','Slider geometry and price snapshot must use the same source workbook')
-  if(![1,2,3,4].includes(controls.priceMode)||![1,2].includes(controls.mainSurchargeSelector)||!Number.isInteger(controls.glassSelector)||controls.glassSelector<1||controls.glassSelector>12)throw new EngineError('INVALID_CONFIGURATION','Invalid Slider price/glass selector')
+  if(![1,2,3,4].includes(controls.priceMode)||![1,2,3].includes(controls.mainSurchargeSelector)||!Number.isInteger(controls.glassSelector)||controls.glassSelector<1||controls.glassSelector>12)throw new EngineError('INVALID_CONFIGURATION','Invalid Slider price/glass selector')
   const geometry=variant==='L5'?calculateSliderL5Geometry(input.geometry as SliderL5GeometryInput):variant==='X3'?calculateSliderX3Geometry(input.geometry as SliderX3GeometryInput):calculateSliderX5Geometry(input.geometry as SliderX5GeometryInput)
   const bom=variant==='L5'
     ?calculateSliderL5FullBom(geometry as SliderL5CommercialResult['geometry'],input.bomOptions as SliderL5FullBomOptions,input.bomSettings as SliderL5FullBomSettings)

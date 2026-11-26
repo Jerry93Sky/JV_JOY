@@ -1,0 +1,6 @@
+"family_sheet","cell","activation","tested_profiles","engine_source","coverage","parity_evidence","limits"
+"L@","Q56","F28=3: C25 term is zero","COMPLETATION|RETAIL","packages/shared/src/jv/commercial-line.ts","PARTIAL_IMPLEMENTATION","JV_F28_MODE3_EXCEL_PARITY.json","Engine all-seven only; API guard retained"
+"Z@","P42","F28=3: C25 term is zero","COMPLETATION|RETAIL","packages/shared/src/jv/zigzag/commercial-cost.ts","PARTIAL_IMPLEMENTATION","JV_F28_MODE3_EXCEL_PARITY.json","Engine all-seven only; API and Line+Zigzag guard retained"
+"S@","M51","F28=3: C25 term is zero","COMPLETATION|RETAIL","packages/shared/src/jv/slider/pricing.ts|packages/shared/src/jv/slider/l5-pricing.ts","PARTIAL_IMPLEMENTATION","JV_F28_MODE3_EXCEL_PARITY.json","L3 L5 X3 X5 measured; API guard retained"
+"F@","S36","F7: B26=1 or 2; F28 independent","COMPLETATION|RETAIL","packages/shared/src/jv/front/commercial.ts","IMPLEMENTED_VERIFIED","JV_F28_MODE3_EXCEL_PARITY.json","Measured F7 with explicit B26; API guard retained"
+"Главная","AA18","Seven positions; F28=3 and explicit B26","COMPLETATION|RETAIL","packages/shared/src/jv/unified-order.ts","IMPLEMENTED_VERIFIED","JV_F28_MODE3_EXCEL_PARITY.json","Four matched core scenarios; no extension to public API"
