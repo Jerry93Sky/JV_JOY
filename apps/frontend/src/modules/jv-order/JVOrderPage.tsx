@@ -104,7 +104,7 @@ export default function JVOrderPage() {
     return () => document.removeEventListener('click', guard, true)
   }, [dirty,positions.length,termsDirty])
 
-  type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string}
+  type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string; draftVersions: typeof draftVersions}
   const past = useRef<Snapshot[]>([])
   const future = useRef<Snapshot[]>([])
   const lastEdit = useRef<{key:string;time:number}|null>(null)
@@ -117,7 +117,7 @@ export default function JVOrderPage() {
   function remember(key?: string) {
     const now=Date.now()
     if (!key || !lastEdit.current || lastEdit.current.key!==key || now-lastEdit.current.time>1000) {
-      past.current.push({positions:structuredClone(positions),profile,activeId})
+      past.current.push({positions:structuredClone(positions),profile,activeId,draftVersions})
       if(past.current.length>50) past.current.shift()
     }
     lastEdit.current=key?{key,time:now}:null
@@ -126,10 +126,11 @@ export default function JVOrderPage() {
   function restore(direction:'undo'|'redo') {
     const from=direction==='undo'?past.current:future.current, to=direction==='undo'?future.current:past.current
     const snapshot=from.pop(); if(!snapshot)return
-    to.push({positions:structuredClone(positions),profile,activeId});if(to.length>50)to.shift()
+    to.push({positions:structuredClone(positions),profile,activeId,draftVersions});if(to.length>50)to.shift()
     invalidate();lastEdit.current=null
     setPositions(snapshot.positions);setActiveId(snapshot.positions.some(p=>p.id===snapshot.activeId)?snapshot.activeId:snapshot.positions[0]?.id??'')
-    if(snapshot.profile!==profile){setConfig(null);setProfile(snapshot.profile)}
+    setDraftVersions(snapshot.draftVersions)
+    if(snapshot.profile!==profile){skipDefaults.current=true;setConfig(null);setProfile(snapshot.profile)}
     redrawHistory(n=>n+1)
   }
   useEffect(()=>{
@@ -151,7 +152,7 @@ export default function JVOrderPage() {
       if (controller.signal.aborted) return
       setConfig(value)
       if (skipDefaults.current) { skipDefaults.current=false; return }
-      setPositions(old => old.map(p => { const fixed=old.some(x=>x.configurationId); const defaults=p.configurationId?value.frontDoorProfile.defaults:value.families[p.family]; return {...p,inputs:Object.fromEntries(Object.entries(defaults).map(([path,initial])=>[path,(!fixed||transportField(path))&&typeof p.inputs[path]===typeof initial?p.inputs[path]:initial]))} }))
+      setPositions(old => old.map(p => { const fixed=old.some(x=>x.configurationId); const defaults=p.configurationId?value.frontDoorProfile.defaults:value.families[p.family]; return {...p,inputs:Object.fromEntries(Object.entries(defaults).map(([path,initial])=>[path,(!fixed||transportField(path))&&!(profile==='COMPLETATION'&&p.family==='FRONT'&&path==='commercial.glassEnabled'&&value.schemaVersion==='JV-UI-INPUTS-3')&&typeof p.inputs[path]===typeof initial?p.inputs[path]:initial]))} }))
     }).catch(e => { if (!controller.signal.aborted) setError(axios.isAxiosError(e) && e.response?.status === 403 ? 'Недостаточно прав для расчёта.' : 'Не удалось загрузить параметры форм.') })
     return () => controller.abort()
   }, [profile, allowed])
@@ -268,6 +269,16 @@ export default function JVOrderPage() {
     if (existingMode !== undefined) for (const path of Object.keys(inputs)) if (transportField(path)) inputs[path] = existingMode
     const item = { id: crypto.randomUUID(), slot, family: copy?.family ?? 'LINE', quantity: copy?.quantity ?? '1', inputs, configurationId:copy?.configurationId }; setPositions(old => [...old, item]); setActiveId(item.id); setTab('form')
   }
+  function addVerifiedGlassOffExample() {
+    const example=config?.verifiedGlassOffExample
+    if (!example?.length || positions.length) return
+    remember()
+    invalidate()
+    const items=example.map(({family,slot,quantity,calculation})=>({id:crypto.randomUUID(),family,slot,quantity,inputs:{...calculation}}))
+    setPositions(items)
+    setActiveId(items[0].id)
+    setTab('form')
+  }
   function addDoorExample() {
     if (!config || positions.length) return
     remember(); invalidate()
@@ -290,6 +301,7 @@ export default function JVOrderPage() {
   }
   async function calculate() {
     if (!config || !positions.length) return
+    const versions=draftVersions??{uiSchemaVersion:config.schemaVersion,rulesVersion:config.rulesVersion}
     for (const p of positions) {
       if (!/^[1-9]\d{0,5}$/.test(p.quantity)) { setError(`Слот ${p.slot}: количество должно быть целым от 1 до 999999.`); return }
       for (const [path, value] of Object.entries(p.inputs)) {
@@ -300,8 +312,8 @@ export default function JVOrderPage() {
     }
     invalidate(); const requestGeneration = generation.current, controller = new AbortController(); activeRequest.current = controller; setLoading(true)
     try {
-      const response = await calculateJvPreview({ profile, rulesVersion: config.rulesVersion, uiSchemaVersion: config.schemaVersion, positions: positions.map(p => ({ id: p.id, family: p.family, slot: p.slot, quantity: p.quantity, calculation: p.inputs, ...(p.configurationId?{configurationId:p.configurationId}:{}) })) }, controller.signal)
-      if (generation.current === requestGeneration && !controller.signal.aborted) { setResult(response); setDraftVersions({uiSchemaVersion:config.schemaVersion,rulesVersion:config.rulesVersion}) }
+      const response = await calculateJvPreview({ profile, ...versions, positions: positions.map(p => ({ id: p.id, family: p.family, slot: p.slot, quantity: p.quantity, calculation: p.inputs, ...(p.configurationId?{configurationId:p.configurationId}:{}) })) }, controller.signal)
+      if (generation.current === requestGeneration && !controller.signal.aborted) setResult(response)
     } catch (e) {
       if (generation.current !== requestGeneration || controller.signal.aborted) return
       if (axios.isAxiosError(e)) {
@@ -321,6 +333,7 @@ export default function JVOrderPage() {
     {saveMessage && <p role="status">{saveMessage}</p>}
     {saveFailure && <div className="rounded border p-3"><p>Локальные изменения сохраняются на экране. При открытии серверной версии они будут потеряны.</p>{saveFailure==='conflict' && savedId && <><Button variant="outline" onClick={()=>void openOrder(savedId)}>Открыть серверную версию</Button><Button variant="outline" onClick={()=>{if(!window.confirm('Сохранить изменения как отдельный новый заказ?'))return;setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null)}}>Сохранить отдельно</Button></>}{saveFailure==='network' && <Button variant="outline" onClick={()=>setSaveFailure(null)}>Повторить сохранение</Button>}</div>}
     {draftVersions && <p>Версии заказа: UI {draftVersions.uiSchemaVersion}, правила {draftVersions.rulesVersion}.{config && (draftVersions.uiSchemaVersion!==config.schemaVersion || draftVersions.rulesVersion!==config.rulesVersion) && ' Возможна несовместимость с текущими правилами; проверьте входные данные.'}</p>}
+    {draftVersions && config && (draftVersions.uiSchemaVersion!==config.schemaVersion || draftVersions.rulesVersion!==config.rulesVersion) && <Button variant="outline" disabled={saving} onClick={()=>{if(!window.confirm('Применить текущие настройки к заказу? Предыдущая сохранённая версия останется в истории.'))return;remember();invalidate();if(profile==='COMPLETATION')setPositions(old=>old.map(p=>p.family==='FRONT'?{...p,inputs:{...p.inputs,'commercial.glassEnabled':false}}:p));setDraftVersions({uiSchemaVersion:config.schemaVersion,rulesVersion:config.rulesVersion});setSaveMessage('Текущие настройки применены. Выполните новый расчёт.')}}>Применить текущие настройки</Button>}
     <div className="flex flex-wrap gap-2"><Button variant="outline" onClick={()=>void refreshTemplates()}>Шаблоны</Button><Button variant="outline" disabled={!activeId} onClick={()=>void createTemplate()}>Сохранить конструкцию как шаблон</Button></div>
     {templates.map(t=><div key={t.id} className="flex flex-wrap gap-2"><span>{t.name}</span><Button variant="outline" onClick={()=>applyTemplate(t)}>Применить</Button><Button variant="outline" onClick={async()=>{const name=window.prompt('Новое название',t.name);if(name?.trim()){await api.patch(`/jv/templates/${t.id}`,{name:name.trim()});await refreshTemplates()}}}>Переименовать</Button><Button variant="outline" onClick={async()=>{if(window.confirm('Удалить шаблон?')){await api.delete(`/jv/templates/${t.id}`);await refreshTemplates()}}}>Удалить шаблон</Button></div>)}
     {orders.length>0 && <section className="rounded border p-3"><h2 className="font-semibold">Сохранённые заказы</h2>{orders.map(o=><button key={o.id} className="block text-primary underline" onClick={()=>openOrder(o.id)}>Заказ №{o.number} · версия {o.version} · {o.profile}</button>)}</section>}
@@ -328,9 +341,10 @@ export default function JVOrderPage() {
     {savedId && <section className="space-y-2 rounded border p-3"><h2 className="font-semibold">Коммерческие предложения</h2><p className="text-sm">Условия вводятся вручную; налоги, согласование и выпуск пока не настроены.</p><Button variant="outline" onClick={()=>void loadProposals()}>Список черновиков КП</Button>{proposals.map(p=><button disabled={savingTerms} key={p.id} className="block text-primary underline" onClick={async()=>{try{(termsDirty&&!window.confirm('Несохранённые условия КП будут потеряны. Продолжить?'))?undefined:selectProposal((await api.get(`/jv/orders/${savedId}/proposal-drafts/${p.id}`)).data)}catch{setError('Не удалось открыть черновик КП.')}}}>Черновик КП №{p.number} · {new Date(p.createdAt).toLocaleString()}</button>)}{proposalDetail && <article className="space-y-2 rounded border bg-background p-4"><h3 className="font-semibold">Черновик коммерческого предложения №{proposalDetail.number}</h3><p>Заказ №{proposalDetail.payload.orderNumber} · версия {proposalDetail.payload.orderVersion} · {proposalDetail.payload.profile==='RETAIL'?'Розница':'Комплектация'}</p><ul>{proposalDetail.payload.positions.map(p=><li key={p.id}>{p.family} · слот {p.slot} · количество {exact(p.quantity)} · стоимость за единицу {displayProposalMoney(p.confirmedUnitAmount)?.text ?? 'нет данных'} ₽{displayProposalMoney(p.confirmedUnitAmount)?.rounded && ' (округлено)'}</li>)}</ul><p className="font-semibold">Итого: {displayProposalMoney(proposalDetail.payload.totalSalePrice)?.text ?? 'нет данных'} ₽{displayProposalMoney(proposalDetail.payload.totalSalePrice)?.rounded && ' (округлено)'}</p><details><summary>Точное значение итога</summary><p>{exact(proposalDetail.payload.totalSalePrice)} ₽</p></details><div className="grid gap-3 md:grid-cols-2">{([['recipient','Получатель'],['requisites','Реквизиты'],['payment','Условия оплаты'],['timeframe','Сроки'],['delivery','Условия доставки']] as const).map(([key,label])=><label className="block text-sm" key={key}><span className="block">{label}</span><textarea aria-label={label} disabled={savingTerms} className="min-h-20 w-full rounded border bg-background p-2" maxLength={2000} value={proposalTerms[key]} onChange={e=>setProposalTerms(old=>({...old,[key]:e.target.value}))}/></label>)}</div><Button variant="outline" disabled={savingTerms||!termsDirty} onClick={()=>void reviseProposal()}>{savingTerms?'Сохранение…':'Сохранить условия новой версией'}</Button><p className="text-sm text-muted-foreground">Предыдущий черновик останется доступен. Все пять полей обязательны для сохранения условий.</p><p className="text-sm text-muted-foreground">Черновик не утверждён и не является выпущенным документом.</p></article>}</section>}
     {revisions.length>0 && <details className="rounded border p-3"><summary>История версий</summary>{revisions.map(r=><details key={r.version}><summary>Версия {r.version} · {new Date(r.createdAt).toLocaleString()} · {r.authorId}</summary><pre className="overflow-auto text-xs">{JSON.stringify(r.snapshot,null,2)}</pre><Button variant="outline" disabled={saving} onClick={()=>void restoreRevision(r.version)}>Восстановить эту версию</Button></details>)}</details>}
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
-    {profile==='COMPLETATION' && config?.schemaVersion==='JV-UI-INPUTS-3' && <p className="rounded border p-3 text-sm">В комплектации стоимость стекла по умолчанию исключена. Общий переключатель Excel также влияет на дополнительные работы Slider; неподтверждённые варианты остаются частичными.</p>}
+    {profile==='COMPLETATION' && config?.schemaVersion==='JV-UI-INPUTS-3' && <p className="rounded border p-3 text-sm">В комплектации стоимость стекла по умолчанию исключена. Общий переключатель Excel также влияет на дополнительные работы Slider; неподтверждённые варианты остаются частичными. Проверенные конфигурации доступны полностью.</p>}
     <label className="block max-w-xs space-y-1 text-sm">Ценовой профиль<select className={selectClass} value={profile} onChange={e => { remember(); invalidate(); setConfig(null); setProfile(e.target.value as Profile) }}><option value="COMPLETATION">Комплектация</option><option value="RETAIL">Розница</option></select></label>
     <div className="flex items-center justify-between gap-3"><h2 className="text-lg font-medium">Конструкции ({positions.length}/7)</h2><Button onClick={() => add()} disabled={!config || positions.length >= 7 || positions.some(p=>p.configurationId)}>Добавить конструкцию</Button></div>
+    {positions.length===0 && !!config?.verifiedGlassOffExample?.length && <Button variant="outline" onClick={addVerifiedGlassOffExample}>Загрузить проверенный заказ без стекла</Button>}
     {positions.length===0 && config && <Button variant="outline" onClick={addDoorExample}>{config.frontDoorProfile.label}</Button>}
     {positions.some(p=>p.configurationId) && <div className="rounded border p-3 text-sm"><p>{config?.frontDoorProfile.restriction} Транспорт можно переключать.</p><Button variant="outline" onClick={()=>{remember();invalidate();setPositions([]);setActiveId('');setTab('list')}}>Очистить пример</Button></div>}
     {positions.length === 7 && <p className="text-sm text-muted-foreground">Все семь слотов заняты. Для новой позиции удалите одну из существующих.</p>}
@@ -360,7 +374,7 @@ function PositionForm({p,index,positions,config,update,updateField,move,add,remo
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{Object.entries(p.inputs).map(([path, value]) => {
         const field = (p.configurationId?config?.frontDoorProfile.fieldMetadata:config?.fieldMetadata[p.family])?.find(entry => entry.path === path)
         const options = field?.options
-        const disabled = fieldDisabled(path, p.inputs) || (positions.some(x=>x.configurationId) && !transportField(path))
+        const disabled = fieldDisabled(path, p.inputs) || (positions.some(x=>x.configurationId) && !transportField(path)) || (config?.profile==='COMPLETATION' && config.schemaVersion==='JV-UI-INPUTS-3' && path==='commercial.glassEnabled')
         return <label key={path} className="space-y-1 text-sm"><span className="block">{field ? `${field.label}${field.unit ? `, ${field.unit}` : ''}` : fieldLabel(path)}</span>{typeof value === 'boolean' ? <input type="checkbox" checked={value} disabled={disabled} onChange={e => updateField(p.id, path, e.target.checked)}/> : options ? <select className={selectClass} value={String(value)} disabled={disabled || options.filter(option => option.supported).length <= 1} onChange={e => updateField(p.id, path, typeof value === 'number' ? Number(e.target.value) : e.target.value)}>{options.map(option => <option key={String(option.value)} value={String(option.value)} disabled={!option.supported}>{option.label}{!option.supported ? ' (не поддерживается)' : ''}</option>)}</select> : <Input value={String(value)} inputMode="decimal" disabled={disabled} onChange={e => updateField(p.id, path, e.target.value)}/>} {field?.status === 'LIMITED' && <span className="block text-xs text-muted-foreground">{field.dependsOn ?? 'Часть вариантов пока не подтверждена.'}</span>}</label>
       })}</div>
       <div className="flex flex-wrap gap-2"><Button variant="outline" onClick={() => move(index, -1)} disabled={index === 0}>Выше</Button><Button variant="outline" onClick={() => move(index, 1)} disabled={index === positions.length - 1}>Ниже</Button><Button variant="outline" onClick={() => add(p)} disabled={positions.length >= 7}>Дублировать</Button><Button variant="outline" disabled={positions.some(x=>x.configurationId)} onClick={() => remove(p.id)}>Удалить</Button></div>

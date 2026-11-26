@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { calculateJVOrder, EngineError, type PriceProfile, type UnifiedFamily, type UnifiedOrderResult, type UnifiedPositionInput } from '@bms/shared'
 import completionJson from './catalogs/completation-pr13e.json'
 import retailJson from './catalogs/retail-pr13e.json'
+import glassOffVerified from './catalogs/glass-off-verified-scenarios.json'
 import { getUiDefaults, getUiMetadata, hydrateUiInputs, JV_UI_LEGACY_SCHEMA_VERSION, JV_UI_PREVIOUS_SCHEMA_VERSION, JV_UI_SCHEMA_VERSION, validateUiOptions } from './jvUiInputs'
 
 const DECIMAL = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/
@@ -89,7 +90,7 @@ function uiTemplate(catalog: CatalogSnapshot, family: UnifiedFamily, schemaVersi
   if (catalog.profile === 'COMPLETATION' && schemaVersion === JV_UI_SCHEMA_VERSION) {
     if (family === 'LINE') template.settings.D32=false
     else if (family === 'ZIGZAG') template.position.commercial.D32=false
-    else if (family === 'FRONT') template.commercial.glassEnabled=false
+    else if (family === 'FRONT') {template.commercial.glassEnabled=false;template.commercial.excelGlassSwitchOff=true}
     else template.controls.additionalWorkEnabled=false
   }
   return template
@@ -102,6 +103,7 @@ export function getJvUiFormConfig(profile: unknown) {
     schemaVersion: JV_UI_SCHEMA_VERSION,
     rulesVersion: catalog.engineRuleVersion,
     profile,
+    ...(profile==='COMPLETATION' && catalog.workbookSha256===glassOffVerified.sourceSha256 ? { verifiedGlassOffExample: glassOffVerified.records[0]?.positions } : {}),
     families: Object.fromEntries(FAMILIES.map(family => [family, getUiDefaults(family, uiTemplate(catalog,family,JV_UI_SCHEMA_VERSION))])),
     fieldMetadata: Object.fromEntries(FAMILIES.map(family => [family, getUiMetadata(family, uiTemplate(catalog,family,JV_UI_SCHEMA_VERSION))])),
     frontDoorProfile: {id:FRONT_DOOR_ID,label:'Front с дверью — проверенный заказ из 7 систем',defaults:getUiDefaults('FRONT',uiTemplate(catalog,'FRONT',JV_UI_SCHEMA_VERSION,true)),fieldMetadata:frontDoorMetadata(catalog,JV_UI_SCHEMA_VERSION),slots:DOOR_FAMILIES,restriction:'Доступен только для проверенного состава заказа: 7 систем в слотах 1–7, по одной конструкции; фиксированные параметры.'},
@@ -121,6 +123,16 @@ function frontDoorMetadata(catalog: CatalogSnapshot,schemaVersion: string) {
 }
 
 /** Runtime validates caller data, then attaches only server-owned price sources before the real Engine call. */
+function canonicalGlassOffPositions(positions: readonly {slot:number;family:string;quantity:string;calculation:Record<string,unknown>}[]): string {
+ const canonical=(v:unknown):unknown=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a<b?-1:a>b?1:0).map(([k,x])=>[k,canonical(x)])):v
+ return JSON.stringify(canonical(positions.map(p=>({slot:p.slot,family:p.family,quantity:p.quantity,calculation:p.calculation})).sort((a,b)=>a.slot-b.slot)))
+}
+function isVerifiedGlassOffScenario(request:PreviewRequest,catalog:CatalogSnapshot):boolean {
+ if(catalog.workbookSha256!==glassOffVerified.sourceSha256||request.positions.some(p=>p.configurationId))return false
+ const key=canonicalGlassOffPositions(request.positions)
+ return glassOffVerified.records.some(r=>canonicalGlassOffPositions(r.positions)===key)
+}
+
 export function calculateJvPreview(input: unknown): JvPreviewResult {
   const parsed = previewSchema.safeParse(input)
   if (!parsed.success) throw new JvRequestError(400, 'INVALID_REQUEST', 'JV calculation request is invalid', parsed.error.issues.map((issue) => `${issue.path.join('.') || 'request'}: ${issue.message}`).slice(0, 20))
@@ -169,6 +181,7 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
     validatePhysicalInputs(position.family, calculation, `positions.${index}.calculation`, shapeIssues)
     if (shapeIssues.length) throw new JvRequestError(400, 'INVALID_CALCULATION_INPUT', 'Calculation inputs do not match the supported typed contract', shapeIssues.slice(0, 20))
     const userInputs = getUiDefaults(position.family, calculation)
+    if(request.profile==='COMPLETATION' && request.uiSchemaVersion===JV_UI_SCHEMA_VERSION && position.family==='FRONT' && userInputs['commercial.glassEnabled']!==false)throw new JvRequestError(422,'INCONSISTENT_GLASS_POLICY','Включение стекла в комплектации пока не подтверждено для общего контекста заказа')
     const optionIssues = position.configurationId===FRONT_DOOR_ID?[]:validateUiOptions(position.family, template, userInputs)
     if (optionIssues.length) throw new JvRequestError(422, 'UNSUPPORTED_UI_SELECTOR', 'Selected UI option is not supported', optionIssues.slice(0, 20))
     const modePaths: Record<UnifiedFamily, string> = { LINE: 'input.commercialModeIndex', ZIGZAG: 'position.commercial.F28', SLIDER_L3: 'controls.mainSurchargeSelector', SLIDER_L5: 'controls.mainSurchargeSelector', SLIDER_X3: 'controls.mainSurchargeSelector', SLIDER_X5: 'controls.mainSurchargeSelector', FRONT: 'commercial.mainSurchargeSelector' }
@@ -185,10 +198,10 @@ export function calculateJvPreview(input: unknown): JvPreviewResult {
   let calculation: UnifiedOrderResult
   try {
     calculation = calculateJVOrder({ orderId, profile: request.profile, positions, mainDiscount: catalog.mainDiscount, frontSlot7B26: catalog.frontSlot7B26 })
-    // The glass-off branch is freshly verified against Excel for LINE only.
+    // The glass-off branch is verified for LINE and the explicitly captured seven-system scenarios.
     // Keep other families explicitly partial until their independent Excel parity is established.
-    if (request.profile==='COMPLETATION' && request.uiSchemaVersion===JV_UI_SCHEMA_VERSION && positions.some(p=>p.family!=='LINE')) {
-      const diagnostic='GLASS_OFF_EXCEL_PARITY_UNVERIFIED: комплектационный расчёт без стекла подтверждён пока только для JV-Line; итог заказа недоступен.'
+    if (request.profile==='COMPLETATION' && request.uiSchemaVersion===JV_UI_SCHEMA_VERSION && positions.some(p=>p.family!=='LINE') && !isVerifiedGlassOffScenario(request,catalog)) {
+      const diagnostic='GLASS_OFF_EXCEL_PARITY_UNVERIFIED: этот состав и параметры без стекла ещё не проверены по Excel; итог заказа недоступен.'
       calculation=Object.freeze({...calculation,status:'PARTIAL',totalSalePrice:undefined,positions:Object.freeze(calculation.positions.map(p=>Object.freeze({...p,status:'PARTIAL' as const,confirmedUnitAmount:undefined,diagnostics:Object.freeze([...p.diagnostics,diagnostic])}))),diagnostics:Object.freeze([...calculation.diagnostics,diagnostic]),limitations:Object.freeze([...calculation.limitations,diagnostic])})
     }
     if(doorPositions.length)calculation=Object.freeze({...calculation,trace:Object.freeze([...calculation.trace,Object.freeze({id:'JV.FRONT.PROFILE.I42',kind:'configuration',label:'Front: подтверждённый профиль с дверью',ruleId:FRONT_DOOR_ID,input:{profile:request.profile,workbookSha256:catalog.workbookSha256,slot:7},result:{configurationId:FRONT_DOOR_ID,I42:2},status:'ok',source:{workbook:catalog.workbook,sheet:'Настройки',cell:'I42',formula:'2'},inputRefs:[],catalogRefs:[{id:FRONT_DOOR_ID,version:JV_ORDER_RULES_VERSION}],errorIds:[],warningIds:[]})])})

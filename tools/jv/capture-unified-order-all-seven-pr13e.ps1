@@ -1,12 +1,14 @@
-param(
+﻿param(
   [string]$CompletionWorkbook='C:\Users\jerry\Desktop\JV\JV-комплектация 08.10.2026.xlsm',
   [string]$RetailWorkbook='C:\Users\jerry\Desktop\JV\JV-розница 08.10.2026.xlsm',
   [string]$ManifestPath='docs/jv/fixtures/unified-order-all-seven-inputs.json',
-  [string]$OutputPath='docs/jv/fixtures/unified-order-all-seven-excel-pr13e.json'
+  [string]$OutputPath='docs/jv/fixtures/unified-order-all-seven-excel-pr13e.json',
+  [switch]$IncludeFrontGlassDetails
 )
 $ErrorActionPreference='Stop'
 $manifest=Get-Content -LiteralPath $ManifestPath -Raw|ConvertFrom-Json
 $excel=New-Object -ComObject Excel.Application
+$excelVersion=[string]$excel.Version
 $excel.Visible=$false;$excel.DisplayAlerts=$false;$excel.AutomationSecurity=3;$excel.EnableEvents=$false;$excel.AskToUpdateLinks=$false
 $paths=@{COMPLETATION=$CompletionWorkbook;RETAIL=$RetailWorkbook}
 $results=[Collections.Generic.List[object]]::new()
@@ -39,11 +41,13 @@ try {
    $glue=$wb.Worksheets.Item('Клей+акт');$glueRows=@{};foreach($address in @('N5','N6','N7','N8','N9','N10','N11','N12','O5','N18','N19','N20','N21','N22','N23','N24','N25','O18')){$glueRows[$address]=CellRecord $glue $address}
    $prm=$wb.Worksheets.Item('ПРМ');$areas=@{};foreach($slot in 1..7){$address="AB$(24+$slot)";$areas[$address]=CellRecord $prm $address}
    $f7=$wb.Worksheets.Item('F7');$services=$wb.Worksheets.Item('Прайс-сб+монт')
-   $frontComponents=[ordered]@{};foreach($address in @('S33','S34','S35','S36','S37','S38','I23','Y5')){$frontComponents[$address]=CellRecord $f7 $address};$frontComponents['Service!C25']=CellRecord $services 'C25'
+   $frontAddresses=@('S33','S34','S35','S36','S37','S38','I23','Y5')
+   if($IncludeFrontGlassDetails){$frontAddresses+=@('C7','D35','G28','G29','G30','G31','H28','H29','H30','H31','H32')}
+   $frontComponents=[ordered]@{};foreach($address in $frontAddresses){$frontComponents[$address]=CellRecord $f7 $address};$frontComponents['Service!C25']=CellRecord $services 'C25'
    $results.Add([ordered]@{scenarioId=$scenario.scenarioId;profile=$scenario.profile;workbook=[IO.Path]::GetFileName($source);sourceSha256=$sha;excelVersion=$excel.Version;calculationMode='CalculateFullRebuild';temporaryCopy=$true;inputCells=$inputCapture;slots=$slotResults;AA11toAA17=$aa;AA18=$aa18;sharedConsumables=$glueRows;areaShares=$areas;frontSlot7=$frontComponents})
   } finally {$wb.Close($false);[void][Runtime.InteropServices.Marshal]::ReleaseComObject($wb);Remove-Item -LiteralPath $temp -Force -ErrorAction SilentlyContinue}
  }
 } finally {$excel.Quit();[void][Runtime.InteropServices.Marshal]::ReleaseComObject($excel);[GC]::Collect();[GC]::WaitForPendingFinalizers()}
 $full=Join-Path (Get-Location) $OutputPath;[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($full))|Out-Null
 [IO.File]::WriteAllText($full,($results|ConvertTo-Json -Depth 25),[Text.UTF8Encoding]::new($false))
-Write-Output "Captured $($results.Count) all-seven scenario/profile cases using Excel $($excel.Version); workbook copies only."
+Write-Output "Captured $($results.Count) all-seven scenario/profile cases using Excel $excelVersion; workbook copies only."
