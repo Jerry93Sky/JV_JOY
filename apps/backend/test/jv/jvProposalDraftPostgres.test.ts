@@ -27,3 +27,107 @@ test('proposal drafts derive frozen amounts from a verified complete snapshot',a
   await prisma.jvCalculationSnapshot.update({where:{id:snapshot.id},data:{contentSha256:'0'.repeat(64)}});assert.equal((await app.inject({method:'POST',url:proposals,headers:owner,payload:{snapshotId:snapshot.id}})).statusCode,409)
  } finally {if(id){await prisma.jvProposalDraft.deleteMany({where:{orderId:id}});await prisma.jvCalculationSnapshot.deleteMany({where:{orderId:id}});await prisma.jvOrder.delete({where:{id}})}await app.close();await prisma.$disconnect()}
 })
+
+test('proposal review protects immutable terms and serializes decisions per saved version', async () => {
+ process.env.JWT_SECRET = 'r55-isolated-only'
+ const app = Fastify()
+ await registerPlugins(app)
+ await app.register(jvOrderPersistenceRoutes, { prefix: '/api/jv' })
+ await app.ready()
+ const headers = (role: 'OWNER' | 'ADMIN' | 'USER') =>
+  ({ authorization: `Bearer ${app.jwt.sign({ id: `r55-${role}`, role })}` })
+ const owner = headers('OWNER'), admin = headers('ADMIN'), user = headers('USER')
+ const config = getJvUiFormConfig('RETAIL')
+ const draft = {
+  profile: 'RETAIL', uiSchemaVersion: config.schemaVersion, rulesVersion: config.rulesVersion,
+  positions: [{ id: 'one', family: 'LINE', slot: 1, quantity: '1', inputs: config.families.LINE }],
+ }
+ const terms = { recipient: 'Получатель', requisites: 'Реквизиты', payment: 'Предоплата', timeframe: 'Два дня', delivery: 'Самовывоз' }
+ let orderId = ''
+ try {
+  const post = async (url: string, payload: object, status: number, auth = owner) => {
+   const response = await app.inject({ method: 'POST', url, headers: auth, payload })
+   assert.equal(response.statusCode, status, response.body)
+   return response.json()
+  }
+  orderId = (await post('/api/jv/orders', draft, 201)).id
+  const order = `/api/jv/orders/${orderId}`
+  const snapshot = await post(`${order}/calculation-snapshots`, { version: 1 }, 201)
+  const pending = `${order}/proposal-drafts`
+  const blank = await post(pending, { snapshotId: snapshot.id }, 201)
+  const noTerms = await post(`${pending}/${blank.id}/review`, { action: 'SUBMIT' }, 422)
+  assert.equal(noTerms.error.code, 'PROPOSAL_TERMS_REQUIRED')
+  const original = await post(`${pending}/${blank.id}/revise`, { terms }, 201)
+  const url = `${pending}/${original.id}`
+  const reviewUrl = `${url}/review`
+  const read = async (path: string) => {
+   const response = await app.inject({ method: 'GET', url: path, headers: owner })
+   assert.equal(response.statusCode, 200, response.body)
+   return response.json()
+  }
+  assert.deepEqual((await read(url)).review, { status: 'DRAFT', events: [] })
+  await post(reviewUrl, { action: 'SUBMIT' }, 403, user)
+  await post(reviewUrl, { action: 'SUBMIT', actorId: 'forged' }, 400)
+  await post(reviewUrl, { action: 'APPROVE' }, 409)
+  await post(`/api/jv/orders/other/proposal-drafts/${original.id}/review`, { action: 'SUBMIT' }, 404)
+  const submits = await Promise.all([admin, admin].map(auth =>
+   app.inject({ method: 'POST', url: reviewUrl, headers: auth, payload: { action: 'SUBMIT' } }),
+  ))
+  assert.deepEqual(submits.map(r => r.statusCode).sort(), [201, 409])
+  const conflict = submits.find(r => r.statusCode === 409)?.json()
+  assert.equal(conflict.error.code, 'PROPOSAL_REVIEW_CONFLICT')
+  assert.equal(conflict.review.status, 'IN_REVIEW')
+  assert.equal(conflict.review.events.length, 1)
+  await post(reviewUrl, { action: 'APPROVE' }, 403, admin)
+  await post(reviewUrl, { action: 'RETURN', comment: 'Чужое решение' }, 403, admin)
+  await post(reviewUrl, { action: 'RETURN', comment: '   ' }, 400)
+  await post(reviewUrl, { action: 'RETURN', comment: 'о'.repeat(1001) }, 400)
+  const returned = await post(reviewUrl, { action: 'RETURN', comment: '  Уточнить срок  ' }, 201)
+  assert.equal(returned.status, 'CHANGES_REQUESTED')
+  assert.deepEqual(returned.events.map((event: { sequence: number; status: string; actorId: string; actorRole: string; comment: string | null; contentSha256: string; createdAt: string }) => {
+   assert.equal(event.contentSha256, original.contentSha256)
+   assert.ok(Number.isFinite(Date.parse(event.createdAt)))
+   return [event.sequence, event.status, event.actorId, event.actorRole, event.comment]
+  }), [[1, 'IN_REVIEW', 'r55-ADMIN', 'ADMIN', null], [2, 'CHANGES_REQUESTED', 'r55-OWNER', 'OWNER', 'Уточнить срок']])
+  await post(reviewUrl, { action: 'SUBMIT' }, 409)
+
+  const revised = await post(`${url}/revise`, { terms: { ...terms, timeframe: 'Три дня' } }, 201)
+  const revisedUrl = `${pending}/${revised.id}`
+  assert.deepEqual((await read(revisedUrl)).review, { status: 'DRAFT', events: [] })
+  await post(`${revisedUrl}/review`, { action: 'SUBMIT' }, 201)
+  await prisma.jvProposalDraft.update({ where: { id: revised.id }, data: { contentSha256: '0'.repeat(64) } })
+  const corruptProposal = await post(`${revisedUrl}/review`, { action: 'APPROVE' }, 409)
+  assert.equal(corruptProposal.error.code, 'PROPOSAL_INTEGRITY_FAILED')
+  await prisma.jvProposalDraft.update({ where: { id: revised.id }, data: { contentSha256: revised.contentSha256 } })
+  await prisma.jvCalculationSnapshot.update({ where: { id: snapshot.id }, data: { contentSha256: '0'.repeat(64) } })
+  const corruptSnapshot = await post(`${revisedUrl}/review`, { action: 'APPROVE' }, 409)
+  assert.equal(corruptSnapshot.error.code, 'SNAPSHOT_INTEGRITY_FAILED')
+  await prisma.jvCalculationSnapshot.update({ where: { id: snapshot.id }, data: { contentSha256: snapshot.contentSha256 } })
+  const approved = await post(`${revisedUrl}/review`, { action: 'APPROVE' }, 201)
+  assert.equal(approved.status, 'APPROVED')
+  await post(`${revisedUrl}/review`, { action: 'RETURN', comment: 'Запоздалое решение' }, 409)
+  const saved = await read(revisedUrl), predecessor = await read(url)
+  assert.deepEqual(saved.review, approved)
+  assert.deepEqual(predecessor.review, returned)
+  assert.deepEqual(saved.payload.totalSalePrice, original.payload.totalSalePrice)
+  assert.deepEqual(saved.payload.terms, { ...terms, timeframe: 'Три дня' })
+  assert.equal(saved.contentSha256, revised.contentSha256)
+  assert.equal(predecessor.contentSha256, original.contentSha256)
+  assert.deepEqual(predecessor.payload, original.payload)
+  await prisma.jvProposalReviewEvent.update({
+   where: { proposalId_sequence: { proposalId: revised.id, sequence: 2 } },
+   data: { contentSha256: '0'.repeat(64) },
+  })
+  const corruptEvent = await app.inject({ method: 'GET', url: revisedUrl, headers: owner })
+  assert.equal(corruptEvent.statusCode, 409)
+  assert.equal(corruptEvent.json().error.code, 'PROPOSAL_INTEGRITY_FAILED')
+ } finally {
+  if (orderId) {
+   await prisma.jvProposalDraft.deleteMany({ where: { orderId } })
+   await prisma.jvCalculationSnapshot.deleteMany({ where: { orderId } })
+   await prisma.jvOrder.delete({ where: { id: orderId } })
+  }
+  await app.close()
+  await prisma.$disconnect()
+ }
+})

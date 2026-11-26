@@ -29,6 +29,31 @@ function stableJson(value: unknown): string {
  const normalize=(v:unknown):unknown=>Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a<b?-1:a>b?1:0).map(([k,x])=>[k,normalize(x)])):v
  return JSON.stringify(normalize(value))
 }
+function parseProposalTerms(terms: unknown) {
+ if (!terms || typeof terms !== 'object' || Array.isArray(terms)) return null
+ const raw = terms as Record<string, unknown>
+ const keys = ['recipient', 'requisites', 'payment', 'timeframe', 'delivery']
+ if (Object.keys(raw).some(key => !keys.includes(key))) return null
+ const clean: Record<string, string> = {}
+ for (const key of keys) {
+  const value = raw[key]
+  if (typeof value !== 'string' || !value.trim() || value.length > 2000) return null
+  clean[key] = value.trim()
+ }
+ return clean
+}
+
+type ProposalReviewEvent = Prisma.JvProposalReviewEventGetPayload<{}>
+function proposalReview(events: ProposalReviewEvent[]) {
+ return { status: events.at(-1)?.status ?? 'DRAFT', events }
+}
+
+const reviewTransitions = {
+ SUBMIT: { from: 'DRAFT', to: 'IN_REVIEW' },
+ APPROVE: { from: 'IN_REVIEW', to: 'APPROVED' },
+ RETURN: { from: 'IN_REVIEW', to: 'CHANGES_REQUESTED' },
+} as const
+
 export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
  const guard=requireRole(Role.OWNER,Role.ADMIN)
  async function links(d:Draft){return (!d.contactId || !!await prisma.contact.findUnique({where:{id:d.contactId},select:{id:true}})) && (!d.dealId || !!await prisma.deal.findUnique({where:{id:d.dealId},select:{id:true}}))}
@@ -114,20 +139,82 @@ export async function jvOrderPersistenceRoutes(app: FastifyInstance) {
   return prisma.jvProposalDraft.findMany({where:{orderId:req.params.id},orderBy:{createdAt:'desc'},take:100,select:{id:true,number:true,orderId:true,snapshotId:true,authorId:true,createdAt:true,formatVersion:true,contentSha256:true}})
  })
  app.get<{Params:{id:string;proposalId:string}}>('/orders/:id/proposal-drafts/:proposalId',{preHandler:guard},async(req,reply)=>{
-  const proposal=await prisma.jvProposalDraft.findFirst({where:{id:req.params.proposalId,orderId:req.params.id}})
-  if(!proposal)return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  const found=await prisma.jvProposalDraft.findFirst({where:{id:req.params.proposalId,orderId:req.params.id},include:{reviewEvents:{orderBy:{sequence:'asc'}}}})
+  if(!found)return reply.status(404).send({error:{code:'NOT_FOUND'}})
+  const {reviewEvents,...proposal}=found
   const digest=createHash('sha256').update(stableJson({formatVersion:proposal.formatVersion,orderId:proposal.orderId,snapshotId:proposal.snapshotId,payload:proposal.payload})).digest('hex')
-  if(digest!==proposal.contentSha256)return reply.status(409).send({error:{code:'PROPOSAL_INTEGRITY_FAILED'}})
-  reply.header('Cache-Control','no-store');return proposal
+  if(digest!==proposal.contentSha256 || reviewEvents.some(event=>event.contentSha256!==digest))return reply.status(409).send({error:{code:'PROPOSAL_INTEGRITY_FAILED'}})
+  reply.header('Cache-Control','no-store');return {...proposal,review:proposalReview(reviewEvents)}
+ })
+ app.post<{ Params: { id: string; proposalId: string }; Body: unknown }>('/orders/:id/proposal-drafts/:proposalId/review', { preHandler: guard, bodyLimit: 8192 }, async (req, reply) => {
+  const body = req.body
+  if (!body || typeof body !== 'object' || Array.isArray(body) || Object.keys(body).some(key => key !== 'action' && key !== 'comment')) {
+   return reply.status(400).send({ error: { code: 'INVALID_REVIEW_ACTION' } })
+  }
+  const { action, comment } = body as { action?: unknown; comment?: unknown }
+  if (action !== 'SUBMIT' && action !== 'APPROVE' && action !== 'RETURN') {
+   return reply.status(400).send({ error: { code: 'INVALID_REVIEW_ACTION' } })
+  }
+  const actor = req.user as { id: string; role: Role }
+  if (typeof actor.id !== 'string' || !actor.id) return reply.status(401).send({ error: { code: 'UNAUTHENTICATED' } })
+  if (action !== 'SUBMIT' && actor.role !== Role.OWNER) {
+   return reply.status(403).send({ error: { code: 'FORBIDDEN' } })
+  }
+  const returnComment = typeof comment === 'string' ? comment.trim() : ''
+  if (action === 'RETURN' ? !returnComment || returnComment.length > 1000 : comment !== undefined) {
+   return reply.status(400).send({ error: { code: 'INVALID_REVIEW_COMMENT' } })
+  }
+  const { id, proposalId } = req.params
+  const transition = reviewTransitions[action]
+  const result = await prisma.$transaction(async tx => {
+   // Serialize decisions on the same immutable version, including two first submissions.
+   const locked = await tx.$queryRaw<{ id: string }[]>`SELECT id FROM "JvProposalDraft" WHERE id = ${proposalId} AND "orderId" = ${id} FOR UPDATE`
+   if (!locked.length) return { status: 404, code: 'NOT_FOUND' }
+   const proposal = await tx.jvProposalDraft.findUniqueOrThrow({
+    where: { id: proposalId },
+    include: { reviewEvents: { orderBy: { sequence: 'asc' } }, snapshot: true },
+   })
+   const { formatVersion, orderId, snapshotId, payload, contentSha256, reviewEvents, snapshot } = proposal
+   const digest = createHash('sha256').update(stableJson({ formatVersion, orderId, snapshotId, payload })).digest('hex')
+   if (formatVersion !== 'JV-PROPOSAL-DRAFT-1' || digest !== contentSha256 || reviewEvents.some(event => event.contentSha256 !== contentSha256)) {
+    return { status: 409, code: 'PROPOSAL_INTEGRITY_FAILED' }
+   }
+   const state = proposalReview(reviewEvents)
+   if (state.status !== transition.from) return { status: 409, code: 'PROPOSAL_REVIEW_CONFLICT', review: state }
+   if (!payload || typeof payload !== 'object' || Array.isArray(payload) || !parseProposalTerms(payload.terms)) {
+    return { status: 422, code: 'PROPOSAL_TERMS_REQUIRED' }
+   }
+   const snapshotDigest = createHash('sha256').update(stableJson({
+    formatVersion: snapshot.formatVersion, orderId: snapshot.orderId, orderVersion: snapshot.orderVersion,
+    input: snapshot.input, result: snapshot.result,
+   })).digest('hex')
+   if (snapshot.orderId !== orderId || snapshotDigest !== snapshot.contentSha256 || payload.snapshotSha256 !== snapshot.contentSha256) {
+    return { status: 409, code: 'SNAPSHOT_INTEGRITY_FAILED' }
+   }
+   const sourceDraft = validate(snapshot.input)
+   if (!sourceDraft) return { status: 422, code: 'INVALID_DRAFT' }
+   if (sourceDraft.profile === 'COMPLETATION' && sourceDraft.uiSchemaVersion !== 'JV-UI-INPUTS-3') {
+    return { status: 409, code: 'HISTORICAL_GLASS_POLICY' }
+   }
+   if (!createResultDto(snapshot.result).calculation.totalSalePrice) {
+    return { status: 422, code: 'PARTIAL_CALCULATION' }
+   }
+   const event = await tx.jvProposalReviewEvent.create({
+    data: { proposalId, sequence: reviewEvents.length + 1, status: transition.to, actorId: actor.id,
+     actorRole: actor.role, comment: returnComment || null, contentSha256 },
+   })
+   return { status: 201, review: proposalReview([...reviewEvents, event]) }
+  })
+  reply.header('Cache-Control', 'no-store')
+  return result.code
+   ? reply.status(result.status).send({ error: { code: result.code }, review: result.review })
+   : reply.status(result.status).send(result.review)
  })
  // Terms create a new immutable draft; prices always come from its verified predecessor.
  app.post<{Params:{id:string;proposalId:string};Body:unknown}>('/orders/:id/proposal-drafts/:proposalId/revise',{preHandler:guard,bodyLimit:16384},async(req,reply)=>{
   if(!req.body||typeof req.body!=='object'||Array.isArray(req.body)||Object.keys(req.body).some(k=>k!=='terms'))return reply.status(400).send({error:{code:'INVALID_REQUEST'}})
-  const terms=(req.body as {terms?:unknown}).terms
-  if(!terms||typeof terms!=='object'||Array.isArray(terms))return reply.status(400).send({error:{code:'INVALID_TERMS'}})
-  const raw=terms as Record<string,unknown>,keys=['recipient','requisites','payment','timeframe','delivery']
-  if(Object.keys(raw).some(k=>!keys.includes(k))||keys.some(k=>typeof raw[k]!=='string'||!(raw[k] as string).trim()||(raw[k] as string).length>2000))return reply.status(400).send({error:{code:'INVALID_TERMS',message:'Заполните все поля условий'}})
-  const clean=Object.fromEntries(keys.map(k=>[k,(raw[k] as string).trim()]))
+  const clean=parseProposalTerms((req.body as {terms?:unknown}).terms)
+  if(!clean)return reply.status(400).send({error:{code:'INVALID_TERMS',message:'Заполните все поля условий'}})
   const original=await prisma.jvProposalDraft.findFirst({where:{id:req.params.proposalId,orderId:req.params.id},include:{snapshot:true}})
   if(!original)return reply.status(404).send({error:{code:'NOT_FOUND'}})
   const digest=createHash('sha256').update(stableJson({formatVersion:original.formatVersion,orderId:original.orderId,snapshotId:original.snapshotId,payload:original.payload})).digest('hex')
