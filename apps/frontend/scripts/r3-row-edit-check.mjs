@@ -28,6 +28,15 @@ await page.route('**/api/**', async route => {
   if (request.method() !== 'GET') { writes++; return route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'Test failure' }) }) }
   return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(data[key] ?? []) })
 })
+
+async function closeWithEscape(dialog) {
+  // Radix moves focus into the dialog after mounting its keyboard handlers.
+  // Visibility alone can be observed before this effects cycle has completed.
+  await dialog.and(page.locator(':focus, :has(:focus)')).waitFor()
+  await page.keyboard.press('Escape')
+  await dialog.waitFor({ state: 'hidden' })
+}
+
 try {
   const scenarios = [
     ['/clients', 'Тестовый Контакт', 'Редактировать контакт', 'input[name="lastName"]', 'Тестовый'],
@@ -45,8 +54,7 @@ try {
     const dialog = page.getByRole('dialog', { name: title })
     await dialog.waitFor()
     assert.equal(await dialog.locator(selector).first().inputValue(), value)
-    await page.keyboard.press('Escape')
-    await dialog.waitFor({ state: 'hidden' })
+    await closeWithEscape(dialog)
     assert.equal(writes, 0, `${path}: cancelling must not write`)
     const editButton = row.locator('button').first()
     await editButton.focus()
@@ -54,8 +62,7 @@ try {
     await dialog.waitFor()
     await dialog.getByRole('button', { name: 'Отмена' }).click()
     await dialog.waitFor({ state: 'hidden' })
-    await page.waitForTimeout(250)
-    assert.equal(await editButton.evaluate(el => el === document.activeElement), true, `${path}: focus must return to edit button`)
+    await editButton.and(page.locator(':focus')).waitFor()
     console.log(`PASS double-click, selected values, single-click, pencil, Escape and Cancel: ${path}`)
   }
   await page.goto(base + '/clients')
@@ -70,7 +77,7 @@ try {
   assert.equal(await company.isVisible(), true, 'company card must not open after editing')
   await company.locator('td').first().dblclick({ delay: 200 })
   await companyDialog.waitFor()
-  await page.keyboard.press('Escape'); await companyDialog.waitFor({ state: 'hidden' })
+  await closeWithEscape(companyDialog)
   await page.waitForTimeout(1100)
   assert.equal(await company.isVisible(), true, 'double click must not leave pending navigation')
   console.log('PASS company double-click with 200ms input delay and cancelled navigation')
@@ -86,7 +93,7 @@ try {
   const otherDialog = page.getByRole('dialog', { name: 'Редактировать поставщика' })
   await otherDialog.waitFor()
   assert.equal(await otherDialog.getByLabel('Название *').inputValue(), 'Другой поставщик')
-  await page.keyboard.press('Escape'); await otherDialog.waitFor({ state: 'hidden' })
+  await closeWithEscape(otherDialog)
   await vendor.locator('td').first().dblclick()
   const dialog = page.getByRole('dialog', { name: 'Редактировать поставщика' })
   await dialog.getByLabel('Название *').fill('Изменено R3')
@@ -94,7 +101,7 @@ try {
   await dialog.getByRole('alert').waitFor()
   assert.equal(await dialog.isVisible(), true)
   assert.equal(writes, 1)
-  await page.keyboard.press('Escape')
+  await closeWithEscape(dialog)
   assert.deepEqual(errors, [])
   console.log('PASS mocked server error stays visible in vendor dialog')
   await page.evaluate(() => { const auth = JSON.parse(localStorage.getItem('bms-auth')); auth.state.user.role = 'GUEST'; localStorage.setItem('bms-auth', JSON.stringify(auth)) })
