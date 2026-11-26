@@ -36,21 +36,41 @@ export interface ProposalDraft {
   createdAt: string
   formatVersion: string
   review?: ProposalReview
-  payload: {
-    orderNumber: number
-    orderVersion: number
-    profile: 'COMPLETATION' | 'RETAIL'
-    totalSalePrice: unknown
-    terms?: ProposalTerms
-    positions: {
-      id: string
-      family: string
-      slot: number
-      quantity: unknown
-      confirmedUnitAmount?: unknown
-    }[]
-  }
+  payload: ProposalPayload
+}
+
+export interface ProposalPayload {
+  orderNumber: number
+  orderVersion: number
+  profile: 'COMPLETATION' | 'RETAIL'
+  totalSalePrice: unknown
+  terms?: ProposalTerms
+  positions: {
+    id: string
+    family: string
+    slot: number
+    quantity: unknown
+    confirmedUnitAmount?: unknown
+  }[]
+}
+
+export interface ProposalIssue {
+  number: number
+  issuedAt: string
+}
+
+export interface ProposalForIssue {
+  number: number
+  issue: ProposalIssue | null
+  payload: ProposalPayload
 }
 
 export const proposalDraftPath = (orderId: string, proposalId: string) =>
   `/jv/orders/${encodeURIComponent(orderId)}/proposal-drafts/${encodeURIComponent(proposalId)}`
+
+export const proposalIssuancePath = '/jv/proposal-issuance'
+export const proposalIssuanceDetailPath = (proposalId: string) =>
+  `${proposalIssuancePath}/${encodeURIComponent(proposalId)}`
+
+export const canIssueJvProposal = (role: string | undefined) => role === 'OWNER' || role === 'ENGINEER'
+export const issuedDate = (value: string) => new Date(value).toLocaleDateString('ru-RU', { timeZone: 'Europe/Moscow' })

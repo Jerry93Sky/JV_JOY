@@ -9,12 +9,13 @@ import { useAuthStore } from '@/store/authStore'
 import { Role } from '@/api/settings'
 
 const ROLE_LABELS: Record<Role, string> = {
-  [Role.OWNER]: 'Владелец', [Role.ADMIN]: 'Администратор',
+  [Role.OWNER]: 'Владелец', [Role.ADMIN]: 'Администратор', [Role.ENGINEER]: 'Инженер',
   [Role.USER]: 'Пользователь', [Role.GUEST]: 'Гость',
 }
 const ROLE_COLORS: Record<Role, string> = {
   [Role.OWNER]: 'bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/30',
   [Role.ADMIN]: 'bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/30',
+  [Role.ENGINEER]: 'bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/30',
   [Role.USER]: 'bg-slate-500/20 text-slate-700 dark:text-slate-300 border border-slate-500/30',
   [Role.GUEST]: 'bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30',
 }
@@ -27,9 +28,15 @@ export default function UsersTab() {
   const updateUser = useUpdateUser()
   const deleteUser = useDeleteUser()
   const currentUser = useAuthStore(s => s.user)
+  const isOwner = currentUser?.role === Role.OWNER
   const [editing, setEditing] = useState<AppUser | null>(null)
   const [creating, setCreating] = useState(false)
   const [form, setForm] = useState<UserForm>({ login: '', password: '', firstName: '', lastName: '', middleName: '', role: Role.USER })
+
+  function canEdit(user: AppUser) {
+    if (user.role === Role.OWNER) return isOwner && user.id === currentUser?.id
+    return isOwner || (currentUser?.role === Role.ADMIN && user.role !== Role.ENGINEER)
+  }
 
   function openCreate() {
     setForm({ login: '', password: '', firstName: '', lastName: '', middleName: '', role: Role.USER })
@@ -73,7 +80,7 @@ export default function UsersTab() {
           </thead>
           <tbody>
             {users.map(u => (
-              <tr key={u.id} {...rowEdit(() => { if ((currentUser?.role === Role.OWNER || currentUser?.role === Role.ADMIN) && (u.role !== Role.OWNER || u.id === currentUser.id)) openEdit(u) })} className="border-t hover:bg-muted/30">
+              <tr key={u.id} {...rowEdit(() => { if (canEdit(u)) openEdit(u) })} className="border-t hover:bg-muted/30">
                 <td className="px-4 py-2 font-medium">{u.lastName} {u.firstName} {u.middleName}</td>
                 <td className="px-4 py-2 font-mono text-xs text-muted-foreground">{u.login}</td>
                 <td className="px-4 py-2">
@@ -86,7 +93,7 @@ export default function UsersTab() {
                 </td>
                 <td className="px-4 py-2">
                   <div className="flex gap-1 justify-end">
-                    <Button variant="ghost" size="icon" disabled={(currentUser?.role !== Role.OWNER && currentUser?.role !== Role.ADMIN) || (u.role === Role.OWNER && u.id !== currentUser?.id)} onClick={() => openEdit(u)}><Pencil size={14} /></Button>
+                    <Button variant="ghost" size="icon" disabled={!canEdit(u)} onClick={() => openEdit(u)}><Pencil size={14} /></Button>
                     {u.id !== currentUser?.id && u.role !== Role.OWNER && (
                       <Button variant="ghost" size="icon" disabled={currentUser?.role !== Role.OWNER} className="text-destructive hover:text-destructive"
                         onClick={() => { if (confirm('Удалить пользователя?')) deleteUser.mutate(u.id) }}>
@@ -108,12 +115,12 @@ export default function UsersTab() {
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-2">
                 <div className="col-span-2">
-                  <label className="text-xs text-muted-foreground">Фамилия *</label>
-                  <Input value={form.lastName} onChange={e => setForm(f => ({ ...f, lastName: e.target.value }))} />
+                  <label htmlFor="user-last-name" className="text-xs text-muted-foreground">Фамилия *</label>
+                  <Input id="user-last-name" value={form.lastName} onChange={e => setForm(f => ({ ...f, lastName: e.target.value }))} />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground">Имя *</label>
-                  <Input value={form.firstName} onChange={e => setForm(f => ({ ...f, firstName: e.target.value }))} />
+                  <label htmlFor="user-first-name" className="text-xs text-muted-foreground">Имя *</label>
+                  <Input id="user-first-name" value={form.firstName} onChange={e => setForm(f => ({ ...f, firstName: e.target.value }))} />
                 </div>
                 <div>
                   <label className="text-xs text-muted-foreground">Отчество</label>
@@ -121,18 +128,18 @@ export default function UsersTab() {
                 </div>
               </div>
               <div>
-                <label className="text-xs text-muted-foreground">Логин *</label>
-                <Input value={form.login} onChange={e => setForm(f => ({ ...f, login: e.target.value }))} disabled={!!editing} />
+                <label htmlFor="user-login" className="text-xs text-muted-foreground">Логин *</label>
+                <Input id="user-login" value={form.login} onChange={e => setForm(f => ({ ...f, login: e.target.value }))} disabled={!!editing} />
               </div>
               <div>
-                <label className="text-xs text-muted-foreground">{editing ? 'Новый пароль (оставьте пустым чтобы не менять)' : 'Пароль *'}</label>
-                <Input type="password" value={form.password} onChange={e => setForm(f => ({ ...f, password: e.target.value }))} />
+                <label htmlFor="user-password" className="text-xs text-muted-foreground">{editing ? 'Новый пароль (оставьте пустым чтобы не менять)' : 'Пароль *'}</label>
+                <Input id="user-password" type="password" value={form.password} onChange={e => setForm(f => ({ ...f, password: e.target.value }))} />
               </div>
               <div>
-                <label className="text-xs text-muted-foreground">Роль</label>
-                <select value={form.role} disabled={editing?.role === Role.OWNER} onChange={e => setForm(f => ({ ...f, role: e.target.value as Role }))}
+                <label htmlFor="user-role" className="text-xs text-muted-foreground">Роль</label>
+                <select id="user-role" value={form.role} disabled={editing?.role === Role.OWNER} onChange={e => setForm(f => ({ ...f, role: e.target.value as Role }))}
                   className="flex h-9 w-full rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
-                  {Object.values(Role).filter(r => r !== Role.OWNER || editing?.role === Role.OWNER).map(r => (
+                  {Object.values(Role).filter(r => r === Role.OWNER ? editing?.role === Role.OWNER : r !== Role.ENGINEER || isOwner).map(r => (
                     <option key={r} value={r}>{ROLE_LABELS[r]}</option>
                   ))}
                 </select>

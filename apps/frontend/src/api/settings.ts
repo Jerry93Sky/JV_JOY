@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import api from './client'
 
-export enum Role { OWNER = 'OWNER', ADMIN = 'ADMIN', USER = 'USER', GUEST = 'GUEST' }
+export enum Role { OWNER = 'OWNER', ADMIN = 'ADMIN', ENGINEER = 'ENGINEER', USER = 'USER', GUEST = 'GUEST' }
 
 export interface AppUser {
   id: string; login: string; firstName: string; lastName: string
