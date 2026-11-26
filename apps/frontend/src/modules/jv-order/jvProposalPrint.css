@@ -1,0 +1,73 @@
+.jv-proposal-sheet table {
+  table-layout: fixed;
+}
+
+.jv-proposal-sheet th:nth-child(1) { width: 14%; }
+.jv-proposal-sheet th:nth-child(2) { width: 27%; }
+.jv-proposal-sheet th:nth-child(3) { width: 19%; }
+
+.jv-proposal-sheet th,
+.jv-proposal-sheet td {
+  padding: .5em;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.jv-proposal-term {
+  overflow-wrap: anywhere;
+}
+
+@page jv-proposal {
+  size: A4;
+  margin: 16mm;
+}
+
+@media print {
+  main.jv-proposal-page {
+    page: jv-proposal;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .jv-proposal-page .jv-proposal-actions {
+    display: none;
+  }
+
+  article.jv-proposal-sheet {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    color: #000;
+    background: #fff;
+  }
+
+  .jv-proposal-sheet header {
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .jv-proposal-sheet dl {
+    gap: 6px;
+  }
+
+  .jv-proposal-sheet small {
+    display: inline;
+    margin-inline-start: .4em;
+    font-weight: normal;
+  }
+
+  .jv-proposal-sheet h2,
+  .jv-proposal-sheet dt {
+    break-after: avoid;
+  }
+
+  .jv-proposal-sheet thead {
+    display: table-header-group;
+  }
+
+  .jv-proposal-sheet tr,
+  .jv-proposal-total {
+    break-inside: avoid;
+  }
+}
