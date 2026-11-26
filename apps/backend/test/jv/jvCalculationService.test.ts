@@ -190,6 +190,12 @@ test('versioned UI input contract supplies non-price fields and hydrates all sev
     const mode2Response = await post(mode2)
     assert.equal(mode2Response.statusCode, 200, `${profile}/F28=2 with Front slot 7: ${mode2Response.body}`)
     assert.equal(mode2Response.json<ApiResponse>().status, 'COMPLETE')
+    const mode3Pair = structuredClone(payload).positions.filter(position => position.family === 'LINE' || position.family === 'ZIGZAG')
+    for (const position of mode3Pair) {
+      const key = position.family === 'LINE' ? 'input.commercialModeIndex' : 'position.commercial.F28'
+      ;(position.calculation as Record<string, unknown>)[key] = 3
+    }
+    assert.equal((await post({ ...payload, positions: mode3Pair })).statusCode, 422)
     assert.equal((await post({ ...mode2, uiSchemaVersion: 'JV-UI-INPUTS-1' })).statusCode, 200)
     assert.equal((await post({ ...mode2, frontSlot7B26: {value: 2} })).statusCode, 400)
     const injectedB26 = structuredClone(mode2)

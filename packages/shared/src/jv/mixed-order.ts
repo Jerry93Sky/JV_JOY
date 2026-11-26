@@ -90,8 +90,9 @@ export function calculateMixedOrder(input:{
   lines.forEach(p=>{if(p.id!==p.calculation.constructionId)throw new EngineError('INVALID_CONFIGURATION','Position id must match Line constructionId',{id:p.id});if(p.calculation.profile!==profile||p.calculation.workbook!==workbook)throw new EngineError('INVALID_CONFIGURATION','Line position snapshot profile/workbook mismatch',{id:p.id});modeValue(p.calculation.commercialModeIndex)})
   zigInput.forEach(p=>{if(!p.geometry||!p.commercial)throw new EngineError('MISSING_INPUT','Zigzag positions require geometry and commercial inputs',{id:p.id});modeValue(p.commercial.F28)})
   if(globalModes.size!==1)throw new EngineError('INVALID_CONFIGURATION','All active positions must use the same order-level Главная!F28')
-  const modes=[...globalModes]
-  if(modes[0]!==1&&modes[0]!==2)throw new EngineError('RULE_UNCONFIRMED','Only source-verified Главная!F28 selectors 1 and 2 are supported',{F28:modes[0]})
+  const [mode]=globalModes
+  // The source predicates in Line Q56 and Zigzag P42 apply the C25 charge only for mode 2.
+  if(mode!==1&&mode!==2&&mode!==3)throw new EngineError('RULE_UNCONFIRMED','Only source-verified Главная!F28 selectors 1, 2 and 3 are supported',{F28:mode})
   const zigModes=new Set(zigInput.map(p=>{const c=p.commercial!;return `${c.D32}|${c.D33}|${c.D34}|${c.L3}`}))
   if(zigModes.size!==1)throw new EngineError('INVALID_CONFIGURATION','Настройки!D32/D33/D34/L3 are order-level and must match across Zigzag positions')
   const zMode=zigInput[0]!.commercial!
