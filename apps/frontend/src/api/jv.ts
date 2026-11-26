@@ -46,6 +46,7 @@ export interface JvUiConfig {
   profile: PriceProfile
   families: Record<UnifiedFamily, Record<string, JvUiValue>>
   fieldMetadata: Record<UnifiedFamily, JvUiField[]>
+  verifiedGlassOffExample?: readonly { family: UnifiedFamily; slot: number; quantity: string; calculation: Record<string, JvUiValue> }[]
   frontDoorProfile: { id: string; label: string; defaults: Record<string, JvUiValue>; fieldMetadata: JvUiField[]; slots: UnifiedFamily[]; restriction: string }
 }
 export interface JvUiPreviewRequest {

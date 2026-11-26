@@ -1,0 +1,852 @@
+{
+  "schemaVersion": "1.0",
+  "sourceSha256": "62dd6d49f059bef840b67713a0ea6a9f1dec0ec90cf364563cf423dac376d2d8",
+  "records": [
+    {
+      "scenarioId": "pr13e-completation-base",
+      "positions": [
+        {
+          "id": "line-1",
+          "slot": 1,
+          "family": "LINE",
+          "quantity": "1",
+          "calculation": {
+            "input.commercialModeIndex": 1,
+            "input.glassSelectionIndex": 9,
+            "input.finishSelectionIndex": 1,
+            "input.widthMm": "4000",
+            "input.heightMm": "2500",
+            "input.leaves": "5",
+            "input.sideCount": "1",
+            "input.direction": "НАЛЕВО",
+            "input.profileCount": "0",
+            "input.connectorAngle": "90",
+            "input.frameState": "ДА",
+            "input.knobState": "ДА",
+            "input.latchState": "ДА",
+            "input.weatherSealState": "НЕТ",
+            "input.floorLockState": "НЕТ",
+            "input.bottomPivotState": "НЕТ",
+            "input.specialSashEnabled": false,
+            "input.specialSashWidthMm": "900",
+            "input.rollerAxisToEdgeMm": "50",
+            "input.parkedDoorSelected": true,
+            "input.parkedDoorPosition": "2",
+            "input.parkedDoorReuseOpening": false,
+            "input.parkedDoorWidthMm": "900"
+          }
+        },
+        {
+          "id": "zigzag",
+          "slot": 2,
+          "family": "ZIGZAG",
+          "quantity": "1",
+          "calculation": {
+            "position.geometry.widthMm": "5000",
+            "position.geometry.heightMm": "2600",
+            "position.geometry.leafSelector": "5",
+            "position.geometry.openingSelector": 2,
+            "position.commercial.c8": "1",
+            "position.commercial.F28": 1,
+            "position.commercial.glassTypeSelector": 9,
+            "position.commercial.N40": "0",
+            "position.commercial.N41": "0"
+          }
+        },
+        {
+          "id": "slider-0",
+          "slot": 3,
+          "family": "SLIDER_L3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-1",
+          "slot": 4,
+          "family": "SLIDER_L5",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-2",
+          "slot": 5,
+          "family": "SLIDER_X3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-3",
+          "slot": 6,
+          "family": "SLIDER_X5",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "front",
+          "slot": 7,
+          "family": "FRONT",
+          "quantity": "1",
+          "calculation": {
+            "construction.widthMm": "3000",
+            "construction.heightMm": "2200",
+            "construction.sectionDemand": "3",
+            "construction.finishSelector": 1,
+            "construction.glassSelector": 9,
+            "construction.openingSelector": 4,
+            "construction.controls.C18": 1,
+            "construction.controls.C19": 1,
+            "construction.controls.C20": 1,
+            "construction.controls.C21": 1,
+            "construction.controls.C22": 8,
+            "construction.controls.C23": 10,
+            "construction.controls.C24": 1,
+            "construction.controls.D18": "1000",
+            "construction.controls.D19": "2150",
+            "commercial.glassEnabled": false,
+            "commercial.finishingEnabled": true,
+            "commercial.glassServiceEnabled": true,
+            "commercial.installationEnabled": false,
+            "commercial.mainSurchargeSelector": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "pr13e-completation-multi-quantity",
+      "positions": [
+        {
+          "id": "line-1",
+          "slot": 1,
+          "family": "LINE",
+          "quantity": "2",
+          "calculation": {
+            "input.commercialModeIndex": 1,
+            "input.glassSelectionIndex": 9,
+            "input.finishSelectionIndex": 1,
+            "input.widthMm": "4000",
+            "input.heightMm": "2500",
+            "input.leaves": "5",
+            "input.sideCount": "1",
+            "input.direction": "НАЛЕВО",
+            "input.profileCount": "0",
+            "input.connectorAngle": "90",
+            "input.frameState": "ДА",
+            "input.knobState": "ДА",
+            "input.latchState": "ДА",
+            "input.weatherSealState": "НЕТ",
+            "input.floorLockState": "НЕТ",
+            "input.bottomPivotState": "НЕТ",
+            "input.specialSashEnabled": false,
+            "input.specialSashWidthMm": "900",
+            "input.rollerAxisToEdgeMm": "50",
+            "input.parkedDoorSelected": true,
+            "input.parkedDoorPosition": "2",
+            "input.parkedDoorReuseOpening": false,
+            "input.parkedDoorWidthMm": "900"
+          }
+        },
+        {
+          "id": "zigzag",
+          "slot": 2,
+          "family": "ZIGZAG",
+          "quantity": "1",
+          "calculation": {
+            "position.geometry.widthMm": "5000",
+            "position.geometry.heightMm": "2600",
+            "position.geometry.leafSelector": "5",
+            "position.geometry.openingSelector": 2,
+            "position.commercial.c8": "1",
+            "position.commercial.F28": 1,
+            "position.commercial.glassTypeSelector": 9,
+            "position.commercial.N40": "0",
+            "position.commercial.N41": "0"
+          }
+        },
+        {
+          "id": "slider-0",
+          "slot": 3,
+          "family": "SLIDER_L3",
+          "quantity": "3",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-1",
+          "slot": 4,
+          "family": "SLIDER_L5",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-2",
+          "slot": 5,
+          "family": "SLIDER_X3",
+          "quantity": "2",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-3",
+          "slot": 6,
+          "family": "SLIDER_X5",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "front",
+          "slot": 7,
+          "family": "FRONT",
+          "quantity": "2",
+          "calculation": {
+            "construction.widthMm": "3000",
+            "construction.heightMm": "2200",
+            "construction.sectionDemand": "3",
+            "construction.finishSelector": 1,
+            "construction.glassSelector": 9,
+            "construction.openingSelector": 4,
+            "construction.controls.C18": 1,
+            "construction.controls.C19": 1,
+            "construction.controls.C20": 1,
+            "construction.controls.C21": 1,
+            "construction.controls.C22": 8,
+            "construction.controls.C23": 10,
+            "construction.controls.C24": 1,
+            "construction.controls.D18": "1000",
+            "construction.controls.D19": "2150",
+            "commercial.glassEnabled": false,
+            "commercial.finishingEnabled": true,
+            "commercial.glassServiceEnabled": true,
+            "commercial.installationEnabled": false,
+            "commercial.mainSurchargeSelector": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "pr13e-completation-quantity-zigzag-slider",
+      "positions": [
+        {
+          "id": "line-1",
+          "slot": 1,
+          "family": "LINE",
+          "quantity": "1",
+          "calculation": {
+            "input.commercialModeIndex": 1,
+            "input.glassSelectionIndex": 9,
+            "input.finishSelectionIndex": 1,
+            "input.widthMm": "4000",
+            "input.heightMm": "2500",
+            "input.leaves": "5",
+            "input.sideCount": "1",
+            "input.direction": "НАЛЕВО",
+            "input.profileCount": "0",
+            "input.connectorAngle": "90",
+            "input.frameState": "ДА",
+            "input.knobState": "ДА",
+            "input.latchState": "ДА",
+            "input.weatherSealState": "НЕТ",
+            "input.floorLockState": "НЕТ",
+            "input.bottomPivotState": "НЕТ",
+            "input.specialSashEnabled": false,
+            "input.specialSashWidthMm": "900",
+            "input.rollerAxisToEdgeMm": "50",
+            "input.parkedDoorSelected": true,
+            "input.parkedDoorPosition": "2",
+            "input.parkedDoorReuseOpening": false,
+            "input.parkedDoorWidthMm": "900"
+          }
+        },
+        {
+          "id": "zigzag",
+          "slot": 2,
+          "family": "ZIGZAG",
+          "quantity": "3",
+          "calculation": {
+            "position.geometry.widthMm": "5000",
+            "position.geometry.heightMm": "2600",
+            "position.geometry.leafSelector": "5",
+            "position.geometry.openingSelector": 2,
+            "position.commercial.c8": "1",
+            "position.commercial.F28": 1,
+            "position.commercial.glassTypeSelector": 9,
+            "position.commercial.N40": "0",
+            "position.commercial.N41": "0"
+          }
+        },
+        {
+          "id": "slider-0",
+          "slot": 3,
+          "family": "SLIDER_L3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-1",
+          "slot": 4,
+          "family": "SLIDER_L5",
+          "quantity": "2",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-2",
+          "slot": 5,
+          "family": "SLIDER_X3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-3",
+          "slot": 6,
+          "family": "SLIDER_X5",
+          "quantity": "2",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "front",
+          "slot": 7,
+          "family": "FRONT",
+          "quantity": "1",
+          "calculation": {
+            "construction.widthMm": "3000",
+            "construction.heightMm": "2200",
+            "construction.sectionDemand": "3",
+            "construction.finishSelector": 1,
+            "construction.glassSelector": 9,
+            "construction.openingSelector": 4,
+            "construction.controls.C18": 1,
+            "construction.controls.C19": 1,
+            "construction.controls.C20": 1,
+            "construction.controls.C21": 1,
+            "construction.controls.C22": 8,
+            "construction.controls.C23": 10,
+            "construction.controls.C24": 1,
+            "construction.controls.D18": "1000",
+            "construction.controls.D19": "2150",
+            "commercial.glassEnabled": false,
+            "commercial.finishingEnabled": true,
+            "commercial.glassServiceEnabled": true,
+            "commercial.installationEnabled": false,
+            "commercial.mainSurchargeSelector": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "pr13e-completation-quantity-front-line",
+      "positions": [
+        {
+          "id": "line-1",
+          "slot": 1,
+          "family": "LINE",
+          "quantity": "2",
+          "calculation": {
+            "input.commercialModeIndex": 1,
+            "input.glassSelectionIndex": 9,
+            "input.finishSelectionIndex": 1,
+            "input.widthMm": "4000",
+            "input.heightMm": "2500",
+            "input.leaves": "5",
+            "input.sideCount": "1",
+            "input.direction": "НАЛЕВО",
+            "input.profileCount": "0",
+            "input.connectorAngle": "90",
+            "input.frameState": "ДА",
+            "input.knobState": "ДА",
+            "input.latchState": "ДА",
+            "input.weatherSealState": "НЕТ",
+            "input.floorLockState": "НЕТ",
+            "input.bottomPivotState": "НЕТ",
+            "input.specialSashEnabled": false,
+            "input.specialSashWidthMm": "900",
+            "input.rollerAxisToEdgeMm": "50",
+            "input.parkedDoorSelected": true,
+            "input.parkedDoorPosition": "2",
+            "input.parkedDoorReuseOpening": false,
+            "input.parkedDoorWidthMm": "900"
+          }
+        },
+        {
+          "id": "zigzag",
+          "slot": 2,
+          "family": "ZIGZAG",
+          "quantity": "1",
+          "calculation": {
+            "position.geometry.widthMm": "5000",
+            "position.geometry.heightMm": "2600",
+            "position.geometry.leafSelector": "5",
+            "position.geometry.openingSelector": 2,
+            "position.commercial.c8": "1",
+            "position.commercial.F28": 1,
+            "position.commercial.glassTypeSelector": 9,
+            "position.commercial.N40": "0",
+            "position.commercial.N41": "0"
+          }
+        },
+        {
+          "id": "slider-0",
+          "slot": 3,
+          "family": "SLIDER_L3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-1",
+          "slot": 4,
+          "family": "SLIDER_L5",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-2",
+          "slot": 5,
+          "family": "SLIDER_X3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-3",
+          "slot": 6,
+          "family": "SLIDER_X5",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "front",
+          "slot": 7,
+          "family": "FRONT",
+          "quantity": "3",
+          "calculation": {
+            "construction.widthMm": "3000",
+            "construction.heightMm": "2200",
+            "construction.sectionDemand": "3",
+            "construction.finishSelector": 1,
+            "construction.glassSelector": 9,
+            "construction.openingSelector": 4,
+            "construction.controls.C18": 1,
+            "construction.controls.C19": 1,
+            "construction.controls.C20": 1,
+            "construction.controls.C21": 1,
+            "construction.controls.C22": 8,
+            "construction.controls.C23": 10,
+            "construction.controls.C24": 1,
+            "construction.controls.D18": "1000",
+            "construction.controls.D19": "2150",
+            "commercial.glassEnabled": false,
+            "commercial.finishingEnabled": true,
+            "commercial.glassServiceEnabled": true,
+            "commercial.installationEnabled": false,
+            "commercial.mainSurchargeSelector": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "pr13e-completation-quantity-all-distinct",
+      "positions": [
+        {
+          "id": "line-1",
+          "slot": 1,
+          "family": "LINE",
+          "quantity": "1",
+          "calculation": {
+            "input.commercialModeIndex": 1,
+            "input.glassSelectionIndex": 9,
+            "input.finishSelectionIndex": 1,
+            "input.widthMm": "4000",
+            "input.heightMm": "2500",
+            "input.leaves": "5",
+            "input.sideCount": "1",
+            "input.direction": "НАЛЕВО",
+            "input.profileCount": "0",
+            "input.connectorAngle": "90",
+            "input.frameState": "ДА",
+            "input.knobState": "ДА",
+            "input.latchState": "ДА",
+            "input.weatherSealState": "НЕТ",
+            "input.floorLockState": "НЕТ",
+            "input.bottomPivotState": "НЕТ",
+            "input.specialSashEnabled": false,
+            "input.specialSashWidthMm": "900",
+            "input.rollerAxisToEdgeMm": "50",
+            "input.parkedDoorSelected": true,
+            "input.parkedDoorPosition": "2",
+            "input.parkedDoorReuseOpening": false,
+            "input.parkedDoorWidthMm": "900"
+          }
+        },
+        {
+          "id": "zigzag",
+          "slot": 2,
+          "family": "ZIGZAG",
+          "quantity": "2",
+          "calculation": {
+            "position.geometry.widthMm": "5000",
+            "position.geometry.heightMm": "2600",
+            "position.geometry.leafSelector": "5",
+            "position.geometry.openingSelector": 2,
+            "position.commercial.c8": "1",
+            "position.commercial.F28": 1,
+            "position.commercial.glassTypeSelector": 9,
+            "position.commercial.N40": "0",
+            "position.commercial.N41": "0"
+          }
+        },
+        {
+          "id": "slider-0",
+          "slot": 3,
+          "family": "SLIDER_L3",
+          "quantity": "3",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-1",
+          "slot": 4,
+          "family": "SLIDER_L5",
+          "quantity": "2",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-2",
+          "slot": 5,
+          "family": "SLIDER_X3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-3",
+          "slot": 6,
+          "family": "SLIDER_X5",
+          "quantity": "3",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "front",
+          "slot": 7,
+          "family": "FRONT",
+          "quantity": "2",
+          "calculation": {
+            "construction.widthMm": "3000",
+            "construction.heightMm": "2200",
+            "construction.sectionDemand": "3",
+            "construction.finishSelector": 1,
+            "construction.glassSelector": 9,
+            "construction.openingSelector": 4,
+            "construction.controls.C18": 1,
+            "construction.controls.C19": 1,
+            "construction.controls.C20": 1,
+            "construction.controls.C21": 1,
+            "construction.controls.C22": 8,
+            "construction.controls.C23": 10,
+            "construction.controls.C24": 1,
+            "construction.controls.D18": "1000",
+            "construction.controls.D19": "2150",
+            "commercial.glassEnabled": false,
+            "commercial.finishingEnabled": true,
+            "commercial.glassServiceEnabled": true,
+            "commercial.installationEnabled": false,
+            "commercial.mainSurchargeSelector": 1
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "pr13e-completation-quantity-high-mix",
+      "positions": [
+        {
+          "id": "line-1",
+          "slot": 1,
+          "family": "LINE",
+          "quantity": "3",
+          "calculation": {
+            "input.commercialModeIndex": 1,
+            "input.glassSelectionIndex": 9,
+            "input.finishSelectionIndex": 1,
+            "input.widthMm": "4000",
+            "input.heightMm": "2500",
+            "input.leaves": "5",
+            "input.sideCount": "1",
+            "input.direction": "НАЛЕВО",
+            "input.profileCount": "0",
+            "input.connectorAngle": "90",
+            "input.frameState": "ДА",
+            "input.knobState": "ДА",
+            "input.latchState": "ДА",
+            "input.weatherSealState": "НЕТ",
+            "input.floorLockState": "НЕТ",
+            "input.bottomPivotState": "НЕТ",
+            "input.specialSashEnabled": false,
+            "input.specialSashWidthMm": "900",
+            "input.rollerAxisToEdgeMm": "50",
+            "input.parkedDoorSelected": true,
+            "input.parkedDoorPosition": "2",
+            "input.parkedDoorReuseOpening": false,
+            "input.parkedDoorWidthMm": "900"
+          }
+        },
+        {
+          "id": "zigzag",
+          "slot": 2,
+          "family": "ZIGZAG",
+          "quantity": "2",
+          "calculation": {
+            "position.geometry.widthMm": "5000",
+            "position.geometry.heightMm": "2600",
+            "position.geometry.leafSelector": "5",
+            "position.geometry.openingSelector": 2,
+            "position.commercial.c8": "1",
+            "position.commercial.F28": 1,
+            "position.commercial.glassTypeSelector": 9,
+            "position.commercial.N40": "0",
+            "position.commercial.N41": "0"
+          }
+        },
+        {
+          "id": "slider-0",
+          "slot": 3,
+          "family": "SLIDER_L3",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-1",
+          "slot": 4,
+          "family": "SLIDER_L5",
+          "quantity": "3",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-2",
+          "slot": 5,
+          "family": "SLIDER_X3",
+          "quantity": "2",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "slider-3",
+          "slot": 6,
+          "family": "SLIDER_X5",
+          "quantity": "1",
+          "calculation": {
+            "geometry.widthMm": "3000",
+            "geometry.heightMm": "2200",
+            "geometry.leafCount": "2",
+            "geometry.openingSelector": 1,
+            "controls.priceMode": 2,
+            "controls.mainSurchargeSelector": 1,
+            "controls.glassSelector": 9
+          }
+        },
+        {
+          "id": "front",
+          "slot": 7,
+          "family": "FRONT",
+          "quantity": "4",
+          "calculation": {
+            "construction.widthMm": "3000",
+            "construction.heightMm": "2200",
+            "construction.sectionDemand": "3",
+            "construction.finishSelector": 1,
+            "construction.glassSelector": 9,
+            "construction.openingSelector": 4,
+            "construction.controls.C18": 1,
+            "construction.controls.C19": 1,
+            "construction.controls.C20": 1,
+            "construction.controls.C21": 1,
+            "construction.controls.C22": 8,
+            "construction.controls.C23": 10,
+            "construction.controls.C24": 1,
+            "construction.controls.D18": "1000",
+            "construction.controls.D19": "2150",
+            "commercial.glassEnabled": false,
+            "commercial.finishingEnabled": true,
+            "commercial.glassServiceEnabled": true,
+            "commercial.installationEnabled": false,
+            "commercial.mainSurchargeSelector": 1
+          }
+        }
+      ]
+    }
+  ]
+}
