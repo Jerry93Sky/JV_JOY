@@ -16,7 +16,7 @@ function jsonObject(value: Prisma.JsonValue | undefined) {
   return value && typeof value === 'object' && !Array.isArray(value) ? value : null
 }
 
-function issueDocument({ number, issuedAt, proposalId, formatVersion, proposalSha256, payload, contentSha256 }: JvProposalIssue) {
+export function issueDocument({ number, issuedAt, proposalId, formatVersion, proposalSha256, payload, contentSha256 }: JvProposalIssue) {
   const digest = contentDigest({ proposalId, formatVersion, proposalSha256, payload })
   return formatVersion === 'JV-PROPOSAL-ISSUE-1' && digest === contentSha256 ? { number, issuedAt, payload } : null
 }
@@ -31,7 +31,7 @@ function verifiedSnapshotInput({ orderId, payload, snapshot }: SnapshotSource) {
   return jsonObject(input)
 }
 
-function issuedSnapshotDealId(issue: JvProposalIssue, proposal: SnapshotSource) {
+export function issuedSnapshotDealId(issue: JvProposalIssue, proposal: SnapshotSource) {
   const dealId = jsonObject(proposal.snapshot.input)?.dealId
   if (typeof dealId !== 'string') return null
   const { orderId, snapshotId, payload, formatVersion, contentSha256 } = proposal
@@ -78,18 +78,19 @@ function prepareIssue(source: Source) {
   return { document, contentSha256: contentDigest(document), dealId } as const
 }
 
-export async function jvProposalIssuanceRoutes(app: FastifyInstance) {
-  const eligibleRole = requireRole(Role.OWNER, Role.ENGINEER)
-  async function requireActiveIssuer(req: FastifyRequest, reply: FastifyReply) {
-    const actor = req.user as Actor
-    if (typeof actor.id !== 'string' || !actor.id || !await prisma.user.findFirst({
-      where: { id: actor.id, role: actor.role, isActive: true }, select: { id: true },
-    })) {
-      return reply.status(403).send({ error: { code: 'ISSUER_ROLE_REQUIRED' } })
-    }
+const eligibleRole = requireRole(Role.OWNER, Role.ENGINEER)
+async function requireActiveIssuer(req: FastifyRequest, reply: FastifyReply) {
+  const actor = req.user as Actor
+  if (typeof actor.id !== 'string' || !actor.id || !await prisma.user.findFirst({
+    where: { id: actor.id, role: actor.role, isActive: true }, select: { id: true },
+  })) {
+    return reply.status(403).send({ error: { code: 'ISSUER_ROLE_REQUIRED' } })
   }
-  const readGuard = [eligibleRole, requireActiveIssuer]
+}
+export const jvCommercialDocumentGuard = [eligibleRole, requireActiveIssuer]
 
+export async function jvProposalIssuanceRoutes(app: FastifyInstance) {
+  const readGuard = jvCommercialDocumentGuard
   app.get<{ Params: { dealId: string }; Querystring: { before?: string } }>('/deals/:dealId/issued-proposals', { preHandler: readGuard }, async (req, reply) => {
     const { dealId } = req.params
     const before = req.query.before
@@ -105,7 +106,7 @@ export async function jvProposalIssuanceRoutes(app: FastifyInstance) {
         proposal: { snapshot: { input: { path: ['dealId'], equals: dealId } } },
         ...(before ? { number: { lt: Number(before) } } : {}),
       },
-      include: { proposal: { include: { snapshot: true } } },
+      include: { proposal: { include: { snapshot: true } }, invoiceDraft: { select: { id: true } } },
       orderBy: { number: 'desc' }, take: pageSize + 1,
     })
     const items = rows.slice(0, pageSize).flatMap(row => {
@@ -114,7 +115,7 @@ export async function jvProposalIssuanceRoutes(app: FastifyInstance) {
       const payload = jsonObject(issued.payload)
       return [{
         proposalId: row.proposalId, number: issued.number, issuedAt: issued.issuedAt,
-        orderNumber: payload?.orderNumber, totalSalePrice: payload?.totalSalePrice,
+        orderNumber: payload?.orderNumber, totalSalePrice: payload?.totalSalePrice, invoiceDraftId: row.invoiceDraft?.id ?? null,
       }]
     })
     return { items, next: rows.length > pageSize ? rows[pageSize - 1].number : null }

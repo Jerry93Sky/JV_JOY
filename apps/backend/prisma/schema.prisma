@@ -771,4 +771,23 @@ model JvProposalIssue {
   payload Json
   contentSha256 String
   proposal JvProposalDraft @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  invoiceDraft JvInvoiceDraft?
+}
+
+model JvInvoiceDraft {
+  id String @id @default(cuid())
+  proposalId String @unique
+  dealId String
+  authorId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  version Int @default(1)
+  status String @default("DRAFT")
+  formatVersion String
+  source Json
+  contentSha256 String
+  details Json
+  issue JvProposalIssue @relation(fields: [proposalId], references: [proposalId], onDelete: Restrict)
+
+  @@index([dealId, createdAt, id])
 }

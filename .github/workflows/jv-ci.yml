@@ -114,7 +114,7 @@ jobs:
       - run: pnpm --filter backend exec prisma migrate deploy
       - run: pnpm --filter @bms/shared build
       - run: pnpm --filter backend exec tsx --test test/jv/jvOrdersPostgres.test.ts test/jv/jvOrdersR42Postgres.test.ts test/jv/jvCalculationSnapshotPostgres.test.ts test/jv/jvProposalDraftPostgres.test.ts test/jv/jvProposalIssuancePostgres.test.ts
-      - name: Review, issue and open JV proposals from deals in Chrome
+      - name: JV order, proposal and invoice draft workflow in Chrome
         env:
           PORT: '3318'
           JWT_SECRET: jv-print-ci-only

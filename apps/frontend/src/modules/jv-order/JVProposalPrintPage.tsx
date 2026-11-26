@@ -62,6 +62,14 @@ function ProposalDocument({ proposal }: { proposal: PrintProposal }) {
         </dl>
       </section>
 
+      <ProposalAmounts payload={payload} />
+    </article>
+  )
+}
+
+export function ProposalAmounts({ payload }: { payload: ProposalPayload }) {
+  return (
+    <>
       <table className="w-full text-left text-sm">
         <caption className="mb-2 text-left font-semibold">Состав заказа</caption>
         <thead className="border-b border-slate-400">
@@ -82,7 +90,7 @@ function ProposalDocument({ proposal }: { proposal: PrintProposal }) {
       <footer className="jv-proposal-total mt-4 text-right text-lg font-semibold">
         Итого по заказу <Money value={payload.totalSalePrice} />
       </footer>
-    </article>
+    </>
   )
 }
 

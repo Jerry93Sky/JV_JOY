@@ -18,6 +18,7 @@ import { vendorRoutes } from './vendors'
 import { jvRoutes } from './jv'
 import { jvOrderPersistenceRoutes } from './jvOrders'
 import { jvProposalIssuanceRoutes } from './jvProposalIssuance'
+import { jvInvoiceDraftRoutes } from './jvInvoiceDrafts'
 
 export async function registerRoutes(app: FastifyInstance) {
   app.register(authRoutes, { prefix: '/api/auth' })
@@ -39,4 +40,5 @@ export async function registerRoutes(app: FastifyInstance) {
   app.register(jvRoutes, { prefix: '/api/jv' })
   app.register(jvOrderPersistenceRoutes, { prefix: '/api/jv' })
   app.register(jvProposalIssuanceRoutes, { prefix: '/api/jv' })
+  app.register(jvInvoiceDraftRoutes, { prefix: '/api/jv' })
 }
