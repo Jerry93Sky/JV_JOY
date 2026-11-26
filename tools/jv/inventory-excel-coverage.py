@@ -65,7 +65,36 @@ def records(data, profile=None):
         for node in data:
             yield from records(node, profile)
 
-def evidence_index():
+EXPANDED_ARTIFACT = "JV_F28_MODE3_EXPANDED_PARITY.json"
+EXPANDED_ENGINE = "74c9ead01616fbbcb88970b4bda838b6d01c6b2f"
+EXPANDED_CODE = {
+    "Главная": "unified-order.ts",
+    "L": "line-calculator.ts",
+    "Z": "zigzag/order-calculation.ts",
+    "F": "front/commercial.ts",
+}
+
+def expanded_evidence(index, artifact):
+    capture = json.loads(artifact.read_text(encoding="utf-8-sig"))
+    if capture["candidate"] != EXPANDED_ENGINE:
+        raise ValueError("Unexpected JV Engine revision in expanded F28 evidence")
+    for case in capture["cases"]:
+        profile = case["profile"]
+        if profile not in NAMES:
+            raise ValueError("Unexpected XLSM profile")
+        mode = case["F28"]
+        b26 = "blank" if case["B26"] is None else case["B26"]
+        for cell in case["comparisons"]:
+            sheet, address = cell["address"].rsplit("!", 1)
+            code = EXPANDED_CODE[sheet[0] if SLOT.fullmatch(sheet) else sheet]
+            formula = cell["excel"]["formula"]
+            status = cell["status"]
+            if not formula or status not in STATUS_ORDER:
+                raise ValueError("Incomplete comparison at " + cell["address"])
+            scope = f"{case['scenarioId']}/{cell['address']}/F28={mode}/B26={b26}/{cell['rule']}/{status}"
+            index[profile, sheet, address, formula].add((EXPANDED_ARTIFACT, code, scope, status))
+
+def evidence_index(expanded_path=None):
     index = defaultdict(set)
     for filename, (code, scope) in EVIDENCE.items():
         artifact = DOCS / filename
@@ -84,6 +113,8 @@ def evidence_index():
             if isinstance(address, str) and "!" in address and isinstance(formula, str) and status in STATUS_ORDER:
                 sheet, position = address.rsplit("!", 1)
                 index[profile, sheet.strip("'"), position, formula].add((filename, code, scope, status))
+    if expanded_path is not None:
+        expanded_evidence(index, expanded_path)
     return index
 
 def inspect(path):
@@ -192,7 +223,7 @@ def expressions(formula, sheet, slot, normalize):
     return "=" + "".join(parts), distinct(dependencies), distinct(gates), distinct(predicates), True
 
 def build(args):
-    index = evidence_index()
+    index = evidence_index(args.expanded_parity)
     groups = {}
     inventory = {}
     variants_by_cell = defaultdict(set)
@@ -221,19 +252,27 @@ def build(args):
     def format_row(rule, item):
         sheet, cell, canonical, array_range = rule
         findings = item["evidence"]
+        expanded = [finding for finding in findings if finding[0] == EXPANDED_ARTIFACT]
+        matched = any(f[3] in STATUS_ORDER[:3] for f in findings)
+        earlier = any(f[0] != EXPANDED_ARTIFACT for f in findings)
         parity = sorted({status for _, _, _, status in findings}, key=STATUS_ORDER.index)
         status = ("MISMATCH" if "MISMATCH" in parity else
-                  "IMPLEMENTED_VERIFIED" if findings and any(s in parity for s in STATUS_ORDER[:3]) else
-                  "IMPLEMENTED_UNVERIFIED" if findings else "UNCLASSIFIED")
+                  "PARTIAL_IMPLEMENTATION" if matched and any(f[3] == "UNVERIFIED" for f in expanded) else
+                  "IMPLEMENTED_VERIFIED" if matched else
+                  "IMPLEMENTED_UNVERIFIED" if earlier else "UNCLASSIFIED")
         limitations = []
         if status == "IMPLEMENTED_VERIFIED":
             limitations.append("Listed scenarios only; branch and domain proof pending")
         if item["f28"]:
             status = "MISMATCH" if "MISMATCH" in parity else "PARTIAL_IMPLEMENTATION"
-            if any(f[0] == "JV_F28_MODE3_EXCEL_PARITY.json" for f in findings):
+            if expanded:
+                limitations.append("Expanded F28 modes measured against PR 24; API keeps guard for mode 3")
+            elif any(f[0] == "JV_F28_MODE3_EXCEL_PARITY.json" for f in findings):
                 limitations.append("F28=3 verified for listed seven-family core cases; commercial API keeps guard")
             else:
                 limitations.append("Commercial transport selector 3 blocked at baseline; predicate compares F28 with 2")
+        if expanded:
+            limitations.append("Expanded cases: " + " | ".join(sorted({f[2] for f in expanded})))
         if not item["tokenized"]:
             limitations.append("Static dependency tokenization unavailable")
         if any(p in item["deps"] for p in ("INDIRECT", "OFFSET")) or set(item["gates"]) & {"INDIRECT", "OFFSET"}:
@@ -284,5 +323,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("originals", type=Path)
     parser.add_argument("--matrix", type=Path, default=DOCS / "FULL_EXCEL_COVERAGE_MATRIX.csv")
+    parser.add_argument("--expanded-parity", type=Path, help="Independent JSON report for published PR #24")
     args = parser.parse_args()
     print(json.dumps(build(args), ensure_ascii=False, indent=2))
