@@ -63,6 +63,7 @@ export interface ProposalForIssue {
   number: number
   issue: ProposalIssue | null
   payload: ProposalPayload
+  deal: { id: string; number: string } | null
 }
 
 export const proposalDraftPath = (orderId: string, proposalId: string) =>
@@ -71,6 +72,7 @@ export const proposalDraftPath = (orderId: string, proposalId: string) =>
 export const proposalIssuancePath = '/jv/proposal-issuance'
 export const proposalIssuanceDetailPath = (proposalId: string) =>
   `${proposalIssuancePath}/${encodeURIComponent(proposalId)}`
+export const dealDetailPath = (dealId: string) => `/deals?open=deal:${encodeURIComponent(dealId)}`
 
 export const canIssueJvProposal = (role: string | undefined) => role === 'OWNER' || role === 'ENGINEER'
 export const issuedDate = (value: string) => new Date(value).toLocaleDateString('ru-RU', { timeZone: 'Europe/Moscow' })

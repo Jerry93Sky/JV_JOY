@@ -6,7 +6,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { useAuthStore } from '@/store/authStore'
 import { displayProposalMoney } from './proposalMoney'
 import {
-  canIssueJvProposal, issuedDate, proposalIssuanceDetailPath, proposalIssuancePath,
+  canIssueJvProposal, dealDetailPath, issuedDate, proposalIssuanceDetailPath, proposalIssuancePath,
   proposalTermLabels, type ProposalForIssue, type ProposalIssue,
 } from './proposalDraft'
 
@@ -37,6 +37,7 @@ function IssuePreview({ id, userId }: { id: string; userId: string }) {
     <article className="min-w-0 space-y-3 rounded-lg border bg-card p-4">
       <h2 className="font-semibold">Заказ №{payload.orderNumber} · версия {payload.orderVersion}</h2>
       <p className="text-sm text-muted-foreground">Согласованный черновик №{data.number}</p>
+      {data.deal && <Link className="text-sm text-primary underline" to={dealDetailPath(data.deal.id)}>Сделка №{data.deal.number}</Link>}
       <dl className="space-y-2 text-sm">
         {proposalTermLabels.map(([key, label]) => (
           <div key={key}><dt className="font-medium">{label}</dt><dd className="whitespace-pre-wrap break-words">{payload.terms?.[key]}</dd></div>

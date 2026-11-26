@@ -7,6 +7,7 @@ import { exact } from './jvResultAdapter'
 import { displayProposalMoney } from './proposalMoney'
 import { proposalDraftPath, proposalIssuancePath, proposalTermLabels, type ProposalDraft, type ProposalTerms } from './proposalDraft'
 import { JVProposalReview } from './JVProposalReview'
+import { JVOrderDealPicker } from './JVOrderDealPicker'
 import { calculateJvPreview, canCalculateJv, getJvUiConfig, type JvPreviewResponse, type JvUiConfig, type JvUiValue } from '@/api/jv'
 import { useAuthStore } from '@/store/authStore'
 import { Button, buttonVariants } from '@/components/ui/button'
@@ -20,6 +21,9 @@ const families: { value: UnifiedFamily; label: string }[] = [
 ]
 type DraftPosition = { id: string; family: UnifiedFamily; slot: number; quantity: string; inputs: Record<string, JvUiValue>; configurationId?: string }
 type Profile = 'COMPLETATION' | 'RETAIL'
+type OrderLinks = {contactId?:string;dealId?:string}
+const readOrderLinks = ({ contactId, dealId }: OrderLinks): OrderLinks =>
+  ({ ...(contactId ? {contactId} : {}), ...(dealId ? {dealId} : {}) })
 const emptyTerms:ProposalTerms={recipient:'',requisites:'',payment:'',timeframe:'',delivery:''}
 function stableJson(value: unknown): string {
   const normalize = (v: unknown): unknown => Array.isArray(v) ? v.map(normalize) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,x])=>[k,normalize(x)])) : v
@@ -60,7 +64,7 @@ export default function JVOrderPage() {
   const [loading, setLoading] = useState(false)
   const [savedId, setSavedId] = useState<string | null>(null)
   const [savedVersion, setSavedVersion] = useState(0)
-  const [orderLinks, setOrderLinks] = useState<{contactId?:string;dealId?:string}>({})
+  const [orderLinks, setOrderLinks] = useState<OrderLinks>({})
   const [draftVersions, setDraftVersions] = useState<{uiSchemaVersion:string;rulesVersion:string}|null>(null)
   const [savedKey, setSavedKey] = useState('')
   const [orders, setOrders] = useState<Array<{id:string;number:number;version:number;profile:string}>>([])
@@ -81,7 +85,7 @@ export default function JVOrderPage() {
   const saveLock = useRef(false)
   const creationKey = useRef<string>(crypto.randomUUID())
   const skipDefaults = useRef(false)
-  const currentKey = stableJson({positions,profile,versions:draftVersions})
+  const currentKey = stableJson({positions,profile,versions:draftVersions,...orderLinks})
   const dirty = savedKey !== currentKey
   const termsDirty=!!proposalDetail && stableJson(proposalTerms)!==stableJson(proposalDetail.payload.terms??emptyTerms)
   useEffect(() => {
@@ -104,7 +108,7 @@ export default function JVOrderPage() {
     return () => document.removeEventListener('click', guard, true)
   }, [dirty,positions.length,termsDirty])
 
-  type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string; draftVersions: typeof draftVersions}
+  type Snapshot = {positions: DraftPosition[]; profile: Profile; activeId: string; draftVersions: typeof draftVersions; orderLinks: OrderLinks}
   const past = useRef<Snapshot[]>([])
   const future = useRef<Snapshot[]>([])
   const lastEdit = useRef<{key:string;time:number}|null>(null)
@@ -117,7 +121,7 @@ export default function JVOrderPage() {
   function remember(key?: string) {
     const now=Date.now()
     if (!key || !lastEdit.current || lastEdit.current.key!==key || now-lastEdit.current.time>1000) {
-      past.current.push({positions:structuredClone(positions),profile,activeId,draftVersions})
+      past.current.push({positions:structuredClone(positions),profile,activeId,draftVersions,orderLinks})
       if(past.current.length>50) past.current.shift()
     }
     lastEdit.current=key?{key,time:now}:null
@@ -126,10 +130,11 @@ export default function JVOrderPage() {
   function restore(direction:'undo'|'redo') {
     const from=direction==='undo'?past.current:future.current, to=direction==='undo'?future.current:past.current
     const snapshot=from.pop(); if(!snapshot)return
-    to.push({positions:structuredClone(positions),profile,activeId,draftVersions});if(to.length>50)to.shift()
+    to.push({positions:structuredClone(positions),profile,activeId,draftVersions,orderLinks});if(to.length>50)to.shift()
     invalidate();lastEdit.current=null
     setPositions(snapshot.positions);setActiveId(snapshot.positions.some(p=>p.id===snapshot.activeId)?snapshot.activeId:snapshot.positions[0]?.id??'')
     setDraftVersions(snapshot.draftVersions)
+    setOrderLinks(snapshot.orderLinks)
     if(snapshot.profile!==profile){skipDefaults.current=true;setConfig(null);setProfile(snapshot.profile)}
     redrawHistory(n=>n+1)
   }
@@ -198,11 +203,12 @@ export default function JVOrderPage() {
       const {data}=await api.get(`/jv/orders/${id}`)
       const draft=data.draft as {positions:DraftPosition[];profile:Profile;uiSchemaVersion:string;rulesVersion:string;contactId?:string;dealId?:string}
       setDraftVersions({uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion})
-      setOrderLinks({...(draft.contactId?{contactId:draft.contactId}:{}),...(draft.dealId?{dealId:draft.dealId}:{})})
+      const links = readOrderLinks(draft)
+      setOrderLinks(links)
       invalidate();setCaptures([]);setCaptureDetail(null);setProposals([]);setProposalDetail(null); past.current=[];future.current=[];lastEdit.current=null
       skipDefaults.current=draft.profile!==profile
       setPositions(draft.positions);setProfile(draft.profile);setActiveId(draft.positions[0]?.id??'');setTab('list')
-      setSaveFailure(null);setSavedId(data.id);setSavedVersion(data.version);setSavedKey(stableJson({positions:draft.positions,profile:draft.profile,versions:{uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion}}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
+      setSaveFailure(null);setSavedId(data.id);setSavedVersion(data.version);setSavedKey(stableJson({positions:draft.positions,profile:draft.profile,versions:{uiSchemaVersion:draft.uiSchemaVersion,rulesVersion:draft.rulesVersion},...links}));setSaveMessage('Заказ открыт. Для получения цены выполните расчёт заново.')
       setRevisions((await api.get(`/jv/orders/${id}/revisions`)).data);redrawHistory(n=>n+1)
     } catch { setError('Не удалось открыть заказ.') }
   }
@@ -211,13 +217,12 @@ export default function JVOrderPage() {
     saveLock.current=true;setSaving(true);setSaveMessage('');setError('')
     const snapshot={profile,uiSchemaVersion:draftVersions?.uiSchemaVersion??config.schemaVersion,rulesVersion:draftVersions?.rulesVersion??config.rulesVersion,positions:structuredClone(positions),...orderLinks}
     const versions={uiSchemaVersion:snapshot.uiSchemaVersion,rulesVersion:snapshot.rulesVersion}
-    const key=stableJson({positions:snapshot.positions,profile:snapshot.profile,versions})
     try {
       const {data}=savedId?await api.put(`/jv/orders/${savedId}`,{version:savedVersion,draft:snapshot}):await api.post('/jv/orders',snapshot,{headers:{'Idempotency-Key':creationKey.current}})
       const persisted=data.draft as typeof snapshot
       const persistedVersions={uiSchemaVersion:persisted.uiSchemaVersion,rulesVersion:persisted.rulesVersion}
-      const persistedKey=stableJson({positions:persisted.positions,profile:persisted.profile,versions:persistedVersions})
-      setSaveFailure(null);setSavedId(data.id);setSavedVersion(data.version);setDraftVersions(versions);setSavedKey(persistedKey || key);setSaveMessage(`Заказ №${data.number} сохранён, версия ${data.version}.`);await refreshOrders()
+      const persistedKey=stableJson({positions:persisted.positions,profile:persisted.profile,versions:persistedVersions,...readOrderLinks(persisted)})
+      setSaveFailure(null);setSavedId(data.id);setSavedVersion(data.version);setDraftVersions(versions);setSavedKey(persistedKey);setSaveMessage(`Заказ №${data.number} сохранён, версия ${data.version}.`);await refreshOrders()
       setRevisions((await api.get(`/jv/orders/${data.id}/revisions`)).data)
     } catch(e) { const conflict=axios.isAxiosError(e)&&e.response?.status===409;setSaveFailure(conflict?'conflict':'network');setError(conflict?'Заказ изменён в другой вкладке. Локальные изменения остаются на экране.':'Ошибка сохранения. Введённые данные остаются на экране.') }
     finally {saveLock.current=false;setSaving(false)}
@@ -254,7 +259,7 @@ export default function JVOrderPage() {
     if(!savedId||saveLock.current)return
     if(!window.confirm(`Восстановить версию ${version}? Текущие несохранённые изменения будут потеряны, а восстановление создаст новую версию.`))return
     saveLock.current=true;setSaving(true);setRestoring(true)
-    try { const {data}=await api.post(`/jv/orders/${savedId}/revisions/${version}/restore`,{version:savedVersion});const d=data.draft;invalidate();past.current=[];future.current=[];lastEdit.current=null;skipDefaults.current=d.profile!==profile;setOrderLinks({...(d.contactId?{contactId:d.contactId}:{}),...(d.dealId?{dealId:d.dealId}:{})});setPositions(d.positions);setProfile(d.profile);setActiveId(d.positions[0]?.id??'');setDraftVersions({uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion});setSavedVersion(data.version);setSavedKey(stableJson({positions:d.positions,profile:d.profile,versions:{uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion}}));setSaveFailure(null);setSaveMessage('Версия восстановлена. Выполните расчёт заново.');setRevisions((await api.get(`/jv/orders/${savedId}/revisions`)).data) }
+    try { const {data}=await api.post(`/jv/orders/${savedId}/revisions/${version}/restore`,{version:savedVersion});const d=data.draft;invalidate();past.current=[];future.current=[];lastEdit.current=null;skipDefaults.current=d.profile!==profile;const links=readOrderLinks(d);setOrderLinks(links);setPositions(d.positions);setProfile(d.profile);setActiveId(d.positions[0]?.id??'');setDraftVersions({uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion});setSavedVersion(data.version);setSavedKey(stableJson({positions:d.positions,profile:d.profile,versions:{uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion},...links}));setSaveFailure(null);setSaveMessage('Версия восстановлена. Выполните расчёт заново.');setRevisions((await api.get(`/jv/orders/${savedId}/revisions`)).data) }
     catch(e){setSaveFailure(axios.isAxiosError(e)&&e.response?.status===409?'conflict':'network');setError('Не удалось восстановить версию; проверьте конфликт изменений.')}
     finally{saveLock.current=false;setSaving(false);setRestoring(false)}
   }
@@ -329,6 +334,9 @@ export default function JVOrderPage() {
     <nav aria-label="Разделы рабочего пространства" className="flex gap-2 md:hidden">{(['list','form','result'] as const).map((t,i)=><button key={t} onClick={()=>setTab(t)} aria-pressed={tab===t} className="rounded border px-3 py-2">{['Конструкции','Параметры','Результат'][i]}</button>)}</nav>
     <div className="flex gap-2"><Button variant="outline" disabled={!past.current.length} onClick={()=>restore('undo')}>Отменить</Button><Button variant="outline" disabled={!future.current.length} onClick={()=>restore('redo')}>Повторить</Button></div>
     <header><h1 className="text-2xl font-semibold">Новый JV-заказ</h1><p className="mt-1 text-sm text-muted-foreground">{saving ? 'Сохранение…' : saveFailure ? 'Ошибка сохранения' : dirty && positions.length ? 'Есть изменения' : 'Сохранено'}</p></header>
+    <JVOrderDealPicker dealId={orderLinks.dealId} disabled={saving || capturing} onChange={dealId=>{
+      if (dealId !== orderLinks.dealId) { remember(); setOrderLinks(readOrderLinks({ ...orderLinks, dealId })) }
+    }} />
     <div className="flex flex-wrap gap-2"><Button onClick={saveOrder} disabled={!config || saving}>{saving?'Сохранение…':'Сохранить заказ'}</Button><Button variant="outline" onClick={newOrder}>Новый заказ</Button><Button variant="outline" onClick={refreshOrders}>Список заказов</Button></div>
     {saveMessage && <p role="status">{saveMessage}</p>}
     {saveFailure && <div className="rounded border p-3"><p>Локальные изменения сохраняются на экране. При открытии серверной версии они будут потеряны.</p>{saveFailure==='conflict' && savedId && <><Button variant="outline" onClick={()=>void openOrder(savedId)}>Открыть серверную версию</Button><Button variant="outline" onClick={()=>{if(!window.confirm('Сохранить изменения как отдельный новый заказ?'))return;setSavedId(null);setSavedVersion(0);creationKey.current=crypto.randomUUID();setSaveFailure(null)}}>Сохранить отдельно</Button></>}{saveFailure==='network' && <Button variant="outline" onClick={()=>setSaveFailure(null)}>Повторить сохранение</Button>}</div>}
