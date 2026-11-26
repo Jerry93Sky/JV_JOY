@@ -27,6 +27,7 @@ model User {
 enum Role {
   OWNER
   ADMIN
+  ENGINEER
   USER
   GUEST
 }
@@ -735,6 +736,7 @@ model JvProposalDraft {
   order JvOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
   snapshot JvCalculationSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Restrict)
   reviewEvents JvProposalReviewEvent[]
+  issue JvProposalIssue?
   @@index([orderId, createdAt])
 }
 
@@ -756,4 +758,17 @@ model JvProposalReviewEvent {
   proposal JvProposalDraft @relation(fields: [proposalId], references: [id], onDelete: Cascade)
 
   @@id([proposalId, sequence])
+}
+
+model JvProposalIssue {
+  proposalId String @id
+  number Int @unique @default(autoincrement())
+  issuedAt DateTime @default(now())
+  issuerId String
+  issuerRole Role
+  formatVersion String
+  proposalSha256 String
+  payload Json
+  contentSha256 String
+  proposal JvProposalDraft @relation(fields: [proposalId], references: [id], onDelete: Restrict)
 }

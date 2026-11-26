@@ -5,7 +5,7 @@ import { type UnifiedFamily } from '@bms/shared/jv'
 import JVResultView from './JVResultView'
 import { exact } from './jvResultAdapter'
 import { displayProposalMoney } from './proposalMoney'
-import { proposalDraftPath, proposalTermLabels, type ProposalDraft, type ProposalTerms } from './proposalDraft'
+import { proposalDraftPath, proposalIssuancePath, proposalTermLabels, type ProposalDraft, type ProposalTerms } from './proposalDraft'
 import { JVProposalReview } from './JVProposalReview'
 import { calculateJvPreview, canCalculateJv, getJvUiConfig, type JvPreviewResponse, type JvUiConfig, type JvUiValue } from '@/api/jv'
 import { useAuthStore } from '@/store/authStore'
@@ -351,7 +351,9 @@ export default function JVOrderPage() {
             : current
         )}
       />
-      <p className="text-sm text-muted-foreground">Выпуск КП пока недоступен.</p></article>}</section>}
+      {role === 'OWNER' && proposalDetail.review?.status === 'APPROVED' && !termsDirty && !savingTerms &&
+        <a className={buttonVariants({variant:'outline'})} href={`${proposalIssuancePath}?proposal=${encodeURIComponent(proposalDetail.id)}`}>К выпуску КП</a>}
+    </article>}</section>}
     {revisions.length>0 && <details className="rounded border p-3"><summary>История версий</summary>{revisions.map(r=><details key={r.version}><summary>Версия {r.version} · {new Date(r.createdAt).toLocaleString()} · {r.authorId}</summary><pre className="overflow-auto text-xs">{JSON.stringify(r.snapshot,null,2)}</pre><Button variant="outline" disabled={saving} onClick={()=>void restoreRevision(r.version)}>Восстановить эту версию</Button></details>)}</details>}
     <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-sm">Начальные значения получены из контрольного сценария выбранного профиля. Проверьте параметры каждой конструкции перед расчётом. Некоторые переключатели пока доступны только в подтверждённом варианте.</p>
     {profile==='COMPLETATION' && config?.schemaVersion==='JV-UI-INPUTS-3' && <p className="rounded border p-3 text-sm">В комплектации стоимость стекла по умолчанию исключена. Общий переключатель Excel также влияет на дополнительные работы Slider; неподтверждённые варианты остаются частичными. Проверенные конфигурации доступны полностью.</p>}

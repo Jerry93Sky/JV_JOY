@@ -2,9 +2,10 @@ import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { Dialog, DialogContent, DialogTitle } from './ui/dialog'
 import { useAuthStore } from '../store/authStore'
+import { canIssueJvProposal, proposalIssuancePath } from '../modules/jv-order/proposalDraft'
 import {
   LayoutDashboard, Users, Package, Settings,
-  BarChart3, Layers, LogOut, Inbox, Truck, FlaskConical
+  BarChart3, Layers, LogOut, Inbox, Truck, FlaskConical, FileCheck
 } from 'lucide-react'
 
 const nav = [
@@ -15,6 +16,7 @@ const nav = [
   { to: '/vendors', label: 'Поставщики', icon: Truck },
   { to: '/systems', label: 'Системы', icon: Layers },
   { to: '/jv/orders/new', label: 'JV-заказы', icon: Layers },
+  { to: proposalIssuancePath, label: 'Выпуск КП', icon: FileCheck },
   { to: '/jv-line-lab', label: 'JV-Line Lab', icon: FlaskConical },
   { to: '/finance', label: 'Финансы', icon: BarChart3 },
   { to: '/settings', label: 'Настройки', icon: Settings },
@@ -29,7 +31,11 @@ export default function Layout() {
   const priorFocus=useRef<HTMLElement|null>(null)
   const navigating=useRef(false)
   useEffect(()=>{const handler=(e:KeyboardEvent)=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(open)return;priorFocus.current=document.activeElement as HTMLElement;navigating.current=false;setQuery('');setSelected(0);setOpen(true)}};window.addEventListener('keydown',handler);return()=>window.removeEventListener('keydown',handler)},[open])
-  const visibleNav = nav.filter(item => item.to !== '/jv/orders/new' || user?.role === 'OWNER' || user?.role === 'ADMIN')
+  const visibleNav = nav.filter(item => {
+    if (item.to === proposalIssuancePath) return canIssueJvProposal(user?.role)
+    if (item.to === '/jv/orders/new') return user?.role === 'OWNER' || user?.role === 'ADMIN'
+    return true
+  })
 
   const matches=visibleNav.filter(item=>(item.label+' '+item.to).toLowerCase().includes(query.toLowerCase()))
   function run(index:number){const item=matches[index];if(item){navigating.current=true;setOpen(false);navigate(item.to)}}

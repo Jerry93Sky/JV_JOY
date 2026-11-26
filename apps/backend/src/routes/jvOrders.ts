@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify'
 import { createHash } from 'node:crypto'
 import { calculateJvPreview, JvRequestError, serializeJvResult } from '../domain/jv/jvCalculationService'
 import { createResultDto } from '../domain/jv/jvResultDto'
+import { parseProposalTerms, stableJson } from '../domain/jv/jvProposalPayload'
 import { Prisma } from '@prisma/client'
 import { Role } from '@bms/shared'
 import { prisma } from '../lib/prisma'
@@ -25,24 +26,6 @@ function validate(body: unknown): Draft | null {
   }
   return { profile:d.profile as Draft['profile'],uiSchemaVersion:d.uiSchemaVersion,rulesVersion:d.rulesVersion,positions:(d.positions as Draft['positions']).map(p=>({id:p.id,family:p.family,slot:p.slot,quantity:p.quantity,inputs:p.inputs,...(p.configurationId?{configurationId:p.configurationId}:{})})),...(d.contactId?{contactId:d.contactId as string}:{}),...(d.dealId?{dealId:d.dealId as string}:{}) }
 }
-function stableJson(value: unknown): string {
- const normalize=(v:unknown):unknown=>Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a<b?-1:a>b?1:0).map(([k,x])=>[k,normalize(x)])):v
- return JSON.stringify(normalize(value))
-}
-function parseProposalTerms(terms: unknown) {
- if (!terms || typeof terms !== 'object' || Array.isArray(terms)) return null
- const raw = terms as Record<string, unknown>
- const keys = ['recipient', 'requisites', 'payment', 'timeframe', 'delivery']
- if (Object.keys(raw).some(key => !keys.includes(key))) return null
- const clean: Record<string, string> = {}
- for (const key of keys) {
-  const value = raw[key]
-  if (typeof value !== 'string' || !value.trim() || value.length > 2000) return null
-  clean[key] = value.trim()
- }
- return clean
-}
-
 type ProposalReviewEvent = Prisma.JvProposalReviewEventGetPayload<{}>
 function proposalReview(events: ProposalReviewEvent[]) {
  return { status: events.at(-1)?.status ?? 'DRAFT', events }

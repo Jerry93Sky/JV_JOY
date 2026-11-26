@@ -13,6 +13,7 @@ import VendorsPage from './pages/VendorsPage'
 import JVLineLabPage from './modules/jv-line/JVLineLabPage'
 import JVOrderPage from './modules/jv-order/JVOrderPage'
 import JVProposalPrintPage from './modules/jv-order/JVProposalPrintPage'
+import JVProposalIssuancePage from './modules/jv-order/JVProposalIssuancePage'
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const token = useAuthStore((s) => s.token)
@@ -24,6 +25,7 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/jv/orders/:orderId/proposal-drafts/:proposalId/print" element={<PrivateRoute><JVProposalPrintPage /></PrivateRoute>} />
+      <Route path="/jv/proposal-issuance/:proposalId/print" element={<PrivateRoute><JVProposalPrintPage issued /></PrivateRoute>} />
       <Route
         path="/"
         element={
@@ -43,6 +45,7 @@ export default function App() {
         <Route path="vendors" element={<VendorsPage />} />
         <Route path="jv-line-lab" element={<JVLineLabPage />} />
         <Route path="jv/orders/new" element={<JVOrderPage />} />
+        <Route path="jv/proposal-issuance" element={<JVProposalIssuancePage />} />
       </Route>
     </Routes>
   )
