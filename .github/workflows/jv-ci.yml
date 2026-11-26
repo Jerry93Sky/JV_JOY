@@ -18,6 +18,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@v4
         with:
           version: 11.25.0
@@ -50,6 +52,8 @@ jobs:
         run: pnpm validate:jv-fixtures
       - name: Generate Prisma client
         run: pnpm --filter backend exec prisma generate
+      - name: Backend production build
+        run: pnpm build:backend
       - name: JV backend API integration tests
         run: pnpm --filter backend test:jv-api
       - name: User role escalation protection
@@ -57,9 +61,9 @@ jobs:
       - name: Deal system data preservation
         run: pnpm --filter backend exec tsx --test test/jv/dealSystemSafety.test.ts
       - name: JV order UI and HTTP integration
-        run: pnpm --filter frontend test:jv-order
+        run: pnpm --filter frontend exec node scripts/test-jv-order-integration.mjs
       - name: JV order browser end-to-end
-        run: pnpm --filter frontend test:jv-browser
+        run: pnpm --filter frontend exec node scripts/test-jv-order-browser.mjs
       - name: R3 row editing browser checks (isolated fixtures)
         run: pnpm --filter frontend exec node scripts/r3-row-edit-check.mjs
 
@@ -67,6 +71,18 @@ jobs:
         run: pnpm --filter frontend exec node scripts/audit-jv-pages.mjs
       - name: Capture filled test fixtures
         run: pnpm --filter frontend exec node scripts/audit-filled-pages.mjs
+      - name: Package the tested frontend and backend
+        if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+        run: node tools/ci/package-main-build.mjs "$RUNNER_TEMP/jv-build"
+      - name: Upload build candidate
+        if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+        uses: actions/upload-artifact@v4
+        with:
+          name: jv-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/jv-build/
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 3
       - name: Upload UX screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -79,6 +95,7 @@ jobs:
             test-results/jv-filled-audit/*.png
             test-results/jv-filled-audit/filled-audit.json
           if-no-files-found: ignore
+          overwrite: true
           retention-days: 7
 
   persistence:
@@ -101,6 +118,8 @@ jobs:
       DATABASE_URL: postgresql://jvtest:jvtest-only@127.0.0.1:5432/jvtest?schema=public
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@v4
         with:
           version: 11.25.0
@@ -132,3 +151,39 @@ jobs:
           trap 'kill "$server" 2>/dev/null || true' EXIT
           curl --silent --retry 20 --retry-connrefused --retry-delay 1 --output /dev/null "http://127.0.0.1:$PORT/api/jv/orders/form-config?profile=COMPLETATION"
           pnpm --filter frontend exec node scripts/test-jv-glass-off-proposal.mjs
+
+  publish-main:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [jv, persistence]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Download build from the same run
+        uses: actions/download-artifact@v4
+        with:
+          name: jv-candidate-${{ github.sha }}
+          path: verified-build
+      - name: Verify checkout identity and record successful checks
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync, readFileSync, writeFileSync } from 'node:fs'
+          const manifest = readFileSync('verified-build/build-info.json', 'utf8')
+          const { sha, runId, ref, builtAt } = JSON.parse(manifest)
+          if (sha !== process.env.GITHUB_SHA || runId !== process.env.GITHUB_RUN_ID || ref !== 'refs/heads/main' ||
+              manifest !== readFileSync('verified-build/apps/frontend/dist/build-info.json', 'utf8')) {
+            throw new Error('The artifact does not match this main run')
+          }
+          writeFileSync('verified-build/verification.json', JSON.stringify({
+            sha, runId, runAttempt: process.env.GITHUB_RUN_ATTEMPT, builtAt,
+            verifiedAt: new Date().toISOString(), checks: ['jv', 'persistence'],
+          }, null, 2) + '\n')
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### Проверенная тестовая сборка\n\nАртефакт: jv-main-${sha}\n\nСобрана: ${builtAt}\n`)
+          NODE
+      - name: Publish the verified main build
+        uses: actions/upload-artifact@v4
+        with:
+          name: jv-main-${{ github.sha }}
+          path: verified-build/
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 30

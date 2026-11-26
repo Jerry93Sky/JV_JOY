@@ -24,7 +24,8 @@ JV_JOY develops a new JV calculation engine on the existing GlasS-light/BMS foun
 ## Repository and data safety
 
 - Never add original XLSM files, GlasS archives, temporary workbook copies, databases, secrets, or private local data to Git.
-- Keep changes on the task branch. Do not force-push, rewrite published history, or merge to `main` unless specifically requested.
+- Start each new task on a short branch from the current `origin/main` and open a PR targeting `main`.
+- Follow [MAIN_AUTOMATION.md](docs/jv/MAIN_AUTOMATION.md) for required checks, separate review for critical changes and standard GitHub Auto-merge. Verify the push checks and report the final SHA. Never force-push, bypass protection or deploy the demo environment as part of CI.
 - Check staged and untracked files before commits; leave unrelated local files untouched.
 
 ## Documentation map
