@@ -1,0 +1,7 @@
+"excel_address","rule","conditions","profiles","evidence","implementation","comparison"
+"L1!Q56","calculateLineCommercial","Mixed Line + Zigzag, F28=3 C25 inactive","COMPLETATION|RETAIL","line-zigzag-f28-3-excel.json","IMPLEMENTED_VERIFIED","Both profiles, 3 each"
+"Z2!P42","calculateZigzagCommercialPrice","Mixed Line + Zigzag, F28=3 C25 inactive","COMPLETATION|RETAIL","line-zigzag-f28-3-excel.json","IMPLEMENTED_VERIFIED","Both profiles, 3 each"
+"Главная!AA11:AA12","calculateMixedMainPrice","Mixed Line + Zigzag, F28=3; comparable source totals","COMPLETATION|RETAIL","line-zigzag-f28-3-excel.json","IMPLEMENTED_VERIFIED","NUMERICALLY_EQUIVALENT|DISPLAY_MATCH"
+"Главная!AA18","calculateJVOrder","Mixed Line + Zigzag, no incomplete prices","COMPLETATION|RETAIL","line-zigzag-f28-3-excel.json","IMPLEMENTED_VERIFIED","NUMERICALLY_EQUIVALENT|DISPLAY_MATCH"
+"Z2!K9","calculateZigzagMaterialCost","Displayed SKU points to B12; price uses E11","COMPLETATION|RETAIL","line-zigzag-f28-3-excel.json","MISMATCH","LN-070-A in Excel vs LN-060 in engine"
+"Z2!H9/H16/H17","calculateZigzagGeometry","Binary intermediate; cells hidden in source","COMPLETATION|RETAIL","line-zigzag-f28-3-excel.json","MISMATCH","10 numeric differences without tolerance"
