@@ -32,7 +32,7 @@ function composeFrontCommercial(input:{readonly geometry:FrontResult;readonly ma
 
 export type FrontCommercialSnapshot = FrontPriceSnapshot & FrontGlassPriceSnapshot & FrontWorksSnapshot & {readonly settings:FrontWorksSnapshot['settings'] & Readonly<{D32:FrontRawPrice}>}
 /** Runs the complete confirmed Front geometry-to-commercial pipeline from raw controls and source-bound catalogs. */
-export function calculateFrontCommercial(input:{readonly construction:FrontInput;readonly snapshot:FrontCommercialSnapshot;readonly order:FrontOrderAreaContext;readonly glassEnabled:boolean;readonly finishingEnabled:boolean;readonly glassServiceEnabled:boolean;readonly excelGlassSwitchOff?:boolean;readonly installationEnabled:boolean;readonly mainSurchargeSelector:1|2;readonly mainQuantity:string;readonly markupPercent:string;readonly discountPercent:string;readonly retailDivisor:string}):FrontCommercialResult {
+export function calculateFrontCommercial(input:{readonly construction:FrontInput;readonly snapshot:FrontCommercialSnapshot;readonly order:FrontOrderAreaContext;readonly glassEnabled:boolean;readonly finishingEnabled:boolean;readonly glassServiceEnabled:boolean;readonly excelGlassSwitchOff?:boolean;readonly installationEnabled:boolean;readonly mainSurchargeSelector:1|2|3;readonly mainQuantity:string;readonly markupPercent:string;readonly discountPercent:string;readonly retailDivisor:string}):FrontCommercialResult {
  const geometry=calculateFront(input.construction)
  let y5:ExactRational|undefined,orderDiagnostic:string|undefined,orderTrace:readonly TraceStep[]=Object.freeze([])
  try{const area=calculateFrontY5(input.order);y5=area.value;orderTrace=area.trace}catch(e){if(e instanceof EngineError&&e.code==='MISSING_INPUT')orderDiagnostic=`Missing required order dependency: ${e.message}`;else throw e}
@@ -40,7 +40,7 @@ export function calculateFrontCommercial(input:{readonly construction:FrontInput
  const glass=calculateFrontGlassCosts({geometry,snapshot:input.snapshot,selector:input.construction.glassSelector,glassEnabled:input.glassEnabled,finishingEnabled:input.finishingEnabled,glassServiceEnabled:input.glassServiceEnabled,excelGlassSwitchOff:input.excelGlassSwitchOff,sourceSlot:(input.order.positionMainRow??11)-10,y5})
  const slot=(input.order.positionMainRow??11)-10,b26=input.order.frontSlot7B26
  if(b26&&(b26.schemaVersion!=='1.0'||b26.sourceCell!=='Главная!B26'||b26.workbook!==input.order.workbook||b26.workbookSha256.toLowerCase()!==input.order.sourceSha256.toLowerCase()||!b26.version||!b26.sourceScenarioId||![1,2].includes(b26.value)))throw new EngineError('INVALID_CONFIGURATION','Invalid source-bound Главная!B26 context')
- if(slot===7&&input.mainSurchargeSelector===2&&!b26)throw new EngineError('RULE_UNCONFIRMED','Front slot 7 with F28=2 requires an explicit source-bound Главная!B26')
+ if(slot===7&&input.mainSurchargeSelector!==1&&!b26)throw new EngineError('RULE_UNCONFIRMED',`Front slot 7 with F28=${input.mainSurchargeSelector} requires an explicit source-bound Главная!B26`)
  const selector=slot===7&&b26?b26.value:input.mainSurchargeSelector
  const works=calculateFrontWorks({geometry,snapshot:input.snapshot,finishSelector:input.construction.finishSelector,installationEnabled:input.installationEnabled,mainSurchargeSelector:selector,C21:input.construction.controls.C21,y5})
  const consumables=calculateFrontConsumables({profile:input.snapshot.profile,workbook:input.snapshot.workbook,systemSelector:7,constructionCount:input.mainQuantity,workbookSha256:input.snapshot.workbookSha256})

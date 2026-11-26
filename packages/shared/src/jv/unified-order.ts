@@ -37,15 +37,27 @@ export interface UnifiedOrderContext {readonly orderId:string;readonly profile:P
 export interface UnifiedOrderResult {readonly orderId:string;readonly profile:PriceProfile;readonly status:'COMPLETE'|'PARTIAL';readonly positions:readonly UnifiedPositionResult[];readonly bom:readonly UnifiedBomLine[];readonly orderContext?:UnifiedOrderContext;readonly sharedResources?:ZigzagOrderAllocationResult;readonly totalSalePrice?:ExactRational;readonly trace:readonly unknown[];readonly diagnostics:readonly string[];readonly limitations:readonly string[];readonly confirmedLineZigzagOrder?:MixedOrderCalculationResult;readonly confirmedLineOrder?:LineOrderResult}
 export interface UnifiedMainDiscountSnapshot {readonly schemaVersion:'1.0';readonly profile:PriceProfile;readonly workbook:string;readonly workbookSha256:string;readonly capturedWithExcel:'16.0';readonly sourceCell:'Настройки!D19';readonly sourceFormula:string;readonly value:string;readonly positionMarkups?:readonly Readonly<{slot:number;sourceCell:string;sourceFormula:string;value:string}>[];readonly positionDivisors?:readonly Readonly<{family:UnifiedFamily|'SLIDER';sourceCell:string;sourceFormula:string;value:string}>[]}
 
+function transportSelector(position:UnifiedPositionInput):number {
+ switch(position.family){
+  case 'LINE':return position.calculation.input.commercialModeIndex
+  case 'ZIGZAG':return position.calculation.position.commercial.F28
+  case 'FRONT':return position.calculation.commercial.mainSurchargeSelector
+  default:return position.calculation.controls.mainSurchargeSelector
+ }
+}
+
 /** Routes each position through its existing family calculator. No family math is reimplemented here. */
 export function calculateJVOrder(input:{readonly orderId:string;readonly profile:PriceProfile;readonly positions:readonly UnifiedPositionInput[];readonly mainDiscount?:UnifiedMainDiscountSnapshot;readonly frontSlot7B26?:FrontB26Snapshot}):UnifiedOrderResult {
  if(!input.orderId.trim())throw new EngineError('INVALID_CONFIGURATION','orderId must not be empty')
  if(!input.positions.length)throw new EngineError('MISSING_INPUT','A JV order requires at least one position')
  if(new Set(input.positions.map(p=>p.id)).size!==input.positions.length)throw new EngineError('INVALID_CONFIGURATION','Order position ids must be unique')
  if(new Set(input.positions.map(p=>p.slot)).size!==input.positions.length||input.positions.some(p=>!Number.isInteger(p.slot)||p.slot<1||p.slot>7))throw new EngineError('INVALID_CONFIGURATION','Each position must use a unique Excel slot 1..7')
+ const transportModes=new Set(input.positions.map(transportSelector))
+ if(transportModes.has(3)&&transportModes.size!==1)throw new EngineError('INVALID_CONFIGURATION','All active positions must use the same order-level Главная!F28')
  // Both original books use Главная!B26, rather than F28, in F7!S36.
  // The optional B26 snapshot is independent of F28; never certify this branch when it is absent.
- if(input.positions.some(p=>p.family==='FRONT'&&p.slot===7&&p.calculation.commercial.mainSurchargeSelector===2)&&!input.frontSlot7B26)throw new EngineError('RULE_UNCONFIRMED','Front slot 7 with F28=2 requires an explicit source-bound Главная!B26; F7!S36 does not use F28')
+ const frontInSlotSeven=input.positions.find(p=>p.family==='FRONT'&&p.slot===7)
+ if(frontInSlotSeven&&transportSelector(frontInSlotSeven)!==1&&!input.frontSlot7B26)throw new EngineError('RULE_UNCONFIRMED',`Front slot 7 with F28=${transportSelector(frontInSlotSeven)} requires an explicit source-bound Главная!B26; F7!S36 does not use F28`)
  if(input.frontSlot7B26)input={...input,positions:input.positions.map(p=>p.family==='FRONT'&&p.slot===7?{...p,calculation:{...p.calculation,commercial:{...p.calculation.commercial,order:{...p.calculation.commercial.order,positionMainRow:17,frontSlot7B26:input.frontSlot7B26}}}}:p)}
  const parsed=input.positions.map(p=>{let quantity:ExactRational;try{quantity=rationalFromDecimal(p.quantity)}catch{throw new EngineError('INVALID_DECIMAL',`Invalid quantity for ${p.id}`,{positionId:p.id})}if(BigInt(quantity.numerator)<=0n||BigInt(quantity.denominator)!==1n)throw new EngineError('INVALID_CONFIGURATION','Position quantity must be a positive integer',{positionId:p.id,quantity:p.quantity});return {position:p,quantity}})
  const families=new Set(parsed.map(x=>x.position.family));const profiles=parsed.map(({position})=>profileOf(position))

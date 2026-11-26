@@ -16,7 +16,7 @@ export interface ZigzagOrderPositionInput {
   readonly geometry?: ZigzagGeometryInput
   readonly commercial?: Readonly<{
     c8: string
-    F28: 1 | 2
+    F28: 1 | 2 | 3
     D32: boolean
     D33: boolean
     D34: boolean

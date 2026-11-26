@@ -9,7 +9,7 @@ import type { ZigzagOrderAllocationResult } from './order-allocation.ts'
 export interface ZigzagCommercialInputs {
   readonly slotId:string
   readonly c8:string
-  readonly F28:1|2
+  readonly F28:1|2|3
   readonly D32:boolean
   readonly D33:boolean
   readonly D34:boolean
@@ -142,7 +142,7 @@ export function calculateZigzagP43(input:{readonly workbook:string;readonly enab
 }
 
 /** P42/P44 are published only if P38, every conditional input, and all shared allocations are complete. */
-export function calculateZigzagCommercialPrice(input:{readonly workbook:string;readonly materialCost:ZigzagMaterialCostResult;readonly p39?:ExactRational;readonly p40?:ExactRational;readonly p41?:ExactRational;readonly p43?:ExactRational;readonly F28:1|2;readonly snapshot:ZigzagPriceSnapshot;readonly allocation:ZigzagOrderAllocationResult;readonly slotId:string}):ZigzagCommercialResult {
+export function calculateZigzagCommercialPrice(input:{readonly workbook:string;readonly materialCost:ZigzagMaterialCostResult;readonly p39?:ExactRational;readonly p40?:ExactRational;readonly p41?:ExactRational;readonly p43?:ExactRational;readonly F28:1|2|3;readonly snapshot:ZigzagPriceSnapshot;readonly allocation:ZigzagOrderAllocationResult;readonly slotId:string}):ZigzagCommercialResult {
   const missing:string[]=[]
   if(input.materialCost.p38===undefined)missing.push('Z1!P38 (all P5:P35 must be complete)')
   for(const [name,value] of [['P39',input.p39],['P40',input.p40],['P41',input.p41],['P43',input.p43]] as const)if(value===undefined)missing.push(`Z1!${name}`)

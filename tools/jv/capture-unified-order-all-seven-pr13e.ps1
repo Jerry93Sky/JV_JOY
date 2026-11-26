@@ -1,4 +1,4 @@
-﻿param(
+param(
   [string]$CompletionWorkbook='C:\Users\jerry\Desktop\JV\JV-комплектация 08.10.2026.xlsm',
   [string]$RetailWorkbook='C:\Users\jerry\Desktop\JV\JV-розница 08.10.2026.xlsm',
   [string]$ManifestPath='docs/jv/fixtures/unified-order-all-seven-inputs.json',
@@ -44,7 +44,9 @@ try {
    $frontAddresses=@('S33','S34','S35','S36','S37','S38','I23','Y5')
    if($IncludeFrontGlassDetails){$frontAddresses+=@('C7','D35','G28','G29','G30','G31','H28','H29','H30','H31','H32')}
    $frontComponents=[ordered]@{};foreach($address in $frontAddresses){$frontComponents[$address]=CellRecord $f7 $address};$frontComponents['Service!C25']=CellRecord $services 'C25'
-   $results.Add([ordered]@{scenarioId=$scenario.scenarioId;profile=$scenario.profile;workbook=[IO.Path]::GetFileName($source);sourceSha256=$sha;excelVersion=$excel.Version;calculationMode='CalculateFullRebuild';temporaryCopy=$true;inputCells=$inputCapture;slots=$slotResults;AA11toAA17=$aa;AA18=$aa18;sharedConsumables=$glueRows;areaShares=$areas;frontSlot7=$frontComponents})
+   $additionalOutputs=[ordered]@{}
+   foreach($ref in $scenario.additionalOutputs){$additionalOutputs["$($ref.sheet)!$($ref.address)"]=CellRecord ($wb.Worksheets.Item([string]$ref.sheet)) ([string]$ref.address)}
+   $results.Add([ordered]@{scenarioId=$scenario.scenarioId;profile=$scenario.profile;workbook=[IO.Path]::GetFileName($source);sourceSha256=$sha;excelVersion=$excel.Version;calculationMode='CalculateFullRebuild';temporaryCopy=$true;inputCells=$inputCapture;slots=$slotResults;AA11toAA17=$aa;AA18=$aa18;sharedConsumables=$glueRows;areaShares=$areas;frontSlot7=$frontComponents;additionalOutputs=$additionalOutputs})
   } finally {$wb.Close($false);[void][Runtime.InteropServices.Marshal]::ReleaseComObject($wb);Remove-Item -LiteralPath $temp -Force -ErrorAction SilentlyContinue}
  }
 } finally {$excel.Quit();[void][Runtime.InteropServices.Marshal]::ReleaseComObject($excel);[GC]::Collect();[GC]::WaitForPendingFinalizers()}
