@@ -3,6 +3,8 @@ import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import React from 'react'
 import TestRenderer, { act } from 'react-test-renderer'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { MemoryRouter } from 'react-router-dom'
 import { createServer } from 'vite'
 
 const backendRequire = createRequire(resolve('../backend/package.json'))
@@ -17,6 +19,7 @@ await app.listen({ port: 0, host: '127.0.0.1' })
 const port = app.server.address().port
 const vite = await createServer({ configFile: 'vite.config.ts', root: '.', optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true, hmr: false }, appType: 'custom' })
 let renderer
+const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
 try {
   const { default: client } = await vite.ssrLoadModule('/src/api/client.ts')
   const { useAuthStore } = await vite.ssrLoadModule('/src/store/authStore.ts')
@@ -37,7 +40,12 @@ try {
   const contents = () => JSON.stringify(renderer.toJSON())
   const sent = []
   const requestObserver = client.interceptors.request.use(request => { if (request.url === '/jv/orders/calculate-preview-v1') sent.push(structuredClone(request.data)); return request })
-  await act(async () => { renderer = TestRenderer.create(React.createElement(Page)) })
+  await act(async () => {
+    renderer = TestRenderer.create(React.createElement(QueryClientProvider, { client: queryClient },
+      React.createElement(MemoryRouter, { initialEntries: ['/jv/orders/new'], future: { v7_startTransition: true, v7_relativeSplatPath: true } },
+        React.createElement(Page)),
+    ))
+  })
   await waitFor(() => button('Добавить конструкцию') && !button('Добавить конструкцию').props.disabled)
   await act(async () => { button('Добавить конструкцию').props.onClick() })
   await act(async () => { sections()[0].findAllByType('button').find(b => b.props.children === 'Дублировать').props.onClick() })
@@ -130,6 +138,7 @@ try {
   console.log('JV UI → authenticated Fastify HTTP → JV Engine: all seven families, both profiles, quantity, duplicate/delete, COMPLETE, PARTIAL, edit/recalculate, stale response and error handling passed')
 } finally {
   if (renderer) await act(async () => renderer.unmount())
+  queryClient.clear()
   await vite.close()
   await app.close()
 }

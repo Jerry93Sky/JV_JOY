@@ -41,9 +41,17 @@ test('only a current OWNER or ENGINEER can issue an approved snapshot once', asy
     await request('PATCH', `/api/users/${engineer.id}`, 403, { password: 'forged-reset' }, adminHeaders)
     const engineerHeaders = claims(engineer.id, Role.ENGINEER)
     await request('PATCH', `/api/users/${other.id}`, 403, { role: Role.ENGINEER }, engineerHeaders)
+    const [deal, otherDeal] = await Promise.all(['initial', 'later'].map(suffix => prisma.deal.create({
+      data: { number: `${prefix}-${suffix}`, direction: 'PRIVATE', creatorId: owner.id, assigneeId: owner.id },
+    })))
+    const dealQuotes = (id: string) => `/api/jv/deals/${id}/issued-proposals`
+    await request('GET', dealQuotes(deal.id), 403, undefined, adminHeaders)
+    await request('GET', dealQuotes(deal.id), 403, undefined, claims(guest.id, Role.GUEST))
+    await request('GET', dealQuotes('missing'), 404, undefined, engineerHeaders)
+    await request('GET', `${dealQuotes(deal.id)}?before=-1`, 400, undefined, engineerHeaders)
     const config = getJvUiFormConfig('RETAIL')
     const draft = {
-      profile: 'RETAIL', uiSchemaVersion: config.schemaVersion, rulesVersion: config.rulesVersion,
+      dealId: deal.id, profile: 'RETAIL', uiSchemaVersion: config.schemaVersion, rulesVersion: config.rulesVersion,
       positions: [{ id: 'one', family: 'LINE', slot: 1, quantity: '1', inputs: config.families.LINE }],
     }
     const order = await request('POST', '/api/jv/orders', 201, draft)
@@ -75,8 +83,10 @@ test('only a current OWNER or ENGINEER can issue an approved snapshot once', asy
     assert.equal(ready.items.find((row: { id: string }) => row.id === proposal.id).issue, null)
     assert.equal(ready.items.some((row: { id: string }) => row.id === blank.id), false)
     const preview = await request('GET', detail, 200, undefined, engineerHeaders)
-    assert.deepEqual(Object.keys(preview).sort(), ['issue', 'number', 'payload'])
+    assert.deepEqual(Object.keys(preview).sort(), ['deal', 'issue', 'number', 'payload'])
+    assert.deepEqual(preview.deal, { id: deal.id, number: deal.number })
     assert.deepEqual(preview.payload.terms, terms)
+    assert.deepEqual(await request('GET', dealQuotes(deal.id), 200, undefined, engineerHeaders), { items: [], next: null })
     await request('POST', issue, 400, { totalSalePrice: '1' }, engineerHeaders)
 
     const issues = await Promise.all([1, 2].map(() => app.inject({ method: 'POST', url: issue, headers: engineerHeaders })))
@@ -89,8 +99,18 @@ test('only a current OWNER or ENGINEER can issue an approved snapshot once', asy
     assert.deepEqual((await request('GET', detail, 200)).payload, preview.payload)
     assert.deepEqual((await request('GET', detail, 200)).issue, issues[0].json())
     assert.deepEqual(preview.payload.totalSalePrice, snapshot.result.calculation.totalSalePrice)
-    await request('PUT', orderPath, 200, { version: 1, draft: { ...draft, positions: [{ ...draft.positions[0], quantity: '2' }] } })
-    assert.deepEqual((await request('GET', detail, 200)).payload, preview.payload)
+    await request('PUT', orderPath, 200, { version: 1, draft: { ...draft, dealId: otherDeal.id } })
+    const reopened = await request('GET', detail, 200)
+    assert.deepEqual(reopened.payload, preview.payload)
+    assert.deepEqual(reopened.deal, { id: deal.id, number: deal.number })
+    const historical = await request('GET', dealQuotes(deal.id), 200, undefined, engineerHeaders)
+    assert.deepEqual(historical, {
+      items: [{ proposalId: proposal.id, number: saved.number, issuedAt: saved.issuedAt.toISOString(),
+        orderNumber: order.number, totalSalePrice: preview.payload.totalSalePrice }],
+      next: null,
+    })
+    assert.deepEqual(await request('GET', dealQuotes(otherDeal.id), 200), { items: [], next: null })
+    assert.deepEqual(await request('GET', `${dealQuotes(deal.id)}?before=${saved.number}`, 200), { items: [], next: null })
 
     const next = await revise()
     const nextReview = `${draftPath}/${next.id}/review`
@@ -99,13 +119,19 @@ test('only a current OWNER or ENGINEER can issue an approved snapshot once', asy
     await request('POST', nextReview, 201, { action: 'APPROVE' })
     await prisma.jvCalculationSnapshot.update({ where: { id: snapshot.id }, data: { contentSha256: '0'.repeat(64) } })
     assert.equal((await request('POST', nextIssue, 409)).error.code, 'SNAPSHOT_INTEGRITY_FAILED')
+    assert.deepEqual(await request('GET', dealQuotes(deal.id), 200), { items: [], next: null })
+    assert.equal((await request('GET', detail, 200)).deal, null)
+    assert.deepEqual((await request('GET', detail, 200)).payload, preview.payload)
     await prisma.jvCalculationSnapshot.update({ where: { id: snapshot.id }, data: { contentSha256: snapshot.contentSha256 } })
     await request('PATCH', `/api/users/${engineer.id}`, 200, { role: Role.USER })
     await request('GET', detail, 403, undefined, engineerHeaders)
+    await request('GET', dealQuotes(deal.id), 403, undefined, engineerHeaders)
     await request('POST', nextIssue, 403, undefined, engineerHeaders)
     const ownerIssue = await request('POST', nextIssue, 201)
     assert.ok(ownerIssue.number > saved.number)
     assert.equal((await prisma.jvProposalIssue.findUniqueOrThrow({ where: { proposalId: next.id } })).issuerRole, Role.OWNER)
+    const resultingDeal = await request('GET', dealQuotes(deal.id), 200)
+    assert.deepEqual(resultingDeal.items.map((row: { number: number }) => row.number), [ownerIssue.number, saved.number])
     await prisma.jvProposalIssue.update({ where: { proposalId: proposal.id }, data: { contentSha256: '0'.repeat(64) } })
     assert.equal((await request('GET', detail, 409)).error.code, 'ISSUE_INTEGRITY_FAILED')
   } finally {
@@ -115,6 +141,7 @@ test('only a current OWNER or ENGINEER can issue an approved snapshot once', asy
       await prisma.jvCalculationSnapshot.deleteMany({ where: { orderId } })
       await prisma.jvOrder.delete({ where: { id: orderId } })
     }
+    await prisma.deal.deleteMany({ where: { number: { startsWith: prefix } } })
     await prisma.user.deleteMany({ where: { login: { startsWith: prefix } } })
     await app.close()
     await prisma.$disconnect()

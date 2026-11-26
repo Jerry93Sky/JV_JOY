@@ -8,6 +8,7 @@ import DealStageActions from './DealStageActions'
 import DealItemsPanel from './DealItemsPanel'
 import DealTimeline from './DealTimeline'
 import DealFilesPanel from './DealFilesPanel'
+import { DealJvProposals } from './DealJvProposals'
 import TasksBlock from './TasksBlock'
 import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
@@ -199,6 +200,7 @@ export default function DealDetail({ dealId, onBack }: Props) {
 
           {/* Файлы сделки */}
           <DealFilesPanel deal={deal} />
+          <DealJvProposals key={deal.id} dealId={deal.id} />
         </div>
 
         {/* Правая колонка */}

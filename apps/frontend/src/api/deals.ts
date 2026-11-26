@@ -77,9 +77,10 @@ export interface Deal extends DealListItem {
 
 const QK = 'deals'
 
-export const useDeals = (params?: { assigneeId?: string; showCompleted?: boolean; stage?: string }) =>
+export const useDeals = (params?: { assigneeId?: string; showCompleted?: boolean; stage?: string }, enabled = true) =>
   useQuery({
     queryKey: [QK, params],
+    enabled,
     queryFn: () => api.get<DealListItem[]>('/deals', { params: { ...params, showCompleted: params?.showCompleted ? 'true' : undefined } }).then(r => r.data),
   })
 

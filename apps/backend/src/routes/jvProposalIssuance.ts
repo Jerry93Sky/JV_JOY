@@ -9,6 +9,7 @@ const formatVersion = 'JV-PROPOSAL-ISSUE-1'
 const issueReceipt = { number: true, issuedAt: true } as const
 const sourceRelations = { issue: true, snapshot: true, reviewEvents: { orderBy: { sequence: 'asc' } } } satisfies Prisma.JvProposalDraftInclude
 type Source = Prisma.JvProposalDraftGetPayload<{ include: typeof sourceRelations }>
+type SnapshotSource = Prisma.JvProposalDraftGetPayload<{ include: { snapshot: true } }>
 type Actor = { id: string; role: Role }
 
 function jsonObject(value: Prisma.JsonValue | undefined) {
@@ -19,6 +20,27 @@ function issueDocument({ number, issuedAt, proposalId, formatVersion, proposalSh
   const digest = contentDigest({ proposalId, formatVersion, proposalSha256, payload })
   return formatVersion === 'JV-PROPOSAL-ISSUE-1' && digest === contentSha256 ? { number, issuedAt, payload } : null
 }
+
+function verifiedSnapshotInput({ orderId, payload, snapshot }: SnapshotSource) {
+  const { formatVersion, orderVersion, input, result } = snapshot
+  const draft = jsonObject(payload)
+  if (snapshot.orderId !== orderId || draft?.orderVersion !== orderVersion || draft?.snapshotSha256 !== snapshot.contentSha256 ||
+      contentDigest({ formatVersion, orderId, orderVersion, input, result }) !== snapshot.contentSha256) {
+    return null
+  }
+  return jsonObject(input)
+}
+
+function issuedSnapshotDealId(issue: JvProposalIssue, proposal: SnapshotSource) {
+  const dealId = jsonObject(proposal.snapshot.input)?.dealId
+  if (typeof dealId !== 'string') return null
+  const { orderId, snapshotId, payload, formatVersion, contentSha256 } = proposal
+  if (issue.proposalSha256 !== contentSha256 ||
+      contentDigest({ formatVersion, orderId, snapshotId, payload }) !== contentSha256) return null
+  return verifiedSnapshotInput(proposal) ? dealId : null
+}
+
+const findDealSummary = (id: string) => prisma.deal.findUnique({ where: { id }, select: { id: true, number: true } })
 
 function prepareIssue(source: Source) {
   const { id: proposalId, formatVersion: sourceVersion, orderId, snapshotId, payload, contentSha256, reviewEvents, snapshot } = source
@@ -35,16 +57,12 @@ function prepareIssue(source: Source) {
       (draft.profile !== 'COMPLETATION' && draft.profile !== 'RETAIL')) {
     return { status: 422, error: 'INVALID_PROPOSAL' } as const
   }
-  const { formatVersion: snapshotVersion, orderVersion, input, result } = snapshot
-  if (snapshot.orderId !== orderId || draft.orderVersion !== orderVersion || draft.snapshotSha256 !== snapshot.contentSha256 ||
-      contentDigest({ formatVersion: snapshotVersion, orderId, orderVersion, input, result }) !== snapshot.contentSha256) {
-    return { status: 409, error: 'SNAPSHOT_INTEGRITY_FAILED' } as const
-  }
-  const inputs = jsonObject(input)
-  if (draft.profile !== inputs?.profile || (draft.profile === 'COMPLETATION' && inputs.uiSchemaVersion !== 'JV-UI-INPUTS-3')) {
+  const inputs = verifiedSnapshotInput(source)
+  if (!inputs) return { status: 409, error: 'SNAPSHOT_INTEGRITY_FAILED' } as const
+  if (draft.profile !== inputs.profile || (draft.profile === 'COMPLETATION' && inputs.uiSchemaVersion !== 'JV-UI-INPUTS-3')) {
     return { status: 409, error: 'HISTORICAL_GLASS_POLICY' } as const
   }
-  const snapshotTotal = createResultDto(result).calculation.totalSalePrice
+  const snapshotTotal = createResultDto(snapshot.result).calculation.totalSalePrice
   if (!snapshotTotal || stableJson(draft.totalSalePrice) !== stableJson(snapshotTotal)) {
     return { status: 422, error: 'UNCONFIRMED_PRICE' } as const
   }
@@ -53,10 +71,11 @@ function prepareIssue(source: Source) {
     proposalId,
     proposalSha256: contentSha256,
     formatVersion,
-    payload: { orderNumber: draft.orderNumber, orderVersion, profile: draft.profile,
+    payload: { orderNumber: draft.orderNumber, orderVersion: snapshot.orderVersion, profile: draft.profile,
       terms, positions: draft.positions, totalSalePrice: draft.totalSalePrice as Prisma.JsonObject },
   }
-  return { document, contentSha256: contentDigest(document) } as const
+  const dealId = typeof inputs.dealId === 'string' ? inputs.dealId : null
+  return { document, contentSha256: contentDigest(document), dealId } as const
 }
 
 export async function jvProposalIssuanceRoutes(app: FastifyInstance) {
@@ -70,6 +89,36 @@ export async function jvProposalIssuanceRoutes(app: FastifyInstance) {
     }
   }
   const readGuard = [eligibleRole, requireActiveIssuer]
+
+  app.get<{ Params: { dealId: string }; Querystring: { before?: string } }>('/deals/:dealId/issued-proposals', { preHandler: readGuard }, async (req, reply) => {
+    const { dealId } = req.params
+    const before = req.query.before
+    if (before !== undefined && (!/^[1-9]\d{0,9}$/.test(before) || Number(before) > 2147483647)) {
+      return reply.status(400).send({ error: { code: 'INVALID_CURSOR' } })
+    }
+    reply.header('Cache-Control', 'no-store')
+    if (!await findDealSummary(dealId)) return reply.status(404).send({ error: { code: 'NOT_FOUND' } })
+    const pageSize = 12
+    // Resolve through the version captured in the calculation snapshot, including R5.6 documents.
+    const rows = await prisma.jvProposalIssue.findMany({
+      where: {
+        proposal: { snapshot: { input: { path: ['dealId'], equals: dealId } } },
+        ...(before ? { number: { lt: Number(before) } } : {}),
+      },
+      include: { proposal: { include: { snapshot: true } } },
+      orderBy: { number: 'desc' }, take: pageSize + 1,
+    })
+    const items = rows.slice(0, pageSize).flatMap(row => {
+      const issued = issueDocument(row)
+      if (!issued || issuedSnapshotDealId(row, row.proposal) !== dealId) return []
+      const payload = jsonObject(issued.payload)
+      return [{
+        proposalId: row.proposalId, number: issued.number, issuedAt: issued.issuedAt,
+        orderNumber: payload?.orderNumber, totalSalePrice: payload?.totalSalePrice,
+      }]
+    })
+    return { items, next: rows.length > pageSize ? rows[pageSize - 1].number : null }
+  })
 
   app.get<{ Querystring: { before?: string } }>('/proposal-issuance', { preHandler: readGuard }, async (req, reply) => {
     const before = req.query.before
@@ -91,12 +140,15 @@ export async function jvProposalIssuanceRoutes(app: FastifyInstance) {
     if (!source || source.reviewEvents.at(-1)?.status !== 'APPROVED') return reply.status(404).send({ error: { code: 'NOT_FOUND' } })
     if (source.issue) {
       const issued = issueDocument(source.issue)
-      return issued ? { number: source.number, issue: { number: issued.number, issuedAt: issued.issuedAt }, payload: issued.payload }
-        : reply.status(409).send({ error: { code: 'ISSUE_INTEGRITY_FAILED' } })
+      if (!issued) return reply.status(409).send({ error: { code: 'ISSUE_INTEGRITY_FAILED' } })
+      const dealId = issuedSnapshotDealId(source.issue, source)
+      const deal = dealId ? await findDealSummary(dealId) : null
+      return { number: source.number, issue: { number: issued.number, issuedAt: issued.issuedAt }, payload: issued.payload, deal }
     }
     const prepared = prepareIssue(source)
     if (prepared.error !== undefined) return reply.status(prepared.status).send({ error: { code: prepared.error } })
-    return { number: source.number, issue: null, payload: prepared.document.payload }
+    const deal = prepared.dealId ? await findDealSummary(prepared.dealId) : null
+    return { number: source.number, issue: null, payload: prepared.document.payload, deal }
   })
 
   app.post<{ Params: { proposalId: string }; Body: unknown }>('/proposal-issuance/:proposalId/issue', { preHandler: eligibleRole, bodyLimit: 1024 }, async (req, reply) => {
