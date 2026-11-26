@@ -1,0 +1,21 @@
+name: jv-joy-testing
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: jvtester
+      POSTGRES_DB: jvjoy_testing
+      POSTGRES_PASSWORD: ${JV_TEST_DB_PASSWORD:?Set JV_TEST_DB_PASSWORD for this test database}
+    ports:
+      - "127.0.0.1:${JV_TEST_DB_PORT:-55432}:5432"
+    volumes:
+      - postgres-testing:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "jvtester", "-d", "jvjoy_testing"]
+      interval: 3s
+      timeout: 3s
+      retries: 15
+
+volumes:
+  postgres-testing:
