@@ -114,3 +114,21 @@ jobs:
       - run: pnpm --filter backend exec prisma migrate deploy
       - run: pnpm --filter @bms/shared build
       - run: pnpm --filter backend exec tsx --test test/jv/jvOrdersPostgres.test.ts test/jv/jvOrdersR42Postgres.test.ts test/jv/jvCalculationSnapshotPostgres.test.ts test/jv/jvProposalDraftPostgres.test.ts
+      - name: Print saved JV proposal through Chrome
+        env:
+          PORT: '3318'
+          JWT_SECRET: jv-print-ci-only
+          ADMIN_INITIAL_PASSWORD: jv-print-ci-only
+          JV_TEST_PASSWORD: jv-print-ci-only
+        run: |
+          pnpm --filter backend build
+          pnpm --filter backend db:seed
+          mkdir -p apps/frontend/dist
+          backend_log="$RUNNER_TEMP/jv-print-backend.log"
+          pushd apps/backend
+          node dist/apps/backend/src/index.js >"$backend_log" 2>&1 &
+          server=$!
+          popd
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          curl --silent --retry 20 --retry-connrefused --retry-delay 1 --output /dev/null "http://127.0.0.1:$PORT/api/jv/orders/form-config?profile=COMPLETATION"
+          pnpm --filter frontend exec node scripts/test-jv-glass-off-proposal.mjs

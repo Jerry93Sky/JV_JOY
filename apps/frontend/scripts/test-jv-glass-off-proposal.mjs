@@ -44,6 +44,55 @@ try {
   assert.deepEqual(proposal.payload.totalSalePrice, preview.calculation.totalSalePrice)
   await page.getByRole('heading', { name: `Черновик коммерческого предложения №${proposal.number}` }).waitFor()
   await page.getByText('Итого: 656778,58 ₽ (округлено)', { exact: true }).waitFor()
+  const terms = [
+    ['Получатель', 'Тестовая компания'],
+    ['Реквизиты', 'Тестовые реквизиты\nВторая строка'],
+    ['Условия оплаты', 'Оплата по договору'],
+    ['Сроки', 'По графику проекта'],
+    ['Условия доставки', 'Самовывоз'],
+  ]
+  for (const [label, value] of terms) await page.getByLabel(label, { exact: true }).fill(value)
+  const revised = await post('Сохранить условия новой версией', '/revise', 201)
+  await page.getByRole('heading', { name: `Черновик коммерческого предложения №${revised.number}` }).waitFor()
+  await page.getByLabel('Получатель', { exact: true }).fill('Изменение только в форме')
+  const newPage = page.context().waitForEvent('page')
+  await page.getByRole('link', { name: 'Печатная форма сохранённой версии' }).click()
+  const printable = await newPage
+  printable.on('pageerror', error => errors.push(error.message))
+  const document = printable.getByRole('article')
+  await document.getByRole('heading', { name: `Коммерческое предложение №${revised.number}` }).waitFor()
+  for (const [, value] of terms) await document.getByText(value.replace('\n', ' '), { exact: true }).waitFor()
+  assert.equal(await document.getByText('Изменение только в форме').count(), 0)
+  assert.equal(await document.getByRole('row').count(), 8)
+  await document.getByText(/Итого по заказу 656778,58 ₽/).waitFor()
+  await document.getByText('Черновик · не утверждён').waitFor()
+
+  const printButton = printable.getByRole('button', { name: 'Печать / сохранить PDF' })
+  await printable.evaluate(() => { window.print = () => { document.body.dataset.printCalled = 'yes' } })
+  await printButton.click()
+  assert.equal(await printable.locator('body').getAttribute('data-print-called'), 'yes')
+  await printable.setViewportSize({ width: 390, height: 844 })
+  const overflow = await printable.evaluate(() => ({
+    width: innerWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+    overflowing: [...document.querySelectorAll('*')].filter(node=>node.getBoundingClientRect().right>innerWidth+1).slice(0,10).map(node=>[node.tagName,node.className,Math.round(node.getBoundingClientRect().right)]),
+  }))
+  assert.ok(overflow.scrollWidth <= overflow.width, JSON.stringify(overflow))
+  await printable.emulateMedia({ media: 'print' })
+  assert.equal(await printButton.isVisible(), false)
+  const pdf = await printable.pdf({ path: process.env.JV_TEST_PRINT_PDF, preferCSSPageSize: true })
+  assert.equal(pdf.subarray(0, 5).toString(), '%PDF-')
+  const printUrl = printable.url()
+  const anonymous = await browser.newPage()
+  await anonymous.goto(printUrl)
+  await anonymous.waitForURL(url => url.pathname === '/login')
+  await anonymous.close()
+
+  await printable.goto(`${base}/jv/orders/missing/proposal-drafts/${revised.id}/print`)
+  await printable.getByRole('alert').getByText('Черновик КП не найден.').waitFor()
+  assert.equal(await printButton.count(), 0)
+  await printable.close()
+  await page.getByLabel('Получатель', { exact: true }).fill(terms[0][1])
   await page.getByLabel('Ширина, мм', { exact: true }).fill('4001')
   const unverified = await post('Рассчитать', '/calculate-preview-v1', 200)
   assert.equal(unverified.status, 'PARTIAL')
@@ -51,7 +100,7 @@ try {
   await page.getByRole('status').filter({ hasText: 'версия 2' }).waitFor()
   await post('Зафиксировать расчёт', '/calculation-snapshots', 422)
   assert.deepEqual(errors, [])
-  console.log('PASS seven-system example, snapshot, frozen proposal total and PARTIAL after changing width')
+  console.log('PASS stored proposal terms, print preview and PDF, authentication and PARTIAL after changing width')
 } finally {
   await browser?.close()
   await vite.close()
