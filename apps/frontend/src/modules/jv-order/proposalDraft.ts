@@ -8,11 +8,34 @@ export const proposalTermLabels = [
 
 export type ProposalTerms = Record<(typeof proposalTermLabels)[number][0], string>
 
+export type ProposalReviewStatus = 'DRAFT' | 'IN_REVIEW' | 'APPROVED' | 'CHANGES_REQUESTED'
+export type ProposalReviewAction = 'SUBMIT' | 'APPROVE' | 'RETURN'
+
+export const proposalReviewLabels: Record<ProposalReviewStatus, string> = {
+  DRAFT: 'Черновик',
+  IN_REVIEW: 'На согласовании',
+  APPROVED: 'Согласовано',
+  CHANGES_REQUESTED: 'Возвращено на доработку',
+}
+
+export interface ProposalReview {
+  status: ProposalReviewStatus
+  events: {
+    sequence: number
+    status: Exclude<ProposalReviewStatus, 'DRAFT'>
+    actorId: string
+    actorRole: 'OWNER' | 'ADMIN'
+    createdAt: string
+    comment: string | null
+  }[]
+}
+
 export interface ProposalDraft {
   id: string
   number: number
   createdAt: string
   formatVersion: string
+  review?: ProposalReview
   payload: {
     orderNumber: number
     orderVersion: number

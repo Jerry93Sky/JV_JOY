@@ -13,7 +13,8 @@ await vite.listen()
 let browser
 try {
   browser = await chromium.launch({ channel: 'chrome', headless: true })
-  const page = await browser.newPage()
+  const context = await browser.newContext()
+  const page = await context.newPage()
   const base = `http://127.0.0.1:${vite.httpServer.address().port}`
   const errors = []
   page.on('pageerror', error => errors.push(error.message))
@@ -44,6 +45,7 @@ try {
   assert.deepEqual(proposal.payload.totalSalePrice, preview.calculation.totalSalePrice)
   await page.getByRole('heading', { name: `Черновик коммерческого предложения №${proposal.number}` }).waitFor()
   await page.getByText('Итого: 656778,58 ₽ (округлено)', { exact: true }).waitFor()
+  assert.equal(await button('Передать на согласование').isDisabled(), true)
   const terms = [
     ['Получатель', 'Тестовая компания'],
     ['Реквизиты', 'Тестовые реквизиты\nВторая строка'],
@@ -55,6 +57,7 @@ try {
   const revised = await post('Сохранить условия новой версией', '/revise', 201)
   await page.getByRole('heading', { name: `Черновик коммерческого предложения №${revised.number}` }).waitFor()
   await page.getByLabel('Получатель', { exact: true }).fill('Изменение только в форме')
+  assert.equal(await button('Передать на согласование').isDisabled(), true)
   const newPage = page.context().waitForEvent('page')
   await page.getByRole('link', { name: 'Печатная форма сохранённой версии' }).click()
   const printable = await newPage
@@ -93,6 +96,32 @@ try {
   assert.equal(await printButton.count(), 0)
   await printable.close()
   await page.getByLabel('Получатель', { exact: true }).fill(terms[0][1])
+
+  const submitted = await post('Передать на согласование', '/review', 201)
+  assert.equal(submitted.status, 'IN_REVIEW')
+  await page.getByText('Статус КП: На согласовании', { exact: true }).waitFor()
+  assert.equal(await button('Вернуть на доработку').isDisabled(), true)
+  await page.getByLabel('Комментарий для возврата').fill('Уточните условия доставки')
+  const returned = await post('Вернуть на доработку', '/review', 201)
+  assert.equal(returned.status, 'CHANGES_REQUESTED')
+  await page.getByRole('list', { name: 'История согласования' }).getByText('Уточните условия доставки', { exact: true }).waitFor()
+  await page.getByLabel('Условия доставки', { exact: true }).fill('Доставка по договору')
+  const corrected = await post('Сохранить условия новой версией', '/revise', 201)
+  assert.deepEqual(corrected.payload.totalSalePrice, revised.payload.totalSalePrice)
+  await page.getByText('Статус КП: Черновик', { exact: true }).waitFor()
+  await post('Передать на согласование', '/review', 201)
+  const approved = await post('Согласовать КП', '/review', 201)
+  assert.equal(approved.status, 'APPROVED')
+  await page.getByText('Статус КП: Согласовано', { exact: true }).waitFor()
+  assert.equal(await page.getByRole('list', { name: 'История согласования' }).getByRole('listitem').count(), 2)
+  const reopenedPrint = await context.newPage()
+  await reopenedPrint.goto(printUrl.replace(revised.id, corrected.id))
+  await reopenedPrint.getByText('Черновик · согласован внутри', { exact: true }).waitFor()
+  await reopenedPrint.getByText('Доставка по договору', { exact: true }).waitFor()
+  await reopenedPrint.getByText(/Итого по заказу 656778,58 ₽/).waitFor()
+  assert.equal(await reopenedPrint.getByText('Уточните условия доставки', { exact: true }).count(), 0)
+  await reopenedPrint.close()
+
   await page.getByLabel('Ширина, мм', { exact: true }).fill('4001')
   const unverified = await post('Рассчитать', '/calculate-preview-v1', 200)
   assert.equal(unverified.status, 'PARTIAL')
@@ -100,7 +129,7 @@ try {
   await page.getByRole('status').filter({ hasText: 'версия 2' }).waitFor()
   await post('Зафиксировать расчёт', '/calculation-snapshots', 422)
   assert.deepEqual(errors, [])
-  console.log('PASS stored proposal terms, print preview and PDF, authentication and PARTIAL after changing width')
+  console.log('PASS proposal review, return, revision and approval, stored terms, print preview and PDF, authentication and PARTIAL')
 } finally {
   await browser?.close()
   await vite.close()

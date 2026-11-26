@@ -26,10 +26,16 @@ function Money({ value }: { value: unknown }) {
 
 function ProposalDocument({ proposal }: { proposal: ProposalDraft }) {
   const { payload } = proposal
+  const printStatus = {
+    DRAFT: 'не утверждён',
+    IN_REVIEW: 'на согласовании',
+    APPROVED: 'согласован внутри',
+    CHANGES_REQUESTED: 'возвращён на доработку',
+  }[proposal.review?.status ?? 'DRAFT']
   return (
     <article className="jv-proposal-sheet rounded-lg border border-slate-300 bg-white p-5 text-slate-900 sm:p-8" aria-labelledby="proposal-title">
       <header className="mb-6 border-b border-slate-300 pb-4">
-        <p className="mb-1 text-sm font-bold uppercase tracking-wide">Черновик · не утверждён</p>
+        <p className="mb-1 text-sm font-bold uppercase tracking-wide">Черновик · {printStatus}</p>
         <h1 id="proposal-title" className="text-xl font-bold sm:text-2xl">Коммерческое предложение №{proposal.number}</h1>
         <p className="mt-2 text-sm">Заказ №{payload.orderNumber} · версия {payload.orderVersion} · {profiles[payload.profile]}</p>
         <p className="text-sm">Дата черновика {new Date(proposal.createdAt).toLocaleDateString('ru-RU')}</p>
